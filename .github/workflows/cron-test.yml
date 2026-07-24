@@ -1,18 +1,10 @@
 name: Cron test
 
 on:
+  # Le cron natif schedule: a été testé et abandonné (délais jusqu'à ~1h40,
+  # et un créneau jamais déclenché du tout — voir Synthese-Migration).
+  # Ce workflow n'est plus déclenché que par cron-job.org via workflow_dispatch.
   workflow_dispatch: {}
-  schedule:
-    # Test sur la durée : 4 créneaux posés bien à l'avance (contrairement au
-    # tout premier essai poussé à la dernière minute, qui n'a donc rien
-    # prouvé sur la fiabilité réelle du cron GitHub Actions). Décalés de
-    # :15 (pas pile à l'heure) — GitHub documente le début de chaque heure
-    # comme la période la plus chargée, donc la plus susceptible de retard.
-    # Toutes les heures ci-dessous sont en UTC ; CEST = UTC+2 en ce moment.
-    - cron: "15 6 24 7 *"   # ven. 24/07 08:15 CEST
-    - cron: "15 10 24 7 *"  # ven. 24/07 12:15 CEST
-    - cron: "15 16 24 7 *"  # ven. 24/07 18:15 CEST
-    - cron: "15 6 27 7 *"   # lun. 27/07 08:15 CEST
 
 jobs:
   send-test-email:
@@ -30,11 +22,11 @@ jobs:
           from datetime import datetime, timezone
 
           body = (
-              'Ceci est un test du declenchement automatique GitHub Actions '
-              '(schedule: cron), sans aucune action humaine.\n\n'
+              'Ceci est un test du declenchement automatique via cron-job.org '
+              '(workflow_dispatch), sans aucune action humaine.\n\n'
               f'Heure UTC au moment de l ecriture du mail : {datetime.now(timezone.utc).isoformat()}\n\n'
-              'Si tu recois ce mail sans avoir rien clique, le mecanisme de cron '
-              'marche et on peut activer le vrai cron hebdomadaire en confiance.\n\n'
+              'Si tu recois ce mail sans avoir rien clique, le declenchement '
+              'externe marche sur ce repo et on peut brancher le vrai job hebdomadaire en confiance.\n\n'
               'Ce test verifie aussi le nom d expediteur : tu dois voir '
               \"'Regulatory Watch Tower' plutot que l adresse Gmail brute.\"
           )
