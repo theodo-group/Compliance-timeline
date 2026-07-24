@@ -1,164 +1,183 @@
 {
-  "generated": "2026-07-22",
+  "generated": "2026-07-24",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-07-22--2026-07-01--swissmedic-tga-device-traceability-mandatory",
-      "reason": "Swissmedic Swissdamed and TGA Device ID became mandatory on 1 July 2026, requiring immediate compliance for manufacturers targeting Swiss and Australian markets.",
+      "id": "proposal-2026-07-24--2026-07-01--fda-pccp-final-guidance-published",
+      "reason": "FDA finalized PCCP guidance, extending pre-approved change control to all pathways (510(k), De Novo, PMA) for AI/ML medical devices.",
       "card": {
-        "id": "2026-07-01--swissmedic-tga-device-traceability-mandatory",
+        "id": "2026-07-01--fda-pccp-final-guidance-published",
         "d": "2026-07-01",
-        "l": "1er juillet 2026",
+        "l": "1er juil. 2026",
         "y": 2026,
-        "t": "Swissmedic et TGA — Traçabilité des dispositifs obligatoire",
-        "x": "Les systèmes Swissmedic (Suisse) et Device ID (Australie) deviennent obligatoires pour tous les enregistrements de dispositifs et la surveillance du marché.",
-        "u": "https://www.dm-experts.fr/2026/07/1%e1%b5%89%ca%b3-juillet-jalon-important-pour-la-tracabilite-des-dispositifs-medicaux-en-suisse-et-en-australie/",
+        "t": "Orientation finale de la FDA sur les PCCP publiée",
+        "x": "Les plans de contrôle des modifications prédéterminées s'appliquent désormais aux voies 510(k), De Novo et PMA pour les dispositifs IA/ML. Permet les modifications préspécifiées sans soumissions distinctes.",
+        "u": "https://content.govdelivery.com/accounts/USFDA/bulletins/376c6be",
         "tp": [
-          "other"
-        ],
-        "tg": [
-          "in-force",
-          "medium"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-07-22--2026-05-23--cnil-mr-001-mr-003-published",
-      "reason": "New CNIL methodologies MR-001 and MR-003 published, establishing updated legal frameworks for clinical research data processing in France.",
-      "card": {
-        "id": "2026-05-23--cnil-mr-001-mr-003-published",
-        "d": "2026-05-23",
-        "l": "23 mai 2026",
-        "y": 2026,
-        "t": "CNIL — Méthodologies MR-001 et MR-003 publiées",
-        "x": "Méthodologies de référence actualisées pour la recherche biomédicale, les études observationnelles et les essais cliniques impliquant des données personnelles en France.",
-        "u": "https://www.dm-experts.fr/2026/07/methodologies-de-reference-cnil-publication-des-nouvelles-mr-001-et-mr-003/",
-        "tp": [
-          "france",
-          "data"
-        ],
-        "tg": [
-          "in-force",
-          "high"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-07-22--2026-06-09--mhra-ai-airlock-phase-2-report",
-      "reason": "MHRA published Phase 2 AI Airlock report documenting evaluation criteria and methodologies for medical AI products in the UK sandbox.",
-      "card": {
-        "id": "2026-06-09--mhra-ai-airlock-phase-2-report",
-        "d": "2026-06-09",
-        "l": "9 juin 2026",
-        "y": 2026,
-        "t": "MHRA — Rapport de phase 2 du sas d'isolement IA publié",
-        "x": "Les conclusions de l'évaluation du bac à sable IA offrent un aperçu des attentes réglementaires britanniques en matière de validation d'algorithmes et de sécurité de l'IA.",
-        "u": "https://www.dm-experts.fr/2026/07/mhra-rapport-sur-la-phase-2-de-ai-airlock/",
-        "tp": [
-          "uk",
+          "us",
           "ai"
         ],
         "tg": [
-          "new",
-          "medium"
+          "critical",
+          "in-force"
         ],
-        "v": "n"
+        "v": "c"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-07-22--2026-07-15--mdcg-2026-4-manufacturer-ssp-sscp-upload",
-      "reason": "MDCG 2026-4 clarifies that manufacturers alone are responsible for uploading SSP and SSCP summaries into EUDAMED, removing notified body involvement.",
+      "id": "proposal-2026-07-24--2026-05-05--eu-implementing-regulation-2026-977",
+      "reason": "New implementing regulation establishes uniform requirements for notified body designation and surveillance under MDR/IVDR.",
       "card": {
-        "id": "2026-07-15--mdcg-2026-4-manufacturer-ssp-sscp-upload",
-        "d": "2026-07-15",
-        "l": "15 juil. 2026",
+        "id": "2026-05-05--eu-implementing-regulation-2026-977",
+        "d": "2026-05-05",
+        "l": "5 mai 2026",
         "y": 2026,
-        "t": "MDCG 2026-4 — Téléchargement des SSP/SSCP par les fabricants",
-        "x": "Les fabricants sont désormais seuls responsables du téléchargement de tous les résumés SSP et SSCP dans EUDAMED ; le rôle de l'organisme notifié est supprimé.",
-        "u": "https://www.dm-experts.fr/2026/07/eudamed-le-mdcg-2026-4-confie-aux-fabricants-le-chargement-de-tous-les-resumes-ssp-et-sscp/",
-        "tp": [
-          "mdr"
-        ],
-        "tg": [
-          "new",
-          "high"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "update",
-      "id": "proposal-2026-07-22--2026-10-15--pren-18286-ai-act-qms-standard-revised",
-      "existing_id": "2026-10-15--pren-18286-ai-act-qms-standard-revised",
-      "reason": "Publication timeline for prEN 18286 (AI Act QMS standard) refined to Q4 2026, aiming to provide harmonised framework for Article 17 compliance.",
-      "card": {
-        "id": "2026-10-15--pren-18286-ai-act-qms-standard-revised",
-        "d": "2026-10-01",
-        "l": "T4 2026",
-        "y": 2026,
-        "t": "prEN 18286 — Publication attendue de la norme QMS de la loi IA",
-        "x": "Première norme harmonisée pour la QMS de la loi IA (article 17). Vote échoué en janvier 2026 ; en cours de révision. Publication prévue T4 2026 pour soutenir la présomption de conformité.",
-        "u": "https://cms-lawnow.com/en/ealerts/2025/12/the-first-draft-ai-act-standard-for-public-consultation-what-pren-18286-quality-management-system-for-eu-ai-act-regulatory-purposes-signals-for",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "medium",
-          "draft"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-07-22--2026-07-20--enisa-sbom-cybersecurity-report",
-      "reason": "ENISA published comprehensive report on SBOM application to medical devices, providing guidance ahead of CRA enforcement between 2027-2028.",
-      "card": {
-        "id": "2026-07-20--enisa-sbom-cybersecurity-report",
-        "d": "2026-07-20",
-        "l": "20 juil 2026",
-        "y": 2026,
-        "t": "ENISA — Rapport SBOM et cybersécurité publié",
-        "x": "Analyse approfondie de l'application des nomenclatures de composants logiciels aux dispositifs médicaux, avec des orientations pour la préparation à la conformité CRA.",
-        "u": "https://www.dm-experts.fr/2026/07/enisa-etat-des-lieux-en-matiere-de-nomenclature-logicielle-sbom-et-de-cybersecurite/",
-        "tp": [
-          "cyber",
-          "mdr"
-        ],
-        "tg": [
-          "new",
-          "medium"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "update",
-      "id": "proposal-2026-07-22--2026-11-28--eudamed-existing-devices-registration-deadline",
-      "existing_id": "2026-11-28--eudamed-existing-devices-registration-deadline",
-      "reason": "Clarified Master UDI-DI specifications and registration requirements for legacy devices ahead of 27 November 2026 deadline.",
-      "card": {
-        "id": "2026-11-28--eudamed-existing-devices-registration-deadline",
-        "d": "2026-11-27",
-        "l": "27 nov 2026",
-        "y": 2026,
-        "t": "EUDAMED — Délai limite d'enregistrement des dispositifs existants",
-        "x": "Tous les dispositifs existants doivent finaliser l'enregistrement des modules Acteur, UDI, Dispositif et Certificats, y compris le Master UDI-DI, avant cette date.",
-        "u": "https://health.ec.europa.eu/latest-updates/eudamed-four-first-modules-will-be-mandatory-use-28-may-2026-2025-11-27_en",
+        "t": "Règlement d'exécution UE 2026/977 — Exigences relatives aux organismes notifiés",
+        "x": "Procédures révisées de l'annexe VII pour la désignation et la surveillance des organismes notifiés. Critères techniques et opérationnels plus stricts pour l'évaluation de la conformité selon le MDR/IVDR.",
+        "u": "https://health.ec.europa.eu/latest-updates/new-implementing-regulation-sets-out-uniform-requirements-conformity-assessment-and-notified-bodies-2026-05-18_en",
         "tp": [
           "mdr"
         ],
         "tg": [
           "critical",
-          "high"
+          "in-force"
         ],
         "v": "c"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-07-24--2026-07-22--mdcg-2026-5-udi-attribution",
+      "reason": "MDCG 2026-5 clarifies UDI-DI assignment responsibilities between manufacturers and distributors for EUDAMED registration.",
+      "card": {
+        "id": "2026-07-22--mdcg-2026-5-udi-attribution",
+        "d": "2026-07-22",
+        "l": "22 juillet 2026",
+        "y": 2026,
+        "t": "MDCG 2026-5 — Orientation sur l'attribution de l'UDI",
+        "x": "Orientation opérationnelle sur les responsabilités d'attribution de l'UDI-DI dans la chaîne d'approvisionnement et les obligations d'enregistrement dans EUDAMED.",
+        "u": "https://www.qualitiso.com/mdcg-2026-5-attribution-des-identifiants-iud-entre-fabricants-et-distributeurs/",
+        "tp": [
+          "mdr"
+        ],
+        "tg": [
+          "medium",
+          "new"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-07-24--2026-07-01--iso-ts-24971-2-published",
+      "reason": "ISO/TS 24971-2 published, providing risk management guidance specifically for Machine Learning-based medical devices.",
+      "card": {
+        "id": "2026-07-01--iso-ts-24971-2-published",
+        "d": "2026-07-01",
+        "l": "1er juil. 2026",
+        "y": 2026,
+        "t": "ISO/TS 24971-2 — Gestion des risques ML publiée",
+        "x": "Spécification technique complétant la norme ISO 14971 avec des orientations détaillées sur l'identification, l'estimation et la maîtrise des risques pour les dispositifs médicaux utilisant l'IA.",
+        "u": "https://www.qualitiso.com/iso-ts-24971-2-gestion-des-risques-pour-les-dispositifs-medicaux-a-bas-de-machine-learning/",
+        "tp": [
+          "standards",
+          "ai"
+        ],
+        "tg": [
+          "high",
+          "new"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-07-24--2026-07-01--mdr-amendments-implantable-exemptions",
+      "reason": "MDR amendments establishing limited exemptions for certain legacy implantable devices under Articles 52.4 and 61.6.",
+      "card": {
+        "id": "2026-07-01--mdr-amendments-implantable-exemptions",
+        "d": "2026-07-01",
+        "l": "1er juillet 2026",
+        "y": 2026,
+        "t": "Modifications du MDR — Exemptions pour dispositifs implantables",
+        "x": "Les articles 52.4 et 61.6 établissent un allègement réglementaire conditionnel pour des catégories spécifiques de dispositifs implantables existants.",
+        "u": "https://www.qualitiso.com/modifications-du-mdr-concernant-les-exemptions-pour-certains-dm-implantables-articles-52-4-et-61-6/",
+        "tp": [
+          "mdr"
+        ],
+        "tg": [
+          "medium",
+          "in-force"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-07-24--2026-06-18--eu-decision-2026-1231-harmonised-standards",
+      "reason": "Commission Decision 2026/1231 expands and updates harmonised standards catalogue for MDR compliance.",
+      "card": {
+        "id": "2026-06-18--eu-decision-2026-1231-harmonised-standards",
+        "d": "2026-06-18",
+        "l": "18 juin 2026",
+        "y": 2026,
+        "t": "Décision UE 2026/1231 — Nouvelles Normes Harmonisées",
+        "x": "Catalogue élargi de normes harmonisées couvrant la sécurité, les performances, la biocompatibilité et les exigences spécifiques aux dispositifs selon le RDM.",
+        "u": "https://www.qualitiso.com/nouvelles-normes-harmonisees-rdm-decision-execution-ue-2026-1231/",
+        "tp": [
+          "mdr",
+          "standards"
+        ],
+        "tg": [
+          "medium",
+          "in-force"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-07-24--2026-04-28--mdcg-2021-24-rev1-classification",
+      "reason": "MDCG 2021-24 Rev.1 clarifies software classification under Rule 11 with new examples and borderline scenarios.",
+      "card": {
+        "id": "2026-04-28--mdcg-2021-24-rev1-classification",
+        "d": "2026-04-28",
+        "l": "28 avr 2026",
+        "y": 2026,
+        "t": "MDCG 2021-24 Rév.1 — Mises à jour de classification",
+        "x": "Guide de classification révisé avec des clarifications améliorées de la Règle 11 pour les logiciels et de nouveaux exemples de cas limites.",
+        "u": "https://www.qualitiso.com/mdcg-2021-24-rev-1-quelles-evolutions-de-classification-des-dm-dans-la-mise-a-jour-davril-2026/",
+        "tp": [
+          "mdr"
+        ],
+        "tg": [
+          "high",
+          "new"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-07-24--2026-07-01--mdcg-2021-5-annex-ec-rep-to-eu-rep",
+      "reason": "MDCG 2021-5 Annex mandates transition from EC REP to EU REP symbol with coexistence period for stock depletion.",
+      "card": {
+        "id": "2026-07-01--mdcg-2021-5-annex-ec-rep-to-eu-rep",
+        "d": "2026-07-01",
+        "l": "1 juil. 2026",
+        "y": 2026,
+        "t": "MDCG 2021-5 Annex — Transition EC REP vers EU REP",
+        "x": "Transition du symbole de représentant autorisé de EC REP vers EU REP avec période de déstockage transitoire.",
+        "u": "https://www.qualitiso.com/mdcg-2021-5-annexe-transition-du-symbole-de-mandataire-autorise-de-ec-rep-vers-eu-rep/",
+        "tp": [
+          "mdr"
+        ],
+        "tg": [
+          "medium",
+          "in-force"
+        ],
+        "v": "n"
       }
     }
   ]
