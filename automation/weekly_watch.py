@@ -454,14 +454,24 @@ def fetch_standards_status_pages() -> str:
 
     try:
         with sync_playwright() as p:
+            log("  [Playwright] lancement de Chromium (headless)...")
             browser = p.chromium.launch()
             page = browser.new_page()
+            log(f"  [Playwright] navigation vers {CEN_EVOLUTION_URL}...")
             page.goto(CEN_EVOLUTION_URL, wait_until="networkidle", timeout=30000)
+            log("  [Playwright] page chargée (networkidle atteint), extraction du texte...")
             text = page.inner_text("body")
             text = re.sub(r"\n{3,}", "\n\n", text).strip()
             browser.close()
+            log(f"  [Playwright] terminé — {len(text)} caractères récupérés.")
+            if "Recently published" not in text and "Standard reference" not in text:
+                log(
+                    "  [Playwright] ATTENTION — le contenu attendu (tableau des normes) "
+                    "n'a pas été trouvé ; la page a peut-être changé de structure ou "
+                    "n'est pas retombée sur la vue par défaut."
+                )
     except Exception as e:  # noqa: BLE001 - Playwright failing must not kill the run
-        log(f"Fetch Playwright échoué pour {CEN_EVOLUTION_URL}: {e}")
+        log(f"  [Playwright] échec du fetch pour {CEN_EVOLUTION_URL}: {e}")
         return (
             f"(verification de statut via navigateur indisponible cette fois: {e})"
         )
