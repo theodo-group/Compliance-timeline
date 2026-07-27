@@ -426,7 +426,19 @@ def fetch_fixed_sources() -> str:
     return "\n\n".join(chunks)
 
 
-CEN_EVOLUTION_URL = "https://standards.cencenelec.eu/ords/f?p=CEN:84"
+# CEN et CENELEC sont deux organismes distincts (mecanique/general vs
+# electrotechnique) qui partagent la meme plateforme, chacun avec sa propre
+# page "Standards Evolution and Forecast". Un comite conjoint comme JTC 21
+# (celui de prEN 18286) remonte dans les deux, mais chaque organisme publie
+# aussi des normes propres qui n'apparaissent que sur sa page a lui —
+# confirme en pratique : la page CENELEC seule liste par exemple
+# EN ISO/TS 24971-2:2026 (risque / machine learning) et EN ISO/IEC 27000:2026
+# (securite de l'information), deux familles deja suivies dans
+# STANDARDS_REGISTER, sans qu'on les ait vues sur la page CEN.
+STANDARDS_EVOLUTION_URLS = [
+    ("CEN", "https://standards.cencenelec.eu/ords/f?p=CEN:84"),
+    ("CENELEC", "https://standards.cencenelec.eu/ords/f?p=CENELEC:84"),
+]
 
 
 def fetch_standards_status_pages() -> str:
@@ -437,48 +449,59 @@ def fetch_standards_status_pages() -> str:
     this week" framing never surfaces this kind of change, since it's not
     press-covered, only visible on the registry itself.
 
-    Fetches the "CEN Standards Evolution and Forecast" page, a single stable,
-    ID-free URL (no per-standard project ID to look up or hardcode) that lists
-    every CEN standard published in the last 2 months, across all technical
+    Fetches the "Standards Evolution and Forecast" page for both CEN and
+    CENELEC (STANDARDS_EVOLUTION_URLS) — two stable, ID-free URLs (no
+    per-standard project ID to look up or hardcode) that list every standard
+    each organisation published in the last 2 months, across all technical
     committees. Deliberately generic and not scoped to STANDARDS_REGISTER: any
     newly published standard shows up here, so this catches future misses on
     standards we haven't thought to watch for by name, not just prEN 18286.
 
-    The page is JS-rendered (Oracle APEX), so a plain requests.get() returns
-    an empty shell — confirmed via direct testing. A headless browser renders
-    the real page instead. No truncation: the full "Recently published" table
-    (~25-30k characters, a few hundred rows) is passed through as-is and left
-    to the triage model to scan for anything AI Act / medical device / health
-    data relevant — same pattern as the Sonar results blob below."""
+    These pages are JS-rendered (Oracle APEX), so a plain requests.get()
+    returns an empty shell — confirmed via direct testing. A headless browser
+    renders the real page instead. No truncation: the full "Recently
+    published" table for each organisation (~15-30k characters, a few hundred
+    rows) is passed through as-is and left to the triage model to scan for
+    anything AI Act / medical device / health data relevant — same pattern as
+    the Sonar results blob below."""
     from playwright.sync_api import sync_playwright
 
+    sections = []
     try:
         with sync_playwright() as p:
             log("  [Playwright] lancement de Chromium (headless)...")
             browser = p.chromium.launch()
-            page = browser.new_page()
-            log(f"  [Playwright] navigation vers {CEN_EVOLUTION_URL}...")
-            page.goto(CEN_EVOLUTION_URL, wait_until="networkidle", timeout=30000)
-            log("  [Playwright] page chargée (networkidle atteint), extraction du texte...")
-            text = page.inner_text("body")
-            text = re.sub(r"\n{3,}", "\n\n", text).strip()
+            for org, url in STANDARDS_EVOLUTION_URLS:
+                try:
+                    page = browser.new_page()
+                    log(f"  [Playwright] navigation vers {org} ({url})...")
+                    page.goto(url, wait_until="networkidle", timeout=30000)
+                    log(f"  [Playwright] {org} — page chargée, extraction du texte...")
+                    text = page.inner_text("body")
+                    text = re.sub(r"\n{3,}", "\n\n", text).strip()
+                    page.close()
+                    log(f"  [Playwright] {org} — terminé, {len(text)} caractères récupérés.")
+                    if "Recently published" not in text and "Standard reference" not in text:
+                        log(
+                            f"  [Playwright] ATTENTION ({org}) — le contenu attendu (tableau "
+                            f"des normes) n'a pas été trouvé ; la page a peut-être changé de "
+                            f"structure ou n'est pas retombée sur la vue par défaut."
+                        )
+                    sections.append(
+                        f"--- STANDARDS RECEMMENT PUBLIEES PAR {org} (tous comites, "
+                        f"2 derniers mois) : {url} ---\n{text}"
+                    )
+                except Exception as e:  # noqa: BLE001 - one bad org page must not kill the run
+                    log(f"  [Playwright] échec du fetch pour {org} ({url}): {e}")
+                    sections.append(
+                        f"--- STANDARDS RECEMMENT PUBLIEES PAR {org} : {url} ---\n"
+                        f"(fetch échoué: {e})"
+                    )
             browser.close()
-            log(f"  [Playwright] terminé — {len(text)} caractères récupérés.")
-            if "Recently published" not in text and "Standard reference" not in text:
-                log(
-                    "  [Playwright] ATTENTION — le contenu attendu (tableau des normes) "
-                    "n'a pas été trouvé ; la page a peut-être changé de structure ou "
-                    "n'est pas retombée sur la vue par défaut."
-                )
-    except Exception as e:  # noqa: BLE001 - Playwright failing must not kill the run
-        log(f"  [Playwright] échec du fetch pour {CEN_EVOLUTION_URL}: {e}")
-        return (
-            f"(verification de statut via navigateur indisponible cette fois: {e})"
-        )
-    return (
-        f"--- STANDARDS RECEMMENT PUBLIEES PAR CEN-CENELEC (tous comites, "
-        f"2 derniers mois) : {CEN_EVOLUTION_URL} ---\n{text}"
-    )
+    except Exception as e:  # noqa: BLE001 - Playwright itself failing must not kill the run
+        log(f"  [Playwright] indisponible ou erreur globale: {e}")
+        return f"(verification de statut via navigateur indisponible cette fois: {e})"
+    return "\n\n".join(sections)
 
 
 SONAR_QUERIES = [

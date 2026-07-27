@@ -25,6 +25,10 @@ on:
         description: "Rejouer les dernières propositions committées (automation/state) au lieu d'appeler le modèle — 0 coût"
         type: boolean
         default: false
+      standards_status_only:
+        description: "Tester UNIQUEMENT le fetch Playwright CEN-CENELEC (equivalent CI de automation/tools/check_standards_status.py) — aucun Sonar, aucun LLM, aucun mail"
+        type: boolean
+        default: false
 
   # Cron désactivé pour l'instant — décommenter une fois les tests manuels validés.
   # schedule:
@@ -56,7 +60,12 @@ jobs:
       - name: Install Playwright browser (Chromium only)
         run: playwright install --with-deps chromium
 
+      - name: Test isolé — fetch Playwright CEN-CENELEC uniquement
+        if: ${{ github.event.inputs.standards_status_only == 'true' }}
+        run: python automation/tools/check_standards_status.py
+
       - name: Run weekly regulatory watch
+        if: ${{ github.event.inputs.standards_status_only != 'true' }}
         env:
           LITELLM_API_KEY: ${{ secrets.LITELLM_API_KEY }}
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
@@ -80,4 +89,5 @@ jobs:
             automation/state/last_full_report.html
             automation/state/debug_last_content_output.txt
             automation/state/debug_last_proposals_output.txt
+            automation/state/debug_last_standards_status_output.txt
           if-no-files-found: ignore

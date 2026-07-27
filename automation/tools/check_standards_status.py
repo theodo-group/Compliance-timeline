@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Lance UNIQUEMENT le fetch Playwright de la page CEN-CENELEC "Standards
-Evolution and Forecast" (voir fetch_standards_status_pages() dans
+"""Lance UNIQUEMENT le fetch Playwright des pages "Standards Evolution and
+Forecast" de CEN et CENELEC (voir fetch_standards_status_pages() dans
 weekly_watch.py), sans toucher à Sonar, aux sources fixes, ni appeler le LLM.
 
 Objectif : pouvoir vérifier ce que le pipeline va réellement récupérer sur ce
@@ -23,13 +23,14 @@ from pathlib import Path
 # Permet d'importer weekly_watch.py (dossier parent) sans l'installer en package.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from weekly_watch import CEN_EVOLUTION_URL, STATE_DIR, fetch_standards_status_pages, log  # noqa: E402
+from weekly_watch import STANDARDS_EVOLUTION_URLS, STATE_DIR, fetch_standards_status_pages, log  # noqa: E402
 
 OUTPUT_PATH = STATE_DIR / "debug_last_standards_status_output.txt"
 
 
 def main() -> None:
-    log(f"Test isolé — fetch de {CEN_EVOLUTION_URL} (aucun autre appel, aucun LLM)...")
+    urls_desc = ", ".join(f"{org} ({url})" for org, url in STANDARDS_EVOLUTION_URLS)
+    log(f"Test isolé — fetch de {urls_desc} (aucun autre appel, aucun LLM)...")
     result = fetch_standards_status_pages()
 
     STATE_DIR.mkdir(parents=True, exist_ok=True)
