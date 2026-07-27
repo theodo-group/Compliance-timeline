@@ -1675,7 +1675,11 @@ def _run(config: dict, recipients: list, data_json: list, known_topics: list, cl
         f"## Recherche Sonar\n{sonar_blob}\n\n"
         f"## Normes CEN-CENELEC recemment publiees, tous comites (navigateur, plus fiable "
         f"qu'une recherche generale pour detecter une publication/un changement de statut — "
-        f"fais confiance a cette section en priorite si elle contredit ce qui precede)\n"
+        f"fais confiance a cette section en priorite si elle contredit ce qui precede). "
+        f"ATTENTION : cette liste couvre TOUS les secteurs industriels (ferroviaire, "
+        f"construction, alimentaire, textile, etc.), pas seulement la sante — ignore tout ce "
+        f"qui n'a pas de lien avec les dispositifs medicaux, les donnees de sante, l'AI Act, ou "
+        f"la cybersecurite des logiciels de sante.\n"
         f"{standards_status_blob}"
     )
 
