@@ -87,3 +87,14 @@ Voir aussi les tâches encore ouvertes avant la bascule en production complète 
 l'envoi de mail vers une boîte Workspace Theodo dédiée, basculer le dépôt de
 `joseph-zamith/Compliance-timeline-test` vers `theodo-group/Compliance-timeline` avec les
 vrais secrets, étendre `automation/recipients.json` au-delà d'une seule adresse de test.
+
+## À vérifier lors de la bascule vers le repo Theodo : permissions Actions
+
+Erreur rencontrée sur le repo de test : `The actions actions/checkout@v4,
+actions/setup-python@v5, and actions/upload-artifact@v4 are not allowed ... because all
+actions must be from a repository owned by <owner>`. Réglage à vérifier dans
+Settings → Actions → General → **Actions permissions** : il doit autoriser au minimum les
+actions officielles `actions/*` (option "Allow all actions and reusable workflows", ou
+"Allow select actions" avec `actions/*` explicitement ajouté). Les organisations comme
+Theodo appliquent parfois une policy plus restrictive par défaut au niveau de l'org — à
+vérifier aussi dans les paramètres d'organisation si le réglage du repo seul ne suffit pas.

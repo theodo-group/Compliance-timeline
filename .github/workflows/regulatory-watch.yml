@@ -53,6 +53,9 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r automation/requirements.txt
 
+      - name: Install Playwright browser (Chromium only)
+        run: playwright install --with-deps chromium
+
       - name: Run weekly regulatory watch
         env:
           LITELLM_API_KEY: ${{ secrets.LITELLM_API_KEY }}

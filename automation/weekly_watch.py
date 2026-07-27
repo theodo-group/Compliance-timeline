@@ -62,18 +62,24 @@ VALID_TOPICS = ["mdr", "ai", "standards", "cyber", "france", "uk", "us", "other"
 VALID_TAGS = ["critical", "high", "medium", "new", "in-force", "draft", "proposed"]
 VALID_VARIANTS = ["c", "h", "n"]
 
+# Audit juillet 2026 : plusieurs de ces URLs pointaient vers des pages d'accueil
+# génériques (menu de navigation massif avant tout contenu réel), ce qui, combiné
+# à la troncature à 2500 caractères par source ci-dessous, risquait de ne jamais
+# atteindre les actualités réelles. Remplacées par des sous-pages dédiées à
+# l'actualité quand une meilleure existait. FDA retirée : bloquée par la
+# détection anti-bot du site (redirection vers une page 404, confirmé via les
+# logs d'un run réel), donc ne contribuait aucun contenu utile.
 FIXED_SOURCES = [
     "https://www.qualitiso.com/veille/",
     "https://www.dm-experts.fr/flash-reglementaire-normatif/",
     "https://www.snitem.fr/actualites-et-evenements/actualites-du-dm-et-de-la-sante/",
-    "https://www.cnil.fr/fr",
+    "https://www.cnil.fr/fr/actualite",
     "https://www.afnor.org/actualites/",
-    "https://ansm.sante.fr/",
+    "https://ansm.sante.fr/actualites/a-la-une",
     "https://gnius.esante.gouv.fr/fr/a-la-une/actualites",
-    "https://health.ec.europa.eu/medical-devices-sector/new-regulations_en",
+    "https://ec.europa.eu/health/medical-devices-sector/latest-updates_en",
     "https://digital-strategy.ec.europa.eu/en/policies/ai-act-standardisation",
     "https://www.imdrf.org/",
-    "https://www.fda.gov/medical-devices/digital-health-center-excellence",
     "https://www.gov.uk/health-and-social-care/medicines-medical-devices-blood",
 ]
 
@@ -106,7 +112,16 @@ STANDARDS_REGISTER = [
     {"source": "EU Commission", "reference": "MDCG 2025-4", "title": "MDSW on platforms", "watch_for": "Updates"},
     {"source": "EU Commission", "reference": "MDCG 2019-16", "title": "Cybersecurity", "watch_for": "New revision"},
     {"source": "IMDRF", "reference": "SaMD WG / N12, N81, N88", "title": "SaMD framework, ML", "watch_for": "New or closing drafts"},
-    {"source": "CEN-CENELEC", "reference": "prEN 18286", "title": "AI Act QMS standard", "watch_for": "Publication targeted Q4 2026"},
+    {
+        "source": "CEN-CENELEC", "reference": "prEN/EN 18286", "title": "AI Act QMS standard",
+        "watch_for": "Ratified 12 Jul 2026, published as EN 18286:2026 (available 22 Jul 2026) — verify OJEU harmonization citation next (grants Art. 17 presumption of conformity)",
+        # Direct, authoritative status check — see fetch_standards_status_pages().
+        # This exact page is JS-rendered (Oracle APEX); a plain requests.get()
+        # returns an empty shell, which is precisely how the Jul 2026 ratification
+        # was missed by the ordinary research step. Only entries with a confirmed
+        # working status_url get one; the rest keep relying on Sonar/fixed sources.
+        "status_url": "https://standards.cencenelec.eu/ords/f?p=CEN:110:::::FSP_PROJECT,FSP_ORG_ID:80556,2916257&cs=12A382BDB5385F509EBAA7CD4808AFBF3",
+    },
 ]
 
 
@@ -201,6 +216,13 @@ def skip_sonar() -> bool:
     useful to test things unrelated to content (email formatting, SMTP,
     recipients) without touching any paid API."""
     return os.environ.get("SKIP_SONAR", "").lower() == "true"
+
+
+def skip_standards_status() -> bool:
+    """Test-only escape hatch: skip the Playwright-based status check of
+    STANDARDS_REGISTER rows that carry a status_url. Free (no API cost) but
+    slow to install a browser locally, so useful to skip during quick tests."""
+    return os.environ.get("SKIP_STANDARDS_STATUS", "").lower() == "true"
 
 
 # ---------------------------------------------------------------------------
@@ -407,6 +429,52 @@ def fetch_fixed_sources() -> str:
         except Exception as e:  # noqa: BLE001 - one bad source must not kill the run
             log(f"Fetch échoué pour {url}: {e}")
             chunks.append(f"--- SOURCE: {url} ---\n(fetch échoué: {e})")
+    return "\n\n".join(chunks)
+
+
+def fetch_standards_status_pages() -> str:
+    """Ground-truth status check for the handful of STANDARDS_REGISTER rows
+    that carry a status_url — unlike fetch_fixed_sources() above, these pages
+    are JS-rendered (Oracle APEX for CEN-CENELEC), so a plain requests.get()
+    returns an empty shell. This is exactly how the Jul 2026 ratification of
+    prEN 18286 (-> EN 18286:2026) was missed: Sonar's "news this week" framing
+    never surfaces a registry status change, since it's not press-covered.
+    A headless browser renders the real page instead of guessing from search.
+    Runs only for rows with a status_url — most of the register still relies
+    on Sonar/fixed sources, this is a narrow, high-confidence supplement."""
+    rows = [r for r in STANDARDS_REGISTER if r.get("status_url")]
+    if not rows:
+        return "(aucune ligne du registre n'a de status_url configuree)"
+
+    from playwright.sync_api import sync_playwright
+
+    chunks = []
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch()
+            for row in rows:
+                url = row["status_url"]
+                try:
+                    page = browser.new_page()
+                    page.goto(url, wait_until="networkidle", timeout=30000)
+                    text = page.inner_text("body")
+                    text = re.sub(r"\n{3,}", "\n\n", text).strip()
+                    # The rendered page is a long nav-heavy Oracle APEX layout;
+                    # the useful "Project" / "Implementation Dates" tables sit
+                    # in the first couple thousand characters of body text.
+                    chunk = (
+                        f"--- STATUT VERIFIE DIRECTEMENT SUR LE REGISTRE OFFICIEL "
+                        f"({row['reference']} — {row['source']}) : {url} ---\n{text[:3000]}"
+                    )
+                    page.close()
+                except Exception as e:  # noqa: BLE001 - one bad page must not kill the run
+                    log(f"Fetch Playwright échoué pour {row['reference']} ({url}): {e}")
+                    chunk = f"--- STATUT ({row['reference']}) : {url} ---\n(fetch échoué: {e})"
+                chunks.append(chunk)
+            browser.close()
+    except Exception as e:  # noqa: BLE001 - Playwright itself failing must not kill the run
+        log(f"Playwright indisponible ou erreur globale: {e}")
+        return f"(verification de statut via navigateur indisponible cette fois: {e})"
     return "\n\n".join(chunks)
 
 
@@ -1562,6 +1630,13 @@ def _run(config: dict, recipients: list, data_json: list, known_topics: list, cl
         sonar_blob = run_sonar_research(client, config["research_model"])
         log(f"Recherche Sonar terminée — {len(sonar_blob)} caractères récupérés sur {len(SONAR_QUERIES)} requêtes.")
 
+    if skip_standards_status():
+        log("Recherche — vérification de statut (Playwright) SKIPPÉE (SKIP_STANDARDS_STATUS=true).")
+        standards_status_blob = "(vérification de statut non effectuée cette fois — SKIP_STANDARDS_STATUS actif)"
+    else:
+        log("Recherche — vérification de statut sur le registre officiel (Playwright)...")
+        standards_status_blob = fetch_standards_status_pages()
+
     # No artificial cap here: input size was never the real constraint (Sonar
     # runs ~13k chars total, fixed sources max out around 30k — both trivial
     # for a model's context window). The old `[:18000]` cut on the
@@ -1569,7 +1644,14 @@ def _run(config: dict, recipients: list, data_json: list, known_topics: list, cl
     # (Sources fixes came first and could alone exceed 18k), which is the bug
     # Joseph found. Output length is controlled directly in the prompt (hard
     # item caps, length guidance), not by starving the input.
-    research_blob = f"## Sources fixes\n{fixed_sources_blob}\n\n## Recherche Sonar\n{sonar_blob}"
+    research_blob = (
+        f"## Sources fixes\n{fixed_sources_blob}\n\n"
+        f"## Recherche Sonar\n{sonar_blob}\n\n"
+        f"## Statut verifie directement sur le registre officiel (navigateur, plus fiable "
+        f"qu'une recherche generale pour detecter un changement de statut administratif — "
+        f"fais confiance a cette section en priorite si elle contredit ce qui precede)\n"
+        f"{standards_status_blob}"
+    )
 
     if replay_content():
         cached = STATE_DIR / "debug_last_content_output.txt"
