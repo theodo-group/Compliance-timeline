@@ -735,11 +735,12 @@
 <div class="page">
   <!-- AI model configuration — un modèle par étape du pipeline fan-out -->
   <div class="proposal-card" id="model-config-card">
-    <div class="proposal-top">
-      <span class="proposal-title">Configuration IA — veille hebdomadaire</span>
-      <span id="model-config-status" class="gh-token-status"></span>
-    </div>
-    <div class="proposal-desc">Un modèle par étape du pipeline (recherche, triage, rédaction par item, propositions, traduction). Change ici, pas besoin de toucher au code.</div>
+    <details>
+      <summary class="proposal-top" style="cursor:pointer;">
+        <span class="proposal-title">Configuration IA — veille hebdomadaire</span>
+        <span id="model-config-status" class="gh-token-status"></span>
+      </summary>
+    <div class="proposal-desc" style="margin-top:10px;">Un modèle par étape du pipeline (recherche, triage, rédaction par item, propositions, traduction).</div>
     <div style="display:flex; gap:24px; margin-top:12px; flex-wrap:wrap;">
       <label style="display:flex; flex-direction:column; gap:4px; font-size:0.75rem; color:var(--ink-tertiary);">
         Recherche
@@ -786,6 +787,7 @@
         </select>
       </label>
     </div>
+    </details>
   </div>
 
   <!-- Manual trigger for the weekly automation workflow -->
