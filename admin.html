@@ -478,6 +478,18 @@
     flex-wrap: wrap;
   }
 
+  /* Chevron for <details><summary> cards — the native marker doesn't render
+     once display:flex is applied to summary, so we draw our own. */
+  summary.proposal-top { list-style: none; }
+  summary.proposal-top::-webkit-details-marker { display: none; }
+  summary.proposal-top .chevron {
+    display: inline-block;
+    color: var(--gold-dim);
+    font-size: 0.7rem;
+    transition: transform 0.15s;
+  }
+  details[open] > summary.proposal-top .chevron { transform: rotate(90deg); }
+
   .action-badge {
     font-size: 0.625rem;
     font-weight: 700;
@@ -737,6 +749,7 @@
   <div class="proposal-card" id="model-config-card">
     <details>
       <summary class="proposal-top" style="cursor:pointer;">
+        <span class="chevron">&#9656;</span>
         <span class="proposal-title">Configuration IA — veille hebdomadaire</span>
         <span id="model-config-status" class="gh-token-status"></span>
       </summary>
