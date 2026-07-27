@@ -115,12 +115,6 @@ STANDARDS_REGISTER = [
     {
         "source": "CEN-CENELEC", "reference": "prEN/EN 18286", "title": "AI Act QMS standard",
         "watch_for": "Ratified 12 Jul 2026, published as EN 18286:2026 (available 22 Jul 2026) — verify OJEU harmonization citation next (grants Art. 17 presumption of conformity)",
-        # Direct, authoritative status check — see fetch_standards_status_pages().
-        # This exact page is JS-rendered (Oracle APEX); a plain requests.get()
-        # returns an empty shell, which is precisely how the Jul 2026 ratification
-        # was missed by the ordinary research step. Only entries with a confirmed
-        # working status_url get one; the rest keep relying on Sonar/fixed sources.
-        "status_url": "https://standards.cencenelec.eu/ords/f?p=CEN:110:::::FSP_PROJECT,FSP_ORG_ID:80556,2916257&cs=12A382BDB5385F509EBAA7CD4808AFBF3",
     },
 ]
 
@@ -219,9 +213,9 @@ def skip_sonar() -> bool:
 
 
 def skip_standards_status() -> bool:
-    """Test-only escape hatch: skip the Playwright-based status check of
-    STANDARDS_REGISTER rows that carry a status_url. Free (no API cost) but
-    slow to install a browser locally, so useful to skip during quick tests."""
+    """Test-only escape hatch: skip the Playwright-based fetch of the
+    CEN-CENELEC "Standards Evolution and Forecast" page. Free (no API cost)
+    but slow to install a browser locally, so useful to skip during quick tests."""
     return os.environ.get("SKIP_STANDARDS_STATUS", "").lower() == "true"
 
 
@@ -432,50 +426,49 @@ def fetch_fixed_sources() -> str:
     return "\n\n".join(chunks)
 
 
-def fetch_standards_status_pages() -> str:
-    """Ground-truth status check for the handful of STANDARDS_REGISTER rows
-    that carry a status_url — unlike fetch_fixed_sources() above, these pages
-    are JS-rendered (Oracle APEX for CEN-CENELEC), so a plain requests.get()
-    returns an empty shell. This is exactly how the Jul 2026 ratification of
-    prEN 18286 (-> EN 18286:2026) was missed: Sonar's "news this week" framing
-    never surfaces a registry status change, since it's not press-covered.
-    A headless browser renders the real page instead of guessing from search.
-    Runs only for rows with a status_url — most of the register still relies
-    on Sonar/fixed sources, this is a narrow, high-confidence supplement."""
-    rows = [r for r in STANDARDS_REGISTER if r.get("status_url")]
-    if not rows:
-        return "(aucune ligne du registre n'a de status_url configuree)"
+CEN_EVOLUTION_URL = "https://standards.cencenelec.eu/ords/f?p=CEN:84"
 
+
+def fetch_standards_status_pages() -> str:
+    """Ground-truth status check for European standards (CEN/CENELEC), instead
+    of relying on Sonar/fixed sources to happen to mention a registry status
+    change (draft -> ratified -> published) — this is exactly how the Jul 2026
+    ratification of prEN 18286 (-> EN 18286:2026) was missed: Sonar's "news
+    this week" framing never surfaces this kind of change, since it's not
+    press-covered, only visible on the registry itself.
+
+    Fetches the "CEN Standards Evolution and Forecast" page, a single stable,
+    ID-free URL (no per-standard project ID to look up or hardcode) that lists
+    every CEN standard published in the last 2 months, across all technical
+    committees. Deliberately generic and not scoped to STANDARDS_REGISTER: any
+    newly published standard shows up here, so this catches future misses on
+    standards we haven't thought to watch for by name, not just prEN 18286.
+
+    The page is JS-rendered (Oracle APEX), so a plain requests.get() returns
+    an empty shell — confirmed via direct testing. A headless browser renders
+    the real page instead. No truncation: the full "Recently published" table
+    (~25-30k characters, a few hundred rows) is passed through as-is and left
+    to the triage model to scan for anything AI Act / medical device / health
+    data relevant — same pattern as the Sonar results blob below."""
     from playwright.sync_api import sync_playwright
 
-    chunks = []
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch()
-            for row in rows:
-                url = row["status_url"]
-                try:
-                    page = browser.new_page()
-                    page.goto(url, wait_until="networkidle", timeout=30000)
-                    text = page.inner_text("body")
-                    text = re.sub(r"\n{3,}", "\n\n", text).strip()
-                    # The rendered page is a long nav-heavy Oracle APEX layout;
-                    # the useful "Project" / "Implementation Dates" tables sit
-                    # in the first couple thousand characters of body text.
-                    chunk = (
-                        f"--- STATUT VERIFIE DIRECTEMENT SUR LE REGISTRE OFFICIEL "
-                        f"({row['reference']} — {row['source']}) : {url} ---\n{text[:3000]}"
-                    )
-                    page.close()
-                except Exception as e:  # noqa: BLE001 - one bad page must not kill the run
-                    log(f"Fetch Playwright échoué pour {row['reference']} ({url}): {e}")
-                    chunk = f"--- STATUT ({row['reference']}) : {url} ---\n(fetch échoué: {e})"
-                chunks.append(chunk)
+            page = browser.new_page()
+            page.goto(CEN_EVOLUTION_URL, wait_until="networkidle", timeout=30000)
+            text = page.inner_text("body")
+            text = re.sub(r"\n{3,}", "\n\n", text).strip()
             browser.close()
-    except Exception as e:  # noqa: BLE001 - Playwright itself failing must not kill the run
-        log(f"Playwright indisponible ou erreur globale: {e}")
-        return f"(verification de statut via navigateur indisponible cette fois: {e})"
-    return "\n\n".join(chunks)
+    except Exception as e:  # noqa: BLE001 - Playwright failing must not kill the run
+        log(f"Fetch Playwright échoué pour {CEN_EVOLUTION_URL}: {e}")
+        return (
+            f"(verification de statut via navigateur indisponible cette fois: {e})"
+        )
+    return (
+        f"--- STANDARDS RECEMMENT PUBLIEES PAR CEN-CENELEC (tous comites, "
+        f"2 derniers mois) : {CEN_EVOLUTION_URL} ---\n{text}"
+    )
 
 
 SONAR_QUERIES = [
@@ -1631,10 +1624,10 @@ def _run(config: dict, recipients: list, data_json: list, known_topics: list, cl
         log(f"Recherche Sonar terminée — {len(sonar_blob)} caractères récupérés sur {len(SONAR_QUERIES)} requêtes.")
 
     if skip_standards_status():
-        log("Recherche — vérification de statut (Playwright) SKIPPÉE (SKIP_STANDARDS_STATUS=true).")
+        log("Recherche — normes CEN-CENELEC récemment publiées (Playwright) SKIPPÉE (SKIP_STANDARDS_STATUS=true).")
         standards_status_blob = "(vérification de statut non effectuée cette fois — SKIP_STANDARDS_STATUS actif)"
     else:
-        log("Recherche — vérification de statut sur le registre officiel (Playwright)...")
+        log("Recherche — normes CEN-CENELEC récemment publiées, tous comités (Playwright)...")
         standards_status_blob = fetch_standards_status_pages()
 
     # No artificial cap here: input size was never the real constraint (Sonar
@@ -1647,8 +1640,8 @@ def _run(config: dict, recipients: list, data_json: list, known_topics: list, cl
     research_blob = (
         f"## Sources fixes\n{fixed_sources_blob}\n\n"
         f"## Recherche Sonar\n{sonar_blob}\n\n"
-        f"## Statut verifie directement sur le registre officiel (navigateur, plus fiable "
-        f"qu'une recherche generale pour detecter un changement de statut administratif — "
+        f"## Normes CEN-CENELEC recemment publiees, tous comites (navigateur, plus fiable "
+        f"qu'une recherche generale pour detecter une publication/un changement de statut — "
         f"fais confiance a cette section en priorite si elle contredit ce qui precede)\n"
         f"{standards_status_blob}"
     )
