@@ -1205,6 +1205,12 @@ document.addEventListener("DOMContentLoaded", () => {
   input.addEventListener("change", () => {
     localStorage.setItem("rw_github_token", input.value.trim());
     updateTokenStatus();
+    // Sans ça, un token collé après le chargement initial de la page laisse
+    // modelConfigSha à null (chargé une seule fois, sans auth, au DOMContentLoaded
+    // précédent) — toute sauvegarde suivante échoue en 422 (sha manquant) tant
+    // qu'on n'a pas rafraîchi la page. On recharge donc la config dès que le
+    // token change, pour obtenir un sha valide sans devoir recharger la page.
+    loadModelConfig();
   });
 });
 
