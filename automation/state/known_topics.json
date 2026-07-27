@@ -91,9 +91,9 @@
     "key": "fda-finalise-son-guide-sur-les-predetermined-change-control-plans-pccp-pour-disp",
     "title": "FDA finalise son guide sur les Predetermined Change Control Plans (PCCP) pour dispositifs médicaux IA",
     "last_status": "final",
-    "source_url": "https://content.govdelivery.com/accounts/USFDA/bulletins/376c6be",
+    "source_url": "https://www.medtechdive.com/news/fda-ai-pccp-guidance-final/722066/",
     "first_seen": "2026-07-24",
-    "last_seen": "2026-07-24"
+    "last_seen": "2026-07-27"
   },
   {
     "key": "mdcg-2026-5-attribution-des-identifiants-udi-entre-fabricants-et-distributeurs",
@@ -166,5 +166,29 @@
     "source_url": "https://www.qualitiso.com/mdr-article-50-simplification-impact-organismes-notifies/",
     "first_seen": "2026-07-24",
     "last_seen": "2026-07-24"
+  },
+  {
+    "key": "iec-62304-edition-2-publication-attendue-aout-2026-revision-majeure-du-cycle-de-",
+    "title": "IEC 62304 Édition 2 : publication attendue août 2026, révision majeure du cycle de vie logiciel",
+    "last_status": "draft",
+    "source_url": "https://www.iso.org/standard/85416.html",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
+  },
+  {
+    "key": "eudamed-echeances-obligatoires-en-vigueur-depuis-le-28-mai-2026",
+    "title": "EUDAMED : échéances obligatoires en vigueur depuis le 28 mai 2026",
+    "last_status": "in-force",
+    "source_url": "https://health.ec.europa.eu/medical-devices-eudamed/eudamed-registration_en",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
+  },
+  {
+    "key": "cnil-sanctionne-iqvia-operations-france-de-5-m-pour-manquements-donnees-de-sante",
+    "title": "CNIL sanctionne IQVIA OPERATIONS FRANCE de 5 M€ pour manquements données de santé",
+    "last_status": "final",
+    "source_url": "https://www.cnil.fr/fr/iqvia-operations-france-sanction-de-5-millions-deuros",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
   }
 ]
