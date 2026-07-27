@@ -69,6 +69,18 @@ VALID_VARIANTS = ["c", "h", "n"]
 # l'actualité quand une meilleure existait. FDA retirée : bloquée par la
 # détection anti-bot du site (redirection vers une page 404, confirmé via les
 # logs d'un run réel), donc ne contribuait aucun contenu utile.
+#
+# health.ec.europa.eu/.../new-regulations_en : on avait un temps essayé de
+# remplacer cette page (statique, "dernières mises à jour" tout en bas, hors
+# de la fenêtre de troncature) par la page dédiée ec.europa.eu/.../latest-updates_en
+# — mais celle-ci renvoie du 503 de façon reproductible depuis un run réel
+# GitHub Actions ET depuis un poste local, donc retour à l'URL d'origine.
+#
+# www.imdrf.org : confirmé en échec (timeout) depuis un run réel GitHub Actions
+# ET depuis un poste local — contribue rarement du contenu utile. Conservée
+# quand même dans la liste (décision explicite) pour garder une trace de la
+# source plutôt que la faire disparaître silencieusement ; le fetch échoue
+# proprement (log "Fetch échoué pour...", le run continue sans elle).
 FIXED_SOURCES = [
     "https://www.qualitiso.com/veille/",
     "https://www.dm-experts.fr/flash-reglementaire-normatif/",
@@ -77,7 +89,7 @@ FIXED_SOURCES = [
     "https://www.afnor.org/actualites/",
     "https://ansm.sante.fr/actualites/a-la-une",
     "https://gnius.esante.gouv.fr/fr/a-la-une/actualites",
-    "https://ec.europa.eu/health/medical-devices-sector/latest-updates_en",
+    "https://health.ec.europa.eu/medical-devices-sector/new-regulations_en",
     "https://digital-strategy.ec.europa.eu/en/policies/ai-act-standardisation",
     "https://www.imdrf.org/",
     "https://www.gov.uk/health-and-social-care/medicines-medical-devices-blood",
