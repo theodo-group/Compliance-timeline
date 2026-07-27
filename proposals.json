@@ -1,90 +1,23 @@
 {
-  "generated": "2026-07-24",
+  "generated": "2026-07-27",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-07-24--2026-07-01--fda-pccp-final-guidance-published",
-      "reason": "FDA finalized PCCP guidance, extending pre-approved change control to all pathways (510(k), De Novo, PMA) for AI/ML medical devices.",
+      "id": "proposal-2026-07-27--2026-07-22--fda-pccp-guidance-final",
+      "reason": "FDA publishes final guidance on Predetermined Change Control Plans for AI-enabled devices, establishing regulatory pathway for pre-authorized post-market modifications.",
       "card": {
-        "id": "2026-07-01--fda-pccp-final-guidance-published",
-        "d": "2026-07-01",
-        "l": "1 Jul 2026",
+        "id": "2026-07-22--fda-pccp-guidance-final",
+        "d": "2026-07-22",
+        "l": "22 Jul 2026",
         "y": 2026,
-        "t": "FDA PCCP Final Guidance Published",
-        "x": "Predetermined Change Control Plans now applicable to 510(k), De Novo, and PMA pathways for AI/ML devices. Enables pre-specified modifications without separate submissions.",
-        "u": "https://content.govdelivery.com/accounts/USFDA/bulletins/376c6be",
+        "t": "FDA PCCP Guidance Final",
+        "x": "Final guidance establishes framework for pre-authorized post-market modifications of AI-enabled devices across 510(k), De Novo, and PMA pathways.",
+        "u": "https://www.medtechdive.com/news/fda-ai-pccp-guidance-final/722066/",
         "tp": [
           "us",
           "ai"
         ],
         "tg": [
-          "critical",
-          "in-force"
-        ],
-        "v": "c"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-07-24--2026-05-05--eu-implementing-regulation-2026-977",
-      "reason": "New implementing regulation establishes uniform requirements for notified body designation and surveillance under MDR/IVDR.",
-      "card": {
-        "id": "2026-05-05--eu-implementing-regulation-2026-977",
-        "d": "2026-05-05",
-        "l": "5 May 2026",
-        "y": 2026,
-        "t": "EU Implementing Regulation 2026/977 — NB Requirements",
-        "x": "Updated Annex VII procedures for notified body designation and surveillance. Stricter technical and operational criteria for conformity assessment under MDR/IVDR.",
-        "u": "https://health.ec.europa.eu/latest-updates/new-implementing-regulation-sets-out-uniform-requirements-conformity-assessment-and-notified-bodies-2026-05-18_en",
-        "tp": [
-          "mdr"
-        ],
-        "tg": [
-          "critical",
-          "in-force"
-        ],
-        "v": "c"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-07-24--2026-07-22--mdcg-2026-5-udi-attribution",
-      "reason": "MDCG 2026-5 clarifies UDI-DI assignment responsibilities between manufacturers and distributors for EUDAMED registration.",
-      "card": {
-        "id": "2026-07-22--mdcg-2026-5-udi-attribution",
-        "d": "2026-07-22",
-        "l": "22 Jul 2026",
-        "y": 2026,
-        "t": "MDCG 2026-5 — UDI Attribution Guidance",
-        "x": "Operational guidance on UDI-DI assignment responsibilities across the supply chain and EUDAMED registration obligations.",
-        "u": "https://www.qualitiso.com/mdcg-2026-5-attribution-des-identifiants-iud-entre-fabricants-et-distributeurs/",
-        "tp": [
-          "mdr"
-        ],
-        "tg": [
-          "medium",
-          "new"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-07-24--2026-07-01--iso-ts-24971-2-published",
-      "reason": "ISO/TS 24971-2 published, providing risk management guidance specifically for Machine Learning-based medical devices.",
-      "card": {
-        "id": "2026-07-01--iso-ts-24971-2-published",
-        "d": "2026-07-01",
-        "l": "1 Jul 2026",
-        "y": 2026,
-        "t": "ISO/TS 24971-2 — ML Risk Management Published",
-        "x": "Technical Specification complementing ISO 14971 with detailed risk identification, estimation, and control guidance for ML medical devices.",
-        "u": "https://www.qualitiso.com/iso-ts-24971-2-gestion-des-risques-pour-les-dispositifs-medicaux-a-bas-de-machine-learning/",
-        "tp": [
-          "standards",
-          "ai"
-        ],
-        "tg": [
           "high",
           "new"
         ],
@@ -92,90 +25,93 @@
       }
     },
     {
-      "action": "add",
-      "id": "proposal-2026-07-24--2026-07-01--mdr-amendments-implantable-exemptions",
-      "reason": "MDR amendments establishing limited exemptions for certain legacy implantable devices under Articles 52.4 and 61.6.",
+      "action": "update",
+      "id": "proposal-2026-07-27--2026-05-22--iec-62304-ed-2-approval-phase-begins",
+      "existing_id": "2026-05-22--iec-62304-ed-2-approval-phase-begins",
+      "reason": "FDIS phase confirmed started 22 May 2026, publication date confirmed 12 August 2026.",
       "card": {
-        "id": "2026-07-01--mdr-amendments-implantable-exemptions",
-        "d": "2026-07-01",
-        "l": "1 Jul 2026",
+        "id": "2026-05-22--iec-62304-ed-2-approval-phase-begins",
+        "d": "2026-05-22",
+        "l": "22 May 2026",
         "y": 2026,
-        "t": "MDR Amendments — Implantable Device Exemptions",
-        "x": "Articles 52.4 and 61.6 establish conditional regulatory relief for specific categories of legacy implantable devices.",
-        "u": "https://www.qualitiso.com/modifications-du-mdr-concernant-les-exemptions-pour-certains-dm-implantables-articles-52-4-et-61-6/",
+        "t": "IEC 62304 Ed.2 — FDIS Phase Begins",
+        "x": "Final Draft International Standard phase begins. Three safety classes replaced by two Software Process Accuracy Levels. Expanded scope to all health software with AI/ML process planning.",
+        "u": "https://www.iso.org/standard/85416.html",
         "tp": [
-          "mdr"
-        ],
-        "tg": [
-          "medium",
-          "in-force"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-07-24--2026-06-18--eu-decision-2026-1231-harmonised-standards",
-      "reason": "Commission Decision 2026/1231 expands and updates harmonised standards catalogue for MDR compliance.",
-      "card": {
-        "id": "2026-06-18--eu-decision-2026-1231-harmonised-standards",
-        "d": "2026-06-18",
-        "l": "18 Jun 2026",
-        "y": 2026,
-        "t": "EU Decision 2026/1231 — New Harmonised Standards",
-        "x": "Expanded catalogue of harmonised standards covering safety, performance, biocompatibility, and device-specific requirements under MDR.",
-        "u": "https://www.qualitiso.com/nouvelles-normes-harmonisees-rdm-decision-execution-ue-2026-1231/",
-        "tp": [
-          "mdr",
           "standards"
         ],
         "tg": [
-          "medium",
-          "in-force"
+          "critical",
+          "draft"
         ],
-        "v": "n"
+        "v": "c"
       }
     },
     {
-      "action": "add",
-      "id": "proposal-2026-07-24--2026-04-28--mdcg-2021-24-rev1-classification",
-      "reason": "MDCG 2021-24 Rev.1 clarifies software classification under Rule 11 with new examples and borderline scenarios.",
+      "action": "update",
+      "id": "proposal-2026-07-27--2026-08-12--iec-62304-edition-2-expected-publication",
+      "existing_id": "2026-08-12--iec-62304-edition-2-expected-publication",
+      "reason": "Publication date confirmed as 12 August 2026, no longer expected but scheduled.",
       "card": {
-        "id": "2026-04-28--mdcg-2021-24-rev1-classification",
-        "d": "2026-04-28",
-        "l": "28 Apr 2026",
+        "id": "2026-08-12--iec-62304-edition-2-expected-publication",
+        "d": "2026-08-12",
+        "l": "12 Aug 2026",
         "y": 2026,
-        "t": "MDCG 2021-24 Rev.1 — Classification Updates",
-        "x": "Revised classification guide with enhanced Rule 11 clarifications for software and new borderline case examples.",
-        "u": "https://www.qualitiso.com/mdcg-2021-24-rev-1-quelles-evolutions-de-classification-des-dm-dans-la-mise-a-jour-davril-2026/",
+        "t": "IEC 62304 Edition 2 — Publication",
+        "x": "Two Software Process Accuracy Levels (I, II) replace Classes A/B/C. Scope expanded to all health software. AI/ML process planning requirements explicit. References to ISO 13485 and ISO 14971 removed.",
+        "u": "https://www.iso.org/standard/85416.html",
         "tp": [
-          "mdr"
+          "standards"
         ],
         "tg": [
-          "high",
+          "critical",
           "new"
         ],
-        "v": "h"
+        "v": "c"
       }
     },
     {
-      "action": "add",
-      "id": "proposal-2026-07-24--2026-07-01--mdcg-2021-5-annex-ec-rep-to-eu-rep",
-      "reason": "MDCG 2021-5 Annex mandates transition from EC REP to EU REP symbol with coexistence period for stock depletion.",
+      "action": "update",
+      "id": "proposal-2026-07-27--2026-05-28--eudamed-first-4-modules-mandatory",
+      "existing_id": "2026-05-28--eudamed-first-4-modules-mandatory",
+      "reason": "Status changed to in-force as this date has now passed (28 May 2026).",
       "card": {
-        "id": "2026-07-01--mdcg-2021-5-annex-ec-rep-to-eu-rep",
-        "d": "2026-07-01",
-        "l": "1 Jul 2026",
+        "id": "2026-05-28--eudamed-first-4-modules-mandatory",
+        "d": "2026-05-28",
+        "l": "28 May 2026",
         "y": 2026,
-        "t": "MDCG 2021-5 Annex — EC REP to EU REP Transition",
-        "x": "Authorized representative symbol transition from EC REP to EU REP with transitional stock depletion period.",
-        "u": "https://www.qualitiso.com/mdcg-2021-5-annexe-transition-du-symbole-de-mandataire-autorise-de-ec-rep-vers-eu-rep/",
+        "t": "EUDAMED — First 4 Modules Mandatory",
+        "x": "Actor Registration, UDI/Device Registration, NB & Certificates, Market Surveillance now in mandatory use. All economic operators must have an SRN.",
+        "u": "https://health.ec.europa.eu/medical-devices-eudamed/eudamed-registration_en",
         "tp": [
           "mdr"
         ],
         "tg": [
-          "medium",
+          "critical",
           "in-force"
+        ],
+        "v": "c"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-07-27--2026-05-26--cnil-iqvia-5m-eur-sanction",
+      "reason": "CNIL sanctions IQVIA 5M EUR for health data warehouse compliance failures, demonstrating enforcement rigor for health data processors.",
+      "card": {
+        "id": "2026-05-26--cnil-iqvia-5m-eur-sanction",
+        "d": "2026-05-26",
+        "l": "26 May 2026",
+        "y": 2026,
+        "t": "CNIL — IQVIA 5M EUR Sanction",
+        "x": "CNIL sanctions IQVIA OPERATIONS FRANCE 5M EUR for health data warehouse violations with daily penalty for non-compliance.",
+        "u": "https://www.cnil.fr/fr/iqvia-operations-france-sanction-de-5-millions-deuros",
+        "tp": [
+          "france",
+          "data"
+        ],
+        "tg": [
+          "medium",
+          "new"
         ],
         "v": "n"
       }
