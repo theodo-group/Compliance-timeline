@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "key": "en-18286-2026-norme-qms-ia-pour-ai-act-ratification-confirmee-citation-harmonise",
+    "title": "EN 18286:2026 (norme QMS IA pour AI Act) : ratification confirmée, citation harmonisée JOUE en attente",
+    "last_status": "new",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
+  },
+  {
+    "key": "iso-ts-24971-2-2026-publiee-guide-d-application-iso-14971-pour-le-machine-learni",
+    "title": "ISO/TS 24971-2:2026 publiée : guide d'application ISO 14971 pour le machine learning médical",
+    "last_status": "new",
+    "source_url": "https://www.qualitiso.com/iso-ts-24971-2-gestion-des-risques-pour-les-dispositifs-medicaux-a-bas-de-machine-learning/",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
+  },
+  {
+    "key": "mdcg-2026-5-attribution-des-identifiants-udi-entre-fabricants-et-distributeurs",
+    "title": "MDCG 2026-5 : attribution des identifiants UDI entre fabricants et distributeurs",
+    "last_status": "new",
+    "source_url": "https://www.qualitiso.com/mdcg-2026-5-attribution-des-identifiants-iud-entre-fabricants-et-distributeurs/",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
+  },
+  {
+    "key": "mdcg-2026-4-le-chargement-de-tous-les-resumes-ssp-et-sscp-dans-eudamed-revient-a",
+    "title": "MDCG 2026-4 : le chargement de tous les résumés SSP et SSCP dans EUDAMED revient aux fabricants",
+    "last_status": "new",
+    "source_url": "https://www.qualitiso.com/publication-du-mdcg-2026-4-ce-quil-faut-retenir-sur-la-gestion-des-sscp-dans-eudamed/",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
+  },
+  {
+    "key": "nouvelles-normes-harmonisees-mdr-ivdr-decision-d-execution-ue-2026-1231-du-18-ju",
+    "title": "Nouvelles normes harmonisées MDR/IVDR : Décision d'exécution (UE) 2026/1231 du 18 juin",
+    "last_status": "new",
+    "source_url": "https://www.qualitiso.com/nouvelles-normes-harmonisees-rdm-decision-execution-ue-2026-1231/",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
+  },
+  {
+    "key": "reglement-d-execution-ue-2026-977-nouvelles-regles-uniformes-pour-l-evaluation-d",
+    "title": "Règlement d'exécution (UE) 2026/977 : nouvelles règles uniformes pour l'évaluation de conformité par les organismes notifiés",
+    "last_status": "in-force",
+    "source_url": "https://www.qualitiso.com/reglement-execution-ue-2026-977-evaluation-conformite-organismes-notifies/",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
+  },
+  {
+    "key": "mdcg-2021-24-rev-1-avril-2026-evolutions-de-classification-des-dispositifs-medic",
+    "title": "MDCG 2021-24 Rev.1 (avril 2026) : évolutions de classification des dispositifs médicaux",
+    "last_status": "in-force",
+    "source_url": "https://www.qualitiso.com/mdcg-2021-24-rev-1-quelles-evolutions-de-classification-des-dm-dans-la-mise-a-jour-davril-2026/",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
+  },
+  {
+    "key": "mdcg-2021-5-annexe-transition-du-symbole-mandataire-ec-rep-vers-eu-rep",
+    "title": "MDCG 2021-5 Annexe : transition du symbole mandataire « EC REP » vers « EU REP »",
+    "last_status": "in-force",
+    "source_url": "https://www.qualitiso.com/mdcg-2021-5-annexe-transition-du-symbole-de-mandataire-autorise-de-ec-rep-vers-eu-rep/",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
+  },
+  {
+    "key": "actes-delegues-mdr-sur-les-technologies-bien-etablies-publication-au-joue-le-29-",
+    "title": "Actes délégués MDR sur les technologies bien établies : publication au JOUE le 29 juin 2026",
+    "last_status": "in-force",
+    "source_url": "https://www.dm-experts.fr/2026/07/union-europeenne-publications-sur-les-evaluations-cliniques-communes/",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
+  },
+  {
+    "key": "cnil-nouvelles-methodologies-de-reference-mr-001-et-mr-003-pour-la-recherche-san",
+    "title": "CNIL : nouvelles méthodologies de référence MR-001 et MR-003 pour la recherche santé (mai 2026)",
+    "last_status": "new",
+    "source_url": "https://www.dm-experts.fr/2026/07/methodologies-de-reference-cnil-publication-des-nouvelles-mr-001-et-mr-003/",
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-07-27"
+  }
+]
