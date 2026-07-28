@@ -12,6 +12,29 @@ All admin decisions are persisted in `decisions.json` within the GitHub repo, ma
 
 ---
 
+## Statut & journal des modifications
+
+**Runtime actuel de la veille automatisée :** `automation/weekly_watch.py`, exécuté sur un
+runner **GitHub Actions** (`.github/workflows/regulatory-watch.yml`) et déclenché à heure fixe
+par **cron-job.org**. La version macOS `launchd` décrite dans « System Architecture » et au
+composant #4 ci-dessous est **historique** (conservée dans `automation/legacy-macos/`) : ces
+deux sections restent à réécrire pour refléter le pipeline Python (recherche découpée en petits
+appels, modèles par étape, validation stricte avant push).
+
+**Journal :**
+
+- **28 juillet 2026 — Sécurité (XSS).** `index.html`, `fr.html`, `admin.html` échappent
+  désormais tout champ de carte (`t`/`x`/`u`/commentaires/diff/reason) avant injection en
+  `innerHTML`, via `escapeHtml`/`escHtml`, et valident les URL (`safeUrl`, schémas http/https
+  uniquement). Corrige un risque de XSS stocké (contenu web scrapé → proposition → rendu).
+- **28 juillet 2026 — Cartes approuvées persistées.** `weekly_watch.py`
+  (`promote_approved_proposals`) fusionne les propositions approuvées dans `data.json` /
+  `data-fr.json` en tête de run, avant de régénérer `proposals.json`. Corrige la disparition des
+  cartes approuvées lorsque `proposals.json` est écrasé chaque semaine. Idempotent ; ne réécrit
+  jamais `decisions.json`. Voir Limitation #7.
+
+---
+
 ## System Architecture
 
 ```
@@ -409,7 +432,10 @@ Local only:
 
 6. **gws auth token expiration.** May require re-authentication for email sending.
 
-7. **Proposals overwritten weekly.** Undecided proposals are lost when the next batch arrives.
+7. **Proposals overwritten weekly.** Les propositions *approuvées* ne sont plus perdues : elles
+   sont promues dans `data.json` / `data-fr.json` en tête de run (voir `promote_approved_proposals`,
+   28 juil. 2026). Les propositions *non décidées* du lot précédent restent, elles, écrasées à
+   l'arrivée du lot suivant (Variante B non retenue).
 
 8. **Single-font design.** Poppins only (Theodo HealthTech brand requirement).
 

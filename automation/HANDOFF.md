@@ -83,10 +83,20 @@ opérationnel, pas avant.
 
 ## Autres tâches de migration en attente
 
-Voir aussi les tâches encore ouvertes avant la bascule en production complète : migrer
-l'envoi de mail vers une boîte Workspace Theodo dédiée, basculer le dépôt de
-`joseph-zamith/Compliance-timeline-test` vers `theodo-group/Compliance-timeline` avec les
-vrais secrets, étendre `automation/recipients.json` au-delà d'une seule adresse de test.
+Fait :
+- Dépôt basculé sur `theodo-group/Compliance-timeline` (remote `origin` actuel).
+
+Encore ouvert avant la bascule en production complète :
+- Migrer l'envoi de mail vers une boîte Workspace Theodo dédiée (aujourd'hui : compte Gmail
+  + mot de passe d'application, voir §1).
+- Étendre `automation/recipients.json` au-delà de l'unique adresse de test.
+- Activer le `schedule:` cron dans `.github/workflows/regulatory-watch.yml` (actuellement
+  commenté ; déclenchement manuel / cron-job.org uniquement).
+
+Pistes d'amélioration identifiées lors de l'audit du 28 juil. 2026 (non bloquantes) :
+- Contexte `data.json` compact envoyé au modèle des propositions (économie de tokens).
+- Dédup entre sources fixes et Sonar + boucle de feedback sur les propositions rejetées.
+- Éditions concurrentes du back office (conflit de SHA à la sauvegarde de `decisions.json`).
 
 ## À vérifier lors de la bascule vers le repo Theodo : permissions Actions
 
