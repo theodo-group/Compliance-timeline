@@ -1164,6 +1164,19 @@ function saveProposalEdit(pid, field, value, original, lang){
 function escAttr(s){
   return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 }
+// Contenu de proposition (titre/description/reason) et cartes existantes
+// proviennent de contenu web scrapé puis généré par le modèle : on échappe
+// avant toute injection en innerHTML (y compris dans un <textarea>, où un
+// </textarea> non échappé permettrait de sortir de la balise). safeUrl bloque
+// en plus les schémas non http(s) que l'échappement seul ne neutralise pas.
+function escHtml(s){
+  return String(s == null ? "" : s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+}
+function safeUrl(u){
+  return /^https?:\/\//i.test(String(u || "")) ? String(u) : "#";
+}
 const PRIORITY_TAGS = ["critical", "high", "medium"];
 const STATUS_TAGS = ["new", "in-force", "draft", "proposed"];
 
@@ -1250,20 +1263,20 @@ function renderProposalCard(p, baseCardMap, isApproved, isRejected) {
   html += `<span class="action-badge action-badge--${p.action}">${p.action.toUpperCase()}</span>`;
 
   if (p.card) {
-    html += `<span class="proposal-date">${p.card.l || p.card.d}</span>`;
+    html += `<span class="proposal-date">${escHtml(p.card.l || p.card.d)}</span>`;
   } else if (p.action === "delete" && p.existing_id) {
     const existing = baseCardMap.get(p.existing_id);
-    if (existing) html += `<span class="proposal-date">${existing.l || existing.d}</span>`;
+    if (existing) html += `<span class="proposal-date">${escHtml(existing.l || existing.d)}</span>`;
   }
   html += `</div>`;
 
   if (p.action === "delete" && p.existing_id) {
     const existing = baseCardMap.get(p.existing_id);
-    html += `<div class="proposal-title">${existing ? existing.t : p.existing_id}</div>`;
+    html += `<div class="proposal-title">${escHtml(existing ? existing.t : p.existing_id)}</div>`;
     if (existing) {
-      html += `<div class="proposal-desc">${existing.x}</div>`;
-      if (existing.u) html += `<div class="proposal-source"><a href="${existing.u}" target="_blank" rel="noopener">Source ↗</a></div>`;
-      html += `<div class="proposal-topics">${existing.tp.map(tp => `<span class="tp tp-${tp}">${TL[tp]||tp}</span>`).join("")}</div>`;
+      html += `<div class="proposal-desc">${escHtml(existing.x)}</div>`;
+      if (existing.u) html += `<div class="proposal-source"><a href="${escAttr(safeUrl(existing.u))}" target="_blank" rel="noopener">Source ↗</a></div>`;
+      html += `<div class="proposal-topics">${existing.tp.map(tp => `<span class="tp tp-${tp}">${escHtml(TL[tp]||tp)}</span>`).join("")}</div>`;
     }
   } else if (p.card) {
     const lang = proposalLangView[p.id] === "fr" ? "fr" : "en";
@@ -1280,12 +1293,12 @@ function renderProposalCard(p, baseCardMap, isApproved, isRejected) {
     html += `<button type="button" class="lang-pill ${lang==='fr'?'active':''}" data-lang-toggle="${p.id}" data-lang="fr" ${frProposal?'':'disabled title="proposals-fr.json indisponible"'}>FR</button>`;
     html += `</div>`;
     html += `<input type="text" class="proposal-title-input" data-proposal-edit="${p.id}" data-edit-field="t" data-edit-lang="${lang}" data-edit-original="${escAttr(langCard.t)}" value="${escAttr(effTitle)}">`;
-    if (edits[tKey] !== undefined) html += `<div class="proposal-original">IA proposait (${lang.toUpperCase()}) : "${langCard.t}"</div>`;
-    html += `<textarea class="proposal-desc-input" data-proposal-edit="${p.id}" data-edit-field="x" data-edit-lang="${lang}" data-edit-original="${escAttr(langCard.x)}">${effDesc}</textarea>`;
-    if (edits[xKey] !== undefined) html += `<div class="proposal-original">IA proposait (${lang.toUpperCase()}) : "${langCard.x}"</div>`;
-    if (p.card.u) html += `<div class="proposal-source"><a href="${p.card.u}" target="_blank" rel="noopener">Source ↗</a></div>`;
+    if (edits[tKey] !== undefined) html += `<div class="proposal-original">IA proposait (${lang.toUpperCase()}) : "${escHtml(langCard.t)}"</div>`;
+    html += `<textarea class="proposal-desc-input" data-proposal-edit="${p.id}" data-edit-field="x" data-edit-lang="${lang}" data-edit-original="${escAttr(langCard.x)}">${escHtml(effDesc)}</textarea>`;
+    if (edits[xKey] !== undefined) html += `<div class="proposal-original">IA proposait (${lang.toUpperCase()}) : "${escHtml(langCard.x)}"</div>`;
+    if (p.card.u) html += `<div class="proposal-source"><a href="${escAttr(safeUrl(p.card.u))}" target="_blank" rel="noopener">Source ↗</a></div>`;
     if (p.card.tp) {
-      html += `<div class="proposal-topics">${p.card.tp.map(tp => `<span class="tp tp-${tp}">${TL[tp]||tp}</span>`).join("")}</div>`;
+      html += `<div class="proposal-topics">${p.card.tp.map(tp => `<span class="tp tp-${tp}">${escHtml(TL[tp]||tp)}</span>`).join("")}</div>`;
     }
   }
 
@@ -1300,13 +1313,13 @@ function renderProposalCard(p, baseCardMap, isApproved, isRejected) {
       if (JSON.stringify(old.tg) !== JSON.stringify(p.card.tg)) diffs.push({field:"Tags", old:old.tg.join(", "), new:p.card.tg.join(", ")});
       if (diffs.length) {
         html += `<div class="proposal-diff"><div class="proposal-diff-label">Changes</div>`;
-        diffs.forEach(d => { html += `<div><strong>${d.field}:</strong> <span class="proposal-diff-old">${d.old}</span> &rarr; <span class="proposal-diff-new">${d.new}</span></div>`; });
+        diffs.forEach(d => { html += `<div><strong>${escHtml(d.field)}:</strong> <span class="proposal-diff-old">${escHtml(d.old)}</span> &rarr; <span class="proposal-diff-new">${escHtml(d.new)}</span></div>`; });
         html += `</div>`;
       }
     }
   }
 
-  if (p.reason) html += `<div class="proposal-reason">${p.reason}</div>`;
+  if (p.reason) html += `<div class="proposal-reason">${escHtml(p.reason)}</div>`;
 
   html += `<div class="proposal-actions">`;
   if (isApproved) {
@@ -1406,7 +1419,7 @@ function buildTable(){
     const rowCls=isHidden?"row-hidden":"";
     html+=`<tr class="${rowCls}" data-id="${id}">`;
     html+=`<td class="cell-toggle"><label class="toggle"><input type="checkbox" ${isHidden?"":"checked"} data-id="${id}"><span class="toggle-track"></span></label></td>`;
-    html+=`<td class="cell-date">${m.l}</td>`;
+    html+=`<td class="cell-date">${escHtml(m.l)}</td>`;
     html+=`<td><div class="cell-topics">${m.tp.map(p=>`<span class="tp tp-${p}">${TL[p]}</span>`).join("")}</div></td>`;
 
     let indicator = "";
@@ -1420,9 +1433,9 @@ function buildTable(){
     const statusHtml = status
       ? `<span class="tag-editable" data-tag-id="${id}" data-tag-category="status" data-current-tag="${status}"><span class="ms-tag tag-${status}">${TG[status]||status}</span></span>`
       : `<span class="tag-editable tag-editable-empty" data-tag-id="${id}" data-tag-category="status" data-current-tag="">+ statut</span>`;
-    html+=`<td><span class="cell-title">${priorityHtml}${statusHtml} ${m.t}${indicator}</span></td>`;
-    const commentEn = (getComments("en")[id] || "").replace(/"/g,'&quot;');
-    const commentFr = (getComments("fr")[id] || "").replace(/"/g,'&quot;');
+    html+=`<td><span class="cell-title">${priorityHtml}${statusHtml} ${escHtml(m.t)}${indicator}</span></td>`;
+    const commentEn = escAttr(getComments("en")[id] || "");
+    const commentFr = escAttr(getComments("fr")[id] || "");
     html+=`<td class="cell-comment"><div class="comment-pair"><input type="text" class="comment-input" data-comment-id="${id}" data-comment-lang="en" value="${commentEn}" placeholder="Add an EN comment..."><input type="text" class="comment-input" data-comment-id="${id}" data-comment-lang="fr" value="${commentFr}" placeholder="Commentaire en FR..."></div></td>`;
     html+=`</tr>`;
   });

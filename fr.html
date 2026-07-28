@@ -645,6 +645,19 @@ function syncButtons() {
   });
 }
 
+// Toute donnée de carte (t/x/u/commentaire) peut provenir d'un contenu web
+// scrapé puis généré par le modèle : on l'échappe systématiquement avant de
+// l'injecter en innerHTML. safeUrl bloque en plus les schémas non http(s)
+// (ex. "javascript:") que l'échappement HTML seul ne neutralise pas.
+function escapeHtml(s){
+  return String(s == null ? "" : s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+}
+function safeUrl(u){
+  return /^https?:\/\//i.test(String(u || "")) ? String(u) : "#";
+}
+
 function render() {
   refreshHidden();
   const el = document.getElementById("tl");
@@ -664,13 +677,13 @@ function render() {
       const delay = ok ? `style="--d:${stagger}ms"` : "";
       if (ok) idx++;
       html += `<div class="ms ${cls} ${ok ? "" : "hidden"}" data-topics="${m.tp.join(",")}" data-lead="${m.tp[0]}" ${delay}>`;
-      html += `<div class="ms-date">${m.l}</div><div class="ms-body">`;
-      html += `<div class="ms-tags">${m.tg.map(g => `<span class="ms-tag tag-${g}">${TG[g] || g}</span>`).join("")}</div>`;
-      html += `<div class="ms-title">${m.u ? `<a href="${m.u}" target="_blank" rel="noopener">${m.t}</a>` : m.t}</div>`;
-      html += `<div class="ms-desc">${m.x}</div>`;
-      html += `<div class="ms-topics">${m.tp.map(p => `<span class="tp tp-${p}">${TL[p] || p}</span>`).join("")}</div>`;
+      html += `<div class="ms-date">${escapeHtml(m.l)}</div><div class="ms-body">`;
+      html += `<div class="ms-tags">${m.tg.map(g => `<span class="ms-tag tag-${g}">${escapeHtml(TG[g] || g)}</span>`).join("")}</div>`;
+      html += `<div class="ms-title">${m.u ? `<a href="${escapeHtml(safeUrl(m.u))}" target="_blank" rel="noopener">${escapeHtml(m.t)}</a>` : escapeHtml(m.t)}</div>`;
+      html += `<div class="ms-desc">${escapeHtml(m.x)}</div>`;
+      html += `<div class="ms-topics">${m.tp.map(p => `<span class="tp tp-${p}">${escapeHtml(TL[p] || p)}</span>`).join("")}</div>`;
       const comment = comments[cardId(m)];
-      if (comment) html += `<div class="ms-comment">\u201C${comment}\u201D \u2003<span class="ms-comment-author">Theodo HealthTech</span></div>`;
+      if (comment) html += `<div class="ms-comment">\u201C${escapeHtml(comment)}\u201D \u2003<span class="ms-comment-author">Theodo HealthTech</span></div>`;
       html += `</div></div>`;
     });
     html += `</div></section>`;

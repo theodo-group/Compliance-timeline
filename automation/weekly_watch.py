@@ -1574,16 +1574,19 @@ def git_commit_and_push() -> None:
     date_slug = date.today().strftime("%Y-%m-%d")
     subprocess.run(["git", "config", "user.name", "regulatory-watch-bot"], cwd=REPO_ROOT, check=True)
     subprocess.run(["git", "config", "user.email", "actions@github.com"], cwd=REPO_ROOT, check=True)
+    # data.json / data-fr.json sont ajoutés aussi : ils ne changent que lorsque
+    # promote_approved_proposals() a fusionné des cartes approuvées ce run
+    # (sinon git add est un no-op et le diff --cached ci-dessous le détecte).
     subprocess.run(
-        ["git", "add", "proposals.json", "proposals-fr.json"],
+        ["git", "add", "proposals.json", "proposals-fr.json", "data.json", "data-fr.json"],
         cwd=REPO_ROOT, check=True,
     )
     result = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=REPO_ROOT)
     if result.returncode == 0:
-        log("Rien à committer côté propositions (aucun changement).")
+        log("Rien à committer côté propositions / data (aucun changement).")
         return
     subprocess.run(
-        ["git", "commit", "-m", f"Regulatory watch: proposals for {date_slug}"],
+        ["git", "commit", "-m", f"Regulatory watch: proposals + promotion for {date_slug}"],
         cwd=REPO_ROOT, check=True,
     )
     _git_push_with_rebase()
@@ -1615,6 +1618,119 @@ def commit_state_for_qa() -> None:
 
 
 # ---------------------------------------------------------------------------
+# Step 6b: promote approved proposals into data.json / data-fr.json
+#
+# Bug corrigé (Variante A) : la frise n'affichait une proposition approuvée
+# qu'en la relisant dans proposals.json — or ce fichier est écrasé chaque
+# semaine, donc une carte approuvée en semaine N disparaissait en N+1. On
+# fusionne ici les propositions approuvées dans data.json / data-fr.json (le
+# "grand cahier" permanent), AVANT de régénérer proposals.json, qui redevient
+# une simple boîte de réception hebdomadaire.
+#
+# Idempotent (un add dont l'id existe déjà est ignoré ; un update/delete
+# réappliqué donne le même résultat), donc pas besoin d'un état "déjà promu" —
+# et surtout on ne réécrit JAMAIS decisions.json, écrit par le back office via
+# l'API GitHub (deux rédacteurs = conflits de SHA).
+# ---------------------------------------------------------------------------
+
+def _apply_proposal_edit(card: dict, edit: dict, lang: str) -> dict:
+    """Bake the admin's manual title/description override into the card, exactly
+    as the front office does at render time (index.html applies t/x, fr.html
+    applies t_fr/x_fr). Once promoted, the proposal id disappears from
+    proposals.json, so a proposal_edits entry keyed by that id would no longer
+    apply — it must be baked in now."""
+    if not edit:
+        return card
+    t_key, x_key = ("t", "x") if lang == "en" else ("t_fr", "x_fr")
+    if edit.get(t_key) is not None:
+        card["t"] = edit[t_key]
+    if edit.get(x_key) is not None:
+        card["x"] = edit[x_key]
+    return card
+
+
+def _promote_one(data_list: list, proposal: dict, edit: dict, lang: str) -> bool:
+    """Apply one approved proposal to a data list (mutated in place). Returns
+    True only if the list actually changed. Mirrors the merge logic of
+    index.html / fr.html so the promoted result is identical to what visitors
+    already see this week."""
+    import copy
+    action = proposal.get("action")
+    if action == "add":
+        card = proposal.get("card")
+        if not card or not card.get("id"):
+            return False
+        if any(m.get("id") == card["id"] for m in data_list):
+            return False  # idempotent : déjà promu lors d'un run précédent
+        data_list.append(_apply_proposal_edit(copy.deepcopy(card), edit, lang))
+        return True
+    if action == "update":
+        card = proposal.get("card")
+        existing_id = proposal.get("existing_id")
+        if not card or not existing_id:
+            return False
+        promoted = _apply_proposal_edit(copy.deepcopy(card), edit, lang)
+        for i, m in enumerate(data_list):
+            if m.get("id") == existing_id:
+                if data_list[i] == promoted:
+                    return False  # idempotent : déjà à jour
+                data_list[i] = promoted
+                return True
+        data_list.append(promoted)  # jamais vu en base : on ajoute (repli du front)
+        return True
+    if action == "delete":
+        existing_id = proposal.get("existing_id")
+        if not existing_id:
+            return False
+        before = len(data_list)
+        data_list[:] = [m for m in data_list if m.get("id") != existing_id]
+        return len(data_list) != before
+    return False
+
+
+def promote_approved_proposals(data_en: list, data_fr: list) -> bool:
+    """Fold every approved proposal still present in the on-disk proposals files
+    (= last run's batch) into data_en / data_fr, in place. Returns True if
+    anything changed. Reads decisions.json + proposals(.fr).json from disk;
+    never writes decisions.json. Approved ids from older batches are simply not
+    found here (already promoted in a previous run) and skipped."""
+    decisions = load_json(REPO_ROOT / "decisions.json", {}) or {}
+    approved = decisions.get("approved_proposals") or []
+    if not approved:
+        return False
+    proposals_en = load_json(REPO_ROOT / "proposals.json", {}) or {}
+    proposals_fr = load_json(REPO_ROOT / "proposals-fr.json", {}) or {}
+    edits = decisions.get("proposal_edits") or {}
+    by_id_en = {p["id"]: p for p in proposals_en.get("proposals", []) if p.get("id")}
+    by_id_fr = {p["id"]: p for p in proposals_fr.get("proposals", []) if p.get("id")}
+
+    changed = False
+    promoted_count = 0
+    for pid in approved:
+        p_en = by_id_en.get(pid)
+        p_fr = by_id_fr.get(pid)
+        if not p_en and not p_fr:
+            continue  # batch antérieur : déjà promu, plus dans proposals.json
+        edit = edits.get(pid) or {}
+        did = False
+        if p_en:
+            did = _promote_one(data_en, p_en, edit, "en") or did
+        # FR : même proposition (parité d'id garantie par construction) ; repli
+        # sur l'objet EN si la traduction manque, pour ne pas laisser une carte
+        # sans version FR côté frise française.
+        if p_fr:
+            did = _promote_one(data_fr, p_fr, edit, "fr") or did
+        elif p_en:
+            did = _promote_one(data_fr, p_en, edit, "fr") or did
+        if did:
+            promoted_count += 1
+            changed = True
+    if changed:
+        log(f"Promotion : {promoted_count} proposition(s) approuvée(s) fusionnée(s) dans data.json / data-fr.json.")
+    return changed
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -1635,23 +1751,40 @@ def main() -> None:
     config = load_config()
     recipients = load_recipients()
     data_json = load_json(REPO_ROOT / "data.json", [])
+    data_fr = load_json(REPO_ROOT / "data-fr.json", [])
     known_topics = load_known_topics()
     client = get_litellm_client()
 
     try:
-        _run(config, recipients, data_json, known_topics, client)
+        _run(config, recipients, data_json, data_fr, known_topics, client)
     finally:
         safe_commit_state_for_qa()
 
     log("Terminé avec succès.")
 
 
-def _run(config: dict, recipients: list, data_json: list, known_topics: list, client: OpenAI) -> None:
+def _run(config: dict, recipients: list, data_json: list, data_fr: list, known_topics: list, client: OpenAI) -> None:
     log(
         f"Modèles — recherche: {config['research_model']} / triage: {config['triage_model']} / "
         f"items: {config['item_model']} / propositions: {config['proposals_model']} / "
         f"traduction: {config['translate_model']}"
     )
+
+    # Étape 6b (exécutée en tête de run) : promouvoir les propositions déjà
+    # approuvées dans data.json / data-fr.json AVANT de régénérer proposals.json.
+    # data_json est muté en mémoire donc le prompt "propositions" plus bas voit
+    # déjà les cartes promues (il ne les re-proposera pas et pourra les cibler
+    # en update/delete). L'écriture des fichiers publics reste gatée par DRY_RUN,
+    # comme known_topics.json et le commit des propositions.
+    if promote_approved_proposals(data_json, data_fr):
+        if is_dry_run():
+            log("DRY_RUN actif : data.json / data-fr.json NON réécrits (promotion simulée en mémoire seulement).")
+        else:
+            (REPO_ROOT / "data.json").write_text(
+                json.dumps(data_json, ensure_ascii=False, indent=2), encoding="utf-8")
+            (REPO_ROOT / "data-fr.json").write_text(
+                json.dumps(data_fr, ensure_ascii=False, indent=2), encoding="utf-8")
+            log("data.json / data-fr.json mis à jour (propositions approuvées promues).")
 
     if skip_fixed_sources():
         log("Recherche — fetch des sources fixes SKIPPÉ (SKIP_FIXED_SOURCES=true, test rapide).")
