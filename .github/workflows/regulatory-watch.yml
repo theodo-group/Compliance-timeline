@@ -30,9 +30,13 @@ on:
         type: boolean
         default: false
 
-  # Cron désactivé pour l'instant — décommenter une fois les tests manuels validés.
-  # schedule:
-  #   - cron: "30 6 * * 5"   # 06h30 UTC tous les vendredis (~7h30 CET / 8h30 CEST)
+  # Planifié tous les vendredis matin. ATTENTION : le cron GitHub est en UTC et ne gère PAS
+  # l'heure d'été. 04:00 UTC = 06:00 à Paris l'été (CEST) / 05:00 l'hiver (CET). GitHub peut
+  # aussi décaler le déclenchement de quelques minutes (voire le sauter sous forte charge).
+  # NE PAS activer en parallèle un déclencheur cron-job.org sur ce workflow : les deux
+  # feraient tourner le job deux fois le vendredi (deux emails, deux lots de propositions).
+  schedule:
+    - cron: "0 4 * * 5"
 
 permissions:
   contents: write

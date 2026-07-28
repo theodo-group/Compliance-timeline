@@ -32,6 +32,10 @@ appels, modèles par étape, validation stricte avant push).
   `data-fr.json` en tête de run, avant de régénérer `proposals.json`. Corrige la disparition des
   cartes approuvées lorsque `proposals.json` est écrasé chaque semaine. Idempotent ; ne réécrit
   jamais `decisions.json`. Voir Limitation #7.
+- **28 juillet 2026 — Cron hebdomadaire activé.** `.github/workflows/regulatory-watch.yml` :
+  `schedule: cron "0 4 * * 5"` (vendredi 06:00 Paris l'été / 05:00 l'hiver — cron GitHub en UTC,
+  sans heure d'été ; déclenchement pouvant être décalé de quelques minutes). Ne pas coupler avec
+  un déclencheur cron-job.org (risque de double run).
 
 ---
 

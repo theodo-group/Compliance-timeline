@@ -16,9 +16,15 @@ Utilisé par `weekly_watch.py` pour envoyer le mail hebdomadaire (`GMAIL_ADDRESS
 
 ## 2. Token GitHub pour le déclenchement externe (cron-job.org)
 
+> **Note (28 juil. 2026)** : le déclencheur actif est désormais le `schedule:` natif de GitHub
+> Actions (`0 4 * * 5`, voir le workflow). cron-job.org n'est PAS requis et ne doit PAS tourner
+> en parallèle sur ce workflow (double run). Cette section reste documentée comme repli si l'on
+> a un jour besoin d'un déclenchement à l'heure plus fiable — dans ce cas, recommenter/retirer
+> le `schedule:` du workflow pour n'avoir qu'un seul déclencheur.
+
 GitHub Actions ne garantit pas un déclenchement à l'heure pile pour un `schedule:` cron
 (voir la doc officielle : délais possibles, voire abandon du run en cas de forte charge).
-Le déclenchement fiable du job hebdomadaire passe donc par [cron-job.org](https://cron-job.org),
+Le déclenchement fiable du job hebdomadaire peut passer par [cron-job.org](https://cron-job.org),
 qui appelle l'API GitHub (`workflow_dispatch`) à heure fixe.
 
 - Ce que ça demande : un token GitHub avec accès à l'API Actions du repo. Un token
@@ -85,13 +91,16 @@ opérationnel, pas avant.
 
 Fait :
 - Dépôt basculé sur `theodo-group/Compliance-timeline` (remote `origin` actuel).
+- Cron hebdomadaire activé : `schedule: cron "0 4 * * 5"` dans
+  `.github/workflows/regulatory-watch.yml` (vendredi 06:00 Paris l'été / 05:00 l'hiver — le
+  cron GitHub est en UTC, sans heure d'été). NE PAS activer aussi un déclencheur cron-job.org
+  sur ce workflow (double run : deux emails, deux lots de propositions).
 
 Encore ouvert avant la bascule en production complète :
-- Migrer l'envoi de mail vers une boîte Workspace Theodo dédiée (aujourd'hui : compte Gmail
-  + mot de passe d'application, voir §1).
+- Basculer l'envoi de mail vers **team@hokla.com** (aujourd'hui : le compte Gmail Theodo
+  personnel de Joseph + mot de passe d'application, voir §1).
+- Créer des **clés d'équipe LiteLLM** pour remplacer la clé au nom personnel de Joseph.
 - Étendre `automation/recipients.json` au-delà de l'unique adresse de test.
-- Activer le `schedule:` cron dans `.github/workflows/regulatory-watch.yml` (actuellement
-  commenté ; déclenchement manuel / cron-job.org uniquement).
 
 Pistes d'amélioration identifiées lors de l'audit du 28 juil. 2026 (non bloquantes) :
 - Contexte `data.json` compact envoyé au modèle des propositions (économie de tokens).
