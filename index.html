@@ -136,11 +136,17 @@
   .filters-sidebar {
     position: sticky;
     top: 88px; /* below sticky header */
+    max-height: calc(100vh - 88px - var(--space-2xl));
+    overflow-y: auto;
     padding: var(--space-md);
     background: var(--surface-1);
     border: 1px solid var(--surface-3);
     border-radius: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--surface-3) transparent;
   }
+  .filters-sidebar::-webkit-scrollbar { width: 6px; }
+  .filters-sidebar::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 3px; }
   .filters-label {
     font-size: 0.75rem;
     font-weight: 600;

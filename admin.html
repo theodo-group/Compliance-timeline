@@ -553,6 +553,46 @@
     opacity: 0.6;
   }
 
+  /* Paire delete+add (remplacement d'une fiche périmée) */
+  .proposal-pair-card {
+    border: 1.5px solid var(--gold-dim);
+    border-radius: 10px;
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+    background: var(--surface-2);
+  }
+  .proposal-pair-card .proposal-card {
+    margin-bottom: 0;
+    border-color: transparent;
+  }
+  .proposal-pair-old {
+    opacity: 0.55;
+    padding: 0 var(--space-sm);
+  }
+  .proposal-pair-old-title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--ink-secondary);
+    text-decoration: line-through;
+    margin-top: 6px;
+  }
+  .proposal-pair-connector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px var(--space-sm);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .proposal-pair-connector-line {
+    width: 1.5px;
+    height: 14px;
+    background: var(--gold-dim);
+  }
+
   .proposal-top {
     display: flex;
     align-items: center;
@@ -1448,7 +1488,7 @@ let query = "";
 /* ===== Proposals rendering ===== */
 let activeProposalTab = "pending";
 
-function renderProposalCard(p, baseCardMap, isApproved, isRejected) {
+function renderProposalCard(p, baseCardMap, isApproved, isRejected, pairedDeleteId) {
   const isDecided = isApproved || isRejected;
   let html = `<div class="proposal-card ${isDecided ? 'decided' : ''}">`;
   html += `<div class="proposal-top">`;
@@ -1541,10 +1581,73 @@ function renderProposalCard(p, baseCardMap, isApproved, isRejected) {
     html += `<span class="decision-status decision-rejected">Rejected</span>`;
     html += `<button class="btn btn-undo" data-proposal-undo="${p.id}">Undo</button>`;
   } else {
-    html += `<button class="btn btn-approve" data-proposal-approve="${p.id}" data-action="${p.action}" data-existing="${p.existing_id||''}">Approve</button>`;
+    html += `<button class="btn btn-approve" data-proposal-approve="${p.id}" data-action="${p.action}" data-existing="${p.existing_id||''}" data-paired-delete="${pairedDeleteId||''}">${pairedDeleteId ? "Approuver la paire" : "Approve"}</button>`;
     html += `<button class="btn btn-reject" data-proposal-reject="${p.id}">Reject</button>`;
   }
   html += `</div></div>`;
+  return html;
+}
+
+// Détection heuristique des paires delete+add qui remplacent une fiche
+// périmée par sa version à jour (retour Joseph : rendre ce lien visuellement
+// explicite plutôt que deux cartes sans rapport apparent). Rien dans le
+// schéma des propositions ne relie les deux explicitement (une "add" n'a pas
+// de champ pointant vers la "delete" qu'elle remplace), donc on infère la
+// paire par recoupement : un identifiant/référence partagé (ex. "18286",
+// "MDR", une année de norme...) ET au moins un thème commun. Volontairement
+// prudent — mieux vaut louper une paire réelle qu'en inventer une fausse.
+function extractSignatureTokens(text) {
+  if (!text) return new Set();
+  const tokens = new Set();
+  // Tokens composés (ex. "prEN 18286", "ISO 13485") — capturent la variante
+  // exacte telle qu'écrite.
+  (text.match(/[A-Za-zÀ-ÖØ-öø-ÿ]{2,}[\/\- ]?\d{2,6}/g) || [])
+    .forEach(m => tokens.add(m.toUpperCase().replace(/[\s\/-]/g, "")));
+  // Passe séparée sur les nombres bruts (4 à 6 chiffres) : capture la
+  // référence partagée ("18286") même quand le préfixe diffère d'un côté à
+  // l'autre ("prEN 18286" vs "EN 18286:2026") — c'est ce qui fait le lien
+  // entre une fiche périmée et sa version ratifiée/publiée.
+  (text.match(/\d{4,6}/g) || []).forEach(n => tokens.add(n));
+  return tokens;
+}
+
+function findReplacementPairs(pending, baseCardMap) {
+  const deletes = pending.filter(p => p.action === "delete" && p.existing_id);
+  const adds = pending.filter(p => p.action === "add" && p.card);
+  const pairByAddId = new Map(); // addProposalId -> deleteProposal
+  const consumedDeleteIds = new Set();
+
+  deletes.forEach(delP => {
+    const existing = baseCardMap.get(delP.existing_id);
+    if (!existing) return;
+    const delTokens = new Set([...extractSignatureTokens(existing.t), ...extractSignatureTokens(existing.x)]);
+    if (!delTokens.size) return;
+    const match = adds.find(addP => {
+      if (pairByAddId.has(addP.id)) return false; // déjà apparié
+      const addTokens = new Set([...extractSignatureTokens(addP.card.t), ...extractSignatureTokens(addP.card.x)]);
+      const sharesToken = [...delTokens].some(t => addTokens.has(t));
+      const sharesTopic = (existing.tp || []).some(t => (addP.card.tp || []).includes(t));
+      return sharesToken && sharesTopic;
+    });
+    if (match) {
+      pairByAddId.set(match.id, delP);
+      consumedDeleteIds.add(delP.id);
+    }
+  });
+
+  return { pairByAddId, consumedDeleteIds };
+}
+
+function renderReplacementPairCard(deleteP, addP, baseCardMap) {
+  const existing = baseCardMap.get(deleteP.existing_id);
+  let html = `<div class="proposal-pair-card">`;
+  html += `<div class="proposal-pair-old">`;
+  html += `<span class="action-badge action-badge--delete">DELETE</span>`;
+  html += `<div class="proposal-pair-old-title">${escHtml(existing ? existing.t : deleteP.existing_id)}</div>`;
+  html += `</div>`;
+  html += `<div class="proposal-pair-connector"><span class="proposal-pair-connector-line"></span>remplacée par</div>`;
+  html += renderProposalCard(addP, baseCardMap, false, false, deleteP.id);
+  html += `</div>`;
   return html;
 }
 
@@ -1574,7 +1677,15 @@ function renderProposals() {
   // Tab content
   if (activeProposalTab === "pending") {
     if (pending.length) {
-      pending.forEach(p => { html += renderProposalCard(p, baseCardMap, false, false); });
+      const { pairByAddId, consumedDeleteIds } = findReplacementPairs(pending, baseCardMap);
+      pending.forEach(p => {
+        if (consumedDeleteIds.has(p.id)) return; // rendue avec sa paire "add"
+        if (pairByAddId.has(p.id)) {
+          html += renderReplacementPairCard(pairByAddId.get(p.id), p, baseCardMap);
+        } else {
+          html += renderProposalCard(p, baseCardMap, false, false);
+        }
+      });
     } else {
       html += `<div class="proposals-empty">All proposals have been reviewed.</div>`;
     }
@@ -1758,6 +1869,49 @@ async function submitManualAdd() {
   activeProposalTab = "archived";
   renderProposals();
   buildTable();
+}
+
+// Logique d'approbation d'une proposition par id — extraite du click handler
+// pour être appelable deux fois d'un coup ("Approuver la paire" approuve
+// l'add ET la delete liée). N'appelle pas showToast()/renderProposals()/
+// buildTable() elle-même : l'appelant décide quand rafraîchir l'affichage.
+function approveProposalById(pid) {
+  const proposal = allProposals.find(p => p.id === pid);
+  const action = proposal ? proposal.action : "";
+  const existingId = proposal ? proposal.existing_id : "";
+
+  const approved = getApprovedProposals();
+  if (!approved.includes(pid)) approved.push(pid);
+  saveApprovedProposals(approved);
+  if (!decisions.approval_dates) decisions.approval_dates = {};
+  decisions.approval_dates[pid] = new Date().toISOString().slice(0, 10);
+
+  const rejected = getRejectedProposals().filter(id => id !== pid);
+  saveRejectedProposals(rejected);
+
+  if (action === "delete" && existingId) {
+    const deleted = getDeletedCards();
+    if (!deleted.includes(existingId)) deleted.push(existingId);
+    saveDeletedCards(deleted);
+  }
+
+  if (proposal) {
+    if (proposal.action === "add" && proposal.card) {
+      const newId = cardId(proposal.card);
+      if (!M.some(m => cardId(m) === newId)) {
+        M.push(proposal.card);
+        M.sort((a, b) => new Date(a.d) - new Date(b.d));
+      }
+    } else if (proposal.action === "update" && proposal.card && proposal.existing_id) {
+      const idx = M.findIndex(m => cardId(m) === proposal.existing_id);
+      if (idx !== -1) {
+        M[idx] = proposal.card;
+        M.sort((a, b) => new Date(a.d) - new Date(b.d));
+      }
+    } else if (proposal.action === "delete" && proposal.existing_id) {
+      M = M.filter(m => cardId(m) !== proposal.existing_id);
+    }
+  }
 }
 
 /* ===== Milestones table ===== */
@@ -1999,46 +2153,13 @@ document.getElementById("proposals-section").addEventListener("click", e => {
 
   if (approveBtn) {
     const pid = approveBtn.dataset.proposalApprove;
-    const action = approveBtn.dataset.action;
-    const existingId = approveBtn.dataset.existing;
+    approveProposalById(pid);
 
-    // Add to approved + record approval date
-    const approved = getApprovedProposals();
-    if (!approved.includes(pid)) approved.push(pid);
-    saveApprovedProposals(approved);
-    if (!decisions.approval_dates) decisions.approval_dates = {};
-    decisions.approval_dates[pid] = new Date().toISOString().slice(0,10);
-
-    // Remove from rejected if present
-    const rejected = getRejectedProposals().filter(id => id !== pid);
-    saveRejectedProposals(rejected);
-
-    // If it's a delete action, add existing card to deleted list
-    if (action === "delete" && existingId) {
-      const deleted = getDeletedCards();
-      if (!deleted.includes(existingId)) deleted.push(existingId);
-      saveDeletedCards(deleted);
-    }
-
-    // If it's an add/update action, apply to M
-    const proposal = allProposals.find(p => p.id === pid);
-    if (proposal) {
-      if (proposal.action === "add" && proposal.card) {
-        const newId = cardId(proposal.card);
-        if (!M.some(m => cardId(m) === newId)) {
-          M.push(proposal.card);
-          M.sort((a,b) => new Date(a.d) - new Date(b.d));
-        }
-      } else if (proposal.action === "update" && proposal.card && proposal.existing_id) {
-        const idx = M.findIndex(m => cardId(m) === proposal.existing_id);
-        if (idx !== -1) {
-          M[idx] = proposal.card;
-          M.sort((a,b) => new Date(a.d) - new Date(b.d));
-        }
-      } else if (proposal.action === "delete" && proposal.existing_id) {
-        M = M.filter(m => cardId(m) !== proposal.existing_id);
-      }
-    }
+    // Paire delete+add détectée (bouton "Approuver la paire") : on approuve
+    // aussi la delete de l'ancienne fiche dans la foulée, sans action
+    // séparée requise de l'utilisateur.
+    const pairedDeleteId = approveBtn.dataset.pairedDelete;
+    if (pairedDeleteId) approveProposalById(pairedDeleteId);
 
     showToast();
     renderProposals();
