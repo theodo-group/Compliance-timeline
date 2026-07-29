@@ -531,7 +531,7 @@
       <img src="logo.png" alt="Theodo HealthTech" class="header-logo">
       <h1>MDSW Regulatory Timeline 2026&ndash;2030</h1>
     </div>
-    <span class="header-meta">Updated 16 April 2026</span>
+    <span class="header-meta" id="header-updated">Updated —</span>
   </div>
 </header>
 
@@ -788,6 +788,24 @@ async function init() {
       const cid = p.card ? (p.card.id || cardId(p.card)) : p.existing_id;
       if (cid) cardAddedDates[cid] = approvalDates[p.id] || proposalsGenDate || new Date().toISOString().slice(0,10);
     });
+
+    // Header "Updated" date: the most recent of (a) any approval date, since
+    // that's what actually changed what's displayed, or (b) the proposals
+    // generation date as a fallback for a freshly-run pipeline with nothing
+    // approved yet. Was a hardcoded "16 April 2026" string before this fix —
+    // see automation/UAT-FEEDBACK-MANON.md.
+    const updatedHeader = document.getElementById("header-updated");
+    if (updatedHeader) {
+      const candidates = [...Object.values(approvalDates), proposalsGenDate].filter(Boolean);
+      if (candidates.length) {
+        const latest = candidates.reduce((a, b) => (a > b ? a : b));
+        const d = new Date(latest + "T00:00:00");
+        const label = d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+        updatedHeader.textContent = `Updated ${label}`;
+      } else {
+        updatedHeader.textContent = "";
+      }
+    }
 
     // Apply tag overrides. Stored per-card as {priority, status} so a manual
     // fix to one slot never wipes out the other (an older format stored a

@@ -108,6 +108,7 @@ STANDARDS_REGISTER = [
     {"source": "EU Commission", "reference": "EU 2016/679", "title": "GDPR", "watch_for": "Changes (rare)"},
     {"source": "EU Commission", "reference": "EU 2024/1689", "title": "AI Act", "watch_for": "Application timeline; Digital Omnibus deferrals"},
     {"source": "EU Commission", "reference": "EU 2021/2226 + amendments", "title": "eIFU", "watch_for": "Amendment scope"},
+    {"source": "EU Commission", "reference": "EU 2025/327", "title": "EHDS (European Health Data Space)", "watch_for": "Implementing acts progress (target ~2027); primary/secondary use provisions timeline (target ~2029)"},
     {"source": "AFNOR", "reference": "NF EN ISO 13485:2016/A11", "title": "QMS", "watch_for": "Revision progress"},
     {"source": "AFNOR", "reference": "NF EN ISO 14971:2019/A11", "title": "Risk management", "watch_for": "Any revision signal"},
     {"source": "AFNOR", "reference": "NF EN 62304/A1", "title": "Software lifecycle", "watch_for": "Edition 2 progress (MAJOR when it lands)"},

@@ -531,7 +531,7 @@
       <img src="logo.png" alt="Theodo HealthTech" class="header-logo">
       <h1>Timeline R&eacute;glementaire MDSW 2026&ndash;2030</h1>
     </div>
-    <span class="header-meta">Mis &agrave; jour le 16 avril 2026</span>
+    <span class="header-meta" id="header-updated">Mis &agrave; jour&nbsp;&mdash;</span>
   </div>
 </header>
 
@@ -780,6 +780,24 @@ async function init() {
       const cid = p.card ? (p.card.id || cardId(p.card)) : p.existing_id;
       if (cid) cardAddedDates[cid] = approvalDates[p.id] || proposalsGenDate || new Date().toISOString().slice(0,10);
     });
+
+    // Date "Mis à jour" de l'en-tête : la plus récente entre une date
+    // d'approbation (ce qui change réellement l'affichage) et la date de
+    // génération des propositions (repli si rien n'est encore approuvé).
+    // C'était un texte fixe "16 avril 2026" avant ce correctif — voir
+    // automation/UAT-FEEDBACK-MANON.md.
+    const updatedHeader = document.getElementById("header-updated");
+    if (updatedHeader) {
+      const candidates = [...Object.values(approvalDates), proposalsGenDate].filter(Boolean);
+      if (candidates.length) {
+        const latest = candidates.reduce((a, b) => (a > b ? a : b));
+        const d = new Date(latest + "T00:00:00");
+        const label = d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+        updatedHeader.textContent = `Mis à jour le ${label}`;
+      } else {
+        updatedHeader.textContent = "";
+      }
+    }
 
     const tagOverrides = dec.tag_overrides || {};
     const PRIORITY_TAGS = ["critical", "high", "medium"];

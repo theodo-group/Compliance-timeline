@@ -405,6 +405,40 @@
     transform: translateY(0);
   }
 
+  /* Sync error banner — unlike .toast, this never auto-dismisses: a failed
+     sync to GitHub must stay visible until actually resolved, otherwise an
+     approval can silently never leave the browser (see
+     automation/UAT-FEEDBACK-MANON.md). */
+  .sync-error-banner {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: #b3261e;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-lg);
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .sync-error-banner.visible {
+    display: flex;
+  }
+  .sync-error-banner button {
+    background: #fff;
+    color: #b3261e;
+    border: none;
+    padding: 4px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+
   /* ===== PROPOSALS SECTION ===== */
   .proposals-section {
     margin-bottom: var(--space-2xl);
@@ -849,6 +883,11 @@
 
 <div class="toast" id="toast">Saved</div>
 
+<div class="sync-error-banner" id="sync-error-banner">
+  <span>⚠ Échec de synchronisation avec GitHub — tes changements sont sauvegardés localement mais pas encore partagés.</span>
+  <button type="button" id="sync-error-retry">Réessayer</button>
+</div>
+
 <script>
 let M = [];
 let allProposals = [];
@@ -1051,6 +1090,48 @@ let _pushPending = false;
 // public page: it was persisted locally but the GitHub sync got dropped.
 let _pushDirtyDuringFlight = false;
 
+// Retry/merge state for _doPush() — see the sha-conflict branch below.
+let _pushRetryCount = 0;
+const PUSH_MAX_RETRIES = 3;
+
+// Merge a freshly-fetched remote decisions.json with our local (in-flight)
+// version instead of blindly overwriting it. Arrays are unioned (so an
+// approval/rejection/deletion made by someone else in the meantime is never
+// lost); objects are merged key-by-key with local taking precedence on a
+// shared key (it represents the most recent edit in THIS session). This is
+// the fix for the bug where two people (or two tabs) using the admin portal
+// around the same time could have one person's approval silently overwritten
+// by the other's stale push — see automation/UAT-FEEDBACK-MANON.md.
+function mergeDecisions(remote, local) {
+  const arrayKeys = ["hidden_cards", "approved_proposals", "rejected_proposals", "deleted_cards"];
+  const objectKeys = ["comments", "comments_fr", "tag_overrides", "approval_dates", "proposal_edits"];
+  const merged = { ...remote, ...local };
+  for (const k of arrayKeys) {
+    merged[k] = [...new Set([...(remote[k] || []), ...(local[k] || [])])];
+  }
+  for (const k of objectKeys) {
+    merged[k] = { ...(remote[k] || {}), ...(local[k] || {}) };
+  }
+  return merged;
+}
+
+async function fetchRemoteDecisions() {
+  const token = getGitHubToken();
+  const resp = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${DEC_PATH}`, {
+    headers: token ? { "Authorization": `token ${token}` } : {},
+    cache: "no-store",
+  });
+  if (!resp.ok) throw new Error(`fetch decisions.json failed: ${resp.status}`);
+  const data = await resp.json();
+  const remote = JSON.parse(atob(data.content.replace(/\n/g, "")));
+  return { remote, sha: data.sha };
+}
+
+function showSyncError(show) {
+  const el = document.getElementById("sync-error-banner");
+  if (el) el.classList.toggle("visible", !!show);
+}
+
 async function _doPush() {
   const token = getGitHubToken();
   if (!token) return;
@@ -1074,14 +1155,35 @@ async function _doPush() {
     if (resp.ok) {
       const data = await resp.json();
       decisionsSha = data.content.sha;
+      _pushRetryCount = 0;
+      showSyncError(false);
       showToast("Synced");
+    } else if ((resp.status === 409 || resp.status === 422) && _pushRetryCount < PUSH_MAX_RETRIES) {
+      // Stale sha — someone else (or another tab) updated decisions.json
+      // since we last read it. Re-fetch the current version, merge it with
+      // our local changes instead of giving up, and retry.
+      _pushRetryCount++;
+      console.warn(`decisions.json: sha conflict, re-fetching and merging (retry ${_pushRetryCount}/${PUSH_MAX_RETRIES})...`);
+      try {
+        const { remote, sha } = await fetchRemoteDecisions();
+        decisions = mergeDecisions(remote, decisions);
+        decisionsSha = sha;
+        saveDecisionsLocal();
+        _pushPending = false;
+        await _doPush();
+        return;
+      } catch (mergeErr) {
+        console.error("decisions.json merge/retry failed:", mergeErr);
+        showSyncError(true);
+      }
     } else {
-      const err = await resp.json();
-      console.error("GitHub push failed:", err);
-      showToast("Saved locally (sync failed)");
+      const err = await resp.json().catch(() => ({}));
+      console.error("GitHub push failed after retries:", err);
+      showSyncError(true);
     }
   } catch(e) {
     console.error("GitHub push error:", e);
+    showSyncError(true);
   }
   _pushPending = false;
   // A change came in while this push was in flight — push again immediately
@@ -1249,6 +1351,11 @@ function showToast(msg){
   clearTimeout(t._timer);
   t._timer=setTimeout(()=>t.classList.remove("visible"),1500);
 }
+
+document.getElementById("sync-error-retry")?.addEventListener("click", () => {
+  _pushRetryCount = 0;
+  _doPush();
+});
 
 let hidden = getHidden();
 let query = "";
