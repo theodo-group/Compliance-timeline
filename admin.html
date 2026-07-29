@@ -284,6 +284,54 @@
   .tp-us { background: oklch(93% 0.04 340); color: oklch(38% 0.12 340); }
   .tp-other { background: oklch(93% 0.04 195); color: oklch(35% 0.1 195); }
   .tp-data { background: oklch(93% 0.04 290); color: oklch(35% 0.12 290); }
+  .tp-hds { background: oklch(93% 0.04 105); color: oklch(32% 0.1 105); }
+  .tp-ehds { background: oklch(93% 0.04 140); color: oklch(32% 0.1 140); }
+
+  .add-form { display: flex; flex-direction: column; gap: 12px; max-width: 70ch; }
+  .add-form label { font-size: 0.75rem; font-weight: 600; color: var(--ink-secondary); margin-bottom: 3px; display: block; }
+  .add-form-row { display: flex; gap: 12px; }
+  .add-form-row > div { flex: 1; }
+  .add-input, .add-textarea, .add-select {
+    width: 100%;
+    padding: 6px 9px;
+    border: 1.5px solid var(--surface-3);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.8125rem;
+    background: var(--surface-1);
+    color: var(--ink-primary);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .add-textarea { resize: vertical; min-height: 3em; }
+  .add-input:focus, .add-textarea:focus, .add-select:focus { border-color: var(--gold); }
+  .add-topics-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+  .add-topic-chip {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border: 1.5px solid var(--surface-3);
+    border-radius: 12px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--ink-secondary);
+  }
+  .add-topic-chip input { display: none; }
+  .add-topic-chip.checked { background: var(--gold-soft); border-color: var(--gold-dim); color: var(--ink-primary); font-weight: 600; }
+  .add-form-status { font-size: 0.75rem; color: var(--ink-muted); min-height: 1em; }
+  .add-form-status.ok { color: oklch(70% 0.14 160); }
+  .add-form-status.error { color: oklch(65% 0.2 25); }
+
+  .proposal-quick-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 8px 0;
+    padding: 8px 10px;
+    background: var(--surface-2);
+    border-radius: 6px;
+  }
+  .proposal-quick-edit-tags { display: flex; align-items: center; gap: 4px; }
+  .proposal-quick-edit .comment-pair { max-width: 70ch; }
 
   .cell-toggle { width: 52px; text-align: center; }
   .cell-comment { min-width: 300px; }
@@ -897,7 +945,7 @@ let proposalLangView = {}; // { [proposal.id]: "en" | "fr" } — vue en cours pa
 
 function cardId(m){ return m.id || m.d+"__"+m.t.slice(0,40).replace(/\W+/g,"_"); }
 
-const TL={mdr:"EU MDR/IVDR",ai:"AI Act",standards:"Standards",cyber:"Cybersecurity",france:"France",uk:"UK",us:"US (FDA)",other:"Other Regions",data:"Data / EHDS"};
+const TL={mdr:"EU MDR/IVDR",ai:"AI Act",standards:"Standards",cyber:"Cybersecurity",france:"France",uk:"UK",us:"US (FDA)",other:"Other Regions",data:"Data protection",hds:"HDS / ISO 27001",ehds:"EHDS"};
 const TG={critical:"CRITICAL",high:"HIGH",medium:"MEDIUM","new":"NEW","in-force":"IN FORCE","draft":"DRAFT","proposed":"PROPOSED"};
 
 /* ===== decisions.json — shared state via GitHub repo ===== */
@@ -972,7 +1020,7 @@ async function loadModelConfig() {
     if (resp.ok) {
       const ghFile = await resp.json();
       modelConfigSha = ghFile.sha;
-      const parsed = JSON.parse(atob(ghFile.content.replace(/\n/g, "")));
+      const parsed = JSON.parse(decodeURIComponent(escape(atob(ghFile.content.replace(/\n/g, "")))));
       if (parsed.research_model) {
         // Repli si un ancien config.json (2 champs : research_model / writing_model)
         // ou un config.json partiel est encore en place — même logique que
@@ -1120,7 +1168,7 @@ async function fetchRemoteDecisions() {
   });
   if (!resp.ok) throw new Error(`fetch decisions.json failed: ${resp.status}`);
   const data = await resp.json();
-  const remote = JSON.parse(atob(data.content.replace(/\n/g, "")));
+  const remote = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g, "")))));
   return { remote, sha: data.sha };
 }
 
@@ -1444,6 +1492,26 @@ function renderProposalCard(p, baseCardMap, isApproved, isRejected) {
     if (p.card.tp) {
       html += `<div class="proposal-topics">${p.card.tp.map(tp => `<span class="tp tp-${tp}">${escHtml(TL[tp]||tp)}</span>`).join("")}</div>`;
     }
+
+    // Vue unifiée (retour Manon) : tags (priorité/statut) et commentaire
+    // éditables ici, au moment de l'approbation, sans avoir à redescendre
+    // dans le tableau des jalons. Même stockage que plus bas (tag_overrides,
+    // comments/comments_fr keyés par cardId) donc les deux vues restent en
+    // permanence synchronisées, quelle que soit celle utilisée.
+    const targetId = cardId(p.card);
+    const { priority, status } = effectiveTags(p.card, targetId);
+    const priorityHtml = priority
+      ? `<span class="tag-editable" data-tag-id="${targetId}" data-tag-category="priority" data-current-tag="${priority}"><span class="ms-tag tag-${priority}">${TG[priority]||priority}</span></span>`
+      : `<span class="tag-editable tag-editable-empty" data-tag-id="${targetId}" data-tag-category="priority" data-current-tag="">+ priorite</span>`;
+    const statusHtml = status
+      ? `<span class="tag-editable" data-tag-id="${targetId}" data-tag-category="status" data-current-tag="${status}"><span class="ms-tag tag-${status}">${TG[status]||status}</span></span>`
+      : `<span class="tag-editable tag-editable-empty" data-tag-id="${targetId}" data-tag-category="status" data-current-tag="">+ statut</span>`;
+    const qeCommentEn = escAttr(getComments("en")[targetId] || "");
+    const qeCommentFr = escAttr(getComments("fr")[targetId] || "");
+    html += `<div class="proposal-quick-edit">`;
+    html += `<div class="proposal-quick-edit-tags">${priorityHtml}${statusHtml}</div>`;
+    html += `<div class="comment-pair"><input type="text" class="comment-input" data-comment-id="${targetId}" data-comment-lang="en" value="${qeCommentEn}" placeholder="Add an EN comment..."><input type="text" class="comment-input" data-comment-id="${targetId}" data-comment-lang="fr" value="${qeCommentFr}" placeholder="Commentaire en FR..."></div>`;
+    html += `</div>`;
   }
 
   if (p.action === "update" && p.existing_id && p.card) {
@@ -1482,10 +1550,6 @@ function renderProposalCard(p, baseCardMap, isApproved, isRejected) {
 
 function renderProposals() {
   const container = document.getElementById("proposals-section");
-  if (!allProposals.length) {
-    container.innerHTML = "";
-    return;
-  }
 
   const approved = new Set(getApprovedProposals());
   const rejected = new Set(getRejectedProposals());
@@ -1498,10 +1562,13 @@ function renderProposals() {
 
   let html = `<div class="proposals-section">`;
 
-  // Tabs
+  // Tabs — "add" always shown, even with zero proposals loaded (used to be
+  // an early-return that hid the whole section, including manual add, when
+  // proposals.json was empty).
   html += `<div class="proposals-tabs">`;
   html += `<button class="proposals-tab ${activeProposalTab === 'pending' ? 'active' : ''}" data-ptab="pending">Pending proposals <span class="proposals-tab-count">${pending.length}</span></button>`;
   html += `<button class="proposals-tab ${activeProposalTab === 'archived' ? 'active' : ''}" data-ptab="archived">Archived <span class="proposals-tab-count">${archived.length}</span></button>`;
+  html += `<button class="proposals-tab ${activeProposalTab === 'add' ? 'active' : ''}" data-ptab="add">+ Ajouter une news</button>`;
   html += `</div>`;
 
   // Tab content
@@ -1511,7 +1578,7 @@ function renderProposals() {
     } else {
       html += `<div class="proposals-empty">All proposals have been reviewed.</div>`;
     }
-  } else {
+  } else if (activeProposalTab === "archived") {
     if (archived.length) {
       archived.forEach(p => {
         html += renderProposalCard(p, baseCardMap, approved.has(p.id), rejected.has(p.id));
@@ -1519,10 +1586,178 @@ function renderProposals() {
     } else {
       html += `<div class="proposals-empty">No archived proposals yet.</div>`;
     }
+  } else if (activeProposalTab === "add") {
+    html += renderAddForm();
   }
 
   html += `</div><hr class="section-divider">`;
   container.innerHTML = html;
+}
+
+/* ===== Manual add — create a news item from scratch, published the same
+   way an AI proposal is: written as a real proposal (action "add") into
+   proposals.json/proposals-fr.json, then immediately marked approved in
+   decisions.json. This reuses 100% of the existing render/undo/promotion
+   machinery instead of inventing a parallel "manual card" concept — a
+   manually authored proposal is still a proposal, just not AI-written. */
+
+const EN_MONTHS_ABBR = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const FR_MONTHS_ABBR = ["janv.","févr.","mars","avr.","mai","juin","juill.","août","sept.","oct.","nov.","déc."];
+
+function formatDateLabel(dateStr, months) {
+  const [y, mo, d] = dateStr.split("-").map(Number);
+  return d === 1 ? `${months[mo - 1]} ${y}` : `${d} ${months[mo - 1]} ${y}`;
+}
+
+function slugify(title) {
+  return title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40);
+}
+
+function renderAddForm() {
+  const topicChips = Object.keys(TL).map(t =>
+    `<label class="add-topic-chip" data-topic-chip="${t}"><input type="checkbox" value="${t}" class="add-topic-cb">${escHtml(TL[t])}</label>`
+  ).join("");
+  return `
+    <div class="add-form">
+      <div class="add-form-row">
+        <div><label>Date</label><input type="date" id="add-date" class="add-input"></div>
+        <div><label>Source (URL)</label><input type="text" id="add-url" class="add-input" placeholder="https://..."></div>
+      </div>
+      <div><label>Titre (EN)</label><input type="text" id="add-title-en" class="add-input" placeholder="Milestone title"></div>
+      <div><label>Description (EN)</label><textarea id="add-desc-en" class="add-textarea" rows="3"></textarea></div>
+      <div><label>Titre (FR) — optionnel, sinon copie de l'EN</label><input type="text" id="add-title-fr" class="add-input"></div>
+      <div><label>Description (FR) — optionnel</label><textarea id="add-desc-fr" class="add-textarea" rows="3"></textarea></div>
+      <div><label>Thèmes</label><div class="add-topics-grid">${topicChips}</div></div>
+      <div class="add-form-row">
+        <div><label>Priorité</label><select id="add-priority" class="add-select">
+          <option value="">Aucune</option><option value="critical">Critical</option>
+          <option value="high">High</option><option value="medium">Medium</option>
+        </select></div>
+        <div><label>Statut</label><select id="add-status" class="add-select">
+          <option value="">Aucun</option><option value="new">New</option>
+          <option value="in-force">In force</option><option value="draft">Draft</option>
+          <option value="proposed">Proposed</option>
+        </select></div>
+      </div>
+      <div><button type="button" class="btn btn-approve" id="add-submit-btn">Créer et publier</button></div>
+      <div id="add-form-status" class="add-form-status"></div>
+    </div>`;
+}
+
+// Ecrit une nouvelle proposition dans proposals.json ou proposals-fr.json —
+// jamais fait depuis admin.html jusqu'ici (ces fichiers n'étaient écrits que
+// par le pipeline). Même logique de retry que decisions.json sur conflit de
+// sha (quelqu'un d'autre — humain ou pipeline — a pu committer entre-temps).
+async function pushNewProposal(path, proposalObj, attempt) {
+  attempt = attempt || 0;
+  const token = getGitHubToken();
+  const resp = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`, {
+    headers: { "Authorization": `token ${token}` },
+    cache: "no-store",
+  });
+  if (!resp.ok) throw new Error(`fetch ${path} failed: ${resp.status}`);
+  const fileData = await resp.json();
+  const parsed = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, "")))));
+  if (!Array.isArray(parsed.proposals)) parsed.proposals = [];
+  parsed.proposals = parsed.proposals.filter(p => p.id !== proposalObj.id);
+  parsed.proposals.push(proposalObj);
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(parsed, null, 2))));
+  const putResp = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`, {
+    method: "PUT",
+    headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message: `Ajout manuel: ${proposalObj.card.t}`,
+      content: content,
+      sha: fileData.sha,
+    }),
+  });
+  if (putResp.ok) return;
+  if ((putResp.status === 409 || putResp.status === 422) && attempt < 3) {
+    return pushNewProposal(path, proposalObj, attempt + 1);
+  }
+  const err = await putResp.json().catch(() => ({}));
+  throw new Error(`push ${path} failed: ${putResp.status} ${JSON.stringify(err)}`);
+}
+
+async function submitManualAdd() {
+  const statusEl = document.getElementById("add-form-status");
+  const setStatus = (msg, ok) => {
+    statusEl.textContent = msg;
+    statusEl.className = "add-form-status " + (ok === true ? "ok" : ok === false ? "error" : "");
+  };
+
+  const titleEn = document.getElementById("add-title-en").value.trim();
+  const descEn = document.getElementById("add-desc-en").value.trim();
+  const dateStr = document.getElementById("add-date").value;
+  const url = document.getElementById("add-url").value.trim();
+  let titleFr = document.getElementById("add-title-fr").value.trim();
+  let descFr = document.getElementById("add-desc-fr").value.trim();
+  const priority = document.getElementById("add-priority").value;
+  const status = document.getElementById("add-status").value;
+  const topics = [...document.querySelectorAll(".add-topic-cb:checked")].map(cb => cb.value);
+
+  if (!titleEn || !descEn || !dateStr) {
+    setStatus("Titre, description (EN) et date sont obligatoires.", false);
+    return;
+  }
+  if (!topics.length) {
+    setStatus("Choisis au moins un thème.", false);
+    return;
+  }
+  const token = getGitHubToken();
+  if (!token) {
+    setStatus("Entre ton token GitHub (en haut à droite) avant de publier.", false);
+    return;
+  }
+  if (!titleFr) titleFr = titleEn;
+  if (!descFr) descFr = descEn;
+
+  const y = Number(dateStr.slice(0, 4));
+  const slug = slugify(titleEn) || "news";
+  const existingIds = new Set([...M.map(cardId), ...allProposals.map(p => p.id)]);
+  let id = `${dateStr}--${slug}`;
+  let n = 2;
+  while (existingIds.has(id)) { id = `${dateStr}--${slug}-${n}`; n++; }
+
+  const tg = [priority, status].filter(Boolean);
+  const v = priority === "critical" ? "c" : priority === "high" ? "h" : "n";
+
+  const cardEn = { id, d: dateStr, l: formatDateLabel(dateStr, EN_MONTHS_ABBR), y, t: titleEn, x: descEn, u: url, tp: topics, tg, v };
+  const cardFr = { ...cardEn, l: formatDateLabel(dateStr, FR_MONTHS_ABBR), t: titleFr, x: descFr };
+  const proposalEn = { id, action: "add", reason: "Ajout manuel via le portail admin", card: cardEn };
+  const proposalFr = { id, action: "add", reason: "Ajout manuel via le portail admin", card: cardFr };
+
+  setStatus("Publication en cours...");
+  try {
+    await pushNewProposal("proposals.json", proposalEn);
+    await pushNewProposal("proposals-fr.json", proposalFr);
+  } catch (err) {
+    console.error("Manual add: failed to push proposal", err);
+    setStatus("Échec de la publication (voir la console). Réessaie.", false);
+    return;
+  }
+
+  // Reflète localement + approuve immédiatement, comme un clic "Approve"
+  // classique — même stockage (approved_proposals, approval_dates), donc
+  // ça apparaît tout de suite dans le tableau du bas et sur le site public.
+  allProposals.push(proposalEn);
+  proposalsFrMap.set(id, proposalFr);
+  const approved = getApprovedProposals();
+  approved.push(id);
+  saveApprovedProposals(approved);
+  if (!decisions.approval_dates) decisions.approval_dates = {};
+  decisions.approval_dates[id] = new Date().toISOString().slice(0, 10);
+  if (!M.some(m => cardId(m) === id)) {
+    M.push(cardEn);
+    M.sort((a, b) => new Date(a.d) - new Date(b.d));
+  }
+
+  setStatus("Publié et approuvé.", true);
+  showToast("Ajouté");
+  activeProposalTab = "archived";
+  renderProposals();
+  buildTable();
 }
 
 /* ===== Milestones table ===== */
@@ -1601,10 +1836,16 @@ document.getElementById("tbody").addEventListener("change",e=>{
   buildTable();
 });
 
-// Comment handler (save on blur or enter)
-document.getElementById("tbody").addEventListener("change", e => {
+// Comment handler (save on blur or enter) — document-level so it also
+// catches the comment inputs duplicated onto pending proposal cards
+// (vue unifiée), not just the bottom milestones table.
+document.addEventListener("change", e => {
   if (!e.target.matches(".comment-input")) return;
   saveComment(e.target.dataset.commentId, e.target.value, e.target.dataset.commentLang);
+  // Le même id peut être affiché à la fois dans une carte de proposition et
+  // dans le tableau du bas une fois approuvé — on garde les deux à jour.
+  buildTable();
+  renderProposals();
 });
 document.getElementById("tbody").addEventListener("keydown", e => {
   if (e.target.matches(".comment-input") && e.key === "Enter") {
@@ -1617,7 +1858,9 @@ document.getElementById("tbody").addEventListener("keydown", e => {
 // to clear a manual override and fall back to whatever the pipeline set.
 let openDropdown = null;
 
-document.getElementById("tbody").addEventListener("click", e => {
+// Document-level (not just #tbody) so the same tag editor works both in the
+// bottom milestones table and on pending proposal cards (vue unifiée).
+document.addEventListener("click", e => {
   const editable = e.target.closest(".tag-editable");
   if (!editable) {
     if (openDropdown) { openDropdown.remove(); openDropdown = null; }
@@ -1657,13 +1900,14 @@ document.getElementById("tbody").addEventListener("click", e => {
   openDropdown = dd;
 });
 
-document.getElementById("tbody").addEventListener("click", e => {
+document.addEventListener("click", e => {
   const opt = e.target.closest(".tag-dropdown .ms-tag");
   if (!opt) return;
   e.stopPropagation();
   saveTagOverride(opt.dataset.cardId, opt.dataset.category, opt.dataset.tag || null);
   if (openDropdown) { openDropdown.remove(); openDropdown = null; }
   buildTable();
+  renderProposals();
 });
 
 // Close dropdown on outside click
@@ -1728,6 +1972,23 @@ document.getElementById("proposals-section").addEventListener("click", e => {
   if (!langBtn || langBtn.disabled) return;
   proposalLangView[langBtn.dataset.langToggle] = langBtn.dataset.lang;
   renderProposals();
+});
+
+// Manual add — topic chip toggle + submit
+document.getElementById("proposals-section").addEventListener("click", e => {
+  const chip = e.target.closest(".add-topic-chip");
+  if (chip) {
+    e.preventDefault();
+    chip.classList.toggle("checked");
+    const cb = chip.querySelector(".add-topic-cb");
+    if (cb) cb.checked = chip.classList.contains("checked");
+    return;
+  }
+  const submitBtn = e.target.closest("#add-submit-btn");
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitManualAdd().finally(() => { submitBtn.disabled = false; });
+  }
 });
 
 // Proposal actions (delegated)
@@ -1879,7 +2140,7 @@ async function init() {
       try {
         const ghFile = await decResp.json();
         decisionsSha = ghFile.sha;
-        const parsed = JSON.parse(atob(ghFile.content.replace(/\n/g, "")));
+        const parsed = JSON.parse(decodeURIComponent(escape(atob(ghFile.content.replace(/\n/g, "")))));
         // Only use if it has real content (not empty defaults)
         if (parsed.approved_proposals?.length || parsed.hidden_cards?.length ||
             parsed.rejected_proposals?.length || Object.keys(parsed.comments || {}).length ||

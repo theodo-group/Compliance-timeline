@@ -39,6 +39,8 @@
     --c-us: oklch(52% 0.18 340);
     --c-other: oklch(48% 0.12 195);
     --c-data: oklch(48% 0.16 290);
+    --c-hds: oklch(48% 0.14 105);
+    --c-ehds: oklch(48% 0.14 140);
 
     /* Spacing on 4pt grid */
     --space-xs: 4px;
@@ -423,6 +425,8 @@
   .tp-us { background: oklch(93% 0.04 340); color: oklch(38% 0.12 340); }
   .tp-other { background: oklch(93% 0.04 195); color: oklch(35% 0.1 195); }
   .tp-data { background: oklch(93% 0.04 290); color: oklch(35% 0.12 290); }
+  .tp-hds { background: oklch(93% 0.04 105); color: oklch(32% 0.1 105); }
+  .tp-ehds { background: oklch(93% 0.04 140); color: oklch(32% 0.1 140); }
 
   /* Dot colors */
   .ms[data-lead="mdr"] .ms-date::after { background: var(--c-mdr); }
@@ -434,6 +438,8 @@
   .ms[data-lead="us"] .ms-date::after { background: var(--c-us); }
   .ms[data-lead="other"] .ms-date::after { background: var(--c-other); }
   .ms[data-lead="data"] .ms-date::after { background: var(--c-data); }
+  .ms[data-lead="hds"] .ms-date::after { background: var(--c-hds); }
+  .ms[data-lead="ehds"] .ms-date::after { background: var(--c-ehds); }
 
   /* ===== FOOTER ===== */
   .footer {
@@ -546,10 +552,21 @@
       <button class="filter-btn" data-topic="standards"><span class="dot" style="background:var(--c-standards)"></span>Normes</button>
       <button class="filter-btn" data-topic="cyber"><span class="dot" style="background:var(--c-cyber)"></span>Cybers&eacute;curit&eacute;</button>
       <button class="filter-btn" data-topic="france"><span class="dot" style="background:var(--c-france)"></span>France</button>
-      <button class="filter-btn" data-topic="data"><span class="dot" style="background:var(--c-data)"></span>Data / EHDS</button>
+      <button class="filter-btn" data-topic="data"><span class="dot" style="background:var(--c-data)"></span>Protection des donn&eacute;es</button>
+      <button class="filter-btn" data-topic="hds"><span class="dot" style="background:var(--c-hds)"></span>HDS / ISO 27001</button>
+      <button class="filter-btn" data-topic="ehds"><span class="dot" style="background:var(--c-ehds)"></span>EHDS</button>
       <button class="filter-btn" data-topic="uk"><span class="dot" style="background:var(--c-uk)"></span>UK</button>
       <button class="filter-btn" data-topic="us"><span class="dot" style="background:var(--c-us)"></span>US (FDA)</button>
       <button class="filter-btn" data-topic="other"><span class="dot" style="background:var(--c-other)"></span>Autres r&eacute;gions</button>
+    </div>
+    <div class="filter-sep"></div>
+    <div class="filters-label">Statut</div>
+    <div class="filters" id="status-filters">
+      <button class="filter-btn filter-btn-all active" data-status="all">Tous</button>
+      <button class="filter-btn" data-status="new">Nouveau</button>
+      <button class="filter-btn" data-status="in-force">En vigueur</button>
+      <button class="filter-btn" data-status="draft">Projet</button>
+      <button class="filter-btn" data-status="proposed">Propos&eacute;</button>
     </div>
     <div class="filter-sep"></div>
     <div class="filters-label">Ajout&eacute;</div>
@@ -590,13 +607,15 @@ if (localStorage.getItem("rw_migrated_to_stable_ids") !== "3") {
 function cardId(m){ return m.id || m.d+"__"+m.t.slice(0,40).replace(/\W+/g,"_"); }
 function lsGet(k){ try { return JSON.parse(localStorage.getItem(k)||"[]"); } catch(e){ return []; } }
 
-const TL={mdr:"EU MDR/IVDR",ai:"R\u00e8glement IA",standards:"Normes",cyber:"Cybers\u00e9curit\u00e9",france:"France",uk:"Royaume-Uni",us:"\u00c9tats-Unis (FDA)",other:"Autres r\u00e9gions",data:"Donn\u00e9es / EHDS"};
+const TL={mdr:"EU MDR/IVDR",ai:"R\u00e8glement IA",standards:"Normes",cyber:"Cybers\u00e9curit\u00e9",france:"France",uk:"Royaume-Uni",us:"\u00c9tats-Unis (FDA)",other:"Autres r\u00e9gions",data:"Protection des donn\u00e9es",hds:"HDS / ISO 27001",ehds:"EHDS"};
 const TG={critical:"CRITIQUE",high:"\u00c9LEV\u00c9",medium:"MOYEN","new":"NOUVEAU","in-force":"EN VIGUEUR",draft:"PROJET",proposed:"PROPOS\u00c9"};
+const STATUS_TAGS = ["new", "in-force", "draft", "proposed"];
 
 let M = [];
 let comments = {};
 let cardAddedDates = {};
 let activeRecency = "all";
+let activeStatus = "all";
 
 // 3-state filter logic
 const included = new Set();
@@ -627,6 +646,10 @@ function isVis(m) {
     const diffDays = (new Date() - new Date(added)) / (1000 * 60 * 60 * 24);
     if (activeRecency === "week" && diffDays > 7) return false;
     if (activeRecency === "month" && diffDays > 31) return false;
+  }
+  if (activeStatus !== "all") {
+    const status = m.tg.find(t => STATUS_TAGS.includes(t)) || null;
+    if (status !== activeStatus) return false;
   }
   if (isAllDefault()) return true;
   if (included.size > 0) return m.tp.some(t => included.has(t));
@@ -701,6 +724,16 @@ document.getElementById("filters").addEventListener("click", e => {
   if (t === "all") { included.clear(); excluded.clear(); }
   else cycleState(t);
   syncButtons();
+  render();
+});
+
+// Status filter
+document.getElementById("status-filters").addEventListener("click", e => {
+  const btn = e.target.closest(".filter-btn");
+  if (!btn) return;
+  activeStatus = btn.dataset.status;
+  document.querySelectorAll("#status-filters .filter-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
   render();
 });
 

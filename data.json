@@ -143,7 +143,8 @@
     "u": "https://esante.gouv.fr/produits-services/hds",
     "tp": [
       "france",
-      "data"
+      "data",
+      "hds"
     ],
     "tg": [
       "critical"
@@ -354,7 +355,8 @@
     "u": "https://next.ink/223140/health-data-hub-le-gouvernement-promet-une-bascule-sur-secnumcloud-dici-fin-2026/",
     "tp": [
       "france",
-      "data"
+      "data",
+      "hds"
     ],
     "tg": [
       "medium"
@@ -404,7 +406,8 @@
     "u": "https://esante.gouv.fr/espace-europeen-donnees-sante",
     "tp": [
       "data",
-      "mdr"
+      "mdr",
+      "ehds"
     ],
     "tg": [
       "high"
@@ -568,7 +571,8 @@
     "u": "https://esante.gouv.fr/espace-europeen-donnees-sante",
     "tp": [
       "data",
-      "mdr"
+      "mdr",
+      "ehds"
     ],
     "tg": [
       "high"

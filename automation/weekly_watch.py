@@ -58,7 +58,7 @@ ARCHIVE_DIR = STATE_DIR / "archive"
 
 LITELLM_BASE_URL = "https://llm-gateway.m33.tech"
 
-VALID_TOPICS = ["mdr", "ai", "standards", "cyber", "france", "uk", "us", "other", "data"]
+VALID_TOPICS = ["mdr", "ai", "standards", "cyber", "france", "uk", "us", "other", "data", "hds", "ehds"]
 VALID_TAGS = ["critical", "high", "medium", "new", "in-force", "draft", "proposed"]
 VALID_VARIANTS = ["c", "h", "n"]
 
