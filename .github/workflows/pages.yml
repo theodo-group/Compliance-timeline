@@ -20,8 +20,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      # Ne publier QUE les fichiers du site. Avec path '.', tout le repo était
+      # servi publiquement : automation/recipients.json (adresses email) et
+      # automation/state/ (contenu des emails internes, dumps LLM) compris.
+      - name: Build publish folder (site files only)
+        run: |
+          mkdir -p _site
+          cp index.html fr.html admin.html _site/
+          cp data.json data-fr.json proposals.json proposals-fr.json decisions.json _site/
+          cp *.png _site/ 2>/dev/null || true
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
       - id: deployment
         uses: actions/deploy-pages@v4
