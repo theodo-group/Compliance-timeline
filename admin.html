@@ -677,6 +677,12 @@
     background: oklch(55% 0.2 25);
     color: oklch(98% 0.005 90);
   }
+  /* "Keep old" outcome : le badge DELETE est barré pour montrer que cette
+     suppression n'a pas eu lieu (sinon on croit à tort qu'elle va l'être). */
+  .action-badge--struck {
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
 
   .proposal-title {
     font-size: 0.875rem;
@@ -1680,13 +1686,13 @@ function renderProposalCard(p, baseCardMap, isApproved, isRejected, pairedDelete
     html += `<span class="decision-status decision-rejected">Rejected</span>`;
     if (!suppressUndo) html += `<button class="btn btn-undo" data-proposal-undo="${p.id}">Undo</button>`;
   } else {
-    html += `<button class="btn btn-approve" data-proposal-approve="${p.id}" data-action="${p.action}" data-existing="${p.existing_id||''}" data-paired-delete="${pairedDeleteId||''}">${pairedDeleteId ? "Approuver le remplacement" : "Approve"}</button>`;
+    html += `<button class="btn btn-approve" data-proposal-approve="${p.id}" data-action="${p.action}" data-existing="${p.existing_id||''}" data-paired-delete="${pairedDeleteId||''}">${pairedDeleteId ? "Approve replacement" : "Approve"}</button>`;
     if (pairedDeleteId) {
-      // "Garder l'ancienne" : l'ancienne fiche reste (delete rejetée) ET la
+      // "Keep old" : l'ancienne fiche reste (delete rejetée) ET la
       // nouvelle est quand même ajoutée à côté (add approuvée) — les deux
       // coexistent. Utile quand la nouvelle info est valable mais que ce
       // n'est pas vraiment un remplacement de l'ancienne.
-      html += `<button class="btn btn-keep-old" data-proposal-keep-old="${p.id}" data-paired-delete="${pairedDeleteId}">Garder l'ancienne</button>`;
+      html += `<button class="btn btn-keep-old" data-proposal-keep-old="${p.id}" data-paired-delete="${pairedDeleteId}">Keep old</button>`;
     }
     html += `<button class="btn btn-reject" data-proposal-reject="${p.id}" data-paired-delete="${pairedDeleteId||''}">Reject</button>`;
   }
@@ -1754,7 +1760,7 @@ function renderReplacementPairCard(deleteP, addP, baseCardMap) {
     html += `<div class="proposal-pair-old-desc">${escHtml(existing.x)}</div>`;
   }
   html += `</div>`;
-  html += `<div class="proposal-pair-connector"><span class="proposal-pair-connector-line"></span>remplacée par</div>`;
+  html += `<div class="proposal-pair-connector"><span class="proposal-pair-connector-line"></span>replaced by</div>`;
   html += renderProposalCard(addP, baseCardMap, false, false, deleteP.id);
   html += `</div>`;
   return html;
@@ -1773,30 +1779,31 @@ function renderDecidedPairCard(deleteP, addP, baseCardMap, approved, rejected) {
   const deleteApproved = approved.has(deleteP.id);
   const addApproved = approved.has(addP.id);
 
-  // "Ancienne conservée" (Garder l'ancienne) : l'ancienne fiche n'a jamais
-  // quitté la frise — la montrer barrée/grisée comme si elle était retirée
-  // serait trompeur (retour Joseph). Seul le vrai remplacement (delete
-  // approuvée) mérite ce traitement "supprimée".
+  // "Old one kept" (Keep old) : l'ancienne fiche n'a jamais quitté la frise
+  // — la montrer barrée/grisée comme si elle était retirée serait trompeur
+  // (retour Joseph). Seul le vrai remplacement (delete approuvée) mérite ce
+  // traitement "supprimée". Le badge DELETE lui-même est barré dans ce cas
+  // (autre retour Joseph : sinon on croit qu'elle va être supprimée).
   const oldKept = !deleteApproved && addApproved;
   const oldRemoved = deleteApproved;
 
   let outcomeLabel, outcomeClass;
   if (deleteApproved && addApproved) {
-    outcomeLabel = "Remplacement approuvé";
+    outcomeLabel = "Replacement approved";
     outcomeClass = "decision-approved";
   } else if (oldKept) {
-    outcomeLabel = "Ancienne conservée";
+    outcomeLabel = "Old one kept";
     outcomeClass = "decision-approved";
   } else {
-    outcomeLabel = "Remplacement rejeté";
+    outcomeLabel = "Replacement rejected";
     outcomeClass = "decision-rejected";
   }
 
   let html = `<div class="proposal-pair-card proposal-pair-card--decided">`;
   html += `<div class="proposal-pair-old${oldKept ? " proposal-pair-old--kept" : ""}">`;
-  html += `<span class="action-badge action-badge--delete">DELETE</span> `;
+  html += `<span class="action-badge action-badge--delete${oldKept ? " action-badge--struck" : ""}">DELETE</span> `;
   if (oldKept) {
-    html += `<span class="decision-status decision-approved">Conservée</span>`;
+    html += `<span class="decision-status decision-approved">Kept</span>`;
   } else {
     html += `<span class="decision-status ${deleteApproved ? "decision-approved" : "decision-rejected"}">${deleteApproved ? "Approved" : "Rejected"}</span>`;
   }
@@ -1805,14 +1812,14 @@ function renderDecidedPairCard(deleteP, addP, baseCardMap, approved, rejected) {
     html += `<div class="proposal-pair-old-desc">${escHtml(existing.x)}</div>`;
   }
   if (oldKept) {
-    html += `<div class="proposal-pair-kept-note"><i class="pair-kept-dot"></i>Toujours affichée sur la frise, inchangée</div>`;
+    html += `<div class="proposal-pair-kept-note"><i class="pair-kept-dot"></i>Still live on the timeline, unchanged</div>`;
   }
   html += `</div>`;
-  html += `<div class="proposal-pair-connector"><span class="proposal-pair-connector-line"></span>${oldKept ? "coexiste avec" : "remplacée par"}</div>`;
+  html += `<div class="proposal-pair-connector"><span class="proposal-pair-connector-line"></span>${oldKept ? "coexists with" : "replaced by"}</div>`;
   html += renderProposalCard(addP, baseCardMap, addApproved, rejected.has(addP.id), null, true);
   html += `<div class="proposal-pair-outcome">`;
   html += `<span class="decision-status ${outcomeClass}">${outcomeLabel}</span>`;
-  html += `<button class="btn btn-undo" data-proposal-undo-pair data-undo-pair-delete="${deleteP.id}" data-undo-pair-add="${addP.id}">Remettre en attente</button>`;
+  html += `<button class="btn btn-undo" data-proposal-undo-pair data-undo-pair-delete="${deleteP.id}" data-undo-pair-add="${addP.id}">Back to pending</button>`;
   html += `</div>`;
   html += `</div>`;
   return html;
