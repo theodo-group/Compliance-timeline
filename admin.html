@@ -96,6 +96,7 @@
   }
   .gh-token-status.ok { color: oklch(70% 0.14 160); }
   .gh-token-status.none { color: oklch(55% 0.01 260); }
+  .gh-token-status.error { color: oklch(65% 0.2 25); }
   .topbar-link {
     font-size: 0.75rem;
     font-weight: 500;
@@ -999,11 +1000,7 @@ async function loadModelConfig() {
   if (proposalsSelect) proposalsSelect.value = modelConfig.proposals_model;
   if (translateSelect) translateSelect.value = modelConfig.translate_model;
 
-  const status = document.getElementById("model-config-status");
-  if (status) {
-    if (getGitHubToken()) { status.textContent = "Connected"; status.className = "gh-token-status ok"; }
-    else { status.textContent = "Local only"; status.className = "gh-token-status none"; }
-  }
+  updateTokenStatus();
 }
 
 /* ===== Manual "run now" trigger via workflow_dispatch ===== */
@@ -1318,15 +1315,55 @@ function effectiveTags(m, cid){
 }
 
 // GitHub token persistence
-function updateTokenStatus() {
-  const status = document.getElementById("gh-token-status");
-  if (getGitHubToken()) {
-    status.textContent = "Connected";
-    status.className = "gh-token-status ok";
-  } else {
-    status.textContent = "Local only";
-    status.className = "gh-token-status none";
+// "Connected" doit refléter un token qui marche réellement contre l'API GitHub,
+// pas juste la présence d'une chaîne dans localStorage (bug observé : un token
+// invalide/expiré/mal collé s'affichait quand même "Connected", donnant une
+// fausse confiance jusqu'au premier push qui échouait silencieusement).
+let _tokenVerifyPromise = null;
+let _tokenVerifyForToken = null;
+
+async function verifyGitHubToken(token) {
+  if (!token) return { ok: false, reason: "empty" };
+  if (_tokenVerifyForToken === token && _tokenVerifyPromise) return _tokenVerifyPromise;
+  _tokenVerifyForToken = token;
+  _tokenVerifyPromise = (async () => {
+    try {
+      const resp = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`, {
+        headers: { "Authorization": `token ${token}` },
+      });
+      if (resp.status === 401 || resp.status === 403) return { ok: false, reason: "invalid" };
+      if (!resp.ok) return { ok: false, reason: "invalid" };
+      return { ok: true };
+    } catch (e) {
+      return { ok: false, reason: "network" };
+    }
+  })();
+  return _tokenVerifyPromise;
+}
+
+async function updateTokenStatus() {
+  const token = getGitHubToken();
+  const els = ["gh-token-status", "model-config-status"]
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  if (!token) {
+    els.forEach(el => { el.textContent = "Local only (pas de token)"; el.className = "gh-token-status none"; });
+    return;
   }
+  els.forEach(el => { el.textContent = "Vérification..."; el.className = "gh-token-status none"; });
+  const result = await verifyGitHubToken(token);
+  els.forEach(el => {
+    if (result.ok) {
+      el.textContent = "Connected";
+      el.className = "gh-token-status ok";
+    } else if (result.reason === "invalid") {
+      el.textContent = "Token invalide";
+      el.className = "gh-token-status error";
+    } else {
+      el.textContent = "Non vérifié (réseau)";
+      el.className = "gh-token-status none";
+    }
+  });
 }
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("gh-token");
