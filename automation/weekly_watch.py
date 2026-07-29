@@ -100,24 +100,27 @@ FIXED_SOURCES = [
     "https://gnius.esante.gouv.fr/fr/a-la-une/actualites",
     "https://health.ec.europa.eu/medical-devices-sector/latest-updates_en",
     "https://digital-strategy.ec.europa.eu/en/policies/ai-act-standardisation",
-    "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+    "https://digital-strategy.ec.europa.eu/en/news",
     "https://www.imdrf.org/",
     "https://www.gov.uk/health-and-social-care/medicines-medical-devices-blood",
 ]
 
-# regulatory-framework-ai (ajoutée 29 juillet 2026, retour Manon) : la page
-# "ai-act-standardisation" est gardée (utile pour le contexte CEN/CENELEC/
-# prEN 18286) mais sa "Latest News" n'est pas filtrée par sujet (actu générique
-# du site, pas spécifique à l'AI Act) — cette page-ci a une vraie "Latest News"
-# ET une section "Important milestones" datées et pertinentes pour l'AI Act.
-# Mesuré directement (juillet 2026) : le seul corps d'article, sans même le
-# nav/sélecteur de langue (23 langues) qui précède, fait déjà ~12 700
-# caractères avant d'atteindre "Latest News" — 2500 ou même 8000 caractères
-# n'y suffisent pas du tout. D'où une limite bien plus généreuse ci-dessous,
-# rien que pour cette source.
-FIXED_SOURCE_CHAR_CAP = {
-    "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai": 18000,
-}
+# /en/news (remplace regulatory-framework-ai, 29 juillet 2026, retour Joseph) :
+# regulatory-framework-ai a été essayée d'abord, mais son corps d'article fait
+# ~12 700 caractères de texte politique/légal avant même d'atteindre sa
+# "Latest News" — trop de texte hors news, la vraie liste de news arrive trop
+# tard pour être utile même avec un cap généreux. /en/news est la page
+# "News & Views" du site, un vrai fil d'actualités (titre + catégorie + date +
+# lien par item, sans corps de texte long autour) — testée en direct (29
+# juillet 2026), contenu bien server-rendu. Pas filtrée sur le seul sujet AI
+# (fil général du site : DMA, NIS2, cyber, IA...), mais fetch_fixed_sources()
+# extrait déjà séparément les vrais liens d'articles (voir "links_blob"
+# ci-dessous) donc le modèle voit une liste propre de titres+dates+URLs
+# récents, quel que soit le sujet — le tri par pertinence reste fait par le
+# modèle de recherche/rédaction en aval, comme pour toutes les autres sources.
+# Pas besoin d'un cap dédié ici : le texte brut (boilerplate nav/langues) peut
+# rester au cap par défaut (2500), le signal utile vient du links_blob.
+FIXED_SOURCE_CHAR_CAP = {}
 
 CONTENT_MARKER = "===CONTENT==="
 PROPOSALS_EN_MARKER = "===PROPOSALS_EN==="
