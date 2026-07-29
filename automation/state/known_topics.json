@@ -13,7 +13,7 @@
     "last_status": "new",
     "source_url": "https://www.qualitiso.com/iso-ts-24971-2-gestion-des-risques-pour-les-dispositifs-medicaux-a-bas-de-machine-learning/",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-07-27"
+    "last_seen": "2026-07-29"
   },
   {
     "key": "mdcg-2026-5-attribution-des-identifiants-udi-entre-fabricants-et-distributeurs",
@@ -78,5 +78,61 @@
     "source_url": "https://www.dm-experts.fr/2026/07/methodologies-de-reference-cnil-publication-des-nouvelles-mr-001-et-mr-003/",
     "first_seen": "2026-07-27",
     "last_seen": "2026-07-27"
+  },
+  {
+    "key": "entree-en-vigueur-de-l-ai-omnibus-et-nouveau-calendrier-d-application-pour-syste",
+    "title": "Entrée en vigueur de l'AI Omnibus et nouveau calendrier d'application pour systèmes IA à haut risque",
+    "last_status": "in-force",
+    "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+    "first_seen": "2026-07-29",
+    "last_seen": "2026-07-29"
+  },
+  {
+    "key": "publication-de-la-norme-en-18286-2026-qms-ia-pour-ai-act-citation-harmonisee-jou",
+    "title": "Publication de la norme EN 18286:2026 (QMS IA pour AI Act) — citation harmonisée JOUE en attente",
+    "last_status": "new",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-07-29",
+    "last_seen": "2026-07-29"
+  },
+  {
+    "key": "lignes-directrices-commission-sur-obligations-de-transparence-ia-fournisseurs-de",
+    "title": "Lignes directrices Commission sur obligations de transparence IA (fournisseurs/déployeurs)",
+    "last_status": "new",
+    "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
+    "first_seen": "2026-07-29",
+    "last_seen": "2026-07-29"
+  },
+  {
+    "key": "plan-d-action-ue-cybersecurite-et-intelligence-artificielle-juillet-2026",
+    "title": "Plan d'action UE Cybersécurité et Intelligence Artificielle (juillet 2026)",
+    "last_status": "new",
+    "source_url": "https://digital-strategy.ec.europa.eu/en/library/eu-action-plan-cybersecurity-and-artificial-intelligence",
+    "first_seen": "2026-07-29",
+    "last_seen": "2026-07-29"
+  },
+  {
+    "key": "mhra-rapport-de-la-phase-2-du-programme-ai-airlock-juin-2026",
+    "title": "MHRA : rapport de la phase 2 du programme AI Airlock (juin 2026)",
+    "last_status": "new",
+    "source_url": "https://www.dm-experts.fr/2026/07/mhra-rapport-sur-la-phase-2-de-ai-airlock/",
+    "first_seen": "2026-07-29",
+    "last_seen": "2026-07-29"
+  },
+  {
+    "key": "1er-juillet-2026-jalon-tracabilite-dispositifs-medicaux-swissdamed-suisse-tga-au",
+    "title": "1er juillet 2026 : jalon traçabilité dispositifs médicaux (Swissdamed Suisse, TGA Australie)",
+    "last_status": "in-force",
+    "source_url": "https://www.dm-experts.fr/2026/07/1%e1%b5%89%ca%b3-juillet-jalon-important-pour-la-tracabilite-des-dispositifs-medicaux-en-suisse-et-en-australie/",
+    "first_seen": "2026-07-29",
+    "last_seen": "2026-07-29"
+  },
+  {
+    "key": "enisa-etat-des-lieux-sbom-nomenclature-logicielle-et-cybersecurite",
+    "title": "ENISA : état des lieux SBOM (nomenclature logicielle) et cybersécurité",
+    "last_status": "new",
+    "source_url": "https://www.dm-experts.fr/2026/07/enisa-etat-des-lieux-en-matiere-de-nomenclature-logicielle-sbom-et-de-cybersecurite/",
+    "first_seen": "2026-07-29",
+    "last_seen": "2026-07-29"
   }
 ]
