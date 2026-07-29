@@ -612,5 +612,23 @@
     ],
     "v": "n",
     "id": "2030-06-01--who-digital-health-strategy-2028-2033-mid-term"
+  },
+  {
+    "id": "2026-06-24--iso-ts-24971-2-published",
+    "d": "2026-06-24",
+    "l": "24 Jun 2026",
+    "y": 2026,
+    "t": "ISO/TS 24971-2:2026 Published",
+    "x": "ML risk management guide covering model drift, algorithmic bias, data quality and transparency for medical device machine learning systems.",
+    "u": "https://www.qualitiso.com/iso-ts-24971-2-gestion-des-risques-pour-les-dispositifs-medicaux-a-bas-de-machine-learning/",
+    "tp": [
+      "standards",
+      "ai"
+    ],
+    "tg": [
+      "high",
+      "new"
+    ],
+    "v": "h"
   }
 ]

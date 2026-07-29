@@ -1,49 +1,88 @@
 {
-  "generated": "2026-07-27",
+  "generated": "2026-07-29",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-07-27--2026-07-22--en-18286-2026-ratified-citation-pending",
-      "reason": "prEN 18286 ratified as EN 18286:2026 on 22 July 2026, commercially available now but OJEU harmonised citation still required for AI Act Article 17 presumption of conformity.",
+      "id": "proposal-2026-07-29--2026-07-01--ai-omnibus-entry-into-force",
+      "reason": "AI Omnibus Regulation entered into force in July 2026, formally delaying high-risk AI application dates.",
       "card": {
-        "id": "2026-07-22--en-18286-2026-ratified-citation-pending",
-        "d": "2026-07-22",
-        "l": "22 juil 2026",
+        "id": "2026-07-01--ai-omnibus-entry-into-force",
+        "d": "2026-07-01",
+        "l": "juil. 2026",
         "y": 2026,
-        "t": "EN 18286:2026 Ratifiée — Citation JOUE en attente",
-        "x": "Norme de système de management de la qualité de la loi sur l'IA ratifiée par le CEN/CLC JTC 21, disponible commercialement mais en attente de la citation harmonisée au JOUE pour la présomption de conformité à l'article 17.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
+        "t": "Le Règlement Omnibus IA entre en vigueur",
+        "x": "Repousse les règles relatives aux systèmes d'IA à haut risque à décembre 2027 (cas d'usage sensibles en Annexe III) et août 2028 (produits réglementés en Annexe I, incluant MDR/IVDR). Interdiction immédiate de la génération de contenu intime non consenti et d'CSAM.",
+        "u": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
         "tp": [
-          "ai",
-          "standards"
+          "ai"
         ],
         "tg": [
           "critical",
-          "new"
+          "in-force"
         ],
         "v": "c"
       }
     },
     {
-      "action": "delete",
-      "id": "proposal-2026-07-27--2026-10-15--pren-18286-ai-act-qms-standard-revised",
-      "existing_id": "2026-10-15--pren-18286-ai-act-qms-standard-revised",
-      "reason": "prEN 18286 has now been ratified as EN 18286:2026 on 22 July 2026, superseding this speculative late-2026 revision entry."
+      "action": "add",
+      "id": "proposal-2026-07-29--2026-07-22--en-18286-2026-published",
+      "reason": "EN 18286:2026 QMS standard for AI Act published but not yet harmonised cited in OJEU.",
+      "card": {
+        "id": "2026-07-22--en-18286-2026-published",
+        "d": "2026-07-22",
+        "l": "22 juil. 2026",
+        "y": 2026,
+        "t": "Norme EN 18286:2026 relative au SMQ publiée",
+        "x": "Norme SMQ de la loi sur l'IA ratifiée et publiée par CEN/CLC/JTC 21. Citation harmonisée au JOUE (conférant la présomption de conformité selon l'article 17) toujours en attente.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "high",
+          "new"
+        ],
+        "v": "h"
+      }
     },
     {
-      "action": "add",
-      "id": "proposal-2026-07-27--2026-06-24--iso-ts-24971-2-published",
-      "reason": "ISO/TS 24971-2:2026 published 24 June 2026, providing ML-specific risk management guidance complementing ISO 14971 for MDSW with machine learning.",
+      "action": "update",
+      "id": "proposal-2026-07-29--2026-06-24--iso-ts-24971-2-published",
+      "existing_id": "2026-06-24--iso-ts-24971-2-published",
+      "reason": "Correcting publication date to July 2026 and confirming harmonised standard status under MDR/IVDR.",
       "card": {
         "id": "2026-06-24--iso-ts-24971-2-published",
-        "d": "2026-06-24",
-        "l": "24 juin 2026",
+        "d": "2026-07-01",
+        "l": "juil 2026",
         "y": 2026,
-        "t": "ISO/TS 24971-2:2026 Publié",
-        "x": "Guide de gestion des risques ML couvrant la dérive du modèle, les biais algorithmiques, la qualité des données et la transparence pour les systèmes d'apprentissage automatique des dispositifs médicaux.",
+        "t": "ISO/TS 24971-2:2026 Publiée",
+        "x": "Guide d'harmonisation de la gestion des risques liés au ML couvrant la dérive du modèle, les biais algorithmiques, la qualité des données et la transparence. Applicable en vertu du MDR/IVDR pour les dispositifs médicaux basés sur l'IA.",
         "u": "https://www.qualitiso.com/iso-ts-24971-2-gestion-des-risques-pour-les-dispositifs-medicaux-a-bas-de-machine-learning/",
         "tp": [
           "standards",
+          "ai"
+        ],
+        "tg": [
+          "high",
+          "in-force"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-07-29--2026-07-20--ai-act-transparency-guidelines",
+      "reason": "Commission published transparency obligation guidelines for AI providers/deployers, in force August 2026.",
+      "card": {
+        "id": "2026-07-20--ai-act-transparency-guidelines",
+        "d": "2026-07-20",
+        "l": "20 juil. 2026",
+        "y": 2026,
+        "t": "Publication des directives de transparence de la Loi IA",
+        "x": "Directives de la Commission couvrant l'information des utilisateurs finaux (chatbots, contenu synthétique), le marquage du contenu généré par l'IA et les résumés d'entraînement des modèles de base. Les obligations s'appliquent à partir d'août 2026.",
+        "u": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
+        "tp": [
           "ai"
         ],
         "tg": [
@@ -55,63 +94,19 @@
     },
     {
       "action": "add",
-      "id": "proposal-2026-07-27--2026-07-22--mdcg-2026-5-udi-attribution-manufacturers-distributors",
-      "reason": "MDCG 2026-5 published 22 July 2026, clarifying UDI-DI attribution responsibilities in complex supply chains with reconfiguration or relabelling.",
+      "id": "proposal-2026-07-29--2026-07-01--eu-ai-cybersecurity-action-plan",
+      "reason": "Commission and ENISA published AI cybersecurity action plan with 2027 evaluation capacity rollout.",
       "card": {
-        "id": "2026-07-22--mdcg-2026-5-udi-attribution-manufacturers-distributors",
-        "d": "2026-07-22",
-        "l": "22 juillet 2026",
+        "id": "2026-07-01--eu-ai-cybersecurity-action-plan",
+        "d": "2026-07-01",
+        "l": "juil. 2026",
         "y": 2026,
-        "t": "MDCG 2026-5 : Attribution UDI clarifiée",
-        "x": "Les distributeurs deviennent fabricants et doivent attribuer leur propre UDI-DI lorsqu'une reconfiguration modifie la destination prévue ou la classification.",
-        "u": "https://www.qualitiso.com/mdcg-2026-5-attribution-des-identifiants-iud-entre-fabricants-et-distributeurs/",
+        "t": "Plan d'action de l'UE en matière de cybersécurité de l'IA publié",
+        "x": "Comprend un financement des capacités d'évaluation pour 2027, un schéma d'accès sécurisé pour les systèmes d'IA avancés et une plateforme de test dédiée aux secteurs critiques (santé, énergie, finance).",
+        "u": "https://digital-strategy.ec.europa.eu/en/library/eu-action-plan-cybersecurity-and-artificial-intelligence",
         "tp": [
-          "mdr"
-        ],
-        "tg": [
-          "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-07-27--2026-06-18--mdcg-2026-4-manufacturer-uploads-all-summaries",
-      "reason": "MDCG 2026-4 published 18 June 2026, manufacturers now responsible for uploading all SSCP and SSP summaries to EUDAMED including incidents managed by notified bodies.",
-      "card": {
-        "id": "2026-06-18--mdcg-2026-4-manufacturer-uploads-all-summaries",
-        "d": "2026-06-18",
-        "l": "18 juin 2026",
-        "y": 2026,
-        "t": "MDCG 2026-4 : Les fabricants téléchargent tous les résumés EUDAMED",
-        "x": "Tous les résumés SSCP et SSP doivent être téléchargés par les fabricants, mettant fin à la responsabilité antérieure partagée avec les organismes notifiés.",
-        "u": "https://www.qualitiso.com/publication-du-mdcg-2026-4-ce-quil-faut-retenir-sur-la-gestion-des-sscp-dans-eudamed/",
-        "tp": [
-          "mdr"
-        ],
-        "tg": [
-          "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-07-27--2026-06-18--decision-2026-1231-new-harmonised-standards",
-      "reason": "Commission Implementing Decision (EU) 2026/1231 published 18 June 2026, adding new harmonised standards to the MDR Annex I presumption of conformity list.",
-      "card": {
-        "id": "2026-06-18--decision-2026-1231-new-harmonised-standards",
-        "d": "2026-06-18",
-        "l": "18 juin 2026",
-        "y": 2026,
-        "t": "Nouvelles normes harmonisées MDR ajoutées",
-        "x": "La Décision (UE) 2026/1231 étend la liste des normes harmonisées conférant la présomption de conformité aux exigences essentielles du MDR.",
-        "u": "https://www.qualitiso.com/nouvelles-normes-harmonisees-rdm-decision-execution-ue-2026-1231/",
-        "tp": [
-          "mdr",
-          "standards"
+          "ai",
+          "cyber"
         ],
         "tg": [
           "medium",
@@ -122,18 +117,41 @@
     },
     {
       "action": "add",
-      "id": "proposal-2026-07-27--2026-05-01--regulation-2026-977-notified-body-procedures",
-      "reason": "Implementing Regulation (EU) 2026/977 published May 2026, harmonising notified body conformity assessment procedures under MDR/IVDR.",
+      "id": "proposal-2026-07-29--2026-06-09--mhra-ai-airlock-phase-2-report",
+      "reason": "MHRA published AI Airlock Phase 2 report with practical AI evaluation recommendations for medical devices.",
       "card": {
-        "id": "2026-05-01--regulation-2026-977-notified-body-procedures",
-        "d": "2026-05-01",
-        "l": "mai 2026",
+        "id": "2026-06-09--mhra-ai-airlock-phase-2-report",
+        "d": "2026-06-09",
+        "l": "9 juin 2026",
         "y": 2026,
-        "t": "Règlement 2026/977 : Règles harmonisées d'évaluation des organismes notifiés",
-        "x": "Procédures d'audit harmonisées, critères de compétence et obligations de déclaration pour les organismes notifiés afin de réduire les divergences entre États membres.",
-        "u": "https://www.qualitiso.com/reglement-execution-ue-2026-977-evaluation-conformite-organismes-notifies/",
+        "t": "Publication du rapport MHRA AI Airlock Phase 2",
+        "x": "Détails des expériences d'évaluation de dispositifs médicaux IA avec recommandations sur la caractérisation des performances, l'évaluation clinique et la surveillance post-commercialisation.",
+        "u": "https://www.dm-experts.fr/2026/07/mhra-rapport-sur-la-phase-2-de-ai-airlock/",
         "tp": [
-          "mdr"
+          "uk",
+          "ai"
+        ],
+        "tg": [
+          "medium",
+          "new"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-07-29--2026-07-01--swissdamed-tga-traceability-mandatory",
+      "reason": "Swissdamed and TGA traceability requirements became mandatory 1 July 2026.",
+      "card": {
+        "id": "2026-07-01--swissdamed-tga-traceability-mandatory",
+        "d": "2026-07-01",
+        "l": "1er juillet 2026",
+        "y": 2026,
+        "t": "Swissdamed et traçabilité TGA obligatoires",
+        "x": "La base de données suisse Swissdamed et les exigences australiennes de traçabilité TGA sont désormais en vigueur. Exige la synchronisation de l'UDI avec EUDAMED pour les fabricants de l'UE exportant vers ces marchés.",
+        "u": "https://www.dm-experts.fr/2026/07/1%e1%b5%89%ca%b3-juillet-jalon-important-pour-la-tracabilite-des-dispositifs-medicaux-en-suisse-et-en-australie/",
+        "tp": [
+          "other"
         ],
         "tg": [
           "medium",
@@ -144,68 +162,71 @@
     },
     {
       "action": "add",
-      "id": "proposal-2026-07-27--2026-04-01--mdcg-2021-24-rev1-classification-updates",
-      "reason": "MDCG 2021-24 Rev.1 published April 2026, updating MDR Annex VIII classification guidance including Rule 11 (software), Rule 15 (nanomaterials) and device/accessory delimitation.",
+      "id": "proposal-2026-07-29--2026-07-01--enisa-sbom-cybersecurity-report",
+      "reason": "ENISA published SBOM state-of-play report relevant to MDR/IVDR cybersecurity documentation.",
       "card": {
-        "id": "2026-04-01--mdcg-2021-24-rev1-classification-updates",
-        "d": "2026-04-01",
-        "l": "avr 2026",
+        "id": "2026-07-01--enisa-sbom-cybersecurity-report",
+        "d": "2026-07-01",
+        "l": "juillet 2026",
         "y": 2026,
-        "t": "MDCG 2021-24 Rev.1 : Orientation sur la classification mise à jour",
-        "x": "Règles clarifiées concernant les logiciels, les nanomatériaux et les frontières dispositif/accessoire ; applicables immédiatement aux demandes après avril 2026.",
-        "u": "https://www.qualitiso.com/mdcg-2021-24-rev-1-quelles-evolutions-de-classification-des-dm-dans-la-mise-a-jour-davril-2026/",
+        "t": "Rapport ENISA sur l'état des lieux des SBOM",
+        "x": "Analyse des pratiques de nomenclature des composants logiciels dans l'UE en vertu de la Cyber Resilience Act et de la NIS2. Implications pour la documentation des composants logiciels des dispositifs médicaux selon MDCG 2019-16.",
+        "u": "https://www.dm-experts.fr/2026/07/enisa-etat-des-lieux-en-matiere-de-nomenclature-logicielle-sbom-et-de-cybersecurite/",
         "tp": [
-          "mdr"
+          "cyber"
         ],
         "tg": [
           "medium",
-          "in-force"
+          "new"
         ],
         "v": "n"
       }
     },
     {
-      "action": "add",
-      "id": "proposal-2026-07-27--2026-06-18--mdcg-2021-5-annex-ec-rep-to-eu-rep",
-      "reason": "MDCG 2021-5 Annex published 18 June 2026, mandating transition from 'EC REP' to 'EU REP' authorised representative symbol by 18 June 2031 after five-year coexistence period.",
+      "action": "update",
+      "id": "proposal-2026-07-29--2027-12-02--ai-act-high-risk-annex-iii-if-delayed",
+      "existing_id": "2027-12-02--ai-act-high-risk-annex-iii-if-delayed",
+      "reason": "[REVIEW: description entierement reecrite — verifier que ce n'est pas un nouveau jalon qui devrait etre un add] AI Omnibus confirmed delay to 2 December 2027; removing 'if delayed' conditional from title.",
       "card": {
-        "id": "2026-06-18--mdcg-2021-5-annex-ec-rep-to-eu-rep",
-        "d": "2026-06-18",
-        "l": "18 juin 2026",
-        "y": 2026,
-        "t": "MDCG 2021-5 Annexe : transition EC REP → EU REP",
-        "x": "Période de coexistence de cinq ans jusqu'au 18 juin 2031, date à partir de laquelle seul le symbole « EU REP » sera accepté pour les représentants agréés.",
-        "u": "https://www.qualitiso.com/mdcg-2021-5-annexe-transition-du-symbole-de-mandataire-autorise-de-ec-rep-vers-eu-rep/",
+        "id": "2027-12-02--ai-act-high-risk-annex-iii-if-delayed",
+        "d": "2027-12-02",
+        "l": "2 déc 2027",
+        "y": 2027,
+        "t": "Application de l'Annexe III AI Act relative aux systèmes à haut risque",
+        "x": "Les systèmes d'IA à haut risque dans les cas d'usage sensibles (biométrie, infrastructures critiques, éducation, emploi, migration) doivent être conformes. Confirmé par le Règlement Omnibus IA.",
+        "u": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
         "tp": [
-          "mdr"
+          "ai"
         ],
         "tg": [
-          "medium",
+          "critical",
           "in-force"
         ],
-        "v": "n"
+        "v": "c"
       }
     },
     {
-      "action": "add",
-      "id": "proposal-2026-07-27--2026-06-29--mdr-well-established-technologies-delegated-acts",
-      "reason": "Delegated acts defining 'well-established technologies' under MDR Articles 52(4) and 61(6) published OJEU 29 June 2026, effective 19 July 2026, easing clinical data requirements for certain implants.",
+      "action": "update",
+      "id": "proposal-2026-07-29--2028-08-02--ai-act-annex-i-medical-devices-if-delayed",
+      "existing_id": "2028-08-02--ai-act-annex-i-medical-devices-if-delayed",
+      "reason": "[REVIEW: description entierement reecrite — verifier que ce n'est pas un nouveau jalon qui devrait etre un add] AI Omnibus confirmed delay to 2 August 2028; removing 'if delayed' conditional from title.",
       "card": {
-        "id": "2026-06-29--mdr-well-established-technologies-delegated-acts",
-        "d": "2026-06-29",
-        "l": "29 juin 2026",
-        "y": 2026,
-        "t": "Actes délégués MDR sur les technologies bien établies",
-        "x": "Définit les conditions permettant une réduction des données cliniques pour les implants ayant une technologie éprouvée, entrée en vigueur le 19 juillet 2026.",
-        "u": "https://www.dm-experts.fr/2026/07/union-europeenne-publications-sur-les-evaluations-cliniques-communes/",
+        "id": "2028-08-02--ai-act-annex-i-medical-devices-if-delayed",
+        "d": "2028-08-02",
+        "l": "2 août 2028",
+        "y": 2028,
+        "t": "AI Act Annex I / Application aux dispositifs médicaux",
+        "x": "Les systèmes d'IA intégrés dans les produits réglementés (dispositifs médicaux MDR/IVDR, jouets, ascenseurs) doivent être conformes. Confirmé par le règlement omnibus IA.",
+        "u": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
         "tp": [
+          "ai",
           "mdr"
         ],
         "tg": [
-          "medium",
+          "critical",
           "in-force"
         ],
-        "v": "n"
+        "v": "c"
       }
     }
   ]
