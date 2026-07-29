@@ -70,11 +70,20 @@ VALID_VARIANTS = ["c", "h", "n"]
 # détection anti-bot du site (redirection vers une page 404, confirmé via les
 # logs d'un run réel), donc ne contribuait aucun contenu utile.
 #
-# health.ec.europa.eu/.../new-regulations_en : on avait un temps essayé de
-# remplacer cette page (statique, "dernières mises à jour" tout en bas, hors
-# de la fenêtre de troncature) par la page dédiée ec.europa.eu/.../latest-updates_en
-# — mais celle-ci renvoie du 503 de façon reproductible depuis un run réel
-# GitHub Actions ET depuis un poste local, donc retour à l'URL d'origine.
+# health.ec.europa.eu/.../new-regulations_en -> latest-updates_en (retour Manon,
+# 29 juillet 2026) : la page "new-regulations_en" est en tête un mur de texte
+# légal (propositions, actes d'exécution, actes délégués, corrigenda) — sa
+# propre section "Latest updates" existe mais tout en bas, largement hors de la
+# fenêtre de troncature à 2500 caractères, donc elle ne contribuait quasiment
+# jamais rien de frais malgré une vraie actualité EC existante chaque semaine.
+# On avait déjà tenté ec.europa.eu/.../latest-updates_en une première fois et ça
+# 503ait de façon reproductible (run réel + poste local) ; revérifié le 29
+# juillet 2026 et la page répond maintenant normalement (200, contenu server-
+# rendu, liste "News (220)" triée du plus récent au plus ancien, dès le début
+# de la page) — donc probablement une panne temporaire côté EC à l'époque,
+# pas un problème structurel. On utilise l'URL canonique health.ec.europa.eu
+# (pas l'alias ec.europa.eu/health/... qui redirige dessus) pour éviter de
+# dépendre d'une redirection.
 #
 # www.imdrf.org : confirmé en échec (timeout) depuis un run réel GitHub Actions
 # ET depuis un poste local — contribue rarement du contenu utile. Conservée
@@ -89,11 +98,26 @@ FIXED_SOURCES = [
     "https://www.afnor.org/actualites/",
     "https://ansm.sante.fr/actualites/a-la-une",
     "https://gnius.esante.gouv.fr/fr/a-la-une/actualites",
-    "https://health.ec.europa.eu/medical-devices-sector/new-regulations_en",
+    "https://health.ec.europa.eu/medical-devices-sector/latest-updates_en",
     "https://digital-strategy.ec.europa.eu/en/policies/ai-act-standardisation",
+    "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
     "https://www.imdrf.org/",
     "https://www.gov.uk/health-and-social-care/medicines-medical-devices-blood",
 ]
+
+# regulatory-framework-ai (ajoutée 29 juillet 2026, retour Manon) : la page
+# "ai-act-standardisation" est gardée (utile pour le contexte CEN/CENELEC/
+# prEN 18286) mais sa "Latest News" n'est pas filtrée par sujet (actu générique
+# du site, pas spécifique à l'AI Act) — cette page-ci a une vraie "Latest News"
+# ET une section "Important milestones" datées et pertinentes pour l'AI Act.
+# Mesuré directement (juillet 2026) : le seul corps d'article, sans même le
+# nav/sélecteur de langue (23 langues) qui précède, fait déjà ~12 700
+# caractères avant d'atteindre "Latest News" — 2500 ou même 8000 caractères
+# n'y suffisent pas du tout. D'où une limite bien plus généreuse ci-dessous,
+# rien que pour cette source.
+FIXED_SOURCE_CHAR_CAP = {
+    "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai": 18000,
+}
 
 CONTENT_MARKER = "===CONTENT==="
 PROPOSALS_EN_MARKER = "===PROPOSALS_EN==="
@@ -424,7 +448,11 @@ def fetch_fixed_sources() -> str:
             # Cap per-source length to keep the writing-model prompt manageable — a
             # smaller prompt also reduces the model's tendency to try to cover
             # everything at length (see TRIAGE_SYSTEM_PROMPT hard item cap).
-            chunk = f"--- SOURCE: {url} ---\n{text[:2500]}"
+            # A couple of sources are unusually dense (long legal/article text
+            # before their actual news section) and get a bigger cap — see
+            # FIXED_SOURCE_CHAR_CAP.
+            char_cap = FIXED_SOURCE_CHAR_CAP.get(url, 2500)
+            chunk = f"--- SOURCE: {url} ---\n{text[:char_cap]}"
             if links_blob:
                 chunk += (
                     f"\n\nLiens specifiques trouves sur cette page (utilise le lien le "
