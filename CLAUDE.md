@@ -12,10 +12,16 @@ isolé :
 
 ```bash
 rm -f .git/index.lock .git/HEAD.lock
-git pull --no-rebase origin main
-if [ -f .git/MERGE_HEAD ]; then git commit --no-edit; fi
+git pull --no-rebase --no-edit origin main
 git push origin main
 ```
+
+Le `--no-edit` sur le `pull` (pas seulement sur un `commit` séparé) est
+important : sans lui, git ouvre l'éditeur par défaut (souvent vim) pour te
+demander un message de commit de fusion, même quand il n'y a aucun conflit —
+piège classique si on ne s'y attend pas. Si ça arrive quand même (l'éditeur
+s'ouvre, écran avec des `~` sur les lignes vides) : taper `Esc` puis `:wq`
+puis Entrée pour valider le message pré-rempli et sortir.
 
 Si le push est quand même rejeté ("fetch first" / "non-fast-forward"), ce
 n'est PAS le bug de verrou ci-dessous — c'est juste que quelqu'un a poussé
