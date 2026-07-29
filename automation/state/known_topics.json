@@ -5,7 +5,7 @@
     "last_status": "new",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-07-27"
+    "last_seen": "2026-07-29"
   },
   {
     "key": "iso-ts-24971-2-2026-publiee-guide-d-application-iso-14971-pour-le-machine-learni",
@@ -21,7 +21,7 @@
     "last_status": "new",
     "source_url": "https://www.qualitiso.com/mdcg-2026-5-attribution-des-identifiants-iud-entre-fabricants-et-distributeurs/",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-07-27"
+    "last_seen": "2026-07-29"
   },
   {
     "key": "mdcg-2026-4-le-chargement-de-tous-les-resumes-ssp-et-sscp-dans-eudamed-revient-a",
@@ -132,6 +132,22 @@
     "title": "ENISA : état des lieux SBOM (nomenclature logicielle) et cybersécurité",
     "last_status": "new",
     "source_url": "https://www.dm-experts.fr/2026/07/enisa-etat-des-lieux-en-matiere-de-nomenclature-logicielle-sbom-et-de-cybersecurite/",
+    "first_seen": "2026-07-29",
+    "last_seen": "2026-07-29"
+  },
+  {
+    "key": "ai-omnibus-entre-en-vigueur-calendriers-etendus-pour-systemes-ia-a-haut-risque",
+    "title": "AI Omnibus entre en vigueur : calendriers étendus pour systèmes IA à haut risque",
+    "last_status": "in-force",
+    "source_url": "https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force",
+    "first_seen": "2026-07-29",
+    "last_seen": "2026-07-29"
+  },
+  {
+    "key": "cyber-resilience-act-nouvelles-orientations-commission-pour-mise-en-uvre-entrepr",
+    "title": "Cyber Resilience Act : nouvelles orientations Commission pour mise en œuvre entreprises",
+    "last_status": "new",
+    "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-new-guidance-support-businesses-implementation-cyber-resilience-act",
     "first_seen": "2026-07-29",
     "last_seen": "2026-07-29"
   }
