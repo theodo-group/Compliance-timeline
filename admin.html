@@ -576,6 +576,13 @@
     text-decoration: line-through;
     margin-top: 6px;
   }
+  .proposal-pair-old-desc {
+    font-size: 0.75rem;
+    color: var(--ink-tertiary);
+    line-height: 1.5;
+    margin-top: 4px;
+    max-width: 70ch;
+  }
   .proposal-pair-connector {
     display: flex;
     align-items: center;
@@ -792,6 +799,15 @@
     padding: 7px 8px;
   }
   .btn-undo:hover {
+    color: var(--ink-primary);
+  }
+  .btn-keep-old {
+    background: transparent;
+    border: 1.5px solid var(--surface-3);
+    color: var(--ink-secondary);
+  }
+  .btn-keep-old:hover {
+    border-color: var(--gold-dim);
     color: var(--ink-primary);
   }
 
@@ -1581,8 +1597,15 @@ function renderProposalCard(p, baseCardMap, isApproved, isRejected, pairedDelete
     html += `<span class="decision-status decision-rejected">Rejected</span>`;
     html += `<button class="btn btn-undo" data-proposal-undo="${p.id}">Undo</button>`;
   } else {
-    html += `<button class="btn btn-approve" data-proposal-approve="${p.id}" data-action="${p.action}" data-existing="${p.existing_id||''}" data-paired-delete="${pairedDeleteId||''}">${pairedDeleteId ? "Approuver la paire" : "Approve"}</button>`;
-    html += `<button class="btn btn-reject" data-proposal-reject="${p.id}">Reject</button>`;
+    html += `<button class="btn btn-approve" data-proposal-approve="${p.id}" data-action="${p.action}" data-existing="${p.existing_id||''}" data-paired-delete="${pairedDeleteId||''}">${pairedDeleteId ? "Approuver le remplacement" : "Approve"}</button>`;
+    if (pairedDeleteId) {
+      // "Garder l'ancienne" : l'ancienne fiche reste (delete rejetée) ET la
+      // nouvelle est quand même ajoutée à côté (add approuvée) — les deux
+      // coexistent. Utile quand la nouvelle info est valable mais que ce
+      // n'est pas vraiment un remplacement de l'ancienne.
+      html += `<button class="btn btn-keep-old" data-proposal-keep-old="${p.id}" data-paired-delete="${pairedDeleteId}">Garder l'ancienne</button>`;
+    }
+    html += `<button class="btn btn-reject" data-proposal-reject="${p.id}" data-paired-delete="${pairedDeleteId||''}">Reject</button>`;
   }
   html += `</div></div>`;
   return html;
@@ -1644,6 +1667,9 @@ function renderReplacementPairCard(deleteP, addP, baseCardMap) {
   html += `<div class="proposal-pair-old">`;
   html += `<span class="action-badge action-badge--delete">DELETE</span>`;
   html += `<div class="proposal-pair-old-title">${escHtml(existing ? existing.t : deleteP.existing_id)}</div>`;
+  if (existing && existing.x) {
+    html += `<div class="proposal-pair-old-desc">${escHtml(existing.x)}</div>`;
+  }
   html += `</div>`;
   html += `<div class="proposal-pair-connector"><span class="proposal-pair-connector-line"></span>remplacée par</div>`;
   html += renderProposalCard(addP, baseCardMap, false, false, deleteP.id);
@@ -1869,6 +1895,19 @@ async function submitManualAdd() {
   activeProposalTab = "archived";
   renderProposals();
   buildTable();
+}
+
+// Logique de rejet d'une proposition par id — même principe que
+// approveProposalById ci-dessous : extraite pour être appelable sur les deux
+// moitiés d'une paire delete+add (le bouton "Reject" d'une paire rejette
+// les deux, "Garder l'ancienne" ne rejette que la delete).
+function rejectProposalById(pid) {
+  const rejected = getRejectedProposals();
+  if (!rejected.includes(pid)) rejected.push(pid);
+  saveRejectedProposals(rejected);
+
+  const approved = getApprovedProposals().filter(id => id !== pid);
+  saveApprovedProposals(approved);
 }
 
 // Logique d'approbation d'une proposition par id — extraite du click handler
@@ -2149,13 +2188,14 @@ document.getElementById("proposals-section").addEventListener("click", e => {
 document.getElementById("proposals-section").addEventListener("click", e => {
   const approveBtn = e.target.closest("[data-proposal-approve]");
   const rejectBtn = e.target.closest("[data-proposal-reject]");
+  const keepOldBtn = e.target.closest("[data-proposal-keep-old]");
   const undoBtn = e.target.closest("[data-proposal-undo]");
 
   if (approveBtn) {
     const pid = approveBtn.dataset.proposalApprove;
     approveProposalById(pid);
 
-    // Paire delete+add détectée (bouton "Approuver la paire") : on approuve
+    // Paire delete+add détectée ("Approuver le remplacement") : on approuve
     // aussi la delete de l'ancienne fiche dans la foulée, sans action
     // séparée requise de l'utilisateur.
     const pairedDeleteId = approveBtn.dataset.pairedDelete;
@@ -2166,16 +2206,29 @@ document.getElementById("proposals-section").addEventListener("click", e => {
     buildTable();
   }
 
+  if (keepOldBtn) {
+    // "Garder l'ancienne" : la delete est rejetée (l'ancienne fiche reste sur
+    // la frise) ET l'add est quand même approuvée (la nouvelle est ajoutée à
+    // côté) — les deux coexistent, contrairement à "Approuver le
+    // remplacement" (qui retire l'ancienne) ou "Reject" (qui écarte les deux).
+    const addId = keepOldBtn.dataset.proposalKeepOld;
+    const pairedDeleteId = keepOldBtn.dataset.pairedDelete;
+    if (pairedDeleteId) rejectProposalById(pairedDeleteId);
+    approveProposalById(addId);
+
+    showToast();
+    renderProposals();
+    buildTable();
+  }
+
   if (rejectBtn) {
     const pid = rejectBtn.dataset.proposalReject;
+    rejectProposalById(pid);
 
-    const rejected = getRejectedProposals();
-    if (!rejected.includes(pid)) rejected.push(pid);
-    saveRejectedProposals(rejected);
-
-    // Remove from approved if present
-    const approved = getApprovedProposals().filter(id => id !== pid);
-    saveApprovedProposals(approved);
+    // Paire delete+add détectée : "Reject" écarte les deux moitiés d'un coup
+    // (rien ne change — l'ancienne reste, la nouvelle n'est jamais ajoutée).
+    const pairedDeleteId = rejectBtn.dataset.pairedDelete;
+    if (pairedDeleteId) rejectProposalById(pairedDeleteId);
 
     showToast();
     renderProposals();
