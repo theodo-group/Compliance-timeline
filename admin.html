@@ -599,6 +599,19 @@
     height: 14px;
     background: var(--gold-dim);
   }
+  /* Paire décidée (onglet Archived) : bandeau de résultat + annulation groupée */
+  .proposal-pair-card--decided {
+    opacity: 0.85;
+  }
+  .proposal-pair-outcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    margin-top: 4px;
+    border-top: 1px solid var(--surface-3);
+  }
 
   .proposal-top {
     display: flex;
@@ -1294,6 +1307,17 @@ async function _doPush() {
   }
 }
 
+// Force l'envoi immédiat vers GitHub (au lieu d'attendre le debounce de 3s
+// de pushDecisions) avant un location.reload(). Sans ça, un reload trop
+// rapide après une action pourrait couper le push en vol : on rechargerait
+// alors une version de decisions.json antérieure à l'annulation qu'on vient
+// de faire (le fetch au chargement privilégie GitHub sur le localStorage
+// local si les deux répondent).
+async function flushDecisionsBeforeReload() {
+  clearTimeout(_pushTimer);
+  await _doPush();
+}
+
 function pushDecisions() {
   // 1. Save locally (instant)
   saveDecisionsLocal();
@@ -1504,7 +1528,7 @@ let query = "";
 /* ===== Proposals rendering ===== */
 let activeProposalTab = "pending";
 
-function renderProposalCard(p, baseCardMap, isApproved, isRejected, pairedDeleteId) {
+function renderProposalCard(p, baseCardMap, isApproved, isRejected, pairedDeleteId, suppressUndo) {
   const isDecided = isApproved || isRejected;
   let html = `<div class="proposal-card ${isDecided ? 'decided' : ''}">`;
   html += `<div class="proposal-top">`;
@@ -1592,10 +1616,14 @@ function renderProposalCard(p, baseCardMap, isApproved, isRejected, pairedDelete
   html += `<div class="proposal-actions">`;
   if (isApproved) {
     html += `<span class="decision-status decision-approved">Approved</span>`;
-    html += `<button class="btn btn-undo" data-proposal-undo="${p.id}">Undo</button>`;
+    // suppressUndo : cette carte est affichée à l'intérieur d'une paire
+    // decidée (voir renderDecidedPairCard) — un seul bouton "Tout annuler"
+    // sur la paire, pas d'Undo individuel par moitié (évite qu'on annule une
+    // seule moitié et laisse l'autre décidée, cf. edge case remonté par Joseph).
+    if (!suppressUndo) html += `<button class="btn btn-undo" data-proposal-undo="${p.id}">Undo</button>`;
   } else if (isRejected) {
     html += `<span class="decision-status decision-rejected">Rejected</span>`;
-    html += `<button class="btn btn-undo" data-proposal-undo="${p.id}">Undo</button>`;
+    if (!suppressUndo) html += `<button class="btn btn-undo" data-proposal-undo="${p.id}">Undo</button>`;
   } else {
     html += `<button class="btn btn-approve" data-proposal-approve="${p.id}" data-action="${p.action}" data-existing="${p.existing_id||''}" data-paired-delete="${pairedDeleteId||''}">${pairedDeleteId ? "Approuver le remplacement" : "Approve"}</button>`;
     if (pairedDeleteId) {
@@ -1677,6 +1705,50 @@ function renderReplacementPairCard(deleteP, addP, baseCardMap) {
   return html;
 }
 
+// Même paire delete+add, mais une fois DÉCIDÉE (onglet Archived). On garde le
+// lien visuel plutôt que de laisser les deux moitiés apparaître comme deux
+// cartes sans rapport (retour Joseph : "les cartes sont séparées en
+// archived"). Un seul bouton "Tout annuler" agit sur les deux moitiés d'un
+// coup — annuler une seule moitié pourrait sinon faire disparaître les DEUX
+// fiches de la frise publique (ex. après "Approuver le remplacement", annuler
+// juste l'add retire la nouvelle fiche sans restaurer l'ancienne, supprimée
+// par la delete toujours approuvée).
+function renderDecidedPairCard(deleteP, addP, baseCardMap, approved, rejected) {
+  const existing = baseCardMap.get(deleteP.existing_id);
+  const deleteApproved = approved.has(deleteP.id);
+  const addApproved = approved.has(addP.id);
+
+  let outcomeLabel, outcomeClass;
+  if (deleteApproved && addApproved) {
+    outcomeLabel = "Remplacement approuvé";
+    outcomeClass = "decision-approved";
+  } else if (!deleteApproved && addApproved) {
+    outcomeLabel = "Ancienne conservée";
+    outcomeClass = "decision-approved";
+  } else {
+    outcomeLabel = "Remplacement rejeté";
+    outcomeClass = "decision-rejected";
+  }
+
+  let html = `<div class="proposal-pair-card proposal-pair-card--decided">`;
+  html += `<div class="proposal-pair-old">`;
+  html += `<span class="action-badge action-badge--delete">DELETE</span> `;
+  html += `<span class="decision-status ${deleteApproved ? "decision-approved" : "decision-rejected"}">${deleteApproved ? "Approved" : "Rejected"}</span>`;
+  html += `<div class="proposal-pair-old-title">${escHtml(existing ? existing.t : deleteP.existing_id)}</div>`;
+  if (existing && existing.x) {
+    html += `<div class="proposal-pair-old-desc">${escHtml(existing.x)}</div>`;
+  }
+  html += `</div>`;
+  html += `<div class="proposal-pair-connector"><span class="proposal-pair-connector-line"></span>remplacée par</div>`;
+  html += renderProposalCard(addP, baseCardMap, addApproved, rejected.has(addP.id), null, true);
+  html += `<div class="proposal-pair-outcome">`;
+  html += `<span class="decision-status ${outcomeClass}">${outcomeLabel}</span>`;
+  html += `<button class="btn btn-undo" data-proposal-undo-pair data-undo-pair-delete="${deleteP.id}" data-undo-pair-add="${addP.id}">Tout annuler</button>`;
+  html += `</div>`;
+  html += `</div>`;
+  return html;
+}
+
 function renderProposals() {
   const container = document.getElementById("proposals-section");
 
@@ -1717,8 +1789,17 @@ function renderProposals() {
     }
   } else if (activeProposalTab === "archived") {
     if (archived.length) {
+      // Même détection de paire que côté pending — reprise telle quelle
+      // (elle ne suppose rien sur l'état pending/décidé des propositions),
+      // pour garder le lien visuel une fois la décision prise.
+      const { pairByAddId, consumedDeleteIds } = findReplacementPairs(archived, baseCardMap);
       archived.forEach(p => {
-        html += renderProposalCard(p, baseCardMap, approved.has(p.id), rejected.has(p.id));
+        if (consumedDeleteIds.has(p.id)) return; // rendue avec sa paire "add"
+        if (pairByAddId.has(p.id)) {
+          html += renderDecidedPairCard(pairByAddId.get(p.id), p, baseCardMap, approved, rejected);
+        } else {
+          html += renderProposalCard(p, baseCardMap, approved.has(p.id), rejected.has(p.id));
+        }
       });
     } else {
       html += `<div class="proposals-empty">No archived proposals yet.</div>`;
@@ -1953,6 +2034,31 @@ function approveProposalById(pid) {
   }
 }
 
+// Annule la décision prise sur une proposition (retire des listes approved/
+// rejected, restaure la fiche supprimée ou retire la fiche ajoutée). Extraite
+// du handler "Undo" pour être appelable deux fois d'affilée sur une paire
+// delete+add ("Tout annuler" sur une paire décidée) sans dupliquer la
+// logique — annuler une seule moitié d'une paire pouvait laisser un état
+// incohérent (ex. fiche ajoutée retirée mais ancienne toujours supprimée :
+// les deux disparaissent de la frise publique). Ne gère pas le cas "update"
+// (reload de page) : c'est à l'appelant de le faire, seulement pertinent
+// pour un Undo individuel hors paire.
+function revertProposalDecision(pid) {
+  const proposal = allProposals.find(p => p.id === pid);
+
+  saveApprovedProposals(getApprovedProposals().filter(id => id !== pid));
+  saveRejectedProposals(getRejectedProposals().filter(id => id !== pid));
+
+  if (proposal && proposal.action === "delete" && proposal.existing_id) {
+    saveDeletedCards(getDeletedCards().filter(id => id !== proposal.existing_id));
+  }
+  if (proposal && proposal.action === "add" && proposal.card) {
+    const addedId = cardId(proposal.card);
+    M = M.filter(m => cardId(m) !== addedId);
+  }
+  return proposal;
+}
+
 /* ===== Milestones table ===== */
 function buildTable(){
   const tbody=document.getElementById("tbody");
@@ -2185,7 +2291,7 @@ document.getElementById("proposals-section").addEventListener("click", e => {
 });
 
 // Proposal actions (delegated)
-document.getElementById("proposals-section").addEventListener("click", e => {
+document.getElementById("proposals-section").addEventListener("click", async e => {
   const approveBtn = e.target.closest("[data-proposal-approve]");
   const rejectBtn = e.target.closest("[data-proposal-reject]");
   const keepOldBtn = e.target.closest("[data-proposal-keep-old]");
@@ -2236,29 +2342,17 @@ document.getElementById("proposals-section").addEventListener("click", e => {
 
   if (undoBtn) {
     const pid = undoBtn.dataset.proposalUndo;
+    const proposal = revertProposalDecision(pid);
 
-    // Find the proposal to check if it was a delete that needs reverting
-    const proposal = allProposals.find(p => p.id === pid);
-
-    // Remove from both approved and rejected
-    saveApprovedProposals(getApprovedProposals().filter(id => id !== pid));
-    saveRejectedProposals(getRejectedProposals().filter(id => id !== pid));
-
-    // If it was an approved delete, remove from deleted cards and re-add the card
-    if (proposal && proposal.action === "delete" && proposal.existing_id) {
-      saveDeletedCards(getDeletedCards().filter(id => id !== proposal.existing_id));
-    }
-
-    // If it was an approved add, remove the added card from M
-    if (proposal && proposal.action === "add" && proposal.card) {
-      const addedId = cardId(proposal.card);
-      M = M.filter(m => cardId(m) !== addedId);
-    }
-
-    // If it was an approved update, we need to reload to restore original
-    // For simplicity, reload the page
-    if (proposal && proposal.action === "update") {
+    // "update" et "delete" retirent/remplacent une fiche dans M sans jamais
+    // reconstituer l'objet d'origine en mémoire (il n'existe que dans
+    // data.json, pas gardé après le fetch initial) — un reload est le moyen
+    // le plus sûr de le retrouver. On force d'abord l'envoi immédiat vers
+    // GitHub pour ne pas perdre l'annulation si le reload devance le push
+    // différé de 3s.
+    if (proposal && (proposal.action === "update" || proposal.action === "delete")) {
       showToast();
+      await flushDecisionsBeforeReload();
       location.reload();
       return;
     }
@@ -2266,6 +2360,18 @@ document.getElementById("proposals-section").addEventListener("click", e => {
     showToast();
     renderProposals();
     buildTable();
+  }
+
+  const undoPairBtn = e.target.closest("[data-proposal-undo-pair]");
+  if (undoPairBtn) {
+    // "Tout annuler" sur une paire décidée : annule les deux moitiés d'un
+    // coup. Une paire contient toujours une moitié "delete" (jamais
+    // "update") donc reload systématique, même raison que ci-dessus.
+    revertProposalDecision(undoPairBtn.dataset.undoPairDelete);
+    revertProposalDecision(undoPairBtn.dataset.undoPairAdd);
+    showToast();
+    await flushDecisionsBeforeReload();
+    location.reload();
   }
 });
 
