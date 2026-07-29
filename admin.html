@@ -1808,7 +1808,7 @@ function renderDecidedPairCard(deleteP, addP, baseCardMap, approved, rejected) {
     html += `<div class="proposal-pair-kept-note"><i class="pair-kept-dot"></i>Toujours affichée sur la frise, inchangée</div>`;
   }
   html += `</div>`;
-  html += `<div class="proposal-pair-connector"><span class="proposal-pair-connector-line"></span>${oldKept ? "complétée par" : "remplacée par"}</div>`;
+  html += `<div class="proposal-pair-connector"><span class="proposal-pair-connector-line"></span>${oldKept ? "coexiste avec" : "remplacée par"}</div>`;
   html += renderProposalCard(addP, baseCardMap, addApproved, rejected.has(addP.id), null, true);
   html += `<div class="proposal-pair-outcome">`;
   html += `<span class="decision-status ${outcomeClass}">${outcomeLabel}</span>`;
