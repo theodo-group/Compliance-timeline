@@ -603,6 +603,30 @@
   .proposal-pair-card--decided {
     opacity: 0.85;
   }
+  /* "Garder l'ancienne" : la fiche n'a jamais quitté la frise, donc pas de
+     barré/grisé façon "supprimée" — juste une note discrète. */
+  .proposal-pair-old--kept {
+    opacity: 1;
+  }
+  .proposal-pair-old-title--kept {
+    text-decoration: none;
+    color: var(--ink-primary);
+  }
+  .proposal-pair-kept-note {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.6875rem;
+    color: oklch(35% 0.12 160);
+    margin-top: 6px;
+  }
+  .pair-kept-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: oklch(35% 0.12 160);
+    flex-shrink: 0;
+  }
   .proposal-pair-outcome {
     display: flex;
     align-items: center;
@@ -1026,7 +1050,16 @@ const CONFIG_PATH = "automation/config.json";
 let decisions = {
   hidden_cards: [], approved_proposals: [], rejected_proposals: [],
   deleted_cards: [], comments: {}, comments_fr: {},
-  tag_overrides: {}, approval_dates: {}, proposal_edits: {}
+  tag_overrides: {}, approval_dates: {}, proposal_edits: {},
+  // paired_proposals : lien delete<->add persisté au moment de la décision
+  // (Approuver le remplacement / Garder l'ancienne / Reject sur une paire
+  // détectée), clé dans les deux sens ({addId: deleteId, deleteId: addId}).
+  // Contrairement au groupement en Pending (heuristique recalculée à chaque
+  // affichage, donc jamais garantie stable), ce lien est la seule source de
+  // vérité une fois la décision prise : une paire décidée doit toujours
+  // rester unie, même si d'autres propositions apparaissent ensuite et
+  // matchent mieux l'heuristique.
+  paired_proposals: {}
 };
 let decisionsSha = null; // GitHub file SHA for updates
 
@@ -1218,7 +1251,7 @@ const PUSH_MAX_RETRIES = 3;
 // by the other's stale push — see automation/UAT-FEEDBACK-MANON.md.
 function mergeDecisions(remote, local) {
   const arrayKeys = ["hidden_cards", "approved_proposals", "rejected_proposals", "deleted_cards"];
-  const objectKeys = ["comments", "comments_fr", "tag_overrides", "approval_dates", "proposal_edits"];
+  const objectKeys = ["comments", "comments_fr", "tag_overrides", "approval_dates", "proposal_edits", "paired_proposals"];
   const merged = { ...remote, ...local };
   for (const k of arrayKeys) {
     merged[k] = [...new Set([...(remote[k] || []), ...(local[k] || [])])];
@@ -1354,6 +1387,28 @@ function saveRejectedProposals(arr){
 function getDeletedCards(){ return decisions.deleted_cards || []; }
 function saveDeletedCards(arr){
   decisions.deleted_cards = arr;
+  pushDecisions();
+}
+// Lien persisté entre les deux moitiés d'une paire delete+add décidée — voir
+// le commentaire sur decisions.paired_proposals plus haut. linkPairedProposals
+// est appelé une seule fois, au moment de la décision (pas à chaque render) ;
+// unlinkPairedProposals sert quand la paire est remise en attente ("Remettre
+// en attente"), pour repartir sur une détection heuristique fraîche plutôt
+// que de réutiliser un lien qui ne correspond peut-être plus à la meilleure
+// paire une fois redevenue pending.
+function getPairPartner(pid){
+  return (decisions.paired_proposals || {})[pid] || null;
+}
+function linkPairedProposals(idA, idB){
+  if (!decisions.paired_proposals) decisions.paired_proposals = {};
+  decisions.paired_proposals[idA] = idB;
+  decisions.paired_proposals[idB] = idA;
+  pushDecisions();
+}
+function unlinkPairedProposals(idA, idB){
+  if (!decisions.paired_proposals) return;
+  delete decisions.paired_proposals[idA];
+  delete decisions.paired_proposals[idB];
   pushDecisions();
 }
 function getComments(lang){
@@ -1718,11 +1773,18 @@ function renderDecidedPairCard(deleteP, addP, baseCardMap, approved, rejected) {
   const deleteApproved = approved.has(deleteP.id);
   const addApproved = approved.has(addP.id);
 
+  // "Ancienne conservée" (Garder l'ancienne) : l'ancienne fiche n'a jamais
+  // quitté la frise — la montrer barrée/grisée comme si elle était retirée
+  // serait trompeur (retour Joseph). Seul le vrai remplacement (delete
+  // approuvée) mérite ce traitement "supprimée".
+  const oldKept = !deleteApproved && addApproved;
+  const oldRemoved = deleteApproved;
+
   let outcomeLabel, outcomeClass;
   if (deleteApproved && addApproved) {
     outcomeLabel = "Remplacement approuvé";
     outcomeClass = "decision-approved";
-  } else if (!deleteApproved && addApproved) {
+  } else if (oldKept) {
     outcomeLabel = "Ancienne conservée";
     outcomeClass = "decision-approved";
   } else {
@@ -1731,19 +1793,26 @@ function renderDecidedPairCard(deleteP, addP, baseCardMap, approved, rejected) {
   }
 
   let html = `<div class="proposal-pair-card proposal-pair-card--decided">`;
-  html += `<div class="proposal-pair-old">`;
+  html += `<div class="proposal-pair-old${oldKept ? " proposal-pair-old--kept" : ""}">`;
   html += `<span class="action-badge action-badge--delete">DELETE</span> `;
-  html += `<span class="decision-status ${deleteApproved ? "decision-approved" : "decision-rejected"}">${deleteApproved ? "Approved" : "Rejected"}</span>`;
-  html += `<div class="proposal-pair-old-title">${escHtml(existing ? existing.t : deleteP.existing_id)}</div>`;
+  if (oldKept) {
+    html += `<span class="decision-status decision-approved">Conservée</span>`;
+  } else {
+    html += `<span class="decision-status ${deleteApproved ? "decision-approved" : "decision-rejected"}">${deleteApproved ? "Approved" : "Rejected"}</span>`;
+  }
+  html += `<div class="proposal-pair-old-title${oldKept ? " proposal-pair-old-title--kept" : ""}">${escHtml(existing ? existing.t : deleteP.existing_id)}</div>`;
   if (existing && existing.x) {
     html += `<div class="proposal-pair-old-desc">${escHtml(existing.x)}</div>`;
   }
+  if (oldKept) {
+    html += `<div class="proposal-pair-kept-note"><i class="pair-kept-dot"></i>Toujours affichée sur la frise, inchangée</div>`;
+  }
   html += `</div>`;
-  html += `<div class="proposal-pair-connector"><span class="proposal-pair-connector-line"></span>remplacée par</div>`;
+  html += `<div class="proposal-pair-connector"><span class="proposal-pair-connector-line"></span>${oldKept ? "complétée par" : "remplacée par"}</div>`;
   html += renderProposalCard(addP, baseCardMap, addApproved, rejected.has(addP.id), null, true);
   html += `<div class="proposal-pair-outcome">`;
   html += `<span class="decision-status ${outcomeClass}">${outcomeLabel}</span>`;
-  html += `<button class="btn btn-undo" data-proposal-undo-pair data-undo-pair-delete="${deleteP.id}" data-undo-pair-add="${addP.id}">Tout annuler</button>`;
+  html += `<button class="btn btn-undo" data-proposal-undo-pair data-undo-pair-delete="${deleteP.id}" data-undo-pair-add="${addP.id}">Remettre en attente</button>`;
   html += `</div>`;
   html += `</div>`;
   return html;
@@ -1789,14 +1858,23 @@ function renderProposals() {
     }
   } else if (activeProposalTab === "archived") {
     if (archived.length) {
-      // Même détection de paire que côté pending — reprise telle quelle
-      // (elle ne suppose rien sur l'état pending/décidé des propositions),
-      // pour garder le lien visuel une fois la décision prise.
-      const { pairByAddId, consumedDeleteIds } = findReplacementPairs(archived, baseCardMap);
+      // Une fois décidée, une paire ne doit JAMAIS pouvoir se dissocier —
+      // donc on ne recalcule plus l'heuristique ici (elle pourrait matcher
+      // une "add" différente si une autre proposition apparaît entre-temps,
+      // cf. retour Joseph). On lit uniquement le lien persisté au moment de
+      // la décision (decisions.paired_proposals), seule source de vérité.
+      const archivedIds = new Set(archived.map(p => p.id));
+      const consumed = new Set();
       archived.forEach(p => {
-        if (consumedDeleteIds.has(p.id)) return; // rendue avec sa paire "add"
-        if (pairByAddId.has(p.id)) {
-          html += renderDecidedPairCard(pairByAddId.get(p.id), p, baseCardMap, approved, rejected);
+        if (consumed.has(p.id)) return;
+        const partnerId = getPairPartner(p.id);
+        const partner = partnerId && archivedIds.has(partnerId) ? allProposals.find(x => x.id === partnerId) : null;
+        if (partner) {
+          const deleteP = p.action === "delete" ? p : partner;
+          const addP = p.action === "add" ? p : partner;
+          html += renderDecidedPairCard(deleteP, addP, baseCardMap, approved, rejected);
+          consumed.add(deleteP.id);
+          consumed.add(addP.id);
         } else {
           html += renderProposalCard(p, baseCardMap, approved.has(p.id), rejected.has(p.id));
         }
@@ -2056,6 +2134,15 @@ function revertProposalDecision(pid) {
     const addedId = cardId(proposal.card);
     M = M.filter(m => cardId(m) !== addedId);
   }
+
+  // Filet de sécurité : nettoie le lien de paire s'il en reste un pour cette
+  // proposition (l'UI actuelle ne propose plus d'Undo individuel sur une
+  // paire décidée — "Remettre en attente" passe par les deux moitiés — mais
+  // on évite quand même de laisser un lien orphelin pointer vers une
+  // proposition redevenue pending).
+  const partnerId = getPairPartner(pid);
+  if (partnerId) unlinkPairedProposals(pid, partnerId);
+
   return proposal;
 }
 
@@ -2305,7 +2392,15 @@ document.getElementById("proposals-section").addEventListener("click", async e =
     // aussi la delete de l'ancienne fiche dans la foulée, sans action
     // séparée requise de l'utilisateur.
     const pairedDeleteId = approveBtn.dataset.pairedDelete;
-    if (pairedDeleteId) approveProposalById(pairedDeleteId);
+    if (pairedDeleteId) {
+      approveProposalById(pairedDeleteId);
+      // Persiste le lien une fois pour toutes : la paire doit rester unie
+      // même si l'heuristique de détection, recalculée plus tard, ne
+      // retrouve plus le même match (ex. une autre proposition "add" plus
+      // proche apparaît entre-temps) — retour Joseph : annuler une seule
+      // moitié re-attachait la delete à une "nouvelle" différente.
+      linkPairedProposals(pid, pairedDeleteId);
+    }
 
     showToast();
     renderProposals();
@@ -2319,7 +2414,10 @@ document.getElementById("proposals-section").addEventListener("click", async e =
     // remplacement" (qui retire l'ancienne) ou "Reject" (qui écarte les deux).
     const addId = keepOldBtn.dataset.proposalKeepOld;
     const pairedDeleteId = keepOldBtn.dataset.pairedDelete;
-    if (pairedDeleteId) rejectProposalById(pairedDeleteId);
+    if (pairedDeleteId) {
+      rejectProposalById(pairedDeleteId);
+      linkPairedProposals(addId, pairedDeleteId);
+    }
     approveProposalById(addId);
 
     showToast();
@@ -2334,7 +2432,10 @@ document.getElementById("proposals-section").addEventListener("click", async e =
     // Paire delete+add détectée : "Reject" écarte les deux moitiés d'un coup
     // (rien ne change — l'ancienne reste, la nouvelle n'est jamais ajoutée).
     const pairedDeleteId = rejectBtn.dataset.pairedDelete;
-    if (pairedDeleteId) rejectProposalById(pairedDeleteId);
+    if (pairedDeleteId) {
+      rejectProposalById(pairedDeleteId);
+      linkPairedProposals(pid, pairedDeleteId);
+    }
 
     showToast();
     renderProposals();
