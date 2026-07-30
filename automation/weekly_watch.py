@@ -156,6 +156,33 @@ STANDARDS_REGISTER = [
         "source": "CEN-CENELEC", "reference": "prEN/EN 18286", "title": "AI Act QMS standard",
         "watch_for": "Ratified 12 Jul 2026, published as EN 18286:2026 (available 22 Jul 2026) — verify OJEU harmonization citation next (grants Art. 17 presumption of conformity)",
     },
+    # Reste du paquet JTC 21 en soutien de l'AI Act (mandat M/593), à côté de
+    # prEN 18286 (QMS) déjà suivi ci-dessus — ajoutés 29 juillet 2026, retour
+    # Joseph (numéros trouvés en recherche générale, pas encore suivis).
+    {
+        "source": "CEN-CENELEC", "reference": "prEN 18228", "title": "AI Risk Management (Art. 9 AI Act)",
+        "watch_for": "Publication/ratification status",
+    },
+    {
+        "source": "CEN-CENELEC", "reference": "prEN 18229-1/-2/-3", "title": "AI Trustworthiness framework (3 parties)",
+        "watch_for": "Publication/ratification status de chaque partie",
+    },
+    {
+        "source": "CEN-CENELEC", "reference": "prEN 18282", "title": "AI Cybersecurity specs (Art. 15(5) AI Act)",
+        "watch_for": "Publication/ratification status",
+    },
+    {
+        "source": "CEN-CENELEC", "reference": "prEN 18283", "title": "AI bias management",
+        "watch_for": "Publication/ratification status",
+    },
+    {
+        "source": "CEN-CENELEC", "reference": "prEN 18284", "title": "AI dataset quality & governance",
+        "watch_for": "Publication/ratification status",
+    },
+    {
+        "source": "CEN-CENELEC", "reference": "prEN 18285", "title": "AI conformity assessment",
+        "watch_for": "Publication/ratification status",
+    },
 ]
 
 
@@ -422,6 +449,16 @@ def fetch_fixed_sources() -> str:
             resp.raise_for_status()
             soup = BeautifulSoup(resp.text, "html.parser")
 
+            # Préfère le conteneur de contenu principal (repère d'accessibilité
+            # standard "#main-content"/<main>/[role=main]) à la page entière
+            # pour la recherche de liens ET pour le texte plus bas — évite les
+            # liens de nav/sélecteur de langue en plus du texte de nav (voir
+            # commentaire détaillé près de l'extraction du texte). Repli sur le
+            # soup entier si absent (ex. qualitiso.com/veille n'a ni l'un ni
+            # l'autre) pour ne jamais perdre de contenu.
+            main_el = soup.find(id="main-content") or soup.find("main") or soup.find(attrs={"role": "main"})
+            search_scope = main_el or soup
+
             # Extract real article links BEFORE stripping tags for the text
             # dump below. Without this, the model only ever sees this page's
             # own URL in its context and cites that generic landing page for
@@ -431,7 +468,7 @@ def fetch_fixed_sources() -> str:
             source_domain = urlparse(url).netloc
             seen_links = set()
             links = []
-            for a in soup.find_all("a", href=True):
+            for a in search_scope.find_all("a", href=True):
                 label = a.get_text(strip=True)
                 if not label or len(label) < 12:
                     continue  # skips nav items like "Accueil", icons, etc.
@@ -446,7 +483,19 @@ def fetch_fixed_sources() -> str:
 
             for tag in soup(["script", "style"]):
                 tag.decompose()
-            text = soup.get_text(separator="\n")
+            # Même conteneur que pour les liens ci-dessus (search_scope) — évite
+            # de refaire main/[role=main] deux fois. Retour Joseph, 29 juillet
+            # 2026 : digital-strategy.ec.europa.eu et health.ec.europa.eu (EC en
+            # Drupal) ont ~2000-3000 caractères de nav/sélecteur de langue (23
+            # langues) avant tout contenu utile, qui bouffaient une bonne partie
+            # du cap par défaut pour rien. Vérifié en direct (inspection DOM) :
+            # ai-act-standardisation passe de 6691 (body) à 5769 (main) en
+            # sautant directement au vrai contenu ; cnil.fr aussi a ce repère.
+            # Pas universel (qualitiso.com/veille par ex. n'a ni <main> ni
+            # [role=main]) — d'où le repli sur le body entier si absent (déjà
+            # géré par search_scope = main_el or soup), pour ne jamais perdre de
+            # contenu sur les sites qui n'ont pas ce repère.
+            text = search_scope.get_text(separator="\n")
             text = re.sub(r"\n{3,}", "\n\n", text).strip()
             # Cap per-source length to keep the writing-model prompt manageable — a
             # smaller prompt also reduces the model's tendency to try to cover
@@ -484,6 +533,48 @@ STANDARDS_EVOLUTION_URLS = [
     ("CENELEC", "https://standards.cencenelec.eu/ords/f?p=CENELEC:84"),
 ]
 
+# Filtre de pertinence pour la table "Recently published" (retour Joseph, 29
+# juillet 2026 : le coût par run reste élevé malgré le remplacement de la
+# source AI Act — cette table, envoyée SANS troncature, en est la plus grosse
+# part). Vérifié en direct (inspection DOM des deux pages) : la table est un
+# vrai <table> HTML de 165 lignes (CEN) + 61 lignes (CENELEC), ~40 500
+# caractères au total, mais la quasi-totalité couvre des secteurs sans rapport
+# (fabrication additive, alimentaire, construction...) — un filtre mot-clé
+# simple ne retient que 16 + 7 = 23 lignes pertinentes (~4 100 caractères),
+# soit une réduction d'environ 90% SANS perte d'info utile (on filtre par
+# pertinence, on ne tronque pas par position — donc pas de risque de couper
+# une ligne pertinente qui serait juste tombée après un cap arbitraire).
+STANDARDS_RELEVANCE_RE = re.compile(
+    r"medical|health|artificial intelligence|\bai\b|cyber|software|risk management|"
+    r"ivd|in.?vitro|diagnos",
+    re.IGNORECASE,
+)
+# Comités techniques connus comme pertinents même quand le titre lui-même
+# n'utilise aucun des mots-clés ci-dessus (ex. JTC 21 = IA, TC 204 =
+# informatique de santé).
+STANDARDS_RELEVANT_COMMITTEES_RE = re.compile(r"JTC 21|TC 204|TC 251|TC 215", re.IGNORECASE)
+
+
+def _extract_standards_table(page):
+    """Renvoie les lignes (hors en-tête) de la table 'Recently published' sous
+    forme de listes [reference, titre, comite, date], ou None si la structure
+    attendue n'est pas trouvée (page changée ?) — auquel cas l'appelant se
+    replie sur le texte brut complet plutôt que de risquer de perdre
+    silencieusement tout le contenu."""
+    tables = page.evaluate(
+        """() => Array.from(document.querySelectorAll('table')).map(t =>
+            Array.from(t.querySelectorAll('tr')).map(tr =>
+                Array.from(tr.querySelectorAll('td,th')).map(
+                    td => td.innerText.trim().replace(/\\s+/g, ' ')
+                )
+            )
+        )"""
+    )
+    for rows in tables:
+        if rows and rows[0] and rows[0][0] == "Standard reference":
+            return rows[1:]
+    return None
+
 
 def fetch_standards_status_pages() -> str:
     """Ground-truth status check for European standards (CEN/CENELEC), instead
@@ -503,11 +594,17 @@ def fetch_standards_status_pages() -> str:
 
     These pages are JS-rendered (Oracle APEX), so a plain requests.get()
     returns an empty shell — confirmed via direct testing. A headless browser
-    renders the real page instead. No truncation: the full "Recently
-    published" table for each organisation (~15-30k characters, a few hundred
-    rows) is passed through as-is and left to the triage model to scan for
-    anything AI Act / medical device / health data relevant — same pattern as
-    the Sonar results blob below."""
+    renders the real page instead. Le tableau "Recently published" est un vrai
+    <table> HTML (colonnes: référence, titre, comité technique, date) —
+    extrait puis FILTRÉ par pertinence (STANDARDS_RELEVANCE_RE / _COMMITTEES_RE)
+    plutôt qu'envoyé intégralement : vérifié en direct que ~90% des ~165+61
+    lignes couvrent des secteurs sans rapport (fabrication additive,
+    alimentaire...), donc le triage model n'a besoin de voir que le sous-
+    ensemble pertinent — ~40k caractères réduits à ~4k, sans perte (filtre par
+    pertinence, pas troncature par position). Si la structure de la page
+    change et que la table attendue n'est pas trouvée, repli automatique sur
+    le texte brut complet de la page (comportement précédent) pour ne jamais
+    perdre silencieusement tout le contenu."""
     from playwright.sync_api import sync_playwright
 
     sections = []
@@ -520,20 +617,45 @@ def fetch_standards_status_pages() -> str:
                     page = browser.new_page()
                     log(f"  [Playwright] navigation vers {org} ({url})...")
                     page.goto(url, wait_until="networkidle", timeout=30000)
-                    log(f"  [Playwright] {org} — page chargée, extraction du texte...")
-                    text = page.inner_text("body")
-                    text = re.sub(r"\n{3,}", "\n\n", text).strip()
-                    page.close()
-                    log(f"  [Playwright] {org} — terminé, {len(text)} caractères récupérés.")
-                    if "Recently published" not in text and "Standard reference" not in text:
+                    log(f"  [Playwright] {org} — page chargée, extraction de la table...")
+                    table_rows = _extract_standards_table(page)
+
+                    if table_rows is None:
                         log(
-                            f"  [Playwright] ATTENTION ({org}) — le contenu attendu (tableau "
-                            f"des normes) n'a pas été trouvé ; la page a peut-être changé de "
-                            f"structure ou n'est pas retombée sur la vue par défaut."
+                            f"  [Playwright] ATTENTION ({org}) — tableau 'Standard reference' "
+                            f"non trouvé (page changée ?) ; repli sur le texte brut complet."
                         )
+                        text = page.inner_text("body")
+                        text = re.sub(r"\n{3,}", "\n\n", text).strip()
+                        page.close()
+                        sections.append(
+                            f"--- STANDARDS RECEMMENT PUBLIEES PAR {org} (repli texte brut, "
+                            f"tableau non detecte) : {url} ---\n{text}"
+                        )
+                        continue
+
+                    page.close()
+
+                    relevant = [
+                        r for r in table_rows
+                        if len(r) >= 3 and (
+                            STANDARDS_RELEVANCE_RE.search(r[1])
+                            or STANDARDS_RELEVANT_COMMITTEES_RE.search(r[2])
+                        )
+                    ]
+                    log(
+                        f"  [Playwright] {org} — {len(table_rows)} normes au total, "
+                        f"{len(relevant)} retenues (medical/health/AI/cyber/software)."
+                    )
+                    body = "\n".join(
+                        f"{r[0]} | {r[1]} | {r[2]} | {r[3] if len(r) > 3 else ''}"
+                        for r in relevant
+                    ) or "(aucune norme pertinente cette fois)"
                     sections.append(
-                        f"--- STANDARDS RECEMMENT PUBLIEES PAR {org} (tous comites, "
-                        f"2 derniers mois) : {url} ---\n{text}"
+                        f"--- STANDARDS RECEMMENT PUBLIEES PAR {org}, FILTREES pertinence "
+                        f"medical/health/AI/cyber/software ({len(table_rows)} normes au total "
+                        f"tous secteurs, {len(relevant)} retenues) : {url} ---\n"
+                        f"Reference | Titre | Comite technique | Date de publication\n{body}"
                     )
                 except Exception as e:  # noqa: BLE001 - one bad org page must not kill the run
                     log(f"  [Playwright] échec du fetch pour {org} ({url}): {e}")
