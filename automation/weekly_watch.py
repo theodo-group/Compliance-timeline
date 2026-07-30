@@ -163,8 +163,12 @@ STANDARDS_REGISTER = [
         "source": "CEN-CENELEC", "reference": "prEN 18228", "title": "AI Risk Management (Art. 9 AI Act)",
         "watch_for": "Publication/ratification status",
     },
+    # Corrigé le 30 juillet 2026 : la page officielle "Work programme" de JTC 21
+    # (voir JTC21_WORK_PROGRAMME_URL) montre 5 parties, pas 3 comme indiqué par
+    # une source tierce (blog) consultée initialement — Part 1 Logging, Part 2
+    # Transparency, Part 3 Human oversight, Part 4 Accuracy, Part 5 Robustness.
     {
-        "source": "CEN-CENELEC", "reference": "prEN 18229-1/-2/-3", "title": "AI Trustworthiness framework (3 parties)",
+        "source": "CEN-CENELEC", "reference": "prEN 18229-1 à -5", "title": "AI Trustworthiness framework (5 parties : Logging, Transparency, Human oversight, Accuracy, Robustness)",
         "watch_for": "Publication/ratification status de chaque partie",
     },
     {
@@ -533,6 +537,37 @@ STANDARDS_EVOLUTION_URLS = [
     ("CENELEC", "https://standards.cencenelec.eu/ords/f?p=CENELEC:84"),
 ]
 
+# Retour Joseph, 30 juillet 2026 : "ne faudrait-il pas faire des recherches
+# internet pour suivre ces normes précisément ?" — non, pas besoin de Sonar :
+# JTC 21 (le comité qui écrit TOUTES les normes AI Act) publie sa propre page
+# "Work programme", scopée par organisation (org ID 2916257), qui liste TOUS
+# ses projets avec leur stade EXACT (Under Drafting / Under Enquiry / Under
+# Approval / Approved), le prochain stade, et la date de vote prévue — trouvée
+# via jtc21.eu/working-groups (lien officiel du comité vers sa propre page),
+# retestée en direct (navigateur) le 30 juillet 2026 : 35 projets, ~6100
+# caractères, et déjà scopée au comité donc AUCUN filtre mot-clé nécessaire
+# (contrairement aux pages générales CEN/CENELEC ci-dessus qui couvrent tous
+# les secteurs industriels). Contient bien prEN 18228 (Under Approval),
+# 18229-1 à -5 (Enquiry/Drafting), 18282, 18283, 18284, 18285, 18286 —
+# exactement les numéros demandés. Plus précis qu'une recherche Sonar
+# généraliste puisque c'est la source primaire elle-même (le comité), pas un
+# tiers qui en parle. Note technique : c'est une appli Oracle APEX DIFFERENTE
+# de CEN:84/CENELEC:84 ci-dessus (celles-ci sont le dashboard générique de
+# chaque organisme, l'organisme étant "en dur" dans l'alias) — celle-ci est
+# l'appli générique "205" partagée par tous les comités techniques CEN/CENELEC,
+# donc elle a besoin qu'on lui passe explicitement quel comité afficher via les
+# "page items" FSP_ORG_ID (2916257 = JTC 21) et FSP_LANG_ID. Le paramètre cs=
+# est un checksum Oracle APEX obligatoire pour cette appli ("session state
+# protection" — confirmé : la page refuse de charger sans lui) ; il vient du
+# lien officiel publié par JTC 21 lui-même, pas inventé. Si la page casse un
+# jour (checksum expiré côté serveur, structure changée), repli automatique
+# sur le texte brut complet (même filet de sécurité que pour les pages
+# CEN/CENELEC générales).
+JTC21_WORK_PROGRAMME_URL = (
+    "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25"
+    "&cs=114251C6C0B684FBBC069923513BF6348"
+)
+
 # Filtre de pertinence pour la table "Recently published" (retour Joseph, 29
 # juillet 2026 : le coût par run reste élevé malgré le remplacement de la
 # source AI Act — cette table, envoyée SANS troncature, en est la plus grosse
@@ -576,6 +611,26 @@ def _extract_standards_table(page):
     return None
 
 
+def _extract_project_table(page):
+    """Même principe que _extract_standards_table mais pour la page 'Work
+    programme' d'un comité (colonnes : Project reference, Status, Initial
+    Date, Current Stage, Next Stage, Forecasted voting date). Renvoie None si
+    la structure attendue n'est pas trouvée (checksum expiré, page changée ?)."""
+    tables = page.evaluate(
+        """() => Array.from(document.querySelectorAll('table')).map(t =>
+            Array.from(t.querySelectorAll('tr')).map(tr =>
+                Array.from(tr.querySelectorAll('td,th')).map(
+                    td => td.innerText.trim().replace(/\\s+/g, ' ')
+                )
+            )
+        )"""
+    )
+    for rows in tables:
+        if rows and rows[0] and rows[0][0] == "Project reference":
+            return rows[1:]
+    return None
+
+
 def fetch_standards_status_pages() -> str:
     """Ground-truth status check for European standards (CEN/CENELEC), instead
     of relying on Sonar/fixed sources to happen to mention a registry status
@@ -604,7 +659,16 @@ def fetch_standards_status_pages() -> str:
     pertinence, pas troncature par position). Si la structure de la page
     change et que la table attendue n'est pas trouvée, repli automatique sur
     le texte brut complet de la page (comportement précédent) pour ne jamais
-    perdre silencieusement tout le contenu."""
+    perdre silencieusement tout le contenu.
+
+    Fetch également la page "Work programme" du comité JTC 21 lui-même
+    (JTC21_WORK_PROGRAMME_URL, même navigateur, pas de second lancement) —
+    contrairement aux deux pages ci-dessus (tous secteurs, filtrées par
+    mot-clé), celle-ci est déjà scopée par organisation (JTC 21 uniquement)
+    donc envoyée intégralement sans filtre, avec le stade EXACT de chaque
+    projet (Under Drafting / Under Enquiry / Under Approval / Approved), pas
+    seulement "publié ou non" — plus précis pour suivre l'avancement semaine
+    après semaine des prEN 18228/18229-x/18282/18283/18284/18285/18286."""
     from playwright.sync_api import sync_playwright
 
     sections = []
@@ -663,6 +727,59 @@ def fetch_standards_status_pages() -> str:
                         f"--- STANDARDS RECEMMENT PUBLIEES PAR {org} : {url} ---\n"
                         f"(fetch échoué: {e})"
                     )
+
+            # Page "Work programme" scopée JTC 21 (voir commentaire sur
+            # JTC21_WORK_PROGRAMME_URL) — même navigateur déjà ouvert, pas de
+            # second lancement Chromium. Contrairement aux pages ci-dessus
+            # (tous secteurs, filtrées par mot-clé), celle-ci est déjà scopée
+            # au comité AI Act donc aucun filtre n'est appliqué : chaque ligne
+            # est pertinente par construction.
+            try:
+                page = browser.new_page()
+                log("  [Playwright] navigation vers JTC 21 Work programme...")
+                page.goto(JTC21_WORK_PROGRAMME_URL, wait_until="networkidle", timeout=30000)
+                log("  [Playwright] JTC 21 — page chargée, extraction de la table...")
+                project_rows = _extract_project_table(page)
+
+                if project_rows is None:
+                    log(
+                        "  [Playwright] ATTENTION (JTC 21 work programme) — tableau "
+                        "'Project reference' non trouvé (checksum expiré, page changée ?) ; "
+                        "repli sur le texte brut complet."
+                    )
+                    text = page.inner_text("body")
+                    text = re.sub(r"\n{3,}", "\n\n", text).strip()
+                    page.close()
+                    sections.append(
+                        f"--- JTC 21 WORK PROGRAMME (repli texte brut, tableau non détecté) : "
+                        f"{JTC21_WORK_PROGRAMME_URL} ---\n{text[:6000]}"
+                    )
+                else:
+                    page.close()
+                    log(
+                        f"  [Playwright] JTC 21 work programme — {len(project_rows)} projets "
+                        f"(déjà scopés au comité, aucun filtre nécessaire)."
+                    )
+                    body = "\n".join(
+                        f"{r[0]} | Statut: {r[1] if len(r) > 1 else ''} | "
+                        f"Stade actuel: {r[3] if len(r) > 3 else ''} | "
+                        f"Prochain stade: {r[4] if len(r) > 4 else ''} | "
+                        f"Vote prevu: {r[5] if len(r) > 5 else ''}"
+                        for r in project_rows
+                    )
+                    sections.append(
+                        f"--- JTC 21 WORK PROGRAMME (TOUS les projets du comité AI Act, deja "
+                        f"scopes par organisation, {len(project_rows)} projets, aucun filtre "
+                        f"necessaire) : {JTC21_WORK_PROGRAMME_URL} ---\n"
+                        f"Reference | Statut | Stade actuel | Prochain stade | Vote prevu\n{body}"
+                    )
+            except Exception as e:  # noqa: BLE001 - this page failing must not kill the run
+                log(f"  [Playwright] échec du fetch pour JTC 21 work programme: {e}")
+                sections.append(
+                    f"--- JTC 21 WORK PROGRAMME : {JTC21_WORK_PROGRAMME_URL} ---\n"
+                    f"(fetch échoué: {e})"
+                )
+
             browser.close()
     except Exception as e:  # noqa: BLE001 - Playwright itself failing must not kill the run
         log(f"  [Playwright] indisponible ou erreur globale: {e}")
