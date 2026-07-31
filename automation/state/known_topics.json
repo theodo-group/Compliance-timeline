@@ -5,7 +5,7 @@
     "last_status": "new",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-07-29"
+    "last_seen": "2026-07-31"
   },
   {
     "key": "iso-ts-24971-2-2026-publiee-guide-d-application-iso-14971-pour-le-machine-learni",
@@ -19,9 +19,9 @@
     "key": "mdcg-2026-5-attribution-des-identifiants-udi-entre-fabricants-et-distributeurs",
     "title": "MDCG 2026-5 : attribution des identifiants UDI entre fabricants et distributeurs",
     "last_status": "new",
-    "source_url": "https://www.qualitiso.com/mdcg-2026-5-attribution-des-identifiants-iud-entre-fabricants-et-distributeurs/",
+    "source_url": "https://health.ec.europa.eu/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en#sec18",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-07-29"
+    "last_seen": "2026-07-31"
   },
   {
     "key": "mdcg-2026-4-le-chargement-de-tous-les-resumes-ssp-et-sscp-dans-eudamed-revient-a",
@@ -93,7 +93,7 @@
     "last_status": "new",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-29"
+    "last_seen": "2026-07-31"
   },
   {
     "key": "lignes-directrices-commission-sur-obligations-de-transparence-ia-fournisseurs-de",
@@ -150,5 +150,13 @@
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-new-guidance-support-businesses-implementation-cyber-resilience-act",
     "first_seen": "2026-07-29",
     "last_seen": "2026-07-29"
+  },
+  {
+    "key": "en-18286-2026-ratifiee-norme-qms-ia-pour-l-ai-act",
+    "title": "EN 18286:2026 ratifiée : norme QMS IA pour l'AI Act",
+    "last_status": "draft",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
+    "first_seen": "2026-07-31",
+    "last_seen": "2026-07-31"
   }
 ]
