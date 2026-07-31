@@ -261,14 +261,41 @@ rédaction/traduction), même si chaque appel individuel est mieux nourri.
 
 ## Secrets & opérations
 
-Deux secrets font tourner l'automatisation, non rattachés à une personne au
-sens propre mais régénérables facilement si besoin :
+Trois secrets font tourner l'automatisation (repo → Settings → Secrets and
+variables → Actions), non rattachés à une personne au sens propre mais
+régénérables facilement si besoin :
 
-1. **Mot de passe d'application Gmail** (`GMAIL_ADDRESS`/`GMAIL_APP_PASSWORD`,
-   secrets du repo GitHub) — régénérable dans les paramètres de sécurité du
-   compte Gmail dédié.
-2. **`GITHUB_TOKEN`** — fourni automatiquement par GitHub Actions pour les
+1. **`GMAIL_ADDRESS` / `GMAIL_APP_PASSWORD`** — envoi de l'email hebdomadaire
+   (SMTP).
+2. **`LITELLM_API_KEY`** — tous les appels modèle du pipeline (triage/
+   propositions sur Sonnet, rédaction/traduction sur Haiku, recherche sur
+   Perplexity Sonar) via `https://llm-gateway.m33.tech`.
+3. **`GITHUB_TOKEN`** — fourni automatiquement par GitHub Actions pour les
    push du pipeline, pas de PAT personnel requis pour ça.
+
+### Renouveler `GMAIL_APP_PASSWORD` ou `LITELLM_API_KEY`
+
+Procédure maintenue à jour dans Notion (source de référence — mets-la à jour
+là-bas d'abord si quelque chose change) :
+[Modop — Renouveler les clés API (Gmail + LiteLLM)](https://app.notion.com/p/3ae8f3776f4f81e8afa7e1c55b0829ba).
+
+Résumé :
+
+- **Gmail** : compte Gmail dédié → [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
+  (l'URL directe, le chemin via Sécurité ne mène pas toujours à la bonne
+  page) → créer un nouveau App password → mettre à jour le secret GitHub
+  `GMAIL_APP_PASSWORD` (et `GMAIL_ADDRESS` aussi si l'adresse elle-même
+  change, pas seulement son mot de passe) → tester sans risque via
+  `.github/workflows/cron-test.yml` (email de test, coût zéro).
+- **LiteLLM** : [llm-gateway-connection.m33.tech](https://llm-gateway-connection.m33.tech/)
+  (compte Google Theodo) → Virtual Keys → Create New Key → équipe
+  "Individual usage" (ou l'équipe du projet) → **ne sélectionner aucun
+  modèle spécifique** (la clé doit rester utilisable avec tous les modèles
+  appelés par le pipeline) → mettre à jour le secret GitHub
+  `LITELLM_API_KEY`.
+- Dans les deux cas, vérifier ensuite via Actions → Regulatory Watch (weekly)
+  → Run workflow avec `dry_run: true`, sans attendre le run planifié du
+  vendredi.
 
 Déclenchement : le `schedule:` natif de `regulatory-watch.yml` est actif
 (vendredi). Un ancien plan de secours via cron-job.org (token GitHub externe,
