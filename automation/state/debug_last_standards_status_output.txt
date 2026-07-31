@@ -1,0 +1,329 @@
+--- STANDARDS RECEMMENT PUBLIEES PAR CEN-CENELEC (tous comites, 2 derniers mois) : https://standards.cencenelec.eu/ords/f?p=CEN:84 ---
+About CEN
+
+The European Committee for Standardization is one of three European Standardization Organizations (together with CENELEC and ETSI) that have been officially recognized by the European Union and by the European Free Trade Association (EFTA) as being responsible for developing and defining voluntary standards at European level.
+
+CEN Communities
+Technical Work
+Structure and Governance
+Coordination and Advisory Bodies
+CEN Technical Bodies
+CEN Standards Evolution and Forecast
+Recently published
+To be published
+Formal Vote
+Under Enquiry
+New Projects
+To be withdrawn
+Withdrawn
+EN
+FR
+DE
+Standards published over the last 2 months
+Standard reference
+ 
+	
+Title
+	
+Technical body
+	
+Date of Publication
+
+CEN ISO/ASTM TR 52958:2026
+(WI=00438070)	Additive manufacturing of metals - Powder bed fusion (PBF) - In-situ coaxial photodiode monitoring for lack of fusion flaw detection in PBF-LB (ISO/ASTM TR 52958:2026)	CEN/TC 438	2026-06-03
+CEN ISO/TS 17664-3:2026
+(WI=00204090)	Processing of health care products - Information to be provided by the medical device manufacturer for the processing of medical devices - Part 3: Guidance on the designation of a reusable medical device to a cleaning classification (ISO/TS 17664-3:2026)	CEN/TC 204	2026-07-08
+CEN ISO/TS 21569-10:2026
+(WI=00275386)	Horizontal methods for molecular biomarker analysis - Methods of analysis for the detection of genetically modified organisms and derived products - Part 10: Construct- and event-specific detection methods for genetically modified salmon expressing CS-GHc2 growth hormone (ISO/TS 21569 10:2026)	CEN/TC 275	2026-06-03
+CEN ISO/TS 24971-2:2026
+(WI=JT003075)	Medical devices - Guidance on the application of ISO 14971 - Part 2: Machine learning in artificial intelligence (ISO/TS 24971-2:2026)	CEN/CLC/JTC 3	2026-06-24
+CEN/CLC/TS 18331:2026
+(WI=JT025010)	Maturity assessment of Common European Data Spaces	CEN/CLC/JTC 25	2026-07-01
+CEN/TR 17689-1:2026
+(WI=00247138)	BAC Control loop components - Quality and performance assessment - Part 1: General framework and procedure	CEN/TC 247	2026-06-03
+CEN/TR 18325:2026
+(WI=00366021)	Rubber materials obtained from EndofLife Tyres – Guidelines for the compliance to CLP and REACH regulations – Granulates and powders	CEN/TC 366	2026-06-03
+CEN/TR 18326:2026
+(WI=00127447)	Report on installation scenarios, available test methods and national legislation to be considered for the fire performance classification of roof systems with above roof mounted PV modules	CEN/TC 127	2026-06-03
+CEN/TR 18341:2026
+(WI=00107100)	District heating and cooling systems - Supplementary information on usage of CEN/TC 107 documents	CEN/TC 107	2026-07-01
+CEN/TS 16157-8:2026
+(WI=00278609)	Intelligent transport systems - DATEX II data exchange specifications for traffic management and information - Part 8: Traffic management publications and extensions dedicated to the urban environment	CEN/TC 278	2026-07-08
+CEN/TS 18098:2026
+(WI=00224276)	Guidelines for the onboarding of user personal identification data within European Digital Identity Wallets	CEN/TC 224	2026-06-03
+CEN/TS 18212-5:2026
+(WI=00224280)	Personal identification - Requirements for biometric products - Part 5: Face biometrics	CEN/TC 224	2026-06-17
+CEN/TS 18272-1:2026
+(WI=00248762)	Textiles - Circular economy for textile products - Part 1: General principles and guidance	CEN/TC 248	2026-07-15
+CEN/TS 18275:2026
+(WI=00264248)	Ambient air - Definition and use of modelling quality objectives for air quality assessment	CEN/TC 264	2026-07-08
+CEN/TS 18301:2026
+(WI=00227561)	Road materials - Environmental product declarations - Product category rules complementary to EN 15804 for bituminous mixtures	CEN/TC 227	2026-06-17
+CWA 18386:2026
+(WI=WSET1001)	Determination of nucleic acid encapsulation efficiency in Lipid Nanoparticles using fluorometry	CEN/WS ETERNAL I	2026-06-03
+CWA 18387:2026
+(WI=WSSCR001)	Seafood marketing - Recommendations - Consumer and seafood types	CEN/WS Verifish	2026-06-03
+CWA 18390:2026
+(WI=WSDRP001)	Guidelines for Disaster Risk Preparedness Solutions - Project tools, platforms and processes - Good practice recommendations	CEN/WS DRP Solutions	2026-06-10
+CWA 18398:2026
+(WI=WSARS001)	AI Professional Role Profiles and Educational Profiles	CEN/WS ARISA	2026-06-24
+CWA 18399:2026
+(WI=WSGPR001)	Good practice recommendations for a common EU guiding framework for the valuation of ecosystem services (monetary and non- monetary)	CEN/WS Good practice recommendations	2026-06-17
+CWA 18407:2026
+(WI=WSTWI001)	Introductory Human-Centric Exposure Modelling (H-CEM) method for estimating exposure to indoor air PM2,5	CEN/WS TwinAIR	2026-07-08
+CWA 18408:2026
+(WI=WSTWI002)	Protocol for quantification of exposure to Ultrafine Particles as part of Indoor Air Quality study	CEN/WS TwinAIR	2026-07-08
+CWA 18410:2026
+(WI=WSFOL001)	Methodology to quantify food loss at primary production	CEN/WS FOLOU	2026-07-15
+EN 10365:2026
+(WI=EC103129)	Hot rolled steel channels, I and H sections - Dimensions and masses	CEN/TC 459/SC 3	2026-07-01
+EN 12096:2026
+(WI=00231127)	Mechanical vibration - Declaration and verification of vibration emission values	CEN/TC 231	2026-07-22
+EN 12131:2026
+(WI=00443014)	Feather and down - Test methods - Determination of the quantitative composition of feather and down (manual method)	CEN/TC 443	2026-07-01
+EN 12255-2:2026
+(WI=00165349)	Wastewater treatment plants - Part 2: Storm water management systems	CEN/TC 165	2026-07-15
+EN 12255-7:2026
+(WI=00165354)	Wastewater treatment plants - Part 7: Biological fixed-film reactors	CEN/TC 165	2026-06-03
+EN 12259-12:2023+A1:2026
+(WI=00191423)	Fixed firefighting systems - Components for sprinkler and water spray systems - Part 12: Pumps	CEN/TC 191	2026-07-08
+EN 12693:2026
+(WI=00182093)	Refrigerating systems and heat pumps - Safety and environmental requirements - Positive displacement refrigerant compressors	CEN/TC 182	2026-06-10
+EN 12896-1:2026
+(WI=00278632)	Public transport - Reference data model - Part 1: Common concepts	CEN/TC 278	2026-07-01
+EN 12896-2:2026
+(WI=00278633)	Public transport - Reference data model - Part 2: Public transport network	CEN/TC 278	2026-07-01
+EN 12896-3:2026
+(WI=00278637)	Public transport - Reference data model - Part 3: Timing information and vehicle scheduling	CEN/TC 278	2026-07-01
+EN 12896-4:2026
+(WI=00278641)	Public transport - Reference data model - Part 4: Operations monitoring and control	CEN/TC 278	2026-07-01
+EN 12896-5:2026
+(WI=00278638)	Public transport - Reference data model - Part 5: Fare management	CEN/TC 278	2026-07-01
+EN 12896-6:2026
+(WI=00278634)	Public transport - Reference data model - Part 6: Passenger information	CEN/TC 278	2026-07-01
+EN 12896-7:2026
+(WI=00278644)	Public transport - Reference data model - Part 7: Driver management	CEN/TC 278	2026-07-01
+EN 13135:2026
+(WI=00147197)	Cranes - Safety - Requirements for equipment	CEN/TC 147	2026-07-22
+EN 13262:2026
+(WI=00256A2G)	Railway applications - Wheelsets and bogies - Wheels - Product requirements	CEN/TC 256	2026-06-24
+EN 13445-10:2026
+(WI=00054216)	Unfired pressure vessels - Part 10: Additional requirements for pressure vessels of nickel and nickel alloys	CEN/TC 54	2026-07-01
+EN 13445-11:2026
+(WI=00054221)	Unfired pressure vessels - Part 11: Additional requirements for pressure vessels of titanium and titanium alloys	CEN/TC 54	2026-07-01
+EN 13445-1:2026
+(WI=00054215)	Unfired pressure vessels - Part 1: General	CEN/TC 54	2026-07-01
+EN 13445-2:2026
+(WI=00054217)	Unfired pressure vessels - Part 2: Materials	CEN/TC 54	2026-07-01
+EN 13445-3:2026
+(WI=00054218)	Unfired pressure vessels - Part 3: Design	CEN/TC 54	2026-07-01
+EN 13445-4:2026
+(WI=00054223)	Unfired pressure vessels - Part 4: Fabrication	CEN/TC 54	2026-07-01
+EN 13445-5:2026
+(WI=00054219)	Unfired pressure vessels - Part 5: Inspection and testing	CEN/TC 54	2026-07-01
+EN 13445-6:2026
+(WI=00054220)	Unfired pressure vessels - Part 6: Requirements for the design and fabrication of pressure vessels and pressure parts constructed from spheroidal graphite cast iron	CEN/TC 54	2026-07-01
+EN 13445-8:2026
+(WI=00054222)	Unfired pressure vessels - Part 8: Additional requirements for pressure vessels of aluminium and aluminium alloys	CEN/TC 54	2026-07-01
+EN 13586:2026
+(WI=00147198)	Cranes - Access	CEN/TC 147	2026-07-22
+EN 1364-5:2026
+(WI=00127460)	Fire resistance tests for non-loadbearing elements - Part 5: Air transfer grilles	CEN/TC 127	2026-07-22
+EN 13856:2026
+(WI=00286228)	LPG equipment and accessories - Minimum requirements for the content of the user manual for automotive LPG systems	CEN/TC 286	2026-06-03
+EN 14519:2026
+(WI=00175198)	Solid softwood panelling and cladding - Machined profiles with tongue and groove	CEN/TC 175	2026-07-22
+EN 14951:2026
+(WI=00175199)	Solid hardwood panelling and cladding - Machined profiles	CEN/TC 175	2026-07-22
+EN 14972-13:2026
+(WI=00191361)	Fixed firefighting systems - Water mist systems - Part 13: Test protocol for wet benches and other similar processing equipment for open nozzle systems	CEN/TC 191	2026-07-22
+EN 15146:2026
+(WI=00175196)	Solid softwood panelling and cladding - Machined profiles without tongue and groove	CEN/TC 175	2026-07-22
+EN 1520:2026
+(WI=00177043)	Precast lightweight concrete products with an open structure	CEN/TC 177	2026-07-22
+EN 15254-5:2026
+(WI=00127463)	Extended application of results from fire resistance tests - Non-loadbearing walls - Part 5: Metal sandwich panel construction	CEN/TC 127	2026-07-22
+EN 15254-7:2026
+(WI=00127464)	Extended application of results from fire resistance tests - Non-loadbearing ceilings - Part 7: Metal sandwich panel construction	CEN/TC 127	2026-07-22
+EN 15425:2023+A1:2026
+(WI=00193410)	Adhesives - One component polyurethane (PUR) for load-bearing timber structures - Classification and performance requirements	CEN/TC 193	2026-06-03
+EN 15721:2026
+(WI=00019675)	Ethanol as a blending component for petrol - Determination of higher alcohols, methanol and other impurities - Gas chromatographic method	CEN/TC 19	2026-07-15
+EN 16282-1:2026
+(WI=00156299)	Equipment for commercial kitchens - Components for ventilation in commercial kitchens - Part 1: General requirements including calculation method	CEN/TC 156	2026-07-22
+EN 16431:2026
+(WI=00256A2T)	Railway applications - Infrastructure - Hollow sleepers and bearers	CEN/TC 256	2026-06-10
+EN 16662-3:2026
+(WI=00301084)	Road vehicles - Supplementary grip devices for tyres of passenger cars and light duty vehicles - Part 3: Production control (self-monitoring) and third-party surveillance	CEN/TC 301	2026-07-01
+EN 1717:2025+A1:2026
+(WI=00164805)	Protection against pollution of water intended for human consumption in potable water installations and general requirements for devices to prevent pollution by backflow	CEN/TC 164	2026-07-01
+EN 17640:2022+A1:2026
+(WI=JT013112)	Fixed-time cybersecurity evaluation methodology for ICT products	CEN/CLC/JTC 13	2026-07-01
+EN 17860-2:2024+A1:2026
+(WI=00333080)	Carrier Cycles - Part 2: Lightweight single track carrier cycles - Mechanical aspects	CEN/TC 333	2026-06-17
+EN 18158:2026
+(WI=00183126)	Waste management - Mobile IT systems - Requirements for the XML interface Office-Mobile	CEN/TC 183	2026-06-10
+EN 18161:2026
+(WI=00230420)	Water quality - Guidance standard on survey and monitoring freshwater mussel populations and their environment	CEN/TC 230	2026-06-03
+EN 18167:2026
+(WI=00470002)	Quality along the patient pathway for medical imaging in radiology services	CEN/TC 470	2026-06-03
+EN 18185:2026
+(WI=00177045)	Sustainability of construction works - Environmental product declarations - Product Category Rules for precast lightweight concrete with an open structure and precast autoclaved aerated concrete	CEN/TC 177	2026-07-22
+EN 18286:2026
+(WI=JT021039)	Artificial intelligence - Quality management system for EU AI Act regulatory purposes	CEN/CLC/JTC 21	2026-07-22
+EN 301:2023+A1:2026
+(WI=00193411)	Adhesives, phenolic and aminoplastic, for load-bearing timber structures - Classification and performance requirements	CEN/TC 193	2026-06-03
+EN 302-8:2023+A1:2026
+(WI=00193412)	Adhesives for load-bearing timber structures - Test methods - Part 8: Static load test of multiple bond line specimens in compression shear	CEN/TC 193	2026-06-03
+EN 3078:2026
+(WI=04004908)	Aerospace series - P, Q and saddle clamps with rubber cushion - Technical Specification	ASD-STAN	2026-07-08
+EN 438-9:2026
+(WI=00249A6I)	High-pressure decorative laminates (HPL) - Sheets based on thermosetting resins (usually called laminates) - Part 9: Classification and specifications for alternative core laminates	CEN/TC 249	2026-06-03
+EN 45545-6:2024+A1:2026
+(WI=00256A69)	Railway applications - Fire protection on railway vehicles - Part 6: Fire control and management systems	CEN/TC 256	2026-07-15
+EN 601:2026
+(WI=00132355)	Aluminium and aluminium alloys - Castings - Chemical composition of castings for use in contact with foodstuff	CEN/TC 132	2026-06-03
+EN 602:2026
+(WI=00132338)	Aluminium and aluminium alloys - Wrought products - Chemical composition of semi-finished products used for the fabrication of articles for use in contact with foodstuff	CEN/TC 132	2026-07-01
+EN ISO 10087:2022/A1:2026
+(WI=00464105)	Small craft - Craft identification - Coding system - Amendment 1 (ISO 10087:2022/Amd 1:2026)	CEN/TC 464	2026-07-01
+EN ISO 10325:2026
+(WI=00248787)	Fibre ropes - High modulus polyethylene - 8-strand braided ropes, 12-strand braided ropes and covered ropes (ISO 10325:2026)	CEN/TC 248	2026-06-17
+EN ISO 105-X11:2026
+(WI=00248770)	Textiles - Tests for colour fastness - Part X11: Colour fastness to hot pressing (ISO 105-X11:2026)	CEN/TC 248	2026-06-24
+EN ISO 10650:2026
+(WI=00055565)	Dentistry - Powered polymerization activators (ISO 10650:2026)	CEN/TC 55	2026-07-08
+EN ISO 10873:2026
+(WI=00055562)	Dentistry - Denture adhesives (ISO 10873:2026)	CEN/TC 55	2026-07-01
+EN ISO 11092:2026
+(WI=00248750)	Textiles - Physiological effects - Measurement of thermal and water-vapour resistance under steady-state conditions (sweating guarded-hotplate test) (ISO 11092:2026)	CEN/TC 248	2026-06-03
+EN ISO 11137-1:2026
+(WI=00204083)	Sterilization of health care products - Radiation - Part 1: Requirements for the development, validation and routine control of a sterilization process for medical devices (ISO 11137-1:2025)	CEN/TC 204	2026-06-24
+EN ISO 11145:2026
+(WI=00123125)	Optics and photonics - Lasers and laser-related equipment - Vocabulary and symbols (ISO 11145:2026)	CEN/TC 123	2026-07-22
+EN ISO 11290-1:2017/A1:2026
+(WI=00463115)	Microbiology of the food chain - Horizontal method for the detection and enumeration of Listeria monocytogenes and of Listeria spp. - Part 1: Detection method - Amendment 1: Inclusion of storage of the samples before analysis and changes in the control strain for performance testing of culture media and reagents (ISO 11290 1:2017/Amd 1:2026)	CEN/TC 463	2026-07-22
+EN ISO 11290-2:2017/A1:2026
+(WI=00463116)	Microbiology of the food chain - Horizontal method for the detection and enumeration of Listeria monocytogenes and of Listeria spp. - Part 2: Enumeration method - Amendment 1: Inclusion of storage of the samples before analysis and changes in the control strain for performance testing of culture media and reagents (ISO 11290-2:2017/Amd 1:2026)	CEN/TC 463	2026-07-22
+EN ISO 12135:2026
+(WI=EC101217)	Metallic materials - Unified method of test for the determination of quasistatic fracture toughness (ISO 12135:2021, including corrected version 2022-08)	CEN/TC 459/SC 1	2026-07-22
+EN ISO 12487:2026
+(WI=00205392)	Medical electrical equipment - Clinical performance evaluation of clinical thermometers (ISO 12487:2026)	CEN/TC 205	2026-06-03
+EN ISO 13196:2026
+(WI=00444253)	Soil quality - Screening soils for selected elements by energy-dispersive X-ray fluorescence spectrometry using a handheld or portable instrument (ISO 13196:2026)	CEN/TC 444	2026-06-10
+EN ISO 13694:2026
+(WI=00123124)	Optics and photonics - Lasers and laser-related equipment - Test methods for laser beam irradiance (fluence) distribution (ISO 13694:2026)	CEN/TC 123	2026-07-22
+EN ISO 14021:2026
+(WI=CSS26073)	Environmental statements and programmes for products - Self-declared environmental claims (ISO 14021:2026)	CEN/SS S26	2026-07-08
+EN ISO 14025:2026
+(WI=CSS26075)	Environmental statements and programmes for products - Environmental product declarations (EPDs) (ISO 14025:2026)	CEN/SS S26	2026-07-08
+EN ISO 14097:2026
+(WI=00467012)	Greenhouse gas management and related activities - Framework including principles and requirements for assessing and reporting investments and financing activities related to climate change (ISO 14097:2021)	CEN/TC 467	2026-06-17
+EN ISO 14119:2025/A11:2026
+(WI=00114193)	Safety of machinery - Interlocking devices associated with guards - Principles for design and selection	CEN/TC 114	2026-06-24
+EN ISO 14577-1:2026
+(WI=EC101195)	Metallic materials - Instrumented indentation test for hardness and materials parameters - Part 1: Test method (ISO 14577-1:2026)	CEN/TC 459/SC 1	2026-06-24
+EN ISO 14577-2:2026
+(WI=EC101196)	Metallic materials - Instrumented indentation test for hardness and materials parameters - Part 2: Verification and calibration of testing machines (ISO 14577-2:2026)	CEN/TC 459/SC 1	2026-07-01
+EN ISO 14819-2:2021/A1:2026
+(WI=00278662)	Intelligent transport systems - Traffic and travel information messages via traffic message coding - Part 2: Event and information codes for Radio Data System-Traffic Message Channel (RDS-TMC) using ALERT-C - Amendment 1 (ISO 14819-2:2021/Amd 1:2026)	CEN/TC 278	2026-07-22
+EN ISO 15193:2026
+(WI=00140149)	In vitro diagnostic medical devices - Requirements for reference measurement procedures (ISO 15193:2026)	CEN/TC 140	2026-07-22
+EN ISO 15194:2026
+(WI=00140150)	In vitro diagnostic medical devices - Requirements for certified reference materials and the content of supporting documentation (ISO 15194:2026)	CEN/TC 140	2026-07-22
+EN ISO 15589-1:2026
+(WI=00219067)	Oil and gas industries including lower carbon energy - Cathodic protection of pipeline transportation systems - Part 1: On-land pipelines (ISO 15589-1:2026)	CEN/TC 219	2026-07-22
+EN ISO 16315:2026
+(WI=00464089)	Small craft - Electrical systems used for electrical propulsion (ISO 16315:2026)	CEN/TC 464	2026-07-01
+EN ISO 16321-3:2022/A1:2026
+(WI=00085106)	Eye and face protection for occupational use - Part 3: Additional requirements for mesh protectors - Amendment 1 (ISO 16321-3:2021/Amd 1:2025)	CEN/TC 85	2026-06-10
+EN ISO 16994:2026
+(WI=00335174)	Solid biofuels and pyrogenic biocarbon - Determination of sulfur and chlorine content (ISO 16994:2026)	CEN/TC 335	2026-06-17
+EN ISO 17805:2026
+(WI=00230447)	Water quality - Sampling, capture and preservation of environmental DNA from water (ISO 17805:2026)	CEN/TC 230	2026-07-15
+EN ISO 18090-1:2026
+(WI=00430119)	Radiological protection - Characteristics of reference pulsed radiation - Part 1: Photon radiation (ISO 18090-1:2026)	CEN/TC 430	2026-06-03
+EN ISO 18491:2026
+(WI=00121987)	Welding and allied processes - Measurement of arc energies (ISO 18491:2026)	CEN/TC 121	2026-07-01
+EN ISO 18744:2016/A1:2026
+(WI=00463117)	Microbiology of the food chain - Detection and enumeration of Cryptosporidium and Giardia in fresh leafy green vegetables and berry fruits - Amendment 1: Method validation studies and performance characteristics (ISO 18744:2016/Amd 1:2026)	CEN/TC 463	2026-07-08
+EN ISO 19008:2026
+(WI=00012463)	Oil and gas industries including lower carbon energy - Standard cost coding system (ISO 19008:2026)	CEN/TC 12	2026-06-10
+EN ISO 1938-1:2026
+(WI=00290262)	Geometrical product specifications (GPS) - Dimensional measuring equipment - Part 1: Plain limit gauges of linear size (ISO 1938-1:2026)	CEN/TC 290	2026-06-10
+EN ISO 19901-2:2026
+(WI=00012440)	Specific requirements for offshore structures - Part 2: Seismic design (ISO 19901-2:2026)	CEN/TC 12	2026-07-22
+EN ISO 20650:2026
+(WI=00015089)	Inland navigation vessels - Small floating working machines - Requirements and test methods (ISO 20650:2025)	CEN/TC 15	2026-06-17
+EN ISO 20815:2026
+(WI=00012462)	Oil and gas industries including lower carbon energy - Production assurance and reliability management (ISO 20815:2026)	CEN/TC 12	2026-06-24
+EN ISO 21415-2:2026
+(WI=00338094)	Wheat and wheat flour - Gluten content - Part 2: Determination of wet gluten and gluten index by mechanical means (ISO 21415-2:2026)	CEN/TC 338	2026-06-03
+EN ISO 22248:2026
+(WI=00123118)	Lasers and laser-related equipment - Test methods for laser-induced damage threshold - Classification of medical beam delivery systems (ISO 22248:2020)	CEN/TC 123	2026-06-24
+EN ISO 23402-1:2026
+(WI=00055563)	Dentistry - Portable dental equipment for use in non‐permanent healthcare environments - Part 1: General requirements (ISO 23402-1:2026)	CEN/TC 55	2026-07-22
+EN ISO 23611-1:2026
+(WI=00444259)	Soil quality - Sampling of soil invertebrates - Part 1: Hand-sorting and extraction of earthworms (ISO 23611-1:2026)	CEN/TC 444	2026-07-01
+EN ISO 23611-6:2026
+(WI=00444260)	Soil quality - Sampling of soil invertebrates - Part 6: Design of sampling programmes with soil invertebrates (ISO 23611-6:2026)	CEN/TC 444	2026-07-01
+EN ISO 3451-1:2026
+(WI=00249A75)	Plastics - Determination of ash - Part 1: General methods (ISO 3451-1:2026)	CEN/TC 249	2026-06-03
+EN ISO 3630-8:2026
+(WI=00055548)	Dentistry - Endodontic instruments - Part 8: Accuracy of electronic apex locator (ISO 3630-8:2026)	CEN/TC 55	2026-06-17
+EN ISO 3964-1:2026
+(WI=00055549)	Dentistry - Coupling dimensions for handpiece connectors - Part 1: Mechanical properties (ISO 3964-1:2026)	CEN/TC 55	2026-06-10
+EN ISO 41002:2026
+(WI=00348035)	Facility management - Development of the facility management organization (ISO 41002:2026)	CEN/TC 348	2026-07-08
+EN ISO 4259-1:2026
+(WI=00019660)	Petroleum and related products - Precision of measurement methods and results - Part 1: Determination of precision data in relation to methods of test (ISO 4259‑1:2026)	CEN/TC 19	2026-06-17
+EN ISO 4259-2:2026
+(WI=00019661)	Petroleum and related products - Precision of measurement methods and results - Part 2: Interpretation and application of precision data in relation to methods of test (ISO 4259-2:2026)	CEN/TC 19	2026-06-17
+EN ISO 5361:2023/A1:2026
+(WI=00215372)	Anaesthetic and respiratory equipment - Tracheal tubes and connectors - Amendment 1: Reinstatement of third edition S1 dimensions (ISO 5361:2023/Amd 1:2026)	CEN/TC 215	2026-07-08
+EN ISO 5364:2026
+(WI=00215361)	Anaesthetic and respiratory equipment - Oropharyngeal airways (ISO 5364:2026)	CEN/TC 215	2026-06-03
+EN ISO 5667-15:2026
+(WI=00308115)	Water quality - Sampling - Part 15: Preservation and handling of samples of sludge, sediment and suspended matter (ISO 5667-15:2026)	CEN/TC 308	2026-06-10
+EN ISO 6338-1:2026
+(WI=00282047)	Calculations of greenhouse gas (GHG) emissions throughout the liquefied natural gas (LNG) chain - Part 1: General (ISO 6338-1:2024)	CEN/TC 282	2026-07-22
+EN ISO 6338-2:2026
+(WI=00282048)	Calculations of greenhouse gas (GHG) emissions throughout the liquefied natural gas (LNG) chain - Part 2: Natural gas production and transport to LNG plant (ISO 6338-2:2024)	CEN/TC 282	2026-07-22
+EN ISO 6338:2026
+(WI=00282046)	Method to calculate GHG emissions at LNG plant (ISO 6338:2023)	CEN/TC 282	2026-07-22
+EN ISO 6909:2026
+(WI=00143103)	Machine tools - Safety - Press brakes (ISO 6909:2026)	CEN/TC 143	2026-06-17
+EN ISO 7278-2:2022/A1:2026
+(WI=00019681)	Petroleum measurement systems - Part 2: Pipe prover design, calibration and operation - Amendment 1 (ISO 7278-2:2022/Amd 1:2026)	CEN/TC 19	2026-06-10
+EN ISO 80369-1:2026
+(WI=JT003064)	Small-bore connectors for liquids and gases in healthcare applications - Part 1: General requirements (ISO 80369-1:2025)	CEN/CLC/JTC 3	2026-06-03
+EN ISO 8100-1:2026
+(WI=00010163)	Lifts for the transport of persons and goods - Part 1: Safety rules for the construction and installation of passenger and goods passenger lifts (ISO 8100-1:2026, including corrected version 2026-05)	CEN/TC 10	2026-06-17
+EN ISO 8100-2:2026
+(WI=00010162)	Lifts for the transport of persons and goods - Part 2: Design rules, calculations, verifications and tests of lift components (ISO 8100-2:2026)	CEN/TC 10	2026-06-17
+EN ISO 844:2026
+(WI=00249A5F)	Rigid cellular plastics - Determination of compressive properties (ISO 844:2026)	CEN/TC 249	2026-07-08
+EN ISO 8743:2026
+(WI=00185453)	Fasteners - Grooved pins - Half-length centre grooved (ISO 8743:2026)	CEN/TC 185	2026-06-03
+EN ISO 8980-4:2026
+(WI=00170323)	Ophthalmic optics - Uncut finished spectacle lenses - Part 4: Specifications and test methods for the properties of anti-reflective coatings and hydrophobic coating (ISO 8980-4:2026)	CEN/TC 170	2026-07-08
+EN ISO 9053-1:2026
+(WI=00126171)	Acoustics - Determination of airflow resistance - Part 1: Static method (ISO 9053-1:2026)	CEN/TC 126	2026-06-10
+EN ISO 9680:2026
+(WI=00055537)	Dentistry - Operating lights (ISO 9680:2026)	CEN/TC 55	2026-06-03
+EN ISO/ASTM 52951:2026
+(WI=00438084)	Additive manufacturing - Data - Data packages for AM parts (ISO/ASTM 52951:2026)	CEN/TC 438	2026-07-08
+EN ISO/IEC 27000:2026
+(WI=JT013082)	Information security, cybersecurity and privacy protection - Information security management systems - Overview (ISO/IEC 27000:2026)	CEN/CLC/JTC 13	2026-07-15
+OUR USE OF COOKIES
+
+We use necessary cookies to make our site work.
+
+Necessary cookies
+
+Necessary cookies enable core functionality such as security, network management, and accessibility. You may disable these by changing your browser settings, but this may affect how the website functions.
+
+Follow us
+© 2025 CEN-CENELEC Terms of Use  Privacy  Accessibility  FAQs  Glossary
+Receive website news notifications
+Subscribe to our "On the spot" newsletter

@@ -1,0 +1,1254 @@
+===== SOURCE 1/11 : https://www.qualitiso.com/veille/ =====
+Fetch simple (requests.get, methode actuelle en prod) : OK — 53586 caractères
+Fetch Playwright (navigateur headless)                : OK — 49384 caractères
+Écart de longueur (Playwright - simple) : -4202 caractères
+
+--- Premiers 1000 caracteres (fetch simple) ---
+Qualitiso • La veille du Dispositif Médical    
+
+☰
+
+Blog
+
+Veille
+
+ℹ️ Présentation de la Veille
+
+Articles de veille (accès libre)
+
+News règlementaires
+
+Normes ISO (accès libre)
+
+Normes EN
+
+Normes NF
+
+Enquêtes PR NF
+
+🟡 Abonnements
+
+Templates
+
+ℹ️ Présentation des Templates
+
+Templates
+
+📘 Manuel Utilisateur
+
+🟡 Abonnements
+
+QualitiBot
+
+ℹ️ Présentation de QualitiBot
+
+QualitiBot
+
+📘 Manuel Utilisateur
+
+🟡 Abonnements
+
+🟡 Packs de Crédits
+
+＋
+
+Moteurs de recherche
+
+Annuaire des Expert·e·s du DM
+
+Eudamed : carte des Opérateurs
+
+Alertes mail nouveaux articles
+
+À propos / contact
+
+Connexion
+
+FR
+
+ 
+
+La veille du Dispositif Médical
+
+Veille règlementaire et normative pour les dispositifs médicaux
+
+Voir également :
+Présentation de la veille Qualitiso
+.
+Flux : 
+Actualité
+ des DM, Normes 
+ISO
+,Normes 
+EN
+, Normes 
+NF
+,Normes en 
+enquête publique
+.
+
+Rechercher
+
+juillet 2026
+ 22 Juil
+  > 
+ IUD 
+ : 
+MDCG 2026-5  : Attribution des identifiants IUD entre fabricants et distributeurs
+ 22 Juil
+  > 
+ QualitiBot 
+ : 
+
+--- Premiers 1000 caracteres (Playwright) ---
+Blog
+Veille
+Templates
+QualitiBot
+＋
+Connexion
+FR
+La veille du Dispositif Médical
+Veille règlementaire et normative pour les dispositifs médicaux
+Voir également :
+Présentation de la veille Qualitiso.
+Flux : Actualité des DM, Normes ISO,Normes EN, Normes NF,Normes en enquête publique.
+ RECHERCHER
+Résultat de l'analyse : 474 éléments retenus / 474
+juillet 2026
+
+22 Juil > IUD : MDCG 2026-5 : Attribution des identifiants IUD entre fabricants et distributeurs
+
+22 Juil > QualitiBot : QualitiBot 1.5
+
+22 Juil > : Comparatif : tarifs des Organismes Notifiés 2017/745
+
+09 Juil > MLMD : ISO/TS 24971-2 : Gestion des risques pour les Dispositifs Médicaux à base de Machine Learning
+
+01 Juil > implants : Modifications du MDR concernant les exemptions pour certains DM Implantables – articles 52.4 et 61.6
+
+juin 2026
+
+18 Juin > SSCP : Publication du MDCG 2026-4 : ce qu’il faut retenir sur la gestion des SS(C)P dans EUDAMED
+
+18 Juin > symboles : MDCG 2021-5 – Annexe : transition du symbole de mandataire aut
+
+
+===== SOURCE 2/11 : https://www.dm-experts.fr/flash-reglementaire-normatif/ =====
+Fetch simple (requests.get, methode actuelle en prod) : OK — 8590 caractères
+Fetch Playwright (navigateur headless)                : OK — 5963 caractères
+Écart de longueur (Playwright - simple) : -2627 caractères
+
+--- Premiers 1000 caracteres (fetch simple) ---
+Flash réglementaire et normatif - DMEXPERTS - Veille, formation et conseil pour les dispositifs médicaux- Réseau de consultants
+
+ 
+
+ 
+
+Aller au contenu
+
+ 
+
+ 
+
+Prendre rendez-vous
+
+Accueil
+
+Réseau
+
+Qui sommes-nous ?
+
+Mission, vision, valeurs
+
+Nos partenaires
+
+Nouvelles du réseau
+
+Conseil
+
+Veille
+
+Boutique
+
+Formation
+
+Ressources
+
+Les vidéos de DM Experts
+
+Documents à télécharger
+
+Liens
+
+Contact
+
+ 
+
+ 
+
+Accueil
+
+Réseau
+
+Qui sommes-nous ?
+
+Mission, vision, valeurs
+
+Nos partenaires
+
+Nouvelles du réseau
+
+Conseil
+
+Veille
+
+Boutique
+
+Formation
+
+Ressources
+
+Les vidéos de DM Experts
+
+Documents à télécharger
+
+Liens
+
+Contact
+
+ 
+
+Flash réglementaire et normatif
+ 
+
+Accueil
+ / 
+Flash réglementaire et normatif
+ 
+
+Rechercher un article
+
+Notre veille gratuite
+
+Tous
+les articles
+
+Réglementation
+Europe
+
+Normes
+
+Réglementation internationale
+(hors UE)
+
+Réglementation
+France
+
+Logiciels, IA,
+cybersécurité
+
+Remboursement et
+accès au marché
+
+Divers
+
+Nouvelles du réseau
+
+ 
+
+ 
+
+Tous
+les articles
+
+Réglementation
+Eu
+
+--- Premiers 1000 caracteres (Playwright) ---
+Aller au contenu
+Prendre rendez-vous
+ACCUEIL
+RÉSEAU
+CONSEIL
+VEILLE
+BOUTIQUE
+FORMATION
+RESSOURCES
+CONTACT
+Flash réglementaire et normatif
+
+Accueil / Flash réglementaire et normatif
+
+Rechercher un article
+Notre veille gratuite
+Tous
+les articles
+Réglementation
+Europe
+Normes
+Réglementation internationale
+(hors UE)
+Réglementation
+France
+Logiciels, IA,
+cybersécurité
+Remboursement et
+accès au marché
+Divers
+Nouvelles du réseau
+Méthodologies de référence CNIL : publication des nouvelles MR-001 et MR-003
+2026-07-07
+[2026-05-23] La Commission Nationale de l’Informatique et des Libertés (CNIL) a modernisé, le 23 mai 2026, le cadre juridique applicable aux recherches dans le domaine…contenu réservé à nos abonnés Premium
+Contenu réservé à nos abonnés Premium. S’abonner
+
+Je suis abonné Premium : je m’identifie et je me connecte.
+
+Identification avancée
+
+Lire la suite >>
+1ᵉʳ juillet : jalon important pour la traçabilité des dispositifs médicaux en Suisse et en Australie
+2026-07-07
+
+[2026-07-01] Le 1ᵉʳ
+
+
+===== SOURCE 3/11 : https://www.snitem.fr/actualites-et-evenements/actualites-du-dm-et-de-la-sante/ =====
+Fetch simple (requests.get, methode actuelle en prod) : OK — 2231 caractères
+Fetch Playwright (navigateur headless)                : OK — 1222 caractères
+Écart de longueur (Playwright - simple) : -1009 caractères
+
+--- Premiers 1000 caracteres (fetch simple) ---
+Actualités du DM et de la Santé
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Le dispositif médical (DM)
+L’essentiel sur le DM
+DM et spécialités médicales
+Dossiers thématiques
+DM et cadre réglementaire
+DM et organisation des soins
+Les publications
+Livrets innovation
+Revue Snitem Info
+Rapports annuels du Snitem
+Fiches et synthèses
+Guides et documents de référence
+Podcasts
+Vidéos
+DM en images
+Emplois et compétences
+Travailler dans le DM
+Fiches métier
+Espace carrières
+Offres d’emploi
+Je suis recruteur
+Je suis candidat
+Se former dans le DM
+Actualités et événements
+Actualités du DM et de la Santé
+Événements Snitem
+Événements partenaires
+Le Snitem
+Histoire et valeurs
+Missions et services
+Gouvernance
+L’équipe du Snitem
+Adhérer
+Pourquoi adhérer ?
+Comment adhérer ?
+Entreprises adhérentes
+Espace adhérents
+LE SITE
+ 
+POUR TOUT COMPRENDRE
+ SUR LE DM
+ 
+ 
+ 
+ 
+Espace presse
+Newsletter
+Contact
+Actualités du DM et de la Santé
+Le podcast du Snitem Info 242
+20/07/2026
+États généraux de la stomie :
+
+--- Premiers 1000 caracteres (Playwright) ---
+Aller au contenu principal
+Ouvrir la barre d’outils
+
+Outils d’accessibilité
+
+Augmenter le texte
+Diminuer le texte
+Niveaux de gris
+Haut contraste
+Contraste négatif
+Arrière-plan clair
+Liens soulignés
+Police lisible
+ Réinitialiser
+Le dispositif médical (DM)
+Les publications
+Emplois et compétences
+Actualités et événements
+Le Snitem
+Adhérer
+ESPACE ADHÉRENTS
+
+LE SITE
+POUR TOUT COMPRENDRE
+SUR LE DM
+
+Espace presse
+Newsletter
+Contact
+Actualités du DM et de la Santé
+Le podcast du Snitem Info 242
+20/07/2026
+États généraux de la stomie : la force du collectif au service des patients
+
+Lire la suite
+
+Financement des Medtechs : le livre blanc
+12/06/2026
+MedTech : l’innovation française à l’épreuve du financement
+
+Lire la suite
+
+Partenariat Snitem X Tulipe
+17/04/2026
+Le Snitem et Tulipe signent un partenariat pour l’aide médicale humanitaire
+
+Lire la suite
+
+Le podcast du Snitem Info 241
+15/04/2026
+De l’innovation technologique à l’impact clinique en imagerie médicale
+
+Lire la suite
+
+4 résultat(s) 97
+
+
+
+
+===== SOURCE 4/11 : https://www.cnil.fr/fr/actualite =====
+Fetch simple (requests.get, methode actuelle en prod) : OK — 9667 caractères
+Fetch Playwright (navigateur headless)                : OK — 3639 caractères
+Écart de longueur (Playwright - simple) : -6028 caractères
+
+--- Premiers 1000 caracteres (fetch simple) ---
+Actualités | CNIL
+
+    Aller au contenu principal
+
+Accueil - CNIL
+
+Particuliers
+Professionnels
+Presse
+
+Fr
+En
+Gestionnaire de cookies
+
+Accueil - CNIL
+
+Particuliers
+Professionnels
+Presse
+
+Mon quotidien
+
+Ma sécurité numérique
+
+Sites web et réseaux sociaux
+
+Téléphones et applications
+
+Objets connectés
+
+Enfants et ados
+
+Santé
+
+Social
+
+Logement
+
+Travail
+
+Intelligence artificielle (IA)
+
+Achats et publicité
+
+Banque/Assurance
+
+Citoyenneté
+
+Sport
+
+Transports et mobilité
+
+Vie associative
+
+Fermer
+
+Exercer mes droits
+
+Quels sont mes droits ?
+
+Être informé
+
+M'opposer
+
+Accéder à mes données
+
+Rectifier mes données
+
+Effacer mes données
+
+Être déréférencé
+
+Emporter mes données avec moi
+
+Faire vérifier une décision automatisée
+
+Limiter l'utilisation de mes données
+
+Les droits des mineurs
+
+Nos modèles de courrier
+
+Saisir la CNIL
+
+Adresser une plainte
+
+Accéder au FICOBA
+
+Accéder à un fichier de police, de gendarmerie ou de renseignement
+
+Adresser une alerte à la CNIL
+
+Poser une question à la CNIL
+
+Questions
+
+--- Premiers 1000 caracteres (Playwright) ---
+Aller au contenu principal
+PARTICULIERSPROFESSIONNELSPRESSE
+FrEnGestionnaire de cookies
+Accueil - CNIL
+MON QUOTIDIEN 
+EXERCER MES DROITS 
+À TÉLÉCHARGER 
+LA CNIL 
+Rechercher
+Accueil Actualités
+Actualités
+Imprimer l’article
+Courriel
+Diminuer la taille de la police
+Augmenter la taille de la police
+Affichage en grille
+Affichage en liste
+661 résultats
+REVOIR LE WEBINAIRE - FOURNISSEURS ET PRESTATAIRES DE L’ÉCOSYSTÈME « PIXELS » : COMMENT IMPLÉMENTER LA RECOMMANDATION CNIL ?
+La CNIL vous propose de décrypter un sujet ou une actualité en lien avec la protection des données à travers une série de webinaires. Retrouvez ce nouvel épisode consacré aux pixels de suivi.
+#Professionnel
+#Webinaire
+#Pixel de suivi
+
+22 juillet 2026
+
+QUESTIONS-RÉPONSES - RECOMMANDATION RELATIVE AUX PIXELS DANS LES COURRIERS ÉLECTRONIQUES DE LA CNIL
+La CNIL répond aux principales interrogations des professionnels sur la mise en œuvre de sa recommandation sur les pixels.
+#Professionnel
+#Pixel de suivi
+#Courriels
+
+22 juill
+
+
+===== SOURCE 5/11 : https://www.afnor.org/actualites/ =====
+Fetch simple (requests.get, methode actuelle en prod) : OK — 3912 caractères
+Fetch Playwright (navigateur headless)                : OK — 3775 caractères
+Écart de longueur (Playwright - simple) : -137 caractères
+
+--- Premiers 1000 caracteres (fetch simple) ---
+Actualités | Groupe AFNOR
+Aller au contenu principal
+Aller à la navigation
+Aller à la recherche
+Aller au pied de page
+Accueil
+Actualités
+Les normes volontaires, une fenêtre sur le monde
+Invisibles, les normes volontaires sont présentes partout, dans tous les secteurs, sur toute la planète. Retrouvez nos articles d’actualité expliquant en quoi elles peuvent aider à développer une technique, un marché. 
+Passeport numérique des produits (DPP) : une révolution silencieuse
+Article
+Passeport numérique des produits (DPP) : une révolution silencieuse
+15 janvier 2025
+Cybersécurité
+Loading...
+Restez informés
+Nouvelles normes, labels et certifications, actualités de la QSE, techniques d’audit, cas pratiques… Un rendez-vous mensuel incontournable.
+Inscrivez-vous à notre newsletter
+11 rue Francis de Pressensé 93210 Saint-Denis
+01 41 62 80 00
+Vos besoins
+Se faire certifier
+Participer à la normalisation
+Acheter une norme
+Trouver un expert qualifié
+Se former aux normes
+Adhérer à l'association
+Faire de
+
+--- Premiers 1000 caracteres (Playwright) ---
+Aller au contenu principal
+Aller à la navigation
+Aller à la recherche
+Aller au pied de page
+Vos besoins
+Vos enjeux
+Votre secteur
+Comprendre la norme
+Notre groupe
+Nos actualités
+Ouvrir la recherche
+FR
+Accueil
+Actualités
+Les normes volontaires, une fenêtre sur le monde
+
+Invisibles, les normes volontaires sont présentes partout, dans tous les secteurs, sur toute la planète. Retrouvez nos articles d’actualité expliquant en quoi elles peuvent aider à développer une technique, un marché.
+
+Passeport numérique des produits (DPP) : une révolution silencieuse
+Article
+Passeport numérique des produits (DPP) : une révolution silencieuse
+15 janvier 2025
+Cybersécurité
+Toutes les thématiques
+AFNOR : une année 2025 délicate mais réussie
+Article
+AFNOR : une année 2025 délicate mais réussie
+9 juillet 2026
+RSE et durabilité
+ISO 29997 : une norme pour prendre les stagiaires au sérieux
+Article
+ISO 29997 : une norme pour prendre les stagiaires au sérieux
+26 mai 2026
+Qualité et performance
+Banques, assurances
+
+
+===== SOURCE 6/11 : https://ansm.sante.fr/actualites/a-la-une =====
+Fetch simple (requests.get, methode actuelle en prod) : OK — 19238 caractères
+Fetch Playwright (navigateur headless)                : OK — 7097 caractères
+Écart de longueur (Playwright - simple) : -12141 caractères
+
+--- Premiers 1000 caracteres (fetch simple) ---
+Actualités - ANSM
+
+Vous devez saisir un minimum de 3 caractères
+
+                                Domaine médical
+                                
+
+                                Produit de santé
+                                
+
+image/svg+xml
+
+Ouvrir le menu
+
+Addictologie
+
+Allergologie
+
+Anesthésie/Réanimation/Soins intensifs
+
+Angiologie
+
+Biologie médicale
+
+Cardiologie
+
+Chirurgie
+
+Dermatologie
+
+Endocrinologie
+
+Gynécologie
+
+Hématologie
+
+Hépato-gastroentérologie
+
+Imagerie/Radiologie
+
+Immunologie
+
+Infectiologie
+
+Logiciel d'aide à la prescription
+
+Médecine esthétique
+
+Médecine nucléaire
+
+Néonatologie
+
+Néphrologie
+
+Neurologie
+
+Oncologie/Radiothérapie
+
+Ophtalmologie
+
+ORL
+
+Orthopédie
+
+Pédiatrie
+
+Perfusion
+
+Pneumologie
+
+Psychiatrie
+
+Rhumatologie
+
+Soins dentaires / Chirurgie dentaire
+
+Traitement de la douleur
+
+Urologie
+
+Virologie
+
+Médicaments
+
+Dispositifs médicaux
+
+Dispositifs médicaux de diagnostic in vitro
+
+Produits biologiques
+
+Vaccins
+
+Stupéfiants & psychotropes
+
+Cosmétiques
+
+Autres
+
+      
+
+--- Premiers 1000 caracteres (Playwright) ---
+Domaine médical  Produit de santé 
+   
+Les médicaments et moi
+Qui sommes-nous ? About us
+Actualités
+Bulletin officiel des actes, décisions et avis
+Disponibilité des produits de santé
+Vos démarches
+Documents de référence
+Expertises et publications scientifiques
+Informations de sécurité
+Dossiers thématiques
+Espace presse
+Contactez-nous
+Suivre l'ANSM sur Twitter
+ 
+Suivre l'ANSM sur Youtube
+ 
+Suivre l'ANSM sur Linkedin
+Qui sommes-nous ? About us
+L'ANSM en bref
+About us
+Nos engagements
+Nos missions
+Notre périmètre
+Notre organisation
+Déontologie et transparence
+Publications institutionnelles
+Rejoignez-nous !
+Notre agenda
+Bulletin officiel des actes, décisions et avis
+Décisions institutionnelles
+Décisions liées aux médicaments
+Décisions liées aux produits sanguins et autres produits biologiques
+Décisions liées aux médicaments dérivés du plasma
+Décisions liées aux dispositifs médicaux et dispositifs médicaux de diagnostic in vitro
+Injonctions
+Décisions de police sanitaire
+Sanctions financières
+
+
+===== SOURCE 7/11 : https://gnius.esante.gouv.fr/fr/a-la-une/actualites =====
+Fetch simple (requests.get, methode actuelle en prod) : OK — 8951 caractères
+Fetch Playwright (navigateur headless)                : OK — 7402 caractères
+Écart de longueur (Playwright - simple) : -1549 caractères
+
+--- Premiers 1000 caracteres (fetch simple) ---
+Les actualités de la e-santé | G_NIUS
+
+Aller au contenu
+
+Aller à la navigation
+
+Menu
+
+ Fermer le menu 
+
+Fermer le menu
+
+Financement
+
+Trouver mon financement
+
+Fiches remboursement
+
+Financer un projet dans le social ou le médico-social
+
+Réglementation
+
+Fiches réglementation
+
+Mon diagnostic réglementaire
+
+Doctrine du numérique en santé
+
+Le secteur social et médico-social
+
+Le dispositif médical numérique
+
+Acteurs e-santé
+
+Le G_NIUS des régions
+
+Acteurs français
+
+Acteurs du social et médico-social
+
+Comprendre la e-santé en France
+
+La e-santé à l'international
+
+Programmes nationaux
+
+Feuille de route du numérique en santé
+
+Grands Défis Numériques
+
+Stratégie d'accélération "Santé numérique"
+
+Les Tiers lieux d'éxpérimentation
+
+Les lauréats
+
+Programme Ségur
+
+Rester informé 
+(page courante)
+
+Actualités 
+(page courante)
+
+Evènements
+
+Podcast
+
+Accessibilité
+
+EN
+FR
+
+Accessibilité
+
+Rechercher
+
+Fermer la recherche
+
+ Fermer la recherche 
+
+Fermer la recherche
+
+Lancer la recherche
+
+ Retour 
+
+ Accueil
+
+ A 
+
+--- Premiers 1000 caracteres (Playwright) ---
+Panneau de gestion des cookies
+Ce site utilise des cookies et vous donne le contrôle sur ceux que vous souhaitez activer
+Consultez notre politique de confidentialité
+Personnaliser
+Tout refuser
+Tout accepter
+Aller au contenu
+Aller à la navigation
+Financement
+Réglementation
+Acteurs e-santé
+Programmes nationaux
+Rester informé
+(page courante)
+EN
+FR
+Accessibilité
+Rechercher
+Retour
+Accueil
+ A La Une
+Partager cette page
+Imprimer cette page
+Les actualités de la e-santé
+
+Vous avez une actualité susceptible d'intéresser les innovateurs en e-santé ? Faites-le nous savoir !
+
+Filtrer les résultats
+Rechercher
+Thématique
+Thématique
+Ecosystème
+Financement
+Innovation
+Réglementation
+Type Actualités
+Type Actualités
+Article
+Audio
+Vidéo
+Région
+Région
+Nationale
+Auvergne-Rhône-Alpes
+Bourgogne-Franche-Comté
+Bretagne
+Centre-Val de Loire
+Corse
+Grand Est
+Guadeloupe
+Guyane
+Hauts-de-France
+Île-de-France
+La Réunion
+Martinique
+Mayotte
+Normandie
+Nouvelle-Aquitaine
+Occitanie
+Pays de la Loire
+Provence-Alpes-Côte d'Azur
+
+
+===== SOURCE 8/11 : https://ec.europa.eu/health/medical-devices-sector/latest-updates_en =====
+Fetch simple (requests.get, methode actuelle en prod) : ÉCHEC — 502 Server Error: Bad Gateway for url: https://health.ec.europa.eu/medical-devices-sector/latest-updates_en
+Fetch Playwright (navigateur headless)                : OK — 15 caractères
+
+--- Premiers 1000 caracteres (fetch simple) ---
+
+
+--- Premiers 1000 caracteres (Playwright) ---
+502 Bad Gateway
+
+
+===== SOURCE 9/11 : https://digital-strategy.ec.europa.eu/en/policies/ai-act-standardisation =====
+Fetch simple (requests.get, methode actuelle en prod) : OK — 7134 caractères
+Fetch Playwright (navigateur headless)                : OK — 6888 caractères
+Écart de longueur (Playwright - simple) : -246 caractères
+
+--- Premiers 1000 caracteres (fetch simple) ---
+Standardisation of the AI Act | Shaping Europe’s digital future
+
+Skip to main content
+
+ 
+
+en
+Select your language
+Close
+bg
+български
+es
+español
+cs
+čeština
+da
+dansk
+de
+Deutsch
+et
+eesti
+el
+ελληνικά
+en
+English
+fr
+français
+ga
+Gaeilge
+hr
+hrvatski
+it
+italiano
+lv
+latviešu
+lt
+lietuvių
+hu
+magyar
+mt
+Malti
+nl
+Nederlands
+pl
+polski
+pt
+português
+ro
+română
+sk
+slovenčina
+sl
+slovenščina
+fi
+suomi
+sv
+svenska
+
+Search
+Search
+
+Shaping Europe’s digital future
+
+Menu
+Close
+Menu
+Back
+Previous items
+Next items
+Home
+Policies
+Activities
+News
+Library
+Funding
+Calendar
+Consultations
+AI Office
+
+Home
+…
+Policies
+Artificial Intelligence
+European approach to artificial intelligence
+AI Act
+Standardisation of the AI Act
+Standardisation of the AI Act
+
+      Harmonised standards will offer legal certainty under the AI Act, support innovation, and position the EU to set global benchmarks for trustworthy AI.
+    
+
+Ensuring an effective and clear implementation of the 
+AI Act
+ is a priority for the Commission. The AI Act regulat
+
+--- Premiers 1000 caracteres (Playwright) ---
+Skip to main content
+An official website of the European Union
+How do you know?
+
+This site uses cookies. Visit our cookies policy page or click the link in any footer for more information and to change your preferences.
+
+Accept all cookies
+Accept only essential cookies
+EN
+Search
+Search
+Shaping Europe’s digital future
+Home
+Policies
+Activities
+News
+Library
+Funding
+Calendar
+Consultations
+AI Office
+Home
+Policies
+Artificial Intelligence
+European approach to artificial intelligence
+AI Act
+Standardisation of the AI Act
+Standardisation of the AI Act
+
+Harmonised standards will offer legal certainty under the AI Act, support innovation, and position the EU to set global benchmarks for trustworthy AI.
+
+Ensuring an effective and clear implementation of the AI Act is a priority for the Commission. The AI Act regulates regulates ‘high-risk’ AI systems that impact safety, health, and fundamental rights, for example, in critical infrastructure and law enforcement, among other areas (see article 6 and 
+
+
+===== SOURCE 10/11 : https://www.imdrf.org/ =====
+Fetch simple (requests.get, methode actuelle en prod) : ÉCHEC — ('Connection aborted.', TimeoutError(60, 'Operation timed out'))
+Fetch Playwright (navigateur headless)                : ÉCHEC — Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.imdrf.org/
+Call log:
+  - navigating to "https://www.imdrf.org/", waiting until "networkidle"
+
+
+--- Premiers 1000 caracteres (fetch simple) ---
+
+
+--- Premiers 1000 caracteres (Playwright) ---
+
+
+
+===== SOURCE 11/11 : https://www.gov.uk/health-and-social-care/medicines-medical-devices-blood =====
+Fetch simple (requests.get, methode actuelle en prod) : OK — 12420 caractères
+Fetch Playwright (navigateur headless)                : OK — 7259 caractères
+Écart de longueur (Playwright - simple) : -5161 caractères
+
+--- Premiers 1000 caracteres (fetch simple) ---
+Medicines, medical devices - GOV.UK
+
+Cookies on GOV.UK
+
+We use some essential cookies to make this website work.
+We’d like to set additional cookies to understand how you use GOV.UK, remember your settings and improve government services.
+We also use cookies set by other sites to help us deliver content from their services.
+
+You have accepted additional cookies. 
+You can 
+change your cookie settings
+ at any time.
+
+You have rejected additional cookies. 
+You can 
+change your cookie settings
+ at any time.
+
+Accept additional cookies
+
+Reject additional cookies
+
+View cookies
+
+          Hide cookie message
+        
+
+Skip to main content
+
+GOV.UK
+
+ 
+
+        Navigation menu
+      
+
+            Menu
+
+Menu
+
+ 
+
+                Services and information
+              
+
+Benefits
+
+Births, death, marriages and care
+
+Business and self-employed
+
+Childcare and parenting
+
+Citizenship and living in the UK
+
+Crime, justice and the law
+
+Disabled people
+
+Driving and transport
+
+Education and learning
+
+Employing 
+
+--- Premiers 1000 caracteres (Playwright) ---
+Cookies on GOV.UK
+
+We use some essential cookies to make this website work.
+
+We’d like to set additional cookies to understand how you use GOV.UK, remember your settings and improve government services.
+
+We also use cookies set by other sites to help us deliver content from their services.
+
+Accept additional cookies
+Reject additional cookies
+View cookies
+Skip to main content
+ Navigation menu 
+Menu
+ Search GOV.UK 
+Home
+Health and social care
+Medicines, medical devices
+Get emails for this topic
+Contents
+Services
+Guidance and regulation
+News and communications
+Research and statistics
+Policy papers and consultations
+Transparency and freedom of information releases
+Organisations
+Explore sub-topics
+Services
+Sunset clause: request for public health exemption
+
+Apply for a public health exemption from the sunset clause.
+
+Response template for applicants
+
+Download MHRA's Request for Further Information (RFI) response template, with guidance on how to complete it.
+
+Apply for a nutritional product

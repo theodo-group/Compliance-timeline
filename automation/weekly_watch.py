@@ -246,6 +246,13 @@ def log(msg: str) -> None:
 
 def fail(msg: str) -> None:
     log(f"ERREUR FATALE: {msg}")
+    # Un run échoué est facturé quand même : on sort le récap de coût avant de
+    # mourir, sinon les runs les plus chers (ceux qui plantent après le triage)
+    # sont précisément ceux dont on ne mesure jamais rien.
+    try:
+        log_usage_summary()
+    except Exception:  # noqa: BLE001 — la télémétrie ne doit rien masquer
+        pass
     sys.exit(1)
 
 
@@ -367,11 +374,66 @@ def load_recipients() -> list:
 KNOWN_TOPICS_PATH = STATE_DIR / "known_topics.json"
 
 
+# Référence de norme dans un titre : "prEN 18228", "EN 18286:2026",
+# "EN ISO/IEC 27000:2026", "ISO/TS 24971-2:2026", "IEC 62304". Le préfixe
+# (organisme) est obligatoire pour ne PAS attraper les numéros qui ressemblent à
+# une norme sans en être une : "MDCG 2026-5", "Règlement (UE) 2026/977",
+# "décision d'exécution 2026/1231".
+_STANDARD_REF_RE = re.compile(
+    r"\b(?:pr)?(?:EN|NF|ISO|IEC|ISO/IEC|ISO/TS|ISO/TR|CEN|CENELEC|ETSI|AAMI|ANSI)"
+    r"(?:[\s/]+(?:ISO|IEC|TS|TR|EN))*"
+    r"[\s/]+(\d{4,5}(?:-\d+)?)\b",
+    re.IGNORECASE,
+)
+
+# Pages "hub" qui ne désignent AUCUN sujet en particulier : sommaires Oracle
+# APEX de CEN/CENELEC, pages de politique génériques. Le modèle les met en
+# source_url pour des items totalement différents (run du 2026-07-31 : 5 items
+# sur 8 partageaient la même URL 205:22 du work programme JTC 21), donc elles ne
+# peuvent pas servir de critère d'identité entre deux sujets.
+_GENERIC_URL_RE = re.compile(
+    r"(?:"
+    r"/ords/f\?p="                       # sommaires APEX CEN/CENELEC (CEN:84, 205:22...)
+    r"|/policies/[a-z0-9-]+/?$"          # page de politique générique EC
+    r"|/veille/?$"                       # sommaire de veille
+    r"|^https?://[^/]+/?$"               # racine de domaine
+    r")",
+    re.IGNORECASE,
+)
+
+
+def _primary_standard_ref(title: str) -> str:
+    """La référence de norme qui est le SUJET du titre, ou "" s'il n'y en a pas.
+
+    Volontairement la PREMIÈRE référence trouvée dans le début du titre, pas
+    l'ensemble des références citées : une clé bâtie sur toutes les références
+    est aussi fragile que le slug qu'elle remplace. Vécu en test —
+    "EN ISO/IEC 27000:2026 publiée : vue d'ensemble ISMS (ISO 27001)" donnait
+    "std-27000-27001", qui ne matcherait pas un titre ultérieur mentionnant
+    seulement EN 27000. La fenêtre limitée au début du titre évite aussi de
+    prendre pour sujet une norme citée en passant dans une parenthèse."""
+    m = _STANDARD_REF_RE.search((title or "")[:60])
+    return m.group(1) if m else ""
+
+
 def _topic_key(title: str) -> str:
-    """Normalise a title into a stable matching key — lowercase, accents and
-    punctuation stripped, whitespace collapsed. Approximate on purpose: exact
-    fuzzy matching isn't worth the complexity here, this only needs to catch
-    the same topic reworded slightly week to week."""
+    """Normalise a title into a stable matching key.
+
+    Deux régimes, parce qu'un slug de titre seul s'est révélé trop fragile : les
+    titres sont régénérés à chaque run, et une simple reformulation crée une
+    clé différente donc un doublon (vécu : trois entrées distinctes pour
+    EN 18286 en trois runs — "EN 18286:2026 norme QMS IA...", "Publication de la
+    norme EN 18286:2026...", "EN 18286:2026 ratifiée...").
+
+    - Si le titre a pour sujet une norme, la clé est bâtie sur sa référence :
+      "std-18286" reste stable quelle que soit la formulation, et suit
+      volontairement le passage prEN -> EN (même sujet qui avance, c'est
+      exactement ce qu'on veut voir dédoublonné). Les parties restent
+      distinctes : "std-18229-1" != "std-18229-3".
+    - Sinon, repli sur le slug du titre (comportement historique)."""
+    ref = _primary_standard_ref(title)
+    if ref:
+        return f"std-{ref}"
     import unicodedata
     normalized = unicodedata.normalize("NFKD", title or "")
     ascii_only = normalized.encode("ascii", "ignore").decode("ascii").lower()
@@ -379,10 +441,58 @@ def _topic_key(title: str) -> str:
     return slug[:80]
 
 
+def _is_specific_url(url: str) -> bool:
+    """Une URL peut-elle servir à identifier un sujet ? Non si c'est une page
+    hub partagée par des sujets sans rapport (voir _GENERIC_URL_RE)."""
+    url = (url or "").strip()
+    return bool(url) and not _GENERIC_URL_RE.search(url)
+
+
+def consolidate_known_topics(topics: list) -> list:
+    """Replie les entrées qui décrivent le même sujet sous la clé canonique
+    actuelle. Nécessaire parce que les entrées déjà stockées portent la clé
+    calculée par la version PRÉCÉDENTE de _topic_key() : sans ce repli, un
+    sujet déjà connu sous un slug de titre ne serait pas reconnu par la
+    nouvelle clé "std-xxxxx" et créerait un doublon de plus.
+
+    On garde le first_seen le plus ancien, le last_seen/last_status le plus
+    récent, le titre le plus récent, et l'URL la plus spécifique."""
+    merged = {}
+    order = []
+    for t in topics:
+        title = t.get("title", "")
+        key = _topic_key(title) or t.get("key") or ""
+        if not key:
+            continue
+        existing = merged.get(key)
+        if not existing:
+            entry = dict(t)
+            entry["key"] = key
+            merged[key] = entry
+            order.append(key)
+            continue
+        if t.get("first_seen", "") and t["first_seen"] < existing.get("first_seen", "9999"):
+            existing["first_seen"] = t["first_seen"]
+        if t.get("last_seen", "") >= existing.get("last_seen", ""):
+            existing["last_seen"] = t.get("last_seen", existing.get("last_seen"))
+            existing["last_status"] = t.get("last_status", existing.get("last_status"))
+            existing["title"] = title or existing.get("title")
+        # Une URL précise remplace toujours une URL hub.
+        if _is_specific_url(t.get("source_url")) and not _is_specific_url(existing.get("source_url")):
+            existing["source_url"] = t["source_url"]
+    result = [merged[k] for k in order]
+    if len(result) != len(topics):
+        log(
+            f"known_topics : {len(topics) - len(result)} doublon(s) replié(s) sur la clé "
+            f"canonique ({len(topics)} -> {len(result)} sujets)."
+        )
+    return result
+
+
 def load_known_topics() -> list:
     if KNOWN_TOPICS_PATH.exists():
         try:
-            return json.loads(KNOWN_TOPICS_PATH.read_text(encoding="utf-8"))
+            return consolidate_known_topics(json.loads(KNOWN_TOPICS_PATH.read_text(encoding="utf-8")))
         except json.JSONDecodeError:
             log("(non bloquant) known_topics.json illisible — anti-répétition redémarre à vide pour ce run.")
     return []
@@ -407,40 +517,184 @@ def merge_known_topics(topics: list, items: list, today_str: str) -> list:
     matching entry's last_status/last_seen if the topic was already known,
     else append it as new. Never deletes — the registry only ever grows.
 
-    Matches on title-key first, falling back to source_url — a topic whose
-    title gets reworded slightly week to week (very possible, titles are
-    freshly generated each run, not pulled from a fixed canonical source)
-    will still often share the same source_url, catching what the title-only
-    match would miss."""
-    by_key = {t["key"]: t for t in topics if "key" in t}
-    by_url = {t["source_url"]: t for t in topics if t.get("source_url")}
+    Matches on title-key first (voir _topic_key : clé bâtie sur la référence de
+    norme quand il y en a une, sinon slug du titre), puis en repli sur
+    source_url — MAIS uniquement sur une URL spécifique.
+
+    Le repli par URL était initialement inconditionnel, et il a fait exactement
+    le contraire de ce qu'on attendait de lui. Constat sur le run du 2026-07-31 :
+    5 items sur 8 portaient la même URL de page hub
+    (".../ords/f?p=205:22:...", le work programme JTC 21) et 2 autres
+    ".../f?p=CEN:84" et ".../f?p=CENELEC:84". Résultat : prEN 18228, 18282,
+    18229-1, 18229-3 et EN ISO/IEC 27000 ont tous été rabattus sur l'entrée
+    "EN 18286" par collision d'URL et n'ont JAMAIS été enregistrés sous leur
+    propre nom — six sujets sur huit perdus, donc re-proposés comme neufs la
+    semaine suivante. Le repli n'est plus autorisé que sur une URL qui désigne
+    vraiment un sujet, et une URL partagée par plusieurs entrées est écartée de
+    l'index (elle ne discrimine rien).
+
+    Plusieurs sujets PEUVENT donc légitimement partager la même URL hub : c'est
+    le cas normal pour un paquet de normes suivi sur une seule page de comité."""
+    by_key = {}
+    for t in topics:
+        k = _topic_key(t.get("title", "")) or t.get("key")
+        if k:
+            by_key[k] = t
+
+    # Index URL -> entrée, construit seulement sur les URL spécifiques, et
+    # purgé de celles qui pointent vers plus d'une entrée.
+    url_hits = {}
+    for t in topics:
+        url = (t.get("source_url") or "").strip()
+        if _is_specific_url(url):
+            url_hits.setdefault(url, []).append(t)
+    by_url = {url: entries[0] for url, entries in url_hits.items() if len(entries) == 1}
+
     for item in items:
-        key = _topic_key(item.get("title", ""))
-        url = item.get("source_url", "")
+        title = item.get("title", "")
+        key = _topic_key(title)
+        url = (item.get("source_url") or "").strip()
         if not key:
             continue
-        existing = by_key.get(key) or (by_url.get(url) if url else None)
+        existing = by_key.get(key)
+        if existing is None and _is_specific_url(url):
+            existing = by_url.get(url)
         if existing:
             existing["last_status"] = item.get("status", existing.get("last_status"))
             existing["last_seen"] = today_str
-            if url:
-                existing["source_url"] = url
-                by_url[url] = existing
+            existing["title"] = title or existing.get("title")
+            # On n'écrase une URL déjà précise que par une autre URL précise :
+            # un item qui arrive avec une URL hub ne doit pas dégrader la
+            # meilleure source déjà connue pour ce sujet.
+            if _is_specific_url(url) or not _is_specific_url(existing.get("source_url")):
+                existing["source_url"] = url or existing.get("source_url", "")
+            if _is_specific_url(existing.get("source_url")):
+                by_url[existing["source_url"]] = existing
             by_key[key] = existing
         else:
             new_entry = {
                 "key": key,
-                "title": item.get("title", ""),
+                "title": title,
                 "last_status": item.get("status", "ongoing"),
                 "source_url": url,
                 "first_seen": today_str,
                 "last_seen": today_str,
             }
             by_key[key] = new_entry
-            if url:
+            if _is_specific_url(url):
                 by_url[url] = new_entry
             topics.append(new_entry)
     return topics
+
+
+# ---------------------------------------------------------------------------
+# Usage / cost instrumentation
+# ---------------------------------------------------------------------------
+# Ajouté après une enquête sur "pourquoi le run coûte ~30 centimes" qui n'a pu
+# aboutir qu'à des estimations : le pipeline ne mesurait RIEN. Les fichiers
+# debug_last_*_output.txt ne sont pas exploitables comme proxy du coût — ils
+# sont écrits APRÈS les étapes suivantes (debug_last_content_output.txt contient
+# la prose Haiku et plus les key_facts de Sonnet ; debug_last_proposals_output
+# contient la traduction FR en plus de la sortie EN). Toute déduction du coût à
+# partir de ces fichiers surestime la part Sonnet. D'où la mesure directe.
+#
+# Prix catalogue en $ par million de tokens (entrée, sortie). Sert uniquement à
+# donner un ordre de grandeur dans le log : la facture réelle passe par le
+# gateway, qui peut appliquer sa propre marge, et les requêtes Perplexity ont
+# EN PLUS un forfait par recherche que l'API ne renvoie pas dans "usage".
+MODEL_PRICING = {
+    "vercel/anthropic-claude-sonnet-4.5": (3.00, 15.00),
+    "vercel/anthropic-claude-haiku-4.5": (1.00, 5.00),
+    "vercel/perplexity-sonar": (1.00, 1.00),
+}
+
+# Rempli par record_usage() au fil du run, vidé jamais — lu par
+# log_usage_summary() juste avant l'envoi de l'email.
+USAGE_RECORDS = []
+
+# Passe à False dès que le gateway refuse stream_options (voir run_model_call) :
+# on cesse alors de le demander pour tout le reste du run.
+_STREAM_USAGE_SUPPORTED = True
+
+
+def _retry_without_stream_options(client: OpenAI, kwargs: dict, label: str):
+    global _STREAM_USAGE_SUPPORTED
+    _STREAM_USAGE_SUPPORTED = False
+    kwargs.pop("stream_options", None)
+    log(
+        f"  (non bloquant) {label}: le gateway refuse stream_options — le récap de "
+        f"coût passera en tokens estimés pour la suite du run."
+    )
+    return client.chat.completions.create(**kwargs)
+
+
+def record_usage(label: str, model: str, usage, fallback_chars: tuple = None) -> None:
+    """Enregistre la consommation d'un appel. `usage` est l'objet renvoyé par
+    l'API (None si le gateway ne l'a pas fourni) ; dans ce cas on retombe sur
+    une estimation à 4 caractères/token, marquée comme telle pour ne jamais
+    faire passer une estimation pour une mesure."""
+    estimated = False
+    prompt_tokens = completion_tokens = 0
+    if usage is not None:
+        prompt_tokens = int(getattr(usage, "prompt_tokens", 0) or 0)
+        completion_tokens = int(getattr(usage, "completion_tokens", 0) or 0)
+    if not prompt_tokens and not completion_tokens:
+        if not fallback_chars:
+            return
+        estimated = True
+        prompt_tokens = max(1, fallback_chars[0] // 4)
+        completion_tokens = max(1, fallback_chars[1] // 4)
+    in_price, out_price = MODEL_PRICING.get(model, (0.0, 0.0))
+    USAGE_RECORDS.append({
+        "label": label,
+        "model": model,
+        "prompt_tokens": prompt_tokens,
+        "completion_tokens": completion_tokens,
+        "cost": (prompt_tokens * in_price + completion_tokens * out_price) / 1_000_000,
+        "estimated": estimated,
+    })
+
+
+def log_usage_summary() -> None:
+    """Récapitulatif du coût, groupé par étape (les appels en fan-out — prose
+    par item, traduction par carte — sont agrégés : c'est leur total qui
+    compte, pas le détail appel par appel). Non bloquant : ne doit jamais
+    faire échouer un run par ailleurs réussi."""
+    if not USAGE_RECORDS:
+        log("Coût : aucune consommation enregistrée (run sans appel LLM).")
+        return
+    groups = {}
+    for r in USAGE_RECORDS:
+        # "Item 3/8 « ... »" et "Traduction FR 2/9" sont repliés sur une seule
+        # ligne d'étape, sinon le récap fait 27 lignes illisibles. Les "(essai
+        # N)" sont repliés aussi : un retry doit s'ajouter au coût de son étape,
+        # pas apparaître comme une étape distincte.
+        stage = re.sub(r"\s*\d+/\d+.*$", "", r["label"])
+        stage = re.sub(r"\s*\(essai \d+\)\s*$", "", stage).strip() or r["label"]
+        g = groups.setdefault(stage, {
+            "model": r["model"], "calls": 0, "prompt_tokens": 0,
+            "completion_tokens": 0, "cost": 0.0, "estimated": False,
+        })
+        g["calls"] += 1
+        g["prompt_tokens"] += r["prompt_tokens"]
+        g["completion_tokens"] += r["completion_tokens"]
+        g["cost"] += r["cost"]
+        g["estimated"] = g["estimated"] or r["estimated"]
+    total_cost = sum(g["cost"] for g in groups.values())
+    total_calls = sum(g["calls"] for g in groups.values())
+    log(f"--- Coût du run : ~${total_cost:.4f} sur {total_calls} appel(s) payant(s) ---")
+    for stage, g in sorted(groups.items(), key=lambda kv: -kv[1]["cost"]):
+        share = (100 * g["cost"] / total_cost) if total_cost else 0
+        flag = " (estimé, usage non renvoyé)" if g["estimated"] else ""
+        log(
+            f"  {stage}: {g['calls']} appel(s), {g['prompt_tokens']} tok entrée + "
+            f"{g['completion_tokens']} tok sortie -> ~${g['cost']:.4f} ({share:.0f}%){flag}"
+        )
+    log(
+        "  NB: prix catalogue, hors marge éventuelle du gateway et HORS forfait "
+        "par recherche Perplexity (non renvoyé par l'API) — la facture réelle est "
+        "supérieure, surtout sur la ligne Sonar."
+    )
 
 
 def get_litellm_client() -> OpenAI:
@@ -838,6 +1092,10 @@ def run_sonar_research(client: OpenAI, model: str) -> str:
                 }],
             )
             answer = resp.choices[0].message.content or ""
+            record_usage(
+                f"Sonar {i}/{len(SONAR_QUERIES)}", model, getattr(resp, "usage", None),
+                fallback_chars=(len(query) + 120, len(answer)),
+            )
             answers.append(f"Q: {query}\n{answer}")
             log(f"  Sonar {i}/{len(SONAR_QUERIES)} OK ({len(answer)} caractères) — {query[:60]}")
         except Exception as e:  # noqa: BLE001
@@ -1043,6 +1301,12 @@ feels redundant with "card":
   already present in the existing timeline milestones given below. "reason" explains what
   changed / why it's being removed.
 
+The existing milestones below are given as one compact line each and deliberately do NOT include
+their source URL. So for action="update"/"delete", set card "u" only if this week's report gives a
+genuinely better/newer source for that milestone; otherwise omit "u" entirely and it will be
+carried over from the existing milestone automatically. Never invent a URL to fill the field, and
+never put a placeholder there. For action="add", "u" is required and must come from the report.
+
 Produce ENGLISH ONLY — the French version is generated separately by a translation stage,
 never by you. Keep "reason" and "x" (card description) concise — 1-2 sentences, not a
 paragraph.
@@ -1107,21 +1371,39 @@ def run_model_call(
     # Streaming : le flux avance token par token. Le timeout "read" configuré
     # sur le client (voir get_litellm_client) protège contre un vrai blocage
     # sans jamais couper un rapport long qui progresse normalement.
+    kwargs = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_content},
+        ],
+        "max_tokens": max_tokens,
+        "stream": True,
+    }
+    # Demande au gateway de joindre un dernier chunk "usage" (tokens réellement
+    # facturés) pour alimenter le récap de coût. Si le gateway refuse ce
+    # paramètre, on repart SANS lui plutôt que de laisser une option de
+    # télémétrie faire échouer le run — la mesure est un confort, le run est
+    # l'objectif. Le refus est mémorisé pour ne pas re-tenter 27 fois.
+    if _STREAM_USAGE_SUPPORTED:
+        kwargs["stream_options"] = {"include_usage": True}
     try:
-        stream = client.chat.completions.create(
-            model=model,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_content},
-            ],
-            max_tokens=max_tokens,
-            stream=True,
-        )
+        try:
+            stream = client.chat.completions.create(**kwargs)
+        except TypeError:
+            stream = _retry_without_stream_options(client, kwargs, label)
+        except Exception as e:  # noqa: BLE001
+            if "stream_options" not in str(e):
+                raise
+            stream = _retry_without_stream_options(client, kwargs, label)
         chunks = []
         finish_reason = None
         total_chars = 0
+        usage = None
         last_progress_log = time.monotonic()
         for chunk in stream:
+            if getattr(chunk, "usage", None):
+                usage = chunk.usage
             if not chunk.choices:
                 continue
             delta = chunk.choices[0].delta.content
@@ -1138,6 +1420,12 @@ def run_model_call(
         raise ChunkCallError(f"Modèle bloqué ({label}) : aucune donnée reçue pendant plus de 90s.")
 
     content = "".join(chunks)
+    # Enregistré même quand l'appel a été coupé/invalide : un essai raté est
+    # facturé aussi, et c'est justement ce qu'on veut voir dans le récap.
+    record_usage(
+        label, model, usage,
+        fallback_chars=(len(system_prompt) + len(user_content), len(content)),
+    )
     log(f"{label} terminé — finish_reason={finish_reason}, longueur={len(content)} caractères.")
     if finish_reason == "length":
         log(
@@ -1459,6 +1747,51 @@ def build_content_digest(content: dict) -> str:
         for row in content["standards_changed"]:
             lines.append(f"- {row.get('reference')}: {row.get('note')}")
     return "\n".join(lines)
+
+
+def build_milestones_index(data_json: list) -> str:
+    """Rendu compact de la timeline existante pour le prompt des propositions,
+    en remplacement du json.dumps(data_json) intégral.
+
+    Le modèle a besoin de cette liste pour deux choses seulement : ne pas
+    re-proposer en "add" un jalon déjà présent, et viser le bon "existing_id"
+    quand il propose un "update". Deux champs ne servent ni à l'un ni à l'autre
+    et pesaient à eux seuls ~23% du dump : "u" (l'URL source de chaque jalon
+    existant, que le modèle n'a aucune raison de consulter) et les accolades /
+    noms de clés du JSON. "x" est conservé EN ENTIER, lui : la règle "quand tu
+    fais un update, préserve le contenu informatif de la description existante
+    et ne change que ce qui a changé" n'est tenable que si le modèle voit la
+    description actuelle. Le "u" absent est recomplété côté code par
+    backfill_update_urls()."""
+    lines = []
+    for mstone in data_json:
+        lines.append(
+            f"{mstone.get('id')} | {mstone.get('d')} | l={mstone.get('l')} | "
+            f"y={mstone.get('y')} | tp={','.join(mstone.get('tp') or [])} | "
+            f"tg={','.join(mstone.get('tg') or [])} | v={mstone.get('v')} | "
+            f"t={mstone.get('t')} | x={mstone.get('x')}"
+        )
+    return "\n".join(lines)
+
+
+def backfill_update_urls(proposals: dict, data_json: list) -> None:
+    """Recomplète card.u sur les update/delete depuis le jalon existant.
+
+    Contrepartie de build_milestones_index() : puisque les URL des jalons
+    existants ne sont plus envoyées au modèle, il ne peut plus les recopier.
+    Sans ce recomplètement, un update ferait disparaître le lien source d'une
+    carte publique (validate_proposals_json ne rend pas "u" obligatoire, donc
+    rien ne l'aurait attrapé). Une URL fournie par le modèle est toujours
+    prioritaire : sur un update, c'est souvent justement la source neuve."""
+    by_id = {m["id"]: m for m in data_json if "id" in m}
+    for p in proposals["proposals"]:
+        card = p.get("card")
+        if not card or p.get("action") not in ("update", "delete"):
+            continue
+        old = by_id.get(p.get("existing_id"))
+        if old and not str(card.get("u") or "").strip():
+            card["u"] = old.get("u", "")
+            log(f"  {p['id']}: URL source recopiée depuis le jalon existant.")
 
 
 def validate_proposals_json(raw: str, label: str) -> dict:
@@ -2221,7 +2554,9 @@ def _run(config: dict, recipients: list, data_json: list, data_fr: list, known_t
         proposals_user_content = (
             f"## This week's content (already written — source of truth, do not re-research)\n"
             f"{content_digest[:15000]}\n\n"
-            f"## Existing timeline milestones (data.json)\n{json.dumps(data_json, ensure_ascii=False)}\n\n"
+            f"## Existing timeline milestones (one per line: "
+            f"id | date | l | y | tp | tg | v | t=title | x=description)\n"
+            f"{build_milestones_index(data_json)}\n\n"
             f"Today's date: {date.today().isoformat()}. Produce the proposals JSON object in "
             f"the exact required format."
         )
@@ -2235,6 +2570,9 @@ def _run(config: dict, recipients: list, data_json: list, data_fr: list, known_t
         proposals_en = validate_proposals_json(json.dumps(proposals_en_parsed, ensure_ascii=False), "EN")
         # Jamais laissé à la main du modèle — c'est une donnée du run, pas du contenu.
         proposals_en["generated"] = date.today().isoformat()
+        # Avant le préfixage : backfill_update_urls compare existing_id aux ids
+        # de data.json, qui ne sont pas préfixés.
+        backfill_update_urls(proposals_en, data_json)
         prefix_proposal_ids(proposals_en, date.today().isoformat())
         flag_rewritten_updates(proposals_en, data_json)
         log("Traduction FR des propositions, carte par carte...")
@@ -2258,6 +2596,8 @@ def _run(config: dict, recipients: list, data_json: list, data_fr: list, known_t
     validate_existing_ids(proposals_en, data_json)
     validate_existing_ids(proposals_fr, data_json)
     log("JSON valide.")
+
+    log_usage_summary()
 
     # Publier AVANT d'envoyer : si le push échoue, aucun destinataire n'a
     # encore reçu d'email pointant vers une timeline jamais mise à jour, et on
