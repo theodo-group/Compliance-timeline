@@ -301,6 +301,21 @@ def skip_standards_status() -> bool:
     return os.environ.get("SKIP_STANDARDS_STATUS", "").lower() == "true"
 
 
+def ignore_known_topics() -> bool:
+    """Test-only escape hatch (retour Joseph, 31 juillet 2026) : fait tourner
+    le triage comme si automation/state/known_topics.json était vide, pour
+    voir ce qu'un run "à blanc" (aucun historique) produirait vraiment — sans
+    toucher au vrai fichier. Volontairement séparé de DRY_RUN : DRY_RUN
+    empêche déjà l'ÉCRITURE dans known_topics.json (voir commentaire plus bas
+    dans _run), mais la LECTURE (le digest donné au triage) restait toujours
+    la vraie mémoire même en dry-run — du coup un dry-run ne montrait jamais
+    un vrai "reset". Ce flag ne touche que la lecture ; l'écriture reste régie
+    par is_dry_run() comme avant, donc combiner les deux (DRY_RUN=true +
+    IGNORE_KNOWN_TOPICS=true) donne un test complètement neutre : le fichier
+    réel n'est ni lu (pour le prompt) ni écrit."""
+    return os.environ.get("IGNORE_KNOWN_TOPICS", "").lower() == "true"
+
+
 # ---------------------------------------------------------------------------
 # Step 1: config, recipients, existing data
 # ---------------------------------------------------------------------------
@@ -2147,7 +2162,11 @@ def _run(config: dict, recipients: list, data_json: list, data_fr: list, known_t
         })
     else:
         log("Rédaction — triage (sélection des items + faits clés, sans prose)...")
-        known_topics_digest = build_known_topics_digest(known_topics)
+        if ignore_known_topics():
+            log("IGNORE_KNOWN_TOPICS actif — le triage tourne comme si l'archive était vide (test).")
+            known_topics_digest = build_known_topics_digest([])
+        else:
+            known_topics_digest = build_known_topics_digest(known_topics)
         triage_user_content = (
             f"## Previously reported topics (structured archive — do not repeat unless something "
             f"genuinely changed since)\n{known_topics_digest}\n\n"

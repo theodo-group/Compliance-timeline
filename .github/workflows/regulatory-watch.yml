@@ -29,6 +29,10 @@ on:
         description: "Tester UNIQUEMENT le fetch Playwright CEN-CENELEC (equivalent CI de automation/tools/check_standards_status.py) — aucun Sonar, aucun LLM, aucun mail"
         type: boolean
         default: false
+      ignore_known_topics:
+        description: "Test à blanc : ignore l'historique known_topics.json pour voir ce qu'un run 'sans mémoire' produirait (ne modifie jamais le vrai fichier — combiner avec dry_run pour un test neutre)"
+        type: boolean
+        default: false
 
   # Planifié tous les vendredis matin. ATTENTION : le cron GitHub est en UTC et ne gère PAS
   # l'heure d'été. 04:00 UTC = 06:00 à Paris l'été (CEST) / 05:00 l'hiver (CET). GitHub peut
@@ -79,6 +83,7 @@ jobs:
           SKIP_CONTENT_CALL: ${{ github.event.inputs.skip_content_call || 'false' }}
           REPLAY_CONTENT: ${{ github.event.inputs.replay_content || 'false' }}
           REPLAY_PROPOSALS: ${{ github.event.inputs.replay_proposals || 'false' }}
+          IGNORE_KNOWN_TOPICS: ${{ github.event.inputs.ignore_known_topics || 'false' }}
         run: python automation/weekly_watch.py
 
       - name: Upload generated artifacts (dry-run inspection)
