@@ -152,9 +152,16 @@ STANDARDS_REGISTER = [
     {"source": "EU Commission", "reference": "MDCG 2025-4", "title": "MDSW on platforms", "watch_for": "Updates"},
     {"source": "EU Commission", "reference": "MDCG 2019-16", "title": "Cybersecurity", "watch_for": "New revision"},
     {"source": "IMDRF", "reference": "SaMD WG / N12, N81, N88", "title": "SaMD framework, ML", "watch_for": "New or closing drafts"},
+    # "aliases" (retour Joseph, 31 juillet 2026) : variantes que le modèle
+    # écrit légitimement au lieu de recopier "reference" à la lettre — vu en
+    # pratique le 31 juillet : il a écrit "prEN 18286" (sans le "/EN") pour ce
+    # qui est déjà EN 18286:2026, donc rejeté par un matching en égalité
+    # stricte. Chaque alias pointe vers CETTE ligne uniquement — voir la
+    # normalisation dans validate_content_json().
     {
         "source": "CEN-CENELEC", "reference": "prEN/EN 18286", "title": "AI Act QMS standard",
         "watch_for": "Ratified 12 Jul 2026, published as EN 18286:2026 (available 22 Jul 2026) — verify OJEU harmonization citation next (grants Art. 17 presumption of conformity)",
+        "aliases": ["prEN 18286", "EN 18286", "EN 18286:2026"],
     },
     # Reste du paquet JTC 21 en soutien de l'AI Act (mandat M/593), à côté de
     # prEN 18286 (QMS) déjà suivi ci-dessus — ajoutés 29 juillet 2026, retour
@@ -170,6 +177,10 @@ STANDARDS_REGISTER = [
     {
         "source": "CEN-CENELEC", "reference": "prEN 18229-1 à -5", "title": "AI Trustworthiness framework (5 parties : Logging, Transparency, Human oversight, Accuracy, Robustness)",
         "watch_for": "Publication/ratification status de chaque partie",
+        # Le modèle rapporte souvent UNE partie précise (ex. "prEN 18229-3" —
+        # vu en pratique le 31 juillet) plutôt que la plage complète : chaque
+        # partie individuelle est un alias valide de cette même ligne.
+        "aliases": [f"prEN 18229-{i}" for i in range(1, 6)] + ["prEN 18229"],
     },
     {
         "source": "CEN-CENELEC", "reference": "prEN 18282", "title": "AI Cybersecurity specs (Art. 15(5) AI Act)",
@@ -1350,6 +1361,18 @@ def validate_content_json(raw: str) -> dict:
         fail("JSON contenu : 'items' doit être une liste.")
 
     valid_reference_set = {row["reference"] for row in STANDARDS_REGISTER}
+    # Table alias -> reference canonique (voir "aliases" sur les entrées du
+    # register) : le modèle recopie l'exact "reference" la plupart du temps,
+    # mais rapporte parfois une variante légitime (partie individuelle d'une
+    # famille groupée, changement de préfixe prEN -> EN une fois publié...) —
+    # retour Joseph 31 juillet 2026, deux cas ratés en pratique sur un même
+    # run. Chaque alias ne peut pointer que vers UNE ligne, donc pas de risque
+    # de confondre deux normes différentes entre elles.
+    alias_to_reference = {}
+    for row in STANDARDS_REGISTER:
+        alias_to_reference[row["reference"]] = row["reference"]
+        for alias in row.get("aliases", []):
+            alias_to_reference[alias] = row["reference"]
 
     for item in parsed["items"]:
         log_item = lambda: log(f"Item problématique: {json.dumps(item, ensure_ascii=False)[:800]}")  # noqa: E731
@@ -1374,12 +1397,18 @@ def validate_content_json(raw: str) -> dict:
             log_item()
             fail("JSON contenu : item sans source_url.")
 
+    normalized_standards_changed = []
     for row in parsed["standards_changed"]:
-        if row.get("reference") not in valid_reference_set:
+        ref = row.get("reference")
+        canonical = alias_to_reference.get(ref)
+        if canonical is None:
             log(f"Standards_changed ignoré (reference inconnue): {json.dumps(row, ensure_ascii=False)[:300]}")
-    parsed["standards_changed"] = [
-        row for row in parsed["standards_changed"] if row.get("reference") in valid_reference_set
-    ]
+            continue
+        if canonical != ref:
+            log(f"Standards_changed — '{ref}' rapproché de '{canonical}' (alias connu).")
+            row["reference"] = canonical
+        normalized_standards_changed.append(row)
+    parsed["standards_changed"] = normalized_standards_changed
 
     return parsed
 
