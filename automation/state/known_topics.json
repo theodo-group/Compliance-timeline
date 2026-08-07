@@ -1,19 +1,19 @@
 [
   {
-    "key": "en-18286-2026-norme-qms-ia-pour-ai-act-ratification-confirmee-citation-harmonise",
-    "title": "EN 18286:2026 (norme QMS IA pour AI Act) : ratification confirmée, citation harmonisée JOUE en attente",
-    "last_status": "new",
-    "source_url": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
+    "key": "std-18286",
+    "title": "EN 18286:2026 ratifiée : norme QMS pour l'AI Act",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-07-31"
+    "last_seen": "2026-08-07"
   },
   {
-    "key": "iso-ts-24971-2-2026-publiee-guide-d-application-iso-14971-pour-le-machine-learni",
-    "title": "ISO/TS 24971-2:2026 publiée : guide d'application ISO 14971 pour le machine learning médical",
-    "last_status": "new",
+    "key": "std-24971-2",
+    "title": "ISO/TS 24971-2:2026 publiée : guide d'application ISO 14971 pour le ML médical",
+    "last_status": "final",
     "source_url": "https://www.qualitiso.com/iso-ts-24971-2-gestion-des-risques-pour-les-dispositifs-medicaux-a-bas-de-machine-learning/",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-07-29"
+    "last_seen": "2026-08-07"
   },
   {
     "key": "mdcg-2026-5-attribution-des-identifiants-udi-entre-fabricants-et-distributeurs",
@@ -88,20 +88,12 @@
     "last_seen": "2026-07-29"
   },
   {
-    "key": "publication-de-la-norme-en-18286-2026-qms-ia-pour-ai-act-citation-harmonisee-jou",
-    "title": "Publication de la norme EN 18286:2026 (QMS IA pour AI Act) — citation harmonisée JOUE en attente",
-    "last_status": "new",
-    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
-    "first_seen": "2026-07-29",
-    "last_seen": "2026-07-31"
-  },
-  {
     "key": "lignes-directrices-commission-sur-obligations-de-transparence-ia-fournisseurs-de",
-    "title": "Lignes directrices Commission sur obligations de transparence IA (fournisseurs/déployeurs)",
+    "title": "Commission : lignes directrices sur les obligations de transparence AI Act",
     "last_status": "new",
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-29"
+    "last_seen": "2026-08-07"
   },
   {
     "key": "plan-d-action-ue-cybersecurite-et-intelligence-artificielle-juillet-2026",
@@ -152,11 +144,51 @@
     "last_seen": "2026-07-29"
   },
   {
-    "key": "en-18286-2026-ratifiee-norme-qms-ia-pour-l-ai-act",
-    "title": "EN 18286:2026 ratifiée : norme QMS IA pour l'AI Act",
+    "key": "std-18274",
+    "title": "EN 18274:2026 publiée : compétences des éthiciens IA professionnels",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
+    "first_seen": "2026-08-07",
+    "last_seen": "2026-08-07"
+  },
+  {
+    "key": "cinq-normes-de-securite-de-l-information-revisees-publiees",
+    "title": "Cinq normes de sécurité de l'information révisées publiées",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
+    "first_seen": "2026-08-07",
+    "last_seen": "2026-08-07"
+  },
+  {
+    "key": "std-18228",
+    "title": "prEN 18228 (gestion des risques AI Act) : vote final prévu septembre 2026",
     "last_status": "draft",
-    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
-    "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31"
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+    "first_seen": "2026-08-07",
+    "last_seen": "2026-08-07"
+  },
+  {
+    "key": "std-18229",
+    "title": "Cinq parties de prEN 18229 (cadre de confiance IA) en cours",
+    "last_status": "draft",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+    "first_seen": "2026-08-07",
+    "last_seen": "2026-08-07"
+  },
+  {
+    "key": "std-18282",
+    "title": "prEN 18282 (cybersécurité des systèmes IA) : vote final prévu 15 juillet 2026",
+    "last_status": "draft",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+    "first_seen": "2026-08-07",
+    "last_seen": "2026-08-07"
+  },
+  {
+    "key": "mhra-et-fda-lancent-un-programme-de-liaison-sur-les-dispositifs-medicaux",
+    "title": "MHRA et FDA lancent un programme de liaison sur les dispositifs médicaux",
+    "last_status": "new",
+    "source_url": "https://www.gov.uk/government/news/unique-liaison-programme-set-to-reinforce-close-collaboration-between-mhra-and-fda",
+    "first_seen": "2026-08-07",
+    "last_seen": "2026-08-07"
   }
 ]
