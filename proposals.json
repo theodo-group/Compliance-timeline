@@ -1,65 +1,41 @@
 {
-  "generated": "2026-07-31",
+  "generated": "2026-08-07",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-07-31--2026-07-22--en-18286-2026-published",
-      "reason": "EN 18286:2026 (AI Act QMS standard) published, now available for voluntary use pending OJEU citation.",
+      "id": "proposal-2026-08-07--2026-07-22--en-18286-2026-ratified-ai-act-qms",
+      "reason": "EN 18286:2026 finalized and published after standstill — first harmonised QMS standard for AI Act Article 17.",
       "card": {
-        "id": "2026-07-22--en-18286-2026-published",
+        "id": "2026-07-22--en-18286-2026-ratified-ai-act-qms",
         "d": "2026-07-22",
         "l": "22 Jul 2026",
         "y": 2026,
-        "t": "EN 18286:2026 Published",
-        "x": "First harmonised standard for AI Act QMS (Article 17) now available. Presumption of conformity pending OJEU citation.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
+        "t": "EN 18286:2026 Ratified — AI Act QMS",
+        "x": "First harmonised QMS standard for AI Act Article 17. Awaiting citation in OJEU for presumption of conformity.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
         "tp": [
           "ai",
           "standards"
         ],
         "tg": [
-          "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "update",
-      "id": "proposal-2026-07-31--2026-10-15--pren-18286-ai-act-qms-standard-revised",
-      "existing_id": "2026-10-15--pren-18286-ai-act-qms-standard-revised",
-      "reason": "Standard ratified and published 22 July 2026, no longer in revision — card should reflect completion.",
-      "card": {
-        "id": "2026-10-15--pren-18286-ai-act-qms-standard-revised",
-        "d": "2026-07-22",
-        "l": "22 Jul 2026",
-        "y": 2026,
-        "t": "EN 18286:2026 Ratified",
-        "x": "First harmonised standard for AI Act QMS (Article 17) ratified and published. Failed Jan 2026 vote, revised, now available pending OJEU citation.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "high",
+          "critical",
           "in-force"
         ],
-        "v": "h"
+        "v": "c"
       }
     },
     {
       "action": "update",
-      "id": "proposal-2026-07-31--2026-06-24--iso-ts-24971-2-published",
+      "id": "proposal-2026-08-07--2026-06-24--iso-ts-24971-2-published",
       "existing_id": "2026-06-24--iso-ts-24971-2-published",
-      "reason": "Correcting publication format to CEN ISO/TS 24971-2:2026 and expanding scope details.",
+      "reason": "[REVIEW: description entierement reecrite — verifier que ce n'est pas un nouveau jalon qui devrait etre un add] Corrected publication date and expanded description to clarify adoption by CEN/CLC/JTC 3.",
       "card": {
         "id": "2026-06-24--iso-ts-24971-2-published",
         "d": "2026-06-24",
         "l": "24 Jun 2026",
         "y": 2026,
-        "t": "CEN ISO/TS 24971-2:2026 Published",
-        "x": "Application guide for ISO 14971 covering ML-specific risk management: training data governance, model validation, continuous performance monitoring, and drift detection.",
+        "t": "ISO/TS 24971-2:2026 Published",
+        "x": "ML risk management guide adopted by CEN/CLC/JTC 3, bridges ISO 14971 with ML-specific considerations for MDR/IVDR compliance.",
         "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
         "tp": [
           "standards",
@@ -74,134 +50,159 @@
     },
     {
       "action": "add",
-      "id": "proposal-2026-07-31--2026-07-22--mdcg-2026-5-udi-attribution-published",
-      "reason": "MDCG 2026-5 clarifies UDI-DI attribution between manufacturers and distributors, applicable immediately.",
+      "id": "proposal-2026-08-07--2026-07-22--en-18274-2026-ai-ethics-competencies",
+      "reason": "New competency standard for AI ethicists ratified, supports governance under AI Act Article 14.",
       "card": {
-        "id": "2026-07-22--mdcg-2026-5-udi-attribution-published",
+        "id": "2026-07-22--en-18274-2026-ai-ethics-competencies",
         "d": "2026-07-22",
         "l": "22 Jul 2026",
         "y": 2026,
-        "t": "MDCG 2026-5: UDI-DI Attribution Guidance",
-        "x": "Decision framework for UDI-DI assignment in kits, repackaging, and client configurations. Effective immediately for EUDAMED registrations.",
-        "u": "https://health.ec.europa.eu/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en#sec18",
+        "t": "EN 18274:2026 — AI Ethics Competencies",
+        "x": "Competence framework for AI ethics professionals, supports human oversight and ethical review requirements under AI Act Article 14.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
         "tp": [
-          "mdr"
+          "ai",
+          "standards"
         ],
         "tg": [
           "medium",
-          "new"
+          "in-force"
         ],
         "v": "n"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-07-31--2026-09-30--pren-18228-approval-vote",
-      "reason": "prEN 18228 (AI Risk Management, Article 9 AI Act) enters formal approval vote with publication expected late 2026.",
+      "id": "proposal-2026-08-07--2026-08-05--iso-27000-series-updates",
+      "reason": "Five revised infosec standards published covering ISMS, cloud security, and PII controls critical for MDSW cybersecurity.",
       "card": {
-        "id": "2026-09-30--pren-18228-approval-vote",
+        "id": "2026-08-05--iso-27000-series-updates",
+        "d": "2026-08-05",
+        "l": "1 Jul–5 Aug 2026",
+        "y": 2026,
+        "t": "ISO 27000 Series — Five Standards Revised",
+        "x": "EN ISO/IEC 27000, 27017, 29151 and EN 17640+A1 published. Updates ISMS framework for ISO 27001, cloud controls for SaaS MDSW/HDS, and PII protections.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
+        "tp": [
+          "cyber",
+          "standards",
+          "data"
+        ],
+        "tg": [
+          "high",
+          "in-force"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-08-07--2026-07-20--ec-ai-act-transparency-guidelines",
+      "reason": "Commission guidelines clarify transparency obligations (Article 13) now in force since 2 Aug 2026.",
+      "card": {
+        "id": "2026-07-20--ec-ai-act-transparency-guidelines",
+        "d": "2026-07-20",
+        "l": "20 Jul 2026",
+        "y": 2026,
+        "t": "EC Guidelines — AI Act Transparency Obligations",
+        "x": "Clarifies Article 13 transparency duties for high-risk AI providers/deployers. Includes disclosure, documentation, and logging requirements in force since 2 Aug 2026.",
+        "u": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
+        "tp": [
+          "ai"
+        ],
+        "tg": [
+          "high",
+          "in-force"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-08-07--2026-09-30--pren-18228-final-vote",
+      "reason": "prEN 18228 risk management standard for AI Act Article 9 enters formal vote — critical for high-risk AI systems.",
+      "card": {
+        "id": "2026-09-30--pren-18228-final-vote",
         "d": "2026-09-30",
         "l": "30 Sep 2026",
         "y": 2026,
-        "t": "prEN 18228 Approval Vote",
-        "x": "AI Risk Management standard (Article 9 AI Act) approval vote. Publication expected late 2026 if approved.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
+        "t": "prEN 18228 — Final Vote (AI Risk Management)",
+        "x": "Formal approval vote for harmonised AI risk management standard under AI Act Article 9. Publication expected Q4 2026.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "critical",
+          "draft"
+        ],
+        "v": "c"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-08-07--2026-11-30--pren-18229-1-vote-logging",
+      "reason": "Part 1 of prEN 18229 trustworthiness framework (Logging/Article 12) enters vote — first of five parts.",
+      "card": {
+        "id": "2026-11-30--pren-18229-1-vote-logging",
+        "d": "2026-11-30",
+        "l": "30 Nov 2026",
+        "y": 2026,
+        "t": "prEN 18229-1 Vote — Logging (AI Act Article 12)",
+        "x": "First part of five-part trustworthiness framework enters formal vote. Translates Article 12 logging requirements into testable criteria.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
         "tp": [
           "ai",
           "standards"
         ],
         "tg": [
           "high",
-          "proposed"
+          "draft"
         ],
         "v": "h"
       }
     },
     {
-      "action": "add",
-      "id": "proposal-2026-07-31--2026-07-15--pren-18282-approval-vote-held",
-      "reason": "prEN 18282 (AI Cybersecurity, Article 15(5) AI Act) approval vote held, publication expected mid-2027.",
+      "action": "update",
+      "id": "proposal-2026-08-07--2026-10-15--pren-18286-ai-act-qms-standard-revised",
+      "existing_id": "2026-10-15--pren-18286-ai-act-qms-standard-revised",
+      "reason": "Standard finalized and published as EN 18286:2026 on 22 July 2026 after standstill — no longer under revision.",
       "card": {
-        "id": "2026-07-15--pren-18282-approval-vote-held",
-        "d": "2026-07-15",
-        "l": "15 Jul 2026",
-        "y": 2026,
-        "t": "prEN 18282 Approval Vote Held",
-        "x": "AI Cybersecurity standard (Article 15(5) AI Act) approved. Covers model protection, data security, adversarial robustness. Publication mid-2027.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
-        "tp": [
-          "ai",
-          "cyber",
-          "standards"
-        ],
-        "tg": [
-          "high",
-          "proposed"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-07-31--2026-08-20--pren-18229-1-public-inquiry-closes",
-      "reason": "prEN 18229-1 (AI Logging, Article 12 AI Act) public inquiry closes, last opportunity for industry comment.",
-      "card": {
-        "id": "2026-08-20--pren-18229-1-public-inquiry-closes",
-        "d": "2026-08-20",
-        "l": "20 Aug 2026",
-        "y": 2026,
-        "t": "prEN 18229-1 Public Inquiry Closes",
-        "x": "AI Logging standard (Article 12 AI Act) comment period ends. Formal vote 30 Nov 2026. Covers event capture, input/output data, decisions, interventions.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "medium",
-          "draft"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-07-31--2026-10-22--pren-18229-3-public-inquiry-closes",
-      "reason": "prEN 18229-3 (AI Human Oversight, Article 14 AI Act) public inquiry closes, final input opportunity.",
-      "card": {
-        "id": "2026-10-22--pren-18229-3-public-inquiry-closes",
-        "d": "2026-10-22",
-        "l": "22 Oct 2026",
-        "y": 2026,
-        "t": "prEN 18229-3 Public Inquiry Closes",
-        "x": "AI Human Oversight standard (Article 14 AI Act) comment period ends. Formal vote 1 Jul 2027. Technical framework for supervision interfaces and procedures.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "medium",
-          "draft"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-07-31--2026-07-22--en-iso-iec-27000-2026-published",
-      "reason": "EN ISO/IEC 27000:2026 published, updating ISMS terminology and aligning with ISO 27001:2022.",
-      "card": {
-        "id": "2026-07-22--en-iso-iec-27000-2026-published",
+        "id": "2026-10-15--pren-18286-ai-act-qms-standard-revised",
         "d": "2026-07-22",
         "l": "22 Jul 2026",
         "y": 2026,
-        "t": "EN ISO/IEC 27000:2026 Published",
-        "x": "Updated ISMS overview with revised terminology, cybersecurity and privacy integration, aligned with ISO 27001:2022. Applicable immediately.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
+        "t": "EN 18286:2026 Published — AI Act QMS",
+        "x": "Finalized and published after standstill period. First harmonised QMS standard for AI Act Article 17, awaiting OJEU citation.",
         "tp": [
-          "standards",
-          "cyber"
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "critical",
+          "in-force"
+        ],
+        "v": "c",
+        "u": "https://cms-lawnow.com/en/ealerts/2025/12/the-first-draft-ai-act-standard-for-public-consultation-what-pren-18286-quality-management-system-for-eu-ai-act-regulatory-purposes-signals-for"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-08-07--2026-07-20--mhra-fda-liaison-programme",
+      "reason": "Joint MHRA-FDA liaison programme launched to harmonise AI/ML medical device regulatory approaches.",
+      "card": {
+        "id": "2026-07-20--mhra-fda-liaison-programme",
+        "d": "2026-07-20",
+        "l": "20 Jul 2026",
+        "y": 2026,
+        "t": "MHRA–FDA Liaison Programme Launched",
+        "x": "Deepens AI/ML medical device collaboration via PCCP framework and ML good practices. May accelerate mutual recognition and converged guidance.",
+        "u": "https://www.gov.uk/government/news/unique-liaison-programme-set-to-reinforce-close-collaboration-between-mhra-and-fda",
+        "tp": [
+          "uk",
+          "us",
+          "ai"
         ],
         "tg": [
           "medium",
