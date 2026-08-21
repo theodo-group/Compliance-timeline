@@ -1,42 +1,115 @@
 {
-  "generated": "2026-08-14",
+  "generated": "2026-08-21",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-08-14--2026-07-22--en-18286-2026-ai-act-qms-ratified",
-      "reason": "EN 18286:2026 ratified by CEN/CENELEC, providing the first harmonised QMS standard for AI Act Article 17 compliance.",
+      "id": "proposal-2026-08-21--2026-07-22--en-18286-2026-ratified",
+      "reason": "EN 18286:2026 ratified, enabling presumption of conformity for AI Act QMS (Art. 17) once cited in OJEU.",
       "card": {
-        "id": "2026-07-22--en-18286-2026-ai-act-qms-ratified",
+        "id": "2026-07-22--en-18286-2026-ratified",
         "d": "2026-07-22",
         "l": "22 Jul 2026",
         "y": 2026,
-        "t": "EN 18286:2026 AI Act QMS Ratified",
-        "x": "CEN/CENELEC finalised EN 18286:2026 Quality Management System for AI Act regulatory purposes. Available now; OJEU citation pending.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "t": "EN 18286:2026 Ratified — AI Act QMS Standard",
+        "x": "First harmonised QMS standard for AI Act (Art. 17) ratified and available. Awaits OJEU citation for presumption of conformity.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
         "tp": [
           "ai",
           "standards"
         ],
         "tg": [
           "critical",
-          "new"
+          "in-force"
         ],
         "v": "c"
       }
     },
     {
+      "action": "delete",
+      "id": "proposal-2026-08-21--2026-10-15--pren-18286-ai-act-qms-standard-revised",
+      "existing_id": "2026-10-15--pren-18286-ai-act-qms-standard-revised",
+      "reason": "prEN 18286 has been ratified as EN 18286:2026 on 22 July 2026; the draft milestone is now superseded by the published standard."
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-08-21--2026-07-20--ec-ai-act-transparency-guidance",
+      "reason": "Commission publishes official transparency guidelines for AI Act providers and deployers ahead of 2 Aug 2026 application.",
+      "card": {
+        "id": "2026-07-20--ec-ai-act-transparency-guidance",
+        "d": "2026-07-20",
+        "l": "20 Jul 2026",
+        "y": 2026,
+        "t": "EC Publishes AI Act Transparency Guidelines",
+        "x": "Official guidance on transparency obligations for AI system providers and deployers before AI Act application on 2 Aug 2026.",
+        "u": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
+        "tp": [
+          "ai"
+        ],
+        "tg": [
+          "high",
+          "new"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-08-21--2026-07-27--ai-omnibus-enters-force",
+      "reason": "AI Omnibus regulation extends compliance timelines for high-risk AI systems under Art. 6 AI Act, reducing admin burden for MDR/IVDR manufacturers.",
+      "card": {
+        "id": "2026-07-27--ai-omnibus-enters-force",
+        "d": "2026-07-27",
+        "l": "27 Jul 2026",
+        "y": 2026,
+        "t": "AI Omnibus Enters into Force",
+        "x": "Regulation (EU) 2026/1744 extends compliance deadlines for high-risk AI systems (Art. 6 AI Act), reducing assessment burden for MDR/IVDR manufacturers.",
+        "u": "https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force",
+        "tp": [
+          "ai",
+          "mdr"
+        ],
+        "tg": [
+          "critical",
+          "in-force"
+        ],
+        "v": "c"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-08-21--2026-07-20--ec-cyber-resilience-act-guidance",
+      "reason": "Commission publishes comprehensive CRA implementation guidance covering all manufacturer obligations and sector-specific timelines before 2027 application.",
+      "card": {
+        "id": "2026-07-20--ec-cyber-resilience-act-guidance",
+        "d": "2026-07-20",
+        "l": "20 Jul 2026",
+        "y": 2026,
+        "t": "EC Publishes Cyber Resilience Act Implementation Guidance",
+        "x": "Comprehensive guidance on cybersecurity and reporting obligations for manufacturers of all sizes, with sector-specific compliance pathways before progressive CRA application from 2027.",
+        "u": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-new-guidance-support-businesses-implementation-cyber-resilience-act",
+        "tp": [
+          "cyber"
+        ],
+        "tg": [
+          "high",
+          "new"
+        ],
+        "v": "h"
+      }
+    },
+    {
       "action": "update",
-      "id": "proposal-2026-08-14--2026-06-24--iso-ts-24971-2-published",
+      "id": "proposal-2026-08-21--2026-06-24--iso-ts-24971-2-published",
       "existing_id": "2026-06-24--iso-ts-24971-2-published",
-      "reason": "[REVIEW: description entierement reecrite — verifier que ce n'est pas un nouveau jalon qui devrait etre un add] ISO/TS 24971-2:2026 confirmed published; description tightened to reflect official scope and CEN/CLC/JTC 3 source.",
+      "reason": "Clarify awaited EN transposition and potential harmonised status under MDR for presumption of conformity.",
       "card": {
         "id": "2026-06-24--iso-ts-24971-2-published",
         "d": "2026-06-24",
         "l": "24 Jun 2026",
         "y": 2026,
-        "t": "ISO/TS 24971-2:2026 Published",
-        "x": "First technical specification applying ISO 14971 risk management to ML medical devices: validation, performance stability, data quality controls.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "t": "ISO/TS 24971-2:2026 Published — ML Risk Management",
+        "x": "ML risk management guide for ISO 14971:2019 covering model drift, algorithmic bias, data quality. Awaits EN transposition and potential MDR harmonised status.",
+        "u": "https://www.qualitiso.com/iso-ts-24971-2-gestion-des-risques-pour-les-dispositifs-medicaux-a-bas-de-machine-learning/",
         "tp": [
           "standards",
           "ai"
@@ -50,62 +123,39 @@
     },
     {
       "action": "add",
-      "id": "proposal-2026-08-14--2026-08-05--en-18274-2026-ai-ethicist-competence",
-      "reason": "EN 18274:2026 published, establishing competence framework for professional AI ethicists under AI Act Articles 9 and 29(4).",
+      "id": "proposal-2026-08-21--2026-07-15--en-iso-iec-27000-2026-published",
+      "reason": "EN ISO/IEC 27000:2026 published, updating foundational ISMS vocabulary and concepts for AI Act and GDPR compliance.",
       "card": {
-        "id": "2026-08-05--en-18274-2026-ai-ethicist-competence",
-        "d": "2026-08-05",
-        "l": "5 Aug 2026",
+        "id": "2026-07-15--en-iso-iec-27000-2026-published",
+        "d": "2026-07-15",
+        "l": "15 Jul 2026",
         "y": 2026,
-        "t": "EN 18274:2026 AI Ethicist Competence Published",
-        "x": "CEN/CLC/JTC 21 published competence requirements for professional AI ethicists supporting AI Act risk management and human oversight.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "t": "EN ISO/IEC 27000:2026 Published",
+        "x": "Updated ISMS vocabulary and concepts, foundational reference for ISO 27001 and AI Act Art. 15 compliance.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
         "tp": [
-          "ai",
+          "cyber",
           "standards"
         ],
         "tg": [
           "medium",
-          "new"
+          "in-force"
         ],
         "v": "n"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-08-14--2026-07-15--iso-iec-27000-2026-published",
-      "reason": "EN ISO/IEC 27000:2026 (ISMS overview) published, aligning with AI Act Article 15 cybersecurity and GDPR Article 25.",
+      "id": "proposal-2026-08-21--2026-08-05--en-iso-iec-27017-29151-published",
+      "reason": "EN ISO/IEC 27017:2026 and 29151:2026 published, updating cloud security controls and PII protection for GDPR/HDS/AI Act compliance.",
       "card": {
-        "id": "2026-07-15--iso-iec-27000-2026-published",
-        "d": "2026-07-15",
-        "l": "15 Jul 2026",
-        "y": 2026,
-        "t": "EN ISO/IEC 27000:2026 Published",
-        "x": "Revised ISMS overview; part of five updated ISO/IEC 270xx standards supporting AI Act cybersecurity and GDPR data protection.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
-        "tp": [
-          "cyber",
-          "standards"
-        ],
-        "tg": [
-          "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-08-14--2026-08-05--iso-iec-27017-29151-published",
-      "reason": "EN ISO/IEC 27017:2026 (cloud security) and 29151:2026 (PII protection) published, directly supporting AI Act and GDPR compliance.",
-      "card": {
-        "id": "2026-08-05--iso-iec-27017-29151-published",
+        "id": "2026-08-05--en-iso-iec-27017-29151-published",
         "d": "2026-08-05",
         "l": "5 Aug 2026",
         "y": 2026,
         "t": "EN ISO/IEC 27017 & 29151:2026 Published",
-        "x": "Cloud security controls (27017) and PII protection measures (29151) revised; align with AI Act Article 15 and GDPR Article 25.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
+        "x": "Cloud security controls (27017) and PII protection (29151) updated. Monitor OJEU citation for AI Act Art. 15 harmonised status.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
         "tp": [
           "cyber",
           "data",
@@ -113,113 +163,23 @@
         ],
         "tg": [
           "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-08-14--2026-09-30--pren-18228-ai-risk-mgmt-vote",
-      "reason": "prEN 18228 (AI Act risk management) enters final vote on 30 September 2026; critical for high-risk AI systems.",
-      "card": {
-        "id": "2026-09-30--pren-18228-ai-risk-mgmt-vote",
-        "d": "2026-09-30",
-        "l": "30 Sep 2026",
-        "y": 2026,
-        "t": "prEN 18228 AI Risk Management — Final Vote",
-        "x": "CEN/CLC/JTC 21 formal vote on AI risk management standard supporting AI Act high-risk compliance. Publication expected Q4 2026.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "high",
-          "draft"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-08-14--2026-07-27--ai-omnibus-in-force",
-      "reason": "AI Omnibus entered into force 27 July 2026, extending high-risk AI transition by three years for systems marketed before 2 August 2024.",
-      "card": {
-        "id": "2026-07-27--ai-omnibus-in-force",
-        "d": "2026-07-27",
-        "l": "27 Jul 2026",
-        "y": 2026,
-        "t": "AI Omnibus In Force",
-        "x": "Three-year transition extension for high-risk AI systems marketed before 2 Aug 2024; simplified admin requirements, no change to core obligations.",
-        "u": "https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force",
-        "tp": [
-          "ai"
-        ],
-        "tg": [
-          "critical",
           "in-force"
         ],
-        "v": "c"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-08-14--2026-08-02--ai-act-transparency-guidelines",
-      "reason": "European Commission published official transparency guidelines for AI Act Articles 13 and 50 ahead of 2 August 2026 application.",
-      "card": {
-        "id": "2026-08-02--ai-act-transparency-guidelines",
-        "d": "2026-08-02",
-        "l": "Aug 2026",
-        "y": 2026,
-        "t": "AI Act Transparency Guidelines Published",
-        "x": "Commission clarifies Article 13 deployer information and Article 50 transparency obligations for high-risk AI and GPAIs.",
-        "u": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
-        "tp": [
-          "ai"
-        ],
-        "tg": [
-          "high",
-          "new"
-        ],
         "v": "h"
       }
     },
     {
-      "action": "update",
-      "id": "proposal-2026-08-14--2026-09-11--cra-vulnerability-reporting-begins",
-      "existing_id": "2026-09-11--cra-vulnerability-reporting-begins",
-      "reason": "Commission published new CRA implementation guidance covering reporting obligations starting 11 September 2026.",
-      "card": {
-        "id": "2026-09-11--cra-vulnerability-reporting-begins",
-        "d": "2026-09-11",
-        "l": "11 Sep 2026",
-        "y": 2026,
-        "t": "CRA — Vulnerability Reporting Begins",
-        "x": "Actively exploited vulnerabilities must be reported to ENISA within 24 hours. New Commission guidance covers all manufacturers and developers.",
-        "u": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-new-guidance-support-businesses-implementation-cyber-resilience-act",
-        "tp": [
-          "cyber"
-        ],
-        "tg": [
-          "critical",
-          "in-force"
-        ],
-        "v": "c"
-      }
-    },
-    {
       "action": "add",
-      "id": "proposal-2026-08-14--2026-08-14--mhra-fda-hc-pccp-ml-principles",
-      "reason": "MHRA, FDA, and Health Canada jointly published five guiding principles for predetermined change control plans for ML-enabled medical devices.",
+      "id": "proposal-2026-08-21--2026-06-19--mhra-fda-hc-pccp-ml-guidance",
+      "reason": "MHRA, FDA, Health Canada publish harmonised PCCP guidance for ML medical devices with five core principles covering data traceability and version control.",
       "card": {
-        "id": "2026-08-14--mhra-fda-hc-pccp-ml-principles",
-        "d": "2026-08-14",
-        "l": "Aug 2026",
+        "id": "2026-06-19--mhra-fda-hc-pccp-ml-guidance",
+        "d": "2026-06-19",
+        "l": "19 Jun 2026",
         "y": 2026,
-        "t": "MHRA/FDA/Health Canada PCCP ML Principles",
-        "x": "Harmonised framework allowing pre-specified algorithm changes within defined limits without full resubmission for each model iteration.",
-        "u": "https://www.gov.uk/government/news/mhra-and-international-partners-publish-five-guiding-principles-for-machine-learning-enabled-medical-devices",
+        "t": "MHRA/FDA/Health Canada — PCCP Guidance for ML Devices",
+        "x": "Joint guidance establishes five PCCP principles: data traceability, rollback capability, post-market surveillance, risk evaluation, and change documentation for AI/ML medical devices.",
+        "u": "https://www.dm-experts.fr/2026/08/logiciels-de-sante-actualites-aux-etats-unis-et-au-royaume-uni/",
         "tp": [
           "uk",
           "us",
@@ -230,6 +190,29 @@
           "new"
         ],
         "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-08-21--2026-09-30--pren-18228-final-vote",
+      "reason": "prEN 18228 (AI Act Art. 9 risk management) enters final vote on 30 Sep 2026; publication expected shortly after for presumption of conformity.",
+      "card": {
+        "id": "2026-09-30--pren-18228-final-vote",
+        "d": "2026-09-30",
+        "l": "30 Sep 2026",
+        "y": 2026,
+        "t": "prEN 18228 — Final Vote (AI Act Risk Management)",
+        "x": "Final vote for AI Act Art. 9 risk management standard. Under Approval since 30 Jul 2026; publication expected shortly after vote.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "critical",
+          "proposed"
+        ],
+        "v": "c"
       }
     }
   ]
