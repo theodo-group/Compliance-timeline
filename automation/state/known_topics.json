@@ -13,7 +13,7 @@
     "last_status": "final",
     "source_url": "https://www.qualitiso.com/iso-ts-24971-2-gestion-des-risques-pour-les-dispositifs-medicaux-a-bas-de-machine-learning/",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-21"
   },
   {
     "key": "mdcg-2026-5-attribution-des-identifiants-udi-entre-fabricants-et-distributeurs",
@@ -88,12 +88,12 @@
     "last_seen": "2026-07-29"
   },
   {
-    "key": "commission-lignes-directrices-sur-les-obligations-de-transparence-ai-act",
-    "title": "Commission européenne publie des lignes directrices sur les obligations de transparence AI Act",
+    "key": "commission-europeenne-publie-des-lignes-directrices-sur-les-obligations-de-trans",
+    "title": "Commission publie des lignes directrices sur les obligations de transparence AI Act",
     "last_status": "new",
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
     "first_seen": "2026-07-29",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-21"
   },
   {
     "key": "plan-d-action-ue-cybersecurite-et-intelligence-artificielle-juillet-2026",
@@ -128,20 +128,20 @@
     "last_seen": "2026-07-29"
   },
   {
-    "key": "ai-omnibus-entre-en-vigueur-calendriers-etendus-pour-systemes-ia-a-haut-risque",
-    "title": "AI Omnibus entre en vigueur le 27 juillet 2026 — calendriers étendus pour systèmes IA à haut risque",
+    "key": "ai-omnibus-entre-en-vigueur-le-27-juillet-2026-calendriers-etendus-pour-systemes",
+    "title": "AI Omnibus entre en vigueur le 27 juillet 2026",
     "last_status": "in-force",
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force",
     "first_seen": "2026-07-29",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-21"
   },
   {
-    "key": "cyber-resilience-act-nouvelles-orientations-commission-pour-mise-en-uvre-entrepr",
+    "key": "commission-publie-de-nouvelles-orientations-pour-la-mise-en-uvre-du-cyber-resili",
     "title": "Commission publie de nouvelles orientations pour la mise en œuvre du Cyber Resilience Act",
     "last_status": "new",
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-new-guidance-support-businesses-implementation-cyber-resilience-act",
     "first_seen": "2026-07-29",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-21"
   },
   {
     "key": "std-18274",
@@ -195,16 +195,16 @@
     "key": "cinq-normes-de-securite-de-l-information-revisees-publiees-en-juillet-aout-2026",
     "title": "Cinq normes de sécurité de l'information révisées publiées en juillet-août 2026",
     "last_status": "final",
-    "source_url": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-21"
   },
   {
     "key": "mhra-fda-et-sante-canada-publient-cinq-principes-directeurs-pour-les-pccp-des-di",
     "title": "MHRA, FDA et Santé Canada publient cinq principes directeurs pour les PCCP des dispositifs ML",
     "last_status": "new",
-    "source_url": "https://www.gov.uk/government/news/mhra-and-international-partners-publish-five-guiding-principles-for-machine-learning-enabled-medical-devices",
+    "source_url": "https://www.dm-experts.fr/2026/08/logiciels-de-sante-actualites-aux-etats-unis-et-au-royaume-uni/",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-21"
   }
 ]
