@@ -5,7 +5,7 @@
     "last_status": "final",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-28"
   },
   {
     "key": "std-24971-2",
@@ -88,12 +88,12 @@
     "last_seen": "2026-07-29"
   },
   {
-    "key": "commission-europeenne-publie-des-lignes-directrices-sur-les-obligations-de-trans",
-    "title": "Commission publie des lignes directrices sur les obligations de transparence AI Act",
+    "key": "commission-publie-des-lignes-directrices-sur-les-obligations-de-transparence-ai-",
+    "title": "Commission publie lignes directrices sur obligations de transparence AI Act",
     "last_status": "new",
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
     "first_seen": "2026-07-29",
-    "last_seen": "2026-08-21"
+    "last_seen": "2026-08-28"
   },
   {
     "key": "plan-d-action-ue-cybersecurite-et-intelligence-artificielle-juillet-2026",
@@ -128,7 +128,7 @@
     "last_seen": "2026-07-29"
   },
   {
-    "key": "ai-omnibus-entre-en-vigueur-le-27-juillet-2026-calendriers-etendus-pour-systemes",
+    "key": "ai-omnibus-entre-en-vigueur-le-27-juillet-2026",
     "title": "AI Omnibus entre en vigueur le 27 juillet 2026",
     "last_status": "in-force",
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force",
@@ -137,19 +137,19 @@
   },
   {
     "key": "commission-publie-de-nouvelles-orientations-pour-la-mise-en-uvre-du-cyber-resili",
-    "title": "Commission publie de nouvelles orientations pour la mise en œuvre du Cyber Resilience Act",
+    "title": "Commission publie orientations pour la mise en œuvre du Cyber Resilience Act",
     "last_status": "new",
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-new-guidance-support-businesses-implementation-cyber-resilience-act",
     "first_seen": "2026-07-29",
-    "last_seen": "2026-08-21"
+    "last_seen": "2026-08-28"
   },
   {
     "key": "std-18274",
     "title": "EN 18274:2026 publiée : compétences des éthiciens IA professionnels",
     "last_status": "final",
-    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-28"
   },
   {
     "key": "cinq-normes-de-securite-de-l-information-revisees-publiees",
@@ -161,27 +161,27 @@
   },
   {
     "key": "std-18228",
-    "title": "prEN 18228 (gestion des risques AI Act) : vote final prévu septembre 2026",
+    "title": "prEN 18228 (gestion des risques AI Act Art. 9) : vote final 30 septembre 2026",
     "last_status": "draft",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-28"
   },
   {
     "key": "std-18229",
-    "title": "Cinq parties de prEN 18229 (cadre de confiance IA) en cours — premières publications attendues fin 2026",
+    "title": "prEN 18229 (cadre confiance IA) : votes échelonnés pour 5 parties, premiers en novembre 2026",
     "last_status": "draft",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-28"
   },
   {
     "key": "std-18282",
-    "title": "prEN 18282 (cybersécurité IA) : statut vote final à vérifier — date JTC 21 passée",
+    "title": "prEN 18282 (cybersécurité IA Art. 15(5)) : vote final prévu 15 juillet 2026 — statut exact à vérifier",
     "last_status": "draft",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-08-14"
+    "last_seen": "2026-08-28"
   },
   {
     "key": "mhra-et-fda-lancent-un-programme-de-liaison-sur-les-dispositifs-medicaux",
@@ -197,7 +197,7 @@
     "last_status": "final",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-21"
+    "last_seen": "2026-08-28"
   },
   {
     "key": "mhra-fda-et-sante-canada-publient-cinq-principes-directeurs-pour-les-pccp-des-di",
@@ -206,5 +206,21 @@
     "source_url": "https://www.dm-experts.fr/2026/08/logiciels-de-sante-actualites-aux-etats-unis-et-au-royaume-uni/",
     "first_seen": "2026-08-14",
     "last_seen": "2026-08-21"
+  },
+  {
+    "key": "commission-lance-l-application-des-regles-ai-act-et-obligations-de-transparence-",
+    "title": "Commission lance l'application des règles AI Act et obligations de transparence le 2 août 2026",
+    "last_status": "in-force",
+    "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august",
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28"
+  },
+  {
+    "key": "cnil-met-a-jour-son-outil-de-tracabilite-des-modeles-ia-open-source",
+    "title": "CNIL met à jour son outil de traçabilité des modèles IA open-source",
+    "last_status": "new",
+    "source_url": "https://www.cnil.fr/fr/ia-la-cnil-met-jour-son-outil-de-tracabilite-des-modeles-publies-en-source-ouverte",
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28"
   }
 ]
