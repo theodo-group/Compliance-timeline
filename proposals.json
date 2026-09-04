@@ -1,40 +1,64 @@
 {
-  "generated": "2026-08-28",
+  "generated": "2026-09-04",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-08-28--2026-07-22--en-18286-2026-published-ai-act-qms",
-      "reason": "EN 18286:2026 published as finalized harmonised QMS standard for AI Act Article 17; presumption of conformity pending OJEU citation.",
+      "id": "proposal-2026-09-04--2026-07-22--en-18286-2026-published",
+      "reason": "EN 18286:2026 (AI Act QMS standard) ratified and published, first harmonised standard for AI Act Article 17.",
       "card": {
-        "id": "2026-07-22--en-18286-2026-published-ai-act-qms",
+        "id": "2026-07-22--en-18286-2026-published",
         "d": "2026-07-22",
         "l": "22 Jul 2026",
         "y": 2026,
-        "t": "EN 18286:2026 Published — AI Act QMS Standard",
-        "x": "First harmonised QMS standard for AI Act obligations finalized and published. Presumption of conformity under Article 17 pending OJEU citation.",
+        "t": "EN 18286:2026 Published — AI Act QMS",
+        "x": "First harmonised QMS standard for AI Act Art. 17 now available. OJEU citation pending for presumption of conformity.",
         "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
         "tp": [
           "ai",
           "standards"
         ],
         "tg": [
-          "high",
-          "new"
+          "critical",
+          "in-force"
         ],
-        "v": "h"
+        "v": "c"
+      }
+    },
+    {
+      "action": "update",
+      "id": "proposal-2026-09-04--2026-10-15--pren-18286-ai-act-qms-standard-revised",
+      "existing_id": "2026-10-15--pren-18286-ai-act-qms-standard-revised",
+      "reason": "prEN 18286 has been published as EN 18286:2026 on 22 July 2026, no longer under revision.",
+      "card": {
+        "id": "2026-10-15--pren-18286-ai-act-qms-standard-revised",
+        "d": "2026-07-22",
+        "l": "22 Jul 2026",
+        "y": 2026,
+        "t": "EN 18286:2026 Published — AI Act QMS",
+        "x": "Published 22 July 2026 as first harmonised QMS standard for AI Act Art. 17. OJEU citation pending for presumption of conformity.",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "critical",
+          "in-force"
+        ],
+        "v": "c",
+        "u": "https://cms-lawnow.com/en/ealerts/2025/12/the-first-draft-ai-act-standard-for-public-consultation-what-pren-18286-quality-management-system-for-eu-ai-act-regulatory-purposes-signals-for"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-08-28--2026-09-30--pren-18228-risk-management-vote",
-      "reason": "prEN 18228 (AI Act Article 9 risk management) enters formal approval vote; EN publication expected Q4 2026.",
+      "id": "proposal-2026-09-04--2026-09-30--pren-18228-final-vote",
+      "reason": "prEN 18228 (AI Act risk management Art. 9) reaches final vote, first harmonised standard for high-risk AI risk management.",
       "card": {
-        "id": "2026-09-30--pren-18228-risk-management-vote",
+        "id": "2026-09-30--pren-18228-final-vote",
         "d": "2026-09-30",
         "l": "30 Sep 2026",
         "y": 2026,
-        "t": "prEN 18228 Risk Management Vote",
-        "x": "Final vote on harmonised risk management standard for AI Act Article 9. EN 18228:2026 publication expected late 2026.",
+        "t": "prEN 18228 — Final Vote (AI Act Risk Management)",
+        "x": "Final vote for AI Act Art. 9 risk management standard. Publication as EN 18228 expected Q1 2027.",
         "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
         "tp": [
           "ai",
@@ -49,15 +73,15 @@
     },
     {
       "action": "add",
-      "id": "proposal-2026-08-28--2026-11-30--pren-18229-1-logging-vote",
-      "reason": "prEN 18229-1 (Logging) vote scheduled; first part of five-part AI trustworthiness framework to be adopted.",
+      "id": "proposal-2026-09-04--2026-11-30--pren-18229-1-final-vote",
+      "reason": "prEN 18229-1 (AI Act logging) reaches final vote, first part of five-part trust framework for AI Act compliance.",
       "card": {
-        "id": "2026-11-30--pren-18229-1-logging-vote",
+        "id": "2026-11-30--pren-18229-1-final-vote",
         "d": "2026-11-30",
         "l": "30 Nov 2026",
         "y": 2026,
-        "t": "prEN 18229-1 Logging Vote",
-        "x": "Formal vote on part 1 (Logging) of five-part AI trustworthiness framework. Parts 2-5 follow in 2027.",
+        "t": "prEN 18229-1 — Final Vote (Logging)",
+        "x": "Final vote for AI Act logging standard (part 1 of 5). Publication expected Q1 2027.",
         "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
         "tp": [
           "ai",
@@ -71,125 +95,144 @@
       }
     },
     {
-      "action": "update",
-      "id": "proposal-2026-08-28--2026-08-02--ai-act-most-provisions-apply",
-      "existing_id": "2026-08-02--ai-act-most-provisions-apply",
-      "reason": "Transparency obligations (Article 50) now in force as of 2 Aug 2026; enforcement active.",
-      "card": {
-        "id": "2026-08-02--ai-act-most-provisions-apply",
-        "d": "2026-08-02",
-        "l": "2 Aug 2026",
-        "y": 2026,
-        "t": "AI Act — Transparency Obligations In Force",
-        "x": "Article 50 transparency requirements and GPAI obligations now enforced. High-risk AI timeline unchanged (Dec 2027/Aug 2028 via Digital Omnibus delay).",
-        "u": "https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august",
-        "tp": [
-          "ai"
-        ],
-        "tg": [
-          "critical",
-          "in-force"
-        ],
-        "v": "c"
-      }
-    },
-    {
       "action": "add",
-      "id": "proposal-2026-08-28--2026-07-20--ec-transparency-guidelines-ai-act",
-      "reason": "Commission published Article 50 transparency guidelines applicable from 2 Aug 2026.",
+      "id": "proposal-2026-09-04--2027-07-01--pren-18229-3-final-vote",
+      "reason": "prEN 18229-3 (AI Act human oversight) reaches final vote after public enquiry closes 22 October 2026.",
       "card": {
-        "id": "2026-07-20--ec-transparency-guidelines-ai-act",
-        "d": "2026-07-20",
-        "l": "20 Jul 2026",
-        "y": 2026,
-        "t": "EC Transparency Guidelines — AI Act Article 50",
-        "x": "Detailed guidance on labeling and disclosure obligations for general-purpose AI systems. Mandatory from 2 Aug 2026.",
-        "u": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
-        "tp": [
-          "ai"
-        ],
-        "tg": [
-          "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "update",
-      "id": "proposal-2026-08-28--2026-09-11--cra-vulnerability-reporting-begins",
-      "existing_id": "2026-09-11--cra-vulnerability-reporting-begins",
-      "reason": "Commission published CRA implementation guidance on 27 Jul 2026; vulnerability disclosure requirements confirmed for 11 Sep 2026.",
-      "card": {
-        "id": "2026-09-11--cra-vulnerability-reporting-begins",
-        "d": "2026-09-11",
-        "l": "11 Sep 2026",
-        "y": 2026,
-        "t": "CRA — Vulnerability Reporting Begins",
-        "x": "Actively exploited vulnerabilities must be reported to ENISA within 24 hours. Commission guidance published 27 Jul 2026.",
-        "u": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-new-guidance-support-businesses-implementation-cyber-resilience-act",
-        "tp": [
-          "cyber"
-        ],
-        "tg": [
-          "high",
-          "in-force"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-08-28--2026-08-05--en-18274-2026-ai-ethicist-competence",
-      "reason": "EN 18274:2026 published defining professional AI ethicist competencies; relevant for governance and oversight compliance.",
-      "card": {
-        "id": "2026-08-05--en-18274-2026-ai-ethicist-competence",
-        "d": "2026-08-05",
-        "l": "5 Aug 2026",
-        "y": 2026,
-        "t": "EN 18274:2026 — AI Ethicist Competence Standard",
-        "x": "Competence criteria for professional AI ethicists. Supports governance and human oversight requirements under AI Act.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "id": "2027-07-01--pren-18229-3-final-vote",
+        "d": "2027-07-01",
+        "l": "1 Jul 2027",
+        "y": 2027,
+        "t": "prEN 18229-3 — Final Vote (Human Oversight)",
+        "x": "Final vote for AI Act human oversight standard (part 3 of 5). Publication expected late 2027.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
         "tp": [
           "ai",
           "standards"
         ],
         "tg": [
+          "high",
+          "draft"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-09-04--2026-08-17--iso-10993-3-2026-published",
+      "reason": "ISO 10993-3:2026 (biocompatibility) published with major structural changes and updated test methods.",
+      "card": {
+        "id": "2026-08-17--iso-10993-3-2026-published",
+        "d": "2026-08-17",
+        "l": "17 Aug 2026",
+        "y": 2026,
+        "t": "ISO 10993-3:2026 Published — Biocompatibility",
+        "x": "Major revision of genotoxicity and carcinogenicity testing standard. EN harmonisation expected Mar 2027.",
+        "u": "https://www.qualitiso.com/iso-10993-3-2026-principaux-changements/",
+        "tp": [
+          "standards",
+          "mdr"
+        ],
+        "tg": [
           "medium",
-          "new"
+          "in-force"
         ],
         "v": "n"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-08-28--2026-08-05--en-iso-27000-series-updated",
-      "reason": "EN ISO/IEC 27000, 27017, 29151 published Aug 2026; major cybersecurity and privacy update for medical device compliance.",
+      "id": "proposal-2026-09-04--2026-09-03--cnil-hopital-prive-loire-sanction",
+      "reason": "CNIL €500,000 fine for insufficient health data security highlights enforcement of GDPR Art. 32.",
       "card": {
-        "id": "2026-08-05--en-iso-27000-series-updated",
-        "d": "2026-08-05",
-        "l": "5 Aug 2026",
+        "id": "2026-09-03--cnil-hopital-prive-loire-sanction",
+        "d": "2026-09-03",
+        "l": "3 Sep 2026",
         "y": 2026,
-        "t": "EN ISO/IEC 27000 Series — 2026 Edition",
-        "x": "Updated information security, cloud security, and PII protection standards. Critical for MDR/IVDR cybersecurity compliance.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "t": "CNIL — €500k Fine for Health Data Security Breach",
+        "x": "Hospital penalised for inadequate technical/organisational measures under GDPR Art. 32. Signals intensified oversight of healthcare sector.",
+        "u": "https://www.cnil.fr/fr/sanction-hopital-prive-loire",
         "tp": [
-          "cyber",
-          "standards",
+          "france",
           "data"
         ],
         "tg": [
-          "medium",
+          "high",
           "new"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-09-04--2026-07-15--en-iso-iec-27000-2026-published",
+      "reason": "EN ISO/IEC 27000:2026 published, establishes general ISMS vocabulary and framework.",
+      "card": {
+        "id": "2026-07-15--en-iso-iec-27000-2026-published",
+        "d": "2026-07-15",
+        "l": "15 Jul 2026",
+        "y": 2026,
+        "t": "EN ISO/IEC 27000:2026 Published — ISMS Framework",
+        "x": "General ISMS vocabulary and framework updated. Foundation for 27001/27701 compliance.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "tp": [
+          "cyber",
+          "standards"
+        ],
+        "tg": [
+          "medium",
+          "in-force"
         ],
         "v": "n"
       }
     },
     {
-      "action": "delete",
-      "id": "proposal-2026-08-28--2026-10-15--pren-18286-ai-act-qms-standard-revised",
-      "existing_id": "2026-10-15--pren-18286-ai-act-qms-standard-revised",
-      "reason": "prEN 18286 was ratified and published as EN 18286:2026 on 22 Jul 2026; draft milestone no longer relevant."
+      "action": "add",
+      "id": "proposal-2026-09-04--2026-08-05--en-iso-iec-27017-29151-2026-published",
+      "reason": "EN ISO/IEC 27017:2026 (cloud security controls) and 29151:2026 (PII protection) published.",
+      "card": {
+        "id": "2026-08-05--en-iso-iec-27017-29151-2026-published",
+        "d": "2026-08-05",
+        "l": "5 Aug 2026",
+        "y": 2026,
+        "t": "EN ISO/IEC 27017 & 29151:2026 Published",
+        "x": "Cloud security controls (27017) and PII protection (29151) standards published. Key for HDS and GDPR compliance.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "tp": [
+          "cyber",
+          "data",
+          "standards"
+        ],
+        "tg": [
+          "medium",
+          "in-force"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-09-04--2026-09-01--en-iso-13606-4-20737-2026-published",
+      "reason": "EN ISO 13606-4 and 20737:2026 published, strengthen EHR interoperability for EHDS compliance.",
+      "card": {
+        "id": "2026-09-01--en-iso-13606-4-20737-2026-published",
+        "d": "2026-09-01",
+        "l": "Sep 2026",
+        "y": 2026,
+        "t": "EN ISO 13606-4 & 20737:2026 Published — EHR Interoperability",
+        "x": "Secure EHR communication (13606-4) and clinical decision support interoperability (20737) standards for EHDS.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "tp": [
+          "standards",
+          "data",
+          "ehds"
+        ],
+        "tg": [
+          "medium",
+          "in-force"
+        ],
+        "v": "n"
+      }
     }
   ]
 }
