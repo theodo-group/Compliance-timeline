@@ -1,19 +1,19 @@
 [
   {
-    "key": "en-18286-2026-norme-qms-ia-pour-ai-act-ratification-confirmee-citation-harmonise",
-    "title": "EN 18286:2026 (norme QMS IA pour AI Act) : ratification confirmée, citation harmonisée JOUE en attente",
-    "last_status": "new",
-    "source_url": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
+    "key": "std-18286",
+    "title": "EN 18286:2026 ratifiée : norme QMS pour l'AI Act disponible",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-07-31"
+    "last_seen": "2026-08-28"
   },
   {
-    "key": "iso-ts-24971-2-2026-publiee-guide-d-application-iso-14971-pour-le-machine-learni",
-    "title": "ISO/TS 24971-2:2026 publiée : guide d'application ISO 14971 pour le machine learning médical",
-    "last_status": "new",
+    "key": "std-24971-2",
+    "title": "ISO/TS 24971-2:2026 publiée : guide ML pour la gestion des risques dispositifs médicaux",
+    "last_status": "final",
     "source_url": "https://www.qualitiso.com/iso-ts-24971-2-gestion-des-risques-pour-les-dispositifs-medicaux-a-bas-de-machine-learning/",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-07-29"
+    "last_seen": "2026-08-21"
   },
   {
     "key": "mdcg-2026-5-attribution-des-identifiants-udi-entre-fabricants-et-distributeurs",
@@ -88,20 +88,12 @@
     "last_seen": "2026-07-29"
   },
   {
-    "key": "publication-de-la-norme-en-18286-2026-qms-ia-pour-ai-act-citation-harmonisee-jou",
-    "title": "Publication de la norme EN 18286:2026 (QMS IA pour AI Act) — citation harmonisée JOUE en attente",
-    "last_status": "new",
-    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
-    "first_seen": "2026-07-29",
-    "last_seen": "2026-07-31"
-  },
-  {
-    "key": "lignes-directrices-commission-sur-obligations-de-transparence-ia-fournisseurs-de",
-    "title": "Lignes directrices Commission sur obligations de transparence IA (fournisseurs/déployeurs)",
+    "key": "commission-publie-lignes-directrices-sur-obligations-de-transparence-ai-act",
+    "title": "Commission publie lignes directrices sur obligations de transparence AI Act",
     "last_status": "new",
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-29"
+    "last_seen": "2026-08-28"
   },
   {
     "key": "plan-d-action-ue-cybersecurite-et-intelligence-artificielle-juillet-2026",
@@ -136,27 +128,131 @@
     "last_seen": "2026-07-29"
   },
   {
-    "key": "ai-omnibus-entre-en-vigueur-calendriers-etendus-pour-systemes-ia-a-haut-risque",
-    "title": "AI Omnibus entre en vigueur : calendriers étendus pour systèmes IA à haut risque",
+    "key": "ai-omnibus-entre-en-vigueur-le-27-juillet-2026",
+    "title": "AI Omnibus entre en vigueur le 27 juillet 2026",
     "last_status": "in-force",
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force",
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-29"
+    "last_seen": "2026-08-21"
   },
   {
-    "key": "cyber-resilience-act-nouvelles-orientations-commission-pour-mise-en-uvre-entrepr",
-    "title": "Cyber Resilience Act : nouvelles orientations Commission pour mise en œuvre entreprises",
+    "key": "commission-publie-orientations-pour-la-mise-en-uvre-du-cyber-resilience-act",
+    "title": "Commission publie orientations pour la mise en œuvre du Cyber Resilience Act",
     "last_status": "new",
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-new-guidance-support-businesses-implementation-cyber-resilience-act",
     "first_seen": "2026-07-29",
-    "last_seen": "2026-07-29"
+    "last_seen": "2026-08-28"
   },
   {
-    "key": "en-18286-2026-ratifiee-norme-qms-ia-pour-l-ai-act",
-    "title": "EN 18286:2026 ratifiée : norme QMS IA pour l'AI Act",
+    "key": "std-18274",
+    "title": "EN 18274:2026 publiée : compétences des éthiciens IA professionnels",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-08-07",
+    "last_seen": "2026-08-28"
+  },
+  {
+    "key": "cinq-normes-de-securite-de-l-information-revisees-publiees",
+    "title": "Cinq normes de sécurité de l'information révisées publiées",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
+    "first_seen": "2026-08-07",
+    "last_seen": "2026-08-07"
+  },
+  {
+    "key": "std-18228",
+    "title": "prEN 18228 (gestion des risques IA Art. 9) : vote final imminent",
     "last_status": "draft",
-    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
-    "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31"
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+    "first_seen": "2026-08-07",
+    "last_seen": "2026-09-04"
+  },
+  {
+    "key": "std-18229",
+    "title": "prEN 18229 (cadre confiance IA) : votes échelonnés sur cinq parties",
+    "last_status": "draft",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+    "first_seen": "2026-08-07",
+    "last_seen": "2026-09-04"
+  },
+  {
+    "key": "std-18282",
+    "title": "prEN 18282 (cybersécurité IA Art. 15(5)) : vote final reporté au 15 juillet 2026",
+    "last_status": "draft",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+    "first_seen": "2026-08-07",
+    "last_seen": "2026-09-04"
+  },
+  {
+    "key": "mhra-et-fda-lancent-un-programme-de-liaison-sur-les-dispositifs-medicaux",
+    "title": "MHRA et FDA lancent un programme de liaison sur les dispositifs médicaux",
+    "last_status": "new",
+    "source_url": "https://www.gov.uk/government/news/unique-liaison-programme-set-to-reinforce-close-collaboration-between-mhra-and-fda",
+    "first_seen": "2026-08-07",
+    "last_seen": "2026-08-07"
+  },
+  {
+    "key": "cinq-normes-de-securite-de-l-information-revisees-publiees-en-juillet-aout-2026",
+    "title": "Cinq normes de sécurité de l'information révisées publiées en juillet-août 2026",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-08-14",
+    "last_seen": "2026-08-28"
+  },
+  {
+    "key": "mhra-fda-et-sante-canada-publient-cinq-principes-directeurs-pour-les-pccp-des-di",
+    "title": "MHRA, FDA et Santé Canada publient cinq principes directeurs pour les PCCP des dispositifs ML",
+    "last_status": "new",
+    "source_url": "https://www.dm-experts.fr/2026/08/logiciels-de-sante-actualites-aux-etats-unis-et-au-royaume-uni/",
+    "first_seen": "2026-08-14",
+    "last_seen": "2026-08-21"
+  },
+  {
+    "key": "commission-lance-l-application-des-regles-ai-act-et-obligations-de-transparence-",
+    "title": "Commission lance l'application des règles AI Act et obligations de transparence le 2 août 2026",
+    "last_status": "in-force",
+    "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august",
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28"
+  },
+  {
+    "key": "cnil-met-a-jour-son-outil-de-tracabilite-des-modeles-ia-open-source",
+    "title": "CNIL met à jour son outil de traçabilité des modèles IA open-source",
+    "last_status": "new",
+    "source_url": "https://www.cnil.fr/fr/ia-la-cnil-met-jour-son-outil-de-tracabilite-des-modeles-publies-en-source-ouverte",
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28"
+  },
+  {
+    "key": "std-10993-3",
+    "title": "ISO 10993-3:2026 : évolutions majeures de la norme de biocompatibilité",
+    "last_status": "final",
+    "source_url": "https://www.qualitiso.com/iso-10993-3-2026-principaux-changements/",
+    "first_seen": "2026-09-04",
+    "last_seen": "2026-09-04"
+  },
+  {
+    "key": "std-13606-4",
+    "title": "EN ISO 13606-4:2026 et EN ISO 20737:2026 publiées (dossiers de santé électroniques)",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-09-04",
+    "last_seen": "2026-09-04"
+  },
+  {
+    "key": "std-27000",
+    "title": "EN ISO/IEC 27000:2026, 27017:2026, 29151:2026 publiées (sécurité de l'information)",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-09-04",
+    "last_seen": "2026-09-04"
+  },
+  {
+    "key": "cnil-sanction-de-500-000-pour-violation-de-donnees-de-sante",
+    "title": "CNIL : sanction de 500 000 € pour violation de données de santé",
+    "last_status": "new",
+    "source_url": "https://www.cnil.fr/fr/sanction-hopital-prive-loire",
+    "first_seen": "2026-09-04",
+    "last_seen": "2026-09-04"
   }
 ]
