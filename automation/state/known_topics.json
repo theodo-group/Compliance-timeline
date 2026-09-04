@@ -88,7 +88,7 @@
     "last_seen": "2026-07-29"
   },
   {
-    "key": "commission-publie-des-lignes-directrices-sur-les-obligations-de-transparence-ai-",
+    "key": "commission-publie-lignes-directrices-sur-obligations-de-transparence-ai-act",
     "title": "Commission publie lignes directrices sur obligations de transparence AI Act",
     "last_status": "new",
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
@@ -136,7 +136,7 @@
     "last_seen": "2026-08-21"
   },
   {
-    "key": "commission-publie-de-nouvelles-orientations-pour-la-mise-en-uvre-du-cyber-resili",
+    "key": "commission-publie-orientations-pour-la-mise-en-uvre-du-cyber-resilience-act",
     "title": "Commission publie orientations pour la mise en œuvre du Cyber Resilience Act",
     "last_status": "new",
     "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-new-guidance-support-businesses-implementation-cyber-resilience-act",
@@ -161,27 +161,27 @@
   },
   {
     "key": "std-18228",
-    "title": "prEN 18228 (gestion des risques AI Act Art. 9) : vote final 30 septembre 2026",
+    "title": "prEN 18228 (gestion des risques IA Art. 9) : vote final imminent",
     "last_status": "draft",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-08-28"
+    "last_seen": "2026-09-04"
   },
   {
     "key": "std-18229",
-    "title": "prEN 18229 (cadre confiance IA) : votes échelonnés pour 5 parties, premiers en novembre 2026",
+    "title": "prEN 18229 (cadre confiance IA) : votes échelonnés sur cinq parties",
     "last_status": "draft",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-08-28"
+    "last_seen": "2026-09-04"
   },
   {
     "key": "std-18282",
-    "title": "prEN 18282 (cybersécurité IA Art. 15(5)) : vote final prévu 15 juillet 2026 — statut exact à vérifier",
+    "title": "prEN 18282 (cybersécurité IA Art. 15(5)) : vote final reporté au 15 juillet 2026",
     "last_status": "draft",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-08-28"
+    "last_seen": "2026-09-04"
   },
   {
     "key": "mhra-et-fda-lancent-un-programme-de-liaison-sur-les-dispositifs-medicaux",
@@ -222,5 +222,37 @@
     "source_url": "https://www.cnil.fr/fr/ia-la-cnil-met-jour-son-outil-de-tracabilite-des-modeles-publies-en-source-ouverte",
     "first_seen": "2026-08-28",
     "last_seen": "2026-08-28"
+  },
+  {
+    "key": "std-10993-3",
+    "title": "ISO 10993-3:2026 : évolutions majeures de la norme de biocompatibilité",
+    "last_status": "final",
+    "source_url": "https://www.qualitiso.com/iso-10993-3-2026-principaux-changements/",
+    "first_seen": "2026-09-04",
+    "last_seen": "2026-09-04"
+  },
+  {
+    "key": "std-13606-4",
+    "title": "EN ISO 13606-4:2026 et EN ISO 20737:2026 publiées (dossiers de santé électroniques)",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-09-04",
+    "last_seen": "2026-09-04"
+  },
+  {
+    "key": "std-27000",
+    "title": "EN ISO/IEC 27000:2026, 27017:2026, 29151:2026 publiées (sécurité de l'information)",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-09-04",
+    "last_seen": "2026-09-04"
+  },
+  {
+    "key": "cnil-sanction-de-500-000-pour-violation-de-donnees-de-sante",
+    "title": "CNIL : sanction de 500 000 € pour violation de données de santé",
+    "last_status": "new",
+    "source_url": "https://www.cnil.fr/fr/sanction-hopital-prive-loire",
+    "first_seen": "2026-09-04",
+    "last_seen": "2026-09-04"
   }
 ]
