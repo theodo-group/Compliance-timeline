@@ -149,7 +149,7 @@
     "last_status": "final",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-08-28"
+    "last_seen": "2026-09-18"
   },
   {
     "key": "cinq-normes-de-securite-de-l-information-revisees-publiees",
@@ -161,11 +161,11 @@
   },
   {
     "key": "std-18228",
-    "title": "prEN 18228 (gestion des risques IA Art. 9) : vote final prévu le 30 septembre 2026",
+    "title": "prEN 18228 (gestion des risques IA) : vote final prévu le 30 septembre 2026",
     "last_status": "draft",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-09-11"
+    "last_seen": "2026-09-18"
   },
   {
     "key": "std-18229",
@@ -177,11 +177,11 @@
   },
   {
     "key": "std-18282",
-    "title": "prEN 18282 (cybersécurité IA Art. 15(5)) : vote final reporté au 15 juillet 2026",
+    "title": "prEN 18282 (cybersécurité IA Art. 15(5)) : vote final reporté au 15 juillet 2026, statut actuel unclear",
     "last_status": "draft",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-09-04"
+    "last_seen": "2026-09-18"
   },
   {
     "key": "mhra-et-fda-lancent-un-programme-de-liaison-sur-les-dispositifs-medicaux",
@@ -225,11 +225,11 @@
   },
   {
     "key": "std-10993-3",
-    "title": "EN 10993-3:2026 publiée : évolutions majeures de la norme de biocompatibilité",
+    "title": "EN ISO 10993-3:2026 publiée : évolutions majeures de la norme de biocompatibilité",
     "last_status": "final",
     "source_url": "https://www.qualitiso.com/iso-10993-3-2026-principaux-changements/",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-11"
+    "last_seen": "2026-09-18"
   },
   {
     "key": "std-13606-4",
@@ -257,11 +257,11 @@
   },
   {
     "key": "mdcg-2020-16-rev-5-nouvelle-grille-de-classification-pour-les-div-sous-ivdr",
-    "title": "MDCG 2020-16 rev.5 : nouvelle grille de classification pour les DIV sous IVDR",
+    "title": "MDCG 2020-16 rev.5 : nouvelle grille d'interprétation pour la classification IVD",
     "last_status": "new",
     "source_url": "https://health.ec.europa.eu/latest-updates/mdcg-2020-16-rev5-guidance-classification-rules-vitro-diagnostic-medical-devices-under-regulation-eu-2026-09-09_en",
     "first_seen": "2026-09-11",
-    "last_seen": "2026-09-11"
+    "last_seen": "2026-09-18"
   },
   {
     "key": "std-18229-1",
@@ -269,7 +269,7 @@
     "last_status": "draft",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-09-11",
-    "last_seen": "2026-09-11"
+    "last_seen": "2026-09-18"
   },
   {
     "key": "std-18229-3",
@@ -302,5 +302,45 @@
     "source_url": "https://www.dm-experts.fr/2026/09/fda-et-ue-du-nouveau-pour-les-dispositifs-combines-et-les-diagnostics-compagnons/",
     "first_seen": "2026-09-11",
     "last_seen": "2026-09-11"
+  },
+  {
+    "key": "cyber-resilience-act-art-14-obligations-de-notification-entrees-en-vigueur-le-11",
+    "title": "Cyber Resilience Act Art. 14 : obligations de notification entrées en vigueur le 11 septembre 2026",
+    "last_status": "in-force",
+    "source_url": "https://www.theregister.com/security/2026/09/11/eus-cyber-resilience-act-starts-the-24-hour-vulnerability-clock/",
+    "first_seen": "2026-09-18",
+    "last_seen": "2026-09-18"
+  },
+  {
+    "key": "trois-normes-dossiers-de-sante-electroniques-publiees-en-septembre-2026",
+    "title": "Trois normes dossiers de santé électroniques publiées en septembre 2026",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-09-18",
+    "last_seen": "2026-09-18"
+  },
+  {
+    "key": "cinq-normes-de-securite-de-l-information-revisees-publiees-en-aout-septembre-202",
+    "title": "Cinq normes de sécurité de l'information révisées publiées en août-septembre 2026",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-09-18",
+    "last_seen": "2026-09-18"
+  },
+  {
+    "key": "cnil-sanction-de-300-000-contre-extia-pour-non-respect-des-droits-des-personnes",
+    "title": "CNIL : sanction de 300 000 € contre EXTIA pour non-respect des droits des personnes",
+    "last_status": "new",
+    "source_url": "https://www.cnil.fr/fr/sanction-non-respect-droits-personnes-extia",
+    "first_seen": "2026-09-18",
+    "last_seen": "2026-09-18"
+  },
+  {
+    "key": "commission-britannique-sur-l-ia-en-sante-recommandations-publiees-le-10-septembr",
+    "title": "Commission britannique sur l'IA en santé : recommandations publiées le 10 septembre 2026",
+    "last_status": "new",
+    "source_url": "https://www.gov.uk/government/news/independent-commission-led-by-nhs-doctors-sets-out-blueprint-to-accelerate-safe-ai-adoption-in-healthcare",
+    "first_seen": "2026-09-18",
+    "last_seen": "2026-09-18"
   }
 ]
