@@ -1,210 +1,171 @@
 {
-  "generated": "2026-09-11",
+  "generated": "2026-09-18",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-09-11--2026-09-09--mdcg-2020-16-rev5-ivdr-classification",
-      "reason": "New MDCG 2020-16 rev.5 published, updating IVD classification rules under IVDR. Critical for all IVD portfolios.",
+      "id": "proposal-2026-09-18--2026-09-09--mdcg-2020-16-rev5-ivd-qc-classification",
+      "reason": "New MDCG guidance revises IVD classification grid for quality control materials under IVDR Annex VIII Rule 7, effective immediately.",
       "card": {
-        "id": "2026-09-09--mdcg-2020-16-rev5-ivdr-classification",
+        "id": "2026-09-09--mdcg-2020-16-rev5-ivd-qc-classification",
         "d": "2026-09-09",
         "l": "9 septembre 2026",
         "y": 2026,
-        "t": "MDCG 2020-16 rév.5 — Grille de classification des DIV",
-        "x": "Orientations actualisées en matière de classification des dispositifs médicaux de diagnostic in vitro selon le IVDR (UE 2017/746). Remplace la version antérieure ; nécessite un audit de portefeuille immédiat.",
+        "t": "MDCG 2020-16 rév.5 — Grille de classification des MQ pour les DIV",
+        "x": "Grille d'interprétation révisée pour la classification des matériaux de contrôle de qualité en vertu de la règle 7 de l'annexe VIII du RIVD. Aucune période de transition ; s'applique immédiatement aux nouvelles demandes.",
         "u": "https://health.ec.europa.eu/latest-updates/mdcg-2020-16-rev5-guidance-classification-rules-vitro-diagnostic-medical-devices-under-regulation-eu-2026-09-09_en",
-        "tp": [
-          "mdr",
-          "standards"
-        ],
-        "tg": [
-          "critical",
-          "new"
-        ],
-        "v": "c"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-11--2026-09-30--pren-18228-ai-risk-management-vote",
-      "reason": "Final vote on prEN 18228 (AI risk management Art. 9) scheduled for 30 September 2026. Once harmonised, enables presumption of conformity.",
-      "card": {
-        "id": "2026-09-30--pren-18228-ai-risk-management-vote",
-        "d": "2026-09-30",
-        "l": "30 sep 2026",
-        "y": 2026,
-        "t": "prEN 18228 — Vote final sur la gestion des risques liés à l'IA",
-        "x": "Vote sur la norme harmonisée relative à la gestion des risques liés à l'IA (article 9 de la loi sur l'IA). Une fois publiée et citée, elle confère une présomption de conformité.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "critical",
-          "draft"
-        ],
-        "v": "c"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-11--2026-11-30--pren-18229-1-logging-final-vote",
-      "reason": "Final vote on prEN 18229-1 (AI trustworthiness logging) scheduled for 30 November 2026. First part of five-part AI trustworthiness framework.",
-      "card": {
-        "id": "2026-11-30--pren-18229-1-logging-final-vote",
-        "d": "2026-11-30",
-        "l": "30 nov 2026",
-        "y": 2026,
-        "t": "prEN 18229-1 — Vote final IA Logging",
-        "x": "Vote sur la première partie (logging) du cadre de fiabilité de l'IA, norme harmonisée pour la transparence et la traçabilité en vertu de l'article 12 de la loi sur l'IA.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "high",
-          "draft"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-11--2026-10-22--pren-18229-3-human-oversight-enquiry-close",
-      "reason": "Public enquiry for prEN 18229-3 (AI human oversight) closes 22 October 2026, final vote scheduled 1 July 2027.",
-      "card": {
-        "id": "2026-10-22--pren-18229-3-human-oversight-enquiry-close",
-        "d": "2026-10-22",
-        "l": "22 oct 2026",
-        "y": 2026,
-        "t": "prEN 18229-3 — Clôture de l'enquête publique sur la surveillance humaine",
-        "x": "Délai de fin de la consultation publique pour les exigences de surveillance humaine de l'IA (article 14 de la Loi sur l'IA). Les commentaires doivent être soumis par les organismes de normalisation nationaux.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "medium",
-          "draft"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-11--2026-09-03--cnil-500k-sanction-health-data-breach",
-      "reason": "CNIL imposed €500k fine for health data security failures under RGPD Article 32. Signals enforcement tightening.",
-      "card": {
-        "id": "2026-09-03--cnil-500k-sanction-health-data-breach",
-        "d": "2026-09-03",
-        "l": "3 septembre 2026",
-        "y": 2026,
-        "t": "CNIL — Sanction de 500 k€ pour violation de données de santé",
-        "x": "Hôpital Privé de la Loire sanctionné pour des mesures de sécurité technique et organisationnelle inadéquates au titre de l'article 32 du RGPD. Un audit de sécurité immédiat est requis.",
-        "u": "https://www.cnil.fr/fr/sanction-hopital-prive-loire",
-        "tp": [
-          "france",
-          "data"
-        ],
-        "tg": [
-          "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-11--2026-09-10--imdrf-pccp-final-guidance",
-      "reason": "IMDRF published final PCCP guidance for ML-enabled devices, harmonising FDA/HC/MHRA approach to predetermined change control.",
-      "card": {
-        "id": "2026-09-10--imdrf-pccp-final-guidance",
-        "d": "2026-09-10",
-        "l": "10 sept. 2026",
-        "y": 2026,
-        "t": "IMDRF — Guidance Final du PCCP Publié",
-        "x": "Cadre international pour les Plans de Contrôle des Modifications Prédéterminées permettant les mises à jour d'algorithmes sans réapprobation complète. La documentation PCCP est désormais attendue dans les dossiers de demande.",
-        "u": "https://www.dm-experts.fr/2026/09/imdrf-guide-final-sur-les-plans-de-controle-des-changements-predetermines/",
-        "tp": [
-          "ai",
-          "other"
-        ],
-        "tg": [
-          "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-11--2026-09-02--en-13606-4-20737-published",
-      "reason": "Two harmonised standards for EHR security and clinical decision support interoperability published by CEN.",
-      "card": {
-        "id": "2026-09-02--en-13606-4-20737-published",
-        "d": "2026-09-02",
-        "l": "2 septembre 2026",
-        "y": 2026,
-        "t": "EN 13606-4 & EN 20737:2026 Publiées",
-        "x": "Publication des normes de sécurité de la communication en DSE (EN ISO 13606-4:2026) et d'interopérabilité de l'aide à la décision clinique personnalisée (EN ISO 20737:2026).",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
-        "tp": [
-          "data",
-          "standards"
-        ],
-        "tg": [
-          "medium",
-          "new"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-11--2026-09-09--mdcg-2026-5-udi-attribution",
-      "reason": "MDCG 2026-5 clarifies manufacturer/distributor UDI assignment responsibilities. Critical before 28 November EUDAMED deadline.",
-      "card": {
-        "id": "2026-09-09--mdcg-2026-5-udi-attribution",
-        "d": "2026-09-09",
-        "l": "9 sep 2026",
-        "y": 2026,
-        "t": "MDCG 2026-5 — Guidance sur l'attribution d'UDI pour les DIM",
-        "x": "Clarifies manufacturer/distributor UDI assignment in supply-chain scenarios. Workflow audit required before EUDAMED registration deadline (28 Nov 2026).",
-        "u": "https://www.qualitiso.com/mdcg-2026-5-attribution-des-identifiants-iud-entre-fabricants-et-distributeurs/",
         "tp": [
           "mdr"
         ],
         "tg": [
-          "medium",
-          "new"
+          "new",
+          "high"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "update",
+      "id": "proposal-2026-09-18--2026-09-11--cra-vulnerability-reporting-begins",
+      "existing_id": "2026-09-11--cra-vulnerability-reporting-begins",
+      "reason": "[REVIEW: description entierement reecrite — verifier que ce n'est pas un nouveau jalon qui devrait etre un add] Status moved to in-force; expanded description to include 72h formal notification requirement and platform operational status.",
+      "card": {
+        "id": "2026-09-11--cra-vulnerability-reporting-begins",
+        "d": "2026-09-11",
+        "l": "11 sep 2026",
+        "y": 2026,
+        "t": "CRA Art. 14 — Notification des Vulnérabilités en Vigueur",
+        "x": "Alerte préalable de 24h + notification formelle de 72h à la plateforme de signalement unique de l'UE désormais obligatoires pour les vulnérabilités activement exploitées. S'applique aux produits comportant des éléments numériques déjà sur le marché ; les applications complémentaires et composants cloud peuvent être concernés.",
+        "u": "https://www.theregister.com/security/2026/09/11/eus-cyber-resilience-act-starts-the-24-hour-vulnerability-clock/",
+        "tp": [
+          "cyber"
+        ],
+        "tg": [
+          "critical",
+          "in-force"
+        ],
+        "v": "c"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-09-18--2026-07-12--en-18286-2026-ai-qms-published",
+      "reason": "EN 18286:2026 (AI QMS for AI Act Art. 17) ratified and published, awaiting OJEU citation for presumption of conformity.",
+      "card": {
+        "id": "2026-07-12--en-18286-2026-ai-qms-published",
+        "d": "2026-07-12",
+        "l": "12 juillet 2026",
+        "y": 2026,
+        "t": "EN 18286:2026 Publié — Système de management de la qualité pour la Loi IA",
+        "x": "Norme harmonisée pour le système de management de la qualité visé à l'article 17 de la Loi IA ratifiée le 22 juillet 2026, disponible depuis le 12 juillet. En attente de la citation au JOUE pour conférer la présomption de conformité.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "new",
+          "high"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-09-18--2026-09-30--pren-18228-ai-risk-mgmt-vote",
+      "reason": "Final vote on prEN 18228 (AI risk management for AI Act Art. 9) scheduled; will determine progression to harmonised standard.",
+      "card": {
+        "id": "2026-09-30--pren-18228-ai-risk-mgmt-vote",
+        "d": "2026-09-30",
+        "l": "30 septembre 2026",
+        "y": 2026,
+        "t": "prEN 18228 — Vote final sur la gestion des risques IA",
+        "x": "Vote final sur la norme de gestion des risques de l'article 9 de la loi sur l'IA. Si approuvée, elle progressera vers EN 18228:2026 et vers une citation éventuelle au JOUE en tant que norme harmonisée.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "draft",
+          "high"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-09-18--2026-11-30--pren-18229-1-logging-vote",
+      "reason": "Final vote on prEN 18229-1 (AI trustworthiness logging) scheduled; part 3 human oversight in public inquiry until 22 Oct 2026.",
+      "card": {
+        "id": "2026-11-30--pren-18229-1-logging-vote",
+        "d": "2026-11-30",
+        "l": "30 nov 2026",
+        "y": 2026,
+        "t": "prEN 18229-1 — Vote final sur la journalisation de l'IA",
+        "x": "Vote final sur la fiabilité de l'IA Partie 1 (journalisation). La Partie 3 (surveillance humaine) est en enquête publique jusqu'au 22 oct 2026 ; les Parties 2, 4-5 sont en cours de rédaction.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "draft",
+          "high"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-09-18--2026-07-21--cnil-extia-sanction-300k",
+      "reason": "CNIL issued €300,000 fine for violation of data subject rights; reinforces heightened enforcement of GDPR Articles 15-21 in health sector.",
+      "card": {
+        "id": "2026-07-21--cnil-extia-sanction-300k",
+        "d": "2026-07-21",
+        "l": "21 juillet 2026",
+        "y": 2026,
+        "t": "CNIL — Amende de 300 k€ pour violations de droits (EXTIA)",
+        "x": "Amende administrative pour violations des droits des personnes concernées en vertu du RGPD. Suit l'amende de 500 k€ infligée à Hôpital Privé de la Loire (3 septembre 2026) pour violation de sécurité.",
+        "u": "https://www.cnil.fr/fr/sanction-non-respect-droits-personnes-extia",
+        "tp": [
+          "data",
+          "france"
+        ],
+        "tg": [
+          "new",
+          "medium"
         ],
         "v": "n"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-09-11--2026-09-09--en-10993-3-2026-biocompatibility",
-      "reason": "Major revision of biocompatibility standard EN ISO 10993-3:2026 published. Impact assessment and OJEU citation verification required.",
+      "id": "proposal-2026-09-18--2026-09-10--uk-ai-healthcare-commission-report",
+      "reason": "NHS-led commission published AI healthcare regulatory blueprint; signals UK divergence from EU AI Act approach.",
       "card": {
-        "id": "2026-09-09--en-10993-3-2026-biocompatibility",
-        "d": "2026-09-09",
-        "l": "9 septembre 2026",
+        "id": "2026-09-10--uk-ai-healthcare-commission-report",
+        "d": "2026-09-10",
+        "l": "10 septembre 2026",
         "y": 2026,
-        "t": "EN ISO 10993-3:2026 Publié",
-        "x": "Norme d'évaluation de la biocompatibilité révisée (génotoxicité, cancérogénicité, toxicité reproductive). Vérifier le statut d'harmonisation au JOUE et adapter les protocoles en conséquence.",
-        "u": "https://www.qualitiso.com/iso-10993-3-2026-principaux-changements/",
+        "t": "Commission IA Santé Royaume-Uni — Recommandations",
+        "x": "Commission indépendante dirigée par le NHS a publié un blueprint réglementaire sur l'IA. Non contraignant mais façonne le cadre futur du Royaume-Uni ; diverge de la Loi IA de l'UE.",
+        "u": "https://www.gov.uk/government/news/independent-commission-led-by-nhs-doctors-sets-out-blueprint-to-accelerate-safe-ai-adoption-in-healthcare",
         "tp": [
-          "standards"
+          "uk",
+          "ai"
         ],
         "tg": [
-          "high",
-          "new"
+          "new",
+          "medium"
         ],
-        "v": "h"
+        "v": "n"
       }
+    },
+    {
+      "action": "delete",
+      "id": "proposal-2026-09-18--2026-10-15--pren-18286-ai-act-qms-standard-revised",
+      "existing_id": "2026-10-15--pren-18286-ai-act-qms-standard-revised",
+      "reason": "prEN 18286 is now published as EN 18286:2026 (12 Jul 2026); draft milestone superseded by publication milestone added above."
     }
   ]
 }
