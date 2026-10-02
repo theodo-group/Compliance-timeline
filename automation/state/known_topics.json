@@ -1,11 +1,11 @@
 [
   {
     "key": "std-18286",
-    "title": "EN 18286:2026 ratifiée : norme QMS pour l'AI Act disponible",
+    "title": "Publication de la norme EN 18286:2026 (QMS pour l'AI Act)",
     "last_status": "final",
-    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+    "source_url": "https://www.intertek.com/blog/2026/10-01-en-18286-first-eu-ai-act-standards-puzzle-piece-is-on-the-table/",
     "first_seen": "2026-07-27",
-    "last_seen": "2026-08-28"
+    "last_seen": "2026-10-02"
   },
   {
     "key": "std-24971-2",
@@ -161,11 +161,11 @@
   },
   {
     "key": "std-18228",
-    "title": "prEN 18228 (gestion des risques IA Art. 9 AI Act) : vote final prévu le 30 septembre 2026",
+    "title": "prEN 18228 (gestion des risques IA) : vote final prévu le 30 septembre 2026",
     "last_status": "draft",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-09-25"
+    "last_seen": "2026-10-02"
   },
   {
     "key": "std-18229",
@@ -277,7 +277,7 @@
     "last_status": "draft",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-09-11",
-    "last_seen": "2026-09-25"
+    "last_seen": "2026-10-02"
   },
   {
     "key": "enisa-cahier-des-charges-cybersecurite-pour-le-secteur-de-la-sante-et-plateforme",
@@ -342,5 +342,61 @@
     "source_url": "https://www.gov.uk/government/news/independent-commission-led-by-nhs-doctors-sets-out-blueprint-to-accelerate-safe-ai-adoption-in-healthcare",
     "first_seen": "2026-09-18",
     "last_seen": "2026-09-18"
+  },
+  {
+    "key": "nobocap-lance-une-consultation-sur-la-proposition-de-modification-mdr-ivdr",
+    "title": "NoBoCap lance une consultation sur la proposition de modification MDR/IVDR",
+    "last_status": "ongoing",
+    "source_url": "https://www.dm-experts.fr/2026/10/nobocap-sondage-concernant-les-propositions-de-modification-du-rdm-et-du-rdmdiv-2-octobre/",
+    "first_seen": "2026-10-02",
+    "last_seen": "2026-10-02"
+  },
+  {
+    "key": "enisa-lance-la-plateforme-unique-de-signalement-des-vulnerabilites-cra",
+    "title": "ENISA lance la plateforme unique de signalement des vulnérabilités CRA",
+    "last_status": "in-force",
+    "source_url": "https://commission.europa.eu/news-and-media/news/safer-and-more-secure-digital-products-2026-09-11_en",
+    "first_seen": "2026-10-02",
+    "last_seen": "2026-10-02"
+  },
+  {
+    "key": "cnil-et-cybermalveillance-gouv-fr-nouvelle-ressource-sur-les-violations-de-donne",
+    "title": "CNIL et Cybermalveillance.gouv.fr : nouvelle ressource sur les violations de données",
+    "last_status": "new",
+    "source_url": "https://www.cnil.fr/fr/cybermois-2026",
+    "first_seen": "2026-10-02",
+    "last_seen": "2026-10-02"
+  },
+  {
+    "key": "quatre-normes-de-securite-de-l-information-revisees-publiees-en-septembre-2026",
+    "title": "Quatre normes de sécurité de l'information révisées publiées en septembre 2026",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-10-02",
+    "last_seen": "2026-10-02"
+  },
+  {
+    "key": "trois-normes-informatique-de-sante-publiees-debut-septembre-2026",
+    "title": "Trois normes informatique de santé publiées début septembre 2026",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-10-02",
+    "last_seen": "2026-10-02"
+  },
+  {
+    "key": "delai-d-enregistrement-eudamed-pour-dispositifs-existants-28-novembre-2026",
+    "title": "Délai d'enregistrement EUDAMED pour dispositifs existants : 28 novembre 2026",
+    "last_status": "ongoing",
+    "source_url": "https://health.ec.europa.eu/medical-devices-eudamed/getting-ready_en",
+    "first_seen": "2026-10-02",
+    "last_seen": "2026-10-02"
+  },
+  {
+    "key": "fda-document-de-reflexion-sur-l-ia-generative-commentaires-jusqu-au-19-octobre",
+    "title": "FDA : document de réflexion sur l'IA générative — commentaires jusqu'au 19 octobre",
+    "last_status": "ongoing",
+    "source_url": "https://www.maynardnexsen.com/publication-fda-releases-discussion-paper-on-generative-ai-enabled-medical-devices-what-manufacturers-and-investors-need-to-know",
+    "first_seen": "2026-10-02",
+    "last_seen": "2026-10-02"
   }
 ]
