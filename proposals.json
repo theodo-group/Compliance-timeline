@@ -1,190 +1,211 @@
 {
-  "generated": "2026-09-25",
+  "generated": "2026-10-02",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-09-25--2026-09-09--mdcg-2020-16-rev5-ivdr-rule-7-classification",
-      "reason": "New MDCG guidance published 9 Sep 2026 clarifies IVDR Rule 7 for control materials without assigned values, requiring immediate portfolio audit.",
+      "id": "proposal-2026-10-02--2026-10-02--nobocap-mdr-ivdr-consultation-closes",
+      "reason": "NoBoCap consultation on MDR/IVDR simplification proposal closes today, critical deadline for stakeholder input.",
       "card": {
-        "id": "2026-09-09--mdcg-2020-16-rev5-ivdr-rule-7-classification",
-        "d": "2026-09-09",
-        "l": "9 Sep 2026",
+        "id": "2026-10-02--nobocap-mdr-ivdr-consultation-closes",
+        "d": "2026-10-02",
+        "l": "2 Oct 2026",
         "y": 2026,
-        "t": "MDCG 2020-16 rev.5 — IVDR Rule 7 Classification Grid",
-        "x": "New interpretation grid for IVD classification Rule 7, specifically control materials without assigned quantitative/qualitative values.",
-        "u": "https://health.ec.europa.eu/latest-updates/mdcg-2020-16-rev5-guidance-classification-rules-vitro-diagnostic-medical-devices-under-regulation-eu-2026-09-09_en",
+        "t": "NoBoCap MDR/IVDR Consultation Closes",
+        "x": "Final deadline for manufacturers, notified bodies and regional authorities to submit feedback on COM(2025) 404 simplification amendments.",
+        "u": "https://www.dm-experts.fr/2026/10/nobocap-sondage-concernant-les-propositions-de-modification-du-rdm-et-du-rdmdiv-2-octobre/",
         "tp": [
           "mdr"
-        ],
-        "tg": [
-          "new",
-          "high"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-25--2026-09-09--en-iso-10993-3-2026-biocompatibility",
-      "reason": "Major revision of biocompatibility standard published 9 Sep 2026, affecting genotoxicity, carcinogenicity and reproductive toxicity testing for all device classes.",
-      "card": {
-        "id": "2026-09-09--en-iso-10993-3-2026-biocompatibility",
-        "d": "2026-09-09",
-        "l": "9 Sep 2026",
-        "y": 2026,
-        "t": "EN ISO 10993-3:2026 Published",
-        "x": "Biological evaluation Part 3: updated genotoxicity, carcinogenicity and reproductive/developmental toxicity methods. Await OJEU citation for presumption of conformity.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
-        "tp": [
-          "standards",
-          "mdr"
-        ],
-        "tg": [
-          "new",
-          "high"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-25--2026-07-30--pren-18229-3-ai-human-oversight-enquiry",
-      "reason": "Public enquiry opened 30 Jul 2026 for AI Act Art. 14 human oversight standard; closes 22 Oct 2026, last chance to influence before Jul 2027 vote.",
-      "card": {
-        "id": "2026-07-30--pren-18229-3-ai-human-oversight-enquiry",
-        "d": "2026-07-30",
-        "l": "30 Jul 2026",
-        "y": 2026,
-        "t": "prEN 18229-3 — AI Human Oversight (Public Enquiry)",
-        "x": "Public enquiry closes 22 Oct 2026. Part 3 of five-part trustworthiness framework for high-risk AI systems (Art. 14 AI Act). Formal vote 1 Jul 2027.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "draft",
-          "medium"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-25--2026-09-30--pren-18228-ai-risk-management-vote",
-      "reason": "Critical vote deadline 30 Sep 2026 for AI Act Art. 9 risk management standard; if approved, publication Q4 2026 with presumption of conformity upon OJEU citation.",
-      "card": {
-        "id": "2026-09-30--pren-18228-ai-risk-management-vote",
-        "d": "2026-09-30",
-        "l": "30 Sep 2026",
-        "y": 2026,
-        "t": "prEN 18228 — AI Risk Management (Final Vote)",
-        "x": "Formal approval vote for high-risk AI risk management standard (Art. 9 AI Act). Publication as EN 18228:2026 expected Q4 2026 if approved.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
-        "tp": [
-          "ai",
-          "standards"
         ],
         "tg": [
           "critical",
-          "draft"
+          "in-force"
         ],
         "v": "c"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-09-25--2026-09-02--en-iso-13606-4-ehr-security",
-      "reason": "EHR security communication standard published 2 Sep 2026; aligns with upcoming EHDS interoperability requirements expected 2027.",
+      "id": "proposal-2026-10-02--2026-07-12--en-18286-2026-published",
+      "reason": "EN 18286:2026 (AI Act QMS) published, awaits OJEU citation for presumption of conformity.",
       "card": {
-        "id": "2026-09-02--en-iso-13606-4-ehr-security",
-        "d": "2026-09-02",
-        "l": "2 Sep 2026",
+        "id": "2026-07-12--en-18286-2026-published",
+        "d": "2026-07-12",
+        "l": "12 Jul 2026",
         "y": 2026,
-        "t": "EN ISO 13606-4:2026 — EHR Communication Security",
-        "x": "Security of electronic health record communication. Part of three-standard package for EHDS secondary use interoperability.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
-        "tp": [
-          "data",
-          "standards",
-          "ehds"
-        ],
-        "tg": [
-          "new",
-          "medium"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-25--2026-09-02--en-iso-20737-2026-personal-health-dss",
-      "reason": "Interoperability standard for personal health decision-support services published 2 Sep 2026, relevant for AI-driven diagnostics and EHDS compliance.",
-      "card": {
-        "id": "2026-09-02--en-iso-20737-2026-personal-health-dss",
-        "d": "2026-09-02",
-        "l": "2 Sep 2026",
-        "y": 2026,
-        "t": "EN ISO 20737:2026 — Personal Health DSS Interoperability",
-        "x": "Interoperability requirements for personal health decision-support services, aligned with EHDS framework.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
-        "tp": [
-          "data",
-          "standards",
-          "ehds"
-        ],
-        "tg": [
-          "new",
-          "medium"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-25--2026-08-05--en-iso-iec-27017-2026-cloud-security",
-      "reason": "Revised cloud security controls standard published 5 Aug 2026; impacts hosted MDSW, HDS alignment and C5 equivalence for health cloud services.",
-      "card": {
-        "id": "2026-08-05--en-iso-iec-27017-2026-cloud-security",
-        "d": "2026-08-05",
-        "l": "5 Aug 2026",
-        "y": 2026,
-        "t": "EN ISO/IEC 27017:2026 — Cloud Security Controls",
-        "x": "Updated cloud service security controls. Requires audit of ISO 27001/HDS mappings and C5 equivalence for health SaaS providers.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
-        "tp": [
-          "cyber",
-          "standards",
-          "hds"
-        ],
-        "tg": [
-          "new",
-          "medium"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-25--2026-07-10--imdrf-pccp-final-guidance",
-      "reason": "IMDRF published final PCCP framework 10 Jul 2026 for AI/ML devices, aligned with FDA/MHRA/HC Aug 2026 joint principles; mandatory for adaptive algorithms.",
-      "card": {
-        "id": "2026-07-10--imdrf-pccp-final-guidance",
-        "d": "2026-07-10",
-        "l": "10 Jul 2026",
-        "y": 2026,
-        "t": "IMDRF — Predetermined Change Control Plans (PCCP) Final",
-        "x": "Lifecycle framework for AI/ML devices with adaptive algorithms. Aligned with FDA/MHRA/HC joint principles; check national implementation timelines.",
-        "u": "https://www.imdrf.org/",
+        "t": "EN 18286:2026 Published (AI Act QMS)",
+        "x": "QMS standard for high-risk AI providers (Article 17) published, awaits OJEU harmonised citation to confer presumption of conformity.",
+        "u": "https://www.intertek.com/blog/2026/10-01-en-18286-first-eu-ai-act-standards-puzzle-piece-is-on-the-table/",
         "tp": [
           "ai",
-          "other"
+          "standards"
         ],
         "tg": [
-          "new",
-          "high"
+          "critical",
+          "new"
+        ],
+        "v": "c"
+      }
+    },
+    {
+      "action": "update",
+      "id": "proposal-2026-10-02--2026-09-11--cra-vulnerability-reporting-begins",
+      "existing_id": "2026-09-11--cra-vulnerability-reporting-begins",
+      "reason": "[REVIEW: description entierement reecrite — verifier que ce n'est pas un nouveau jalon qui devrait etre un add] CRA platform now operational, scope clarified to exclude MDR/IVDR devices but includes general-use software.",
+      "card": {
+        "id": "2026-09-11--cra-vulnerability-reporting-begins",
+        "d": "2026-09-11",
+        "l": "11 Sep 2026",
+        "y": 2026,
+        "t": "CRA — Vulnerability Reporting Platform Operational",
+        "x": "ENISA single reporting platform active. Excludes MDR/IVDR devices; includes general software used in medical context. 24h early warning, 72h full notification required.",
+        "u": "https://commission.europa.eu/news-and-media/news/safer-and-more-secure-digital-products-2026-09-11_en",
+        "tp": [
+          "cyber"
+        ],
+        "tg": [
+          "high",
+          "in-force"
         ],
         "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-02--2026-10-01--cnil-cybermalveillance-data-breach-guide",
+      "reason": "CNIL and Cybermalveillance.gouv.fr publish practical guide for data breach response during Cybermois.",
+      "card": {
+        "id": "2026-10-01--cnil-cybermalveillance-data-breach-guide",
+        "d": "2026-10-01",
+        "l": "1 Oct 2026",
+        "y": 2026,
+        "t": "CNIL Data Breach Response Guide Published",
+        "x": "Practical resource for responding to personal data violations, applicable to health data processors under GDPR.",
+        "u": "https://www.cnil.fr/fr/cybermois-2026",
+        "tp": [
+          "france",
+          "data"
+        ],
+        "tg": [
+          "medium",
+          "new"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-02--2026-10-19--fda-generative-ai-comments-close",
+      "reason": "FDA consultation on generative AI medical devices closes, opportunity to influence future regulatory framework.",
+      "card": {
+        "id": "2026-10-19--fda-generative-ai-comments-close",
+        "d": "2026-10-19",
+        "l": "19 Oct 2026",
+        "y": 2026,
+        "t": "FDA Generative AI Consultation Closes",
+        "x": "Final deadline for comments on regulatory approach to LLMs, diffusion models and other generative AI in medical devices.",
+        "u": "https://www.maynardnexsen.com/publication-fda-releases-discussion-paper-on-generative-ai-enabled-medical-devices-what-manufacturers-and-investors-need-to-know",
+        "tp": [
+          "us",
+          "ai"
+        ],
+        "tg": [
+          "high",
+          "draft"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-02--2026-10-22--pren-18229-3-public-enquiry-closes",
+      "reason": "Public enquiry on prEN 18229-3 (AI trustworthiness framework part 3: human oversight) closes.",
+      "card": {
+        "id": "2026-10-22--pren-18229-3-public-enquiry-closes",
+        "d": "2026-10-22",
+        "l": "22 Oct 2026",
+        "y": 2026,
+        "t": "prEN 18229-3 Public Enquiry Closes",
+        "x": "Human oversight requirements for AI trustworthiness framework. Final vote scheduled 1 Jul 2027.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "medium",
+          "draft"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-02--2026-09-16--iso-iec-24760-2026-published",
+      "reason": "ISO/IEC 24760:2026 parts 1-3 (identity management framework) and ISO/IEC 14763-5:2026 published.",
+      "card": {
+        "id": "2026-09-16--iso-iec-24760-2026-published",
+        "d": "2026-09-16",
+        "l": "16 Sep 2026",
+        "y": 2026,
+        "t": "ISO/IEC 24760:2026 Identity Framework Published",
+        "x": "Three parts covering identity management concepts, architecture and implementation. Impacts MDR and GDPR compliance for health data security.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "tp": [
+          "standards",
+          "data",
+          "cyber"
+        ],
+        "tg": [
+          "medium",
+          "new"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-02--2026-09-02--iso-13940-13606-4-20737-published",
+      "reason": "Three health informatics standards published (continuity of care, EHR security, clinical decision support interoperability).",
+      "card": {
+        "id": "2026-09-02--iso-13940-13606-4-20737-published",
+        "d": "2026-09-02",
+        "l": "2 Sep 2026",
+        "y": 2026,
+        "t": "Three Health Informatics Standards Published",
+        "x": "EN ISO 13940:2026 (continuity of care), EN ISO 13606-4:2026 (EHR security), EN ISO 20737:2026 (clinical decision support interoperability).",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "tp": [
+          "standards",
+          "data"
+        ],
+        "tg": [
+          "medium",
+          "new"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "update",
+      "id": "proposal-2026-10-02--2026-11-28--eudamed-existing-devices-registration-deadline",
+      "existing_id": "2026-11-28--eudamed-existing-devices-registration-deadline",
+      "reason": "Actor registration deadline clarified as already passed (28 May 2026); only device registration remains at 28 Nov 2026.",
+      "card": {
+        "id": "2026-11-28--eudamed-existing-devices-registration-deadline",
+        "d": "2026-11-28",
+        "l": "28 Nov 2026",
+        "y": 2026,
+        "t": "EUDAMED — Existing Devices Registration Deadline",
+        "x": "All devices placed on market before 28 May 2026 and still commercialised must be registered in UDI/Device module. Actor registration was mandatory from 28 May 2026 with no transitional period.",
+        "tp": [
+          "mdr"
+        ],
+        "tg": [
+          "critical",
+          "in-force"
+        ],
+        "v": "c",
+        "u": "https://health.ec.europa.eu/latest-updates/eudamed-four-first-modules-will-be-mandatory-use-28-may-2026-2025-11-27_en"
       }
     }
   ]

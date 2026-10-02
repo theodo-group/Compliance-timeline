@@ -1,190 +1,211 @@
 {
-  "generated": "2026-09-25",
+  "generated": "2026-10-02",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-09-25--2026-09-09--mdcg-2020-16-rev5-ivdr-rule-7-classification",
-      "reason": "New MDCG guidance published 9 Sep 2026 clarifies IVDR Rule 7 for control materials without assigned values, requiring immediate portfolio audit.",
+      "id": "proposal-2026-10-02--2026-10-02--nobocap-mdr-ivdr-consultation-closes",
+      "reason": "NoBoCap consultation on MDR/IVDR simplification proposal closes today, critical deadline for stakeholder input.",
       "card": {
-        "id": "2026-09-09--mdcg-2020-16-rev5-ivdr-rule-7-classification",
-        "d": "2026-09-09",
-        "l": "9 sep 2026",
+        "id": "2026-10-02--nobocap-mdr-ivdr-consultation-closes",
+        "d": "2026-10-02",
+        "l": "2 oct 2026",
         "y": 2026,
-        "t": "MDCG 2020-16 rév.5 — Grille de classification IVDR Règle 7",
-        "x": "Nouvelle grille d'interprétation pour la classification des DIV selon la Règle 7, spécifiquement les matériaux de contrôle sans valeurs quantitatives/qualitatives assignées.",
-        "u": "https://health.ec.europa.eu/latest-updates/mdcg-2020-16-rev5-guidance-classification-rules-vitro-diagnostic-medical-devices-under-regulation-eu-2026-09-09_en",
+        "t": "Clôture de la consultation NoBoCap MDR/IVDR",
+        "x": "Date limite finale pour les fabricants, organismes notifiés et autorités régionales de soumettre leurs commentaires sur les amendements de simplification COM(2025) 404.",
+        "u": "https://www.dm-experts.fr/2026/10/nobocap-sondage-concernant-les-propositions-de-modification-du-rdm-et-du-rdmdiv-2-octobre/",
         "tp": [
           "mdr"
-        ],
-        "tg": [
-          "new",
-          "high"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-25--2026-09-09--en-iso-10993-3-2026-biocompatibility",
-      "reason": "Major revision of biocompatibility standard published 9 Sep 2026, affecting genotoxicity, carcinogenicity and reproductive toxicity testing for all device classes.",
-      "card": {
-        "id": "2026-09-09--en-iso-10993-3-2026-biocompatibility",
-        "d": "2026-09-09",
-        "l": "9 sep 2026",
-        "y": 2026,
-        "t": "EN ISO 10993-3:2026 Publiée",
-        "x": "Évaluation biologique Partie 3 : méthodes actualisées pour la génotoxicité, la cancérogénicité et la toxicité pour la reproduction et le développement. En attente de citation au JOUE pour la présomption de conformité.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
-        "tp": [
-          "standards",
-          "mdr"
-        ],
-        "tg": [
-          "new",
-          "high"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-25--2026-07-30--pren-18229-3-ai-human-oversight-enquiry",
-      "reason": "Public enquiry opened 30 Jul 2026 for AI Act Art. 14 human oversight standard; closes 22 Oct 2026, last chance to influence before Jul 2027 vote.",
-      "card": {
-        "id": "2026-07-30--pren-18229-3-ai-human-oversight-enquiry",
-        "d": "2026-07-30",
-        "l": "30 juil 2026",
-        "y": 2026,
-        "t": "prEN 18229-3 — Surveillance de l'IA par l'humain (Enquête publique)",
-        "x": "L'enquête publique se termine le 22 oct 2026. Partie 3 du cadre de confiance en cinq volets pour les systèmes d'IA à haut risque (art. 14 AI Act). Vote formel le 1 juil 2027.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "draft",
-          "medium"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-25--2026-09-30--pren-18228-ai-risk-management-vote",
-      "reason": "Critical vote deadline 30 Sep 2026 for AI Act Art. 9 risk management standard; if approved, publication Q4 2026 with presumption of conformity upon OJEU citation.",
-      "card": {
-        "id": "2026-09-30--pren-18228-ai-risk-management-vote",
-        "d": "2026-09-30",
-        "l": "30 septembre 2026",
-        "y": 2026,
-        "t": "prEN 18228 — Gestion des risques liés à l'IA (Vote final)",
-        "x": "Vote d'approbation formelle de la norme relative à la gestion des risques pour l'IA à haut risque (article 9 de la loi sur l'IA). Publication en tant qu'EN 18228:2026 attendue au T4 2026 si approuvée.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
-        "tp": [
-          "ai",
-          "standards"
         ],
         "tg": [
           "critical",
-          "draft"
+          "in-force"
         ],
         "v": "c"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-09-25--2026-09-02--en-iso-13606-4-ehr-security",
-      "reason": "EHR security communication standard published 2 Sep 2026; aligns with upcoming EHDS interoperability requirements expected 2027.",
+      "id": "proposal-2026-10-02--2026-07-12--en-18286-2026-published",
+      "reason": "EN 18286:2026 (AI Act QMS) published, awaits OJEU citation for presumption of conformity.",
       "card": {
-        "id": "2026-09-02--en-iso-13606-4-ehr-security",
-        "d": "2026-09-02",
-        "l": "2 septembre 2026",
+        "id": "2026-07-12--en-18286-2026-published",
+        "d": "2026-07-12",
+        "l": "12 juil. 2026",
         "y": 2026,
-        "t": "EN ISO 13606-4:2026 — Sécurité de la communication des dossiers de santé électroniques",
-        "x": "Sécurité de la communication des dossiers de santé électroniques. Fait partie d'un ensemble de trois normes pour l'interopérabilité de l'utilisation secondaire de l'EHDS.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
-        "tp": [
-          "data",
-          "standards",
-          "ehds"
-        ],
-        "tg": [
-          "new",
-          "medium"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-25--2026-09-02--en-iso-20737-2026-personal-health-dss",
-      "reason": "Interoperability standard for personal health decision-support services published 2 Sep 2026, relevant for AI-driven diagnostics and EHDS compliance.",
-      "card": {
-        "id": "2026-09-02--en-iso-20737-2026-personal-health-dss",
-        "d": "2026-09-02",
-        "l": "2 septembre 2026",
-        "y": 2026,
-        "t": "EN ISO 20737:2026 — Interopérabilité des services d'aide à la décision pour la santé personnelle",
-        "x": "Exigences d'interopérabilité pour les services d'aide à la décision en matière de santé personnelle, alignés sur le cadre EHDS.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
-        "tp": [
-          "data",
-          "standards",
-          "ehds"
-        ],
-        "tg": [
-          "new",
-          "medium"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-25--2026-08-05--en-iso-iec-27017-2026-cloud-security",
-      "reason": "Revised cloud security controls standard published 5 Aug 2026; impacts hosted MDSW, HDS alignment and C5 equivalence for health cloud services.",
-      "card": {
-        "id": "2026-08-05--en-iso-iec-27017-2026-cloud-security",
-        "d": "2026-08-05",
-        "l": "5 août 2026",
-        "y": 2026,
-        "t": "EN ISO/IEC 27017:2026 — Contrôles de sécurité cloud",
-        "x": "Mise à jour des contrôles de sécurité des services cloud. Nécessite un audit des correspondances ISO 27001/HDS et de l'équivalence C5 pour les prestataires SaaS de santé.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
-        "tp": [
-          "cyber",
-          "standards",
-          "hds"
-        ],
-        "tg": [
-          "new",
-          "medium"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-09-25--2026-07-10--imdrf-pccp-final-guidance",
-      "reason": "IMDRF published final PCCP framework 10 Jul 2026 for AI/ML devices, aligned with FDA/MHRA/HC Aug 2026 joint principles; mandatory for adaptive algorithms.",
-      "card": {
-        "id": "2026-07-10--imdrf-pccp-final-guidance",
-        "d": "2026-07-10",
-        "l": "10 juillet 2026",
-        "y": 2026,
-        "t": "IMDRF — Predetermined Change Control Plans (PCCP) Final",
-        "x": "Cadre de cycle de vie pour les dispositifs IA/ML dotés d'algorithmes adaptatifs. Aligné sur les principes conjoints FDA/MHRA/HC ; vérifier les calendriers de mise en œuvre nationaux.",
-        "u": "https://www.imdrf.org/",
+        "t": "EN 18286:2026 Publié (QMS Loi IA)",
+        "x": "Norme QMS pour les fournisseurs d'IA à haut risque (article 17) publiée, en attente de la citation harmonisée au JOUE pour conférer la présomption de conformité.",
+        "u": "https://www.intertek.com/blog/2026/10-01-en-18286-first-eu-ai-act-standards-puzzle-piece-is-on-the-table/",
         "tp": [
           "ai",
-          "other"
+          "standards"
         ],
         "tg": [
-          "new",
-          "high"
+          "critical",
+          "new"
+        ],
+        "v": "c"
+      }
+    },
+    {
+      "action": "update",
+      "id": "proposal-2026-10-02--2026-09-11--cra-vulnerability-reporting-begins",
+      "existing_id": "2026-09-11--cra-vulnerability-reporting-begins",
+      "reason": "[REVIEW: description entierement reecrite — verifier que ce n'est pas un nouveau jalon qui devrait etre un add] CRA platform now operational, scope clarified to exclude MDR/IVDR devices but includes general-use software.",
+      "card": {
+        "id": "2026-09-11--cra-vulnerability-reporting-begins",
+        "d": "2026-09-11",
+        "l": "11 septembre 2026",
+        "y": 2026,
+        "t": "CRA — Plateforme de signalement des vulnérabilités opérationnelle",
+        "x": "Plateforme unique de signalement ENISA active. Exclut les dispositifs MDR/IVDR ; inclut les logiciels généraux utilisés en contexte médical. Alerte précoce sous 24 h, notification complète sous 72 h requise.",
+        "u": "https://commission.europa.eu/news-and-media/news/safer-and-more-secure-digital-products-2026-09-11_en",
+        "tp": [
+          "cyber"
+        ],
+        "tg": [
+          "high",
+          "in-force"
         ],
         "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-02--2026-10-01--cnil-cybermalveillance-data-breach-guide",
+      "reason": "CNIL and Cybermalveillance.gouv.fr publish practical guide for data breach response during Cybermois.",
+      "card": {
+        "id": "2026-10-01--cnil-cybermalveillance-data-breach-guide",
+        "d": "2026-10-01",
+        "l": "1er octobre 2026",
+        "y": 2026,
+        "t": "Publication du guide de réponse aux violations de données de la CNIL",
+        "x": "Ressource pratique pour répondre aux violations de données personnelles, applicable aux responsables de traitement de données de santé en vertu du RGPD.",
+        "u": "https://www.cnil.fr/fr/cybermois-2026",
+        "tp": [
+          "france",
+          "data"
+        ],
+        "tg": [
+          "medium",
+          "new"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-02--2026-10-19--fda-generative-ai-comments-close",
+      "reason": "FDA consultation on generative AI medical devices closes, opportunity to influence future regulatory framework.",
+      "card": {
+        "id": "2026-10-19--fda-generative-ai-comments-close",
+        "d": "2026-10-19",
+        "l": "19 oct 2026",
+        "y": 2026,
+        "t": "Fermeture de la consultation de la FDA sur l'IA générative",
+        "x": "Échéance finale pour soumettre des commentaires sur l'approche réglementaire concernant les LLM, modèles de diffusion et autres IA génératives dans les dispositifs médicaux.",
+        "u": "https://www.maynardnexsen.com/publication-fda-releases-discussion-paper-on-generative-ai-enabled-medical-devices-what-manufacturers-and-investors-need-to-know",
+        "tp": [
+          "us",
+          "ai"
+        ],
+        "tg": [
+          "high",
+          "draft"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-02--2026-10-22--pren-18229-3-public-enquiry-closes",
+      "reason": "Public enquiry on prEN 18229-3 (AI trustworthiness framework part 3: human oversight) closes.",
+      "card": {
+        "id": "2026-10-22--pren-18229-3-public-enquiry-closes",
+        "d": "2026-10-22",
+        "l": "22 oct. 2026",
+        "y": 2026,
+        "t": "Fermeture de l'enquête publique prEN 18229-3",
+        "x": "Exigences de surveillance humaine pour le cadre de confiance de l'IA. Vote final prévu le 1er juillet 2027.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "medium",
+          "draft"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-02--2026-09-16--iso-iec-24760-2026-published",
+      "reason": "ISO/IEC 24760:2026 parts 1-3 (identity management framework) and ISO/IEC 14763-5:2026 published.",
+      "card": {
+        "id": "2026-09-16--iso-iec-24760-2026-published",
+        "d": "2026-09-16",
+        "l": "16 sep 2026",
+        "y": 2026,
+        "t": "ISO/IEC 24760:2026 Cadre d'identité publié",
+        "x": "Trois parties couvrant les concepts, l'architecture et la mise en œuvre de la gestion de l'identité. Affecte la conformité au MDR et au RGPD pour la sécurité des données de santé.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "tp": [
+          "standards",
+          "data",
+          "cyber"
+        ],
+        "tg": [
+          "medium",
+          "new"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-02--2026-09-02--iso-13940-13606-4-20737-published",
+      "reason": "Three health informatics standards published (continuity of care, EHR security, clinical decision support interoperability).",
+      "card": {
+        "id": "2026-09-02--iso-13940-13606-4-20737-published",
+        "d": "2026-09-02",
+        "l": "2 septembre 2026",
+        "y": 2026,
+        "t": "Trois normes en informatique de santé publiées",
+        "x": "EN ISO 13940:2026 (continuité des soins), EN ISO 13606-4:2026 (sécurité du DES), EN ISO 20737:2026 (interopérabilité du support à la décision clinique).",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "tp": [
+          "standards",
+          "data"
+        ],
+        "tg": [
+          "medium",
+          "new"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "update",
+      "id": "proposal-2026-10-02--2026-11-28--eudamed-existing-devices-registration-deadline",
+      "existing_id": "2026-11-28--eudamed-existing-devices-registration-deadline",
+      "reason": "Actor registration deadline clarified as already passed (28 May 2026); only device registration remains at 28 Nov 2026.",
+      "card": {
+        "id": "2026-11-28--eudamed-existing-devices-registration-deadline",
+        "d": "2026-11-28",
+        "l": "28 nov 2026",
+        "y": 2026,
+        "t": "EUDAMED — Délai d'inscription des dispositifs existants",
+        "x": "Tous les dispositifs mis sur le marché avant le 28 mai 2026 et toujours commercialisés doivent être inscrits dans le module UDI/Dispositifs. L'inscription des acteurs était obligatoire à compter du 28 mai 2026 sans période transitoire.",
+        "tp": [
+          "mdr"
+        ],
+        "tg": [
+          "critical",
+          "in-force"
+        ],
+        "v": "c",
+        "u": "https://health.ec.europa.eu/latest-updates/eudamed-four-first-modules-will-be-mandatory-use-28-may-2026-2025-11-27_en"
       }
     }
   ]
