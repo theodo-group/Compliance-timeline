@@ -161,11 +161,11 @@
   },
   {
     "key": "std-18228",
-    "title": "prEN 18228 (gestion des risques IA) : vote final prévu le 30 septembre 2026",
-    "last_status": "draft",
+    "title": "prEN 18228 : vote final achevé pour la norme de gestion des risques IA",
+    "last_status": "final",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-10-02"
+    "last_seen": "2026-10-09"
   },
   {
     "key": "std-18229",
@@ -273,11 +273,11 @@
   },
   {
     "key": "std-18229-3",
-    "title": "prEN 18229-3 (surveillance humaine IA) : enquête publique jusqu'au 22 octobre 2026",
+    "title": "prEN 18229-3 : enquête publique sur la surveillance humaine des systèmes IA",
     "last_status": "draft",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-09-11",
-    "last_seen": "2026-10-02"
+    "last_seen": "2026-10-09"
   },
   {
     "key": "enisa-cahier-des-charges-cybersecurite-pour-le-secteur-de-la-sante-et-plateforme",
@@ -398,5 +398,69 @@
     "source_url": "https://www.maynardnexsen.com/publication-fda-releases-discussion-paper-on-generative-ai-enabled-medical-devices-what-manufacturers-and-investors-need-to-know",
     "first_seen": "2026-10-02",
     "last_seen": "2026-10-02"
+  },
+  {
+    "key": "trois-normes-iso-iec-sur-la-gestion-de-l-identite-numerique-publiees",
+    "title": "Trois normes ISO/IEC sur la gestion de l'identité numérique publiées",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-10-09",
+    "last_seen": "2026-10-09"
+  },
+  {
+    "key": "quatre-normes-sante-et-dispositifs-medicaux-publiees-en-septembre",
+    "title": "Quatre normes santé et dispositifs médicaux publiées en septembre",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-10-09",
+    "last_seen": "2026-10-09"
+  },
+  {
+    "key": "mhra-adopte-44-recommandations-sur-l-ia-en-sante-guidance-d-ici-decembre",
+    "title": "MHRA adopte 44 recommandations sur l'IA en santé, guidance d'ici décembre",
+    "last_status": "new",
+    "source_url": "https://www.gov.uk/government/news/government-backs-recommendations-of-nhs-doctors-led-ai-commission",
+    "first_seen": "2026-10-09",
+    "last_seen": "2026-10-09"
+  },
+  {
+    "key": "ai-airlock-phase-3-candidatures-ouvertes-jusqu-au-31-octobre",
+    "title": "AI Airlock Phase 3 : candidatures ouvertes jusqu'au 31 octobre",
+    "last_status": "ongoing",
+    "source_url": "https://www.gov.uk/government/publications/ai-airlock-phase-3-application",
+    "first_seen": "2026-10-09",
+    "last_seen": "2026-10-09"
+  },
+  {
+    "key": "fda-cdrh-agenda-fy-2027-priorise-guidances-ia-et-pccp",
+    "title": "FDA CDRH : agenda FY 2027 priorise guidances IA et PCCP",
+    "last_status": "ongoing",
+    "source_url": "https://www.raps.org/resource-library-search.html?topics=medical-devices",
+    "first_seen": "2026-10-09",
+    "last_seen": "2026-10-09"
+  },
+  {
+    "key": "cnil-autorise-link-entrepot-de-donnees-de-sante-europeen-pour-10-ans",
+    "title": "CNIL autorise LINK, entrepôt de données de santé européen, pour 10 ans",
+    "last_status": "new",
+    "source_url": "https://lesechos-comfi.lesechos.fr/press-release/cegedim-epa-cgm-lancement-de-link-la-nouvelle-generation-de-thin-le-premier-entrepot-de-donnees-de-sante-europeen-de-clinityx-valide-par-la-cnil-pour-10-ans-zofjXqAzPLu",
+    "first_seen": "2026-10-09",
+    "last_seen": "2026-10-09"
+  },
+  {
+    "key": "cra-delais-de-publication-des-normes-de-gestion-des-vulnerabilites-repousses",
+    "title": "CRA : délais de publication des normes de gestion des vulnérabilités repoussés",
+    "last_status": "draft",
+    "source_url": "https://www.cyberresilienceact.eu/news/cra-standardisation-deadlines-pushed-back-two-months.html",
+    "first_seen": "2026-10-09",
+    "last_seen": "2026-10-09"
+  },
+  {
+    "key": "australie-tga-nouvelles-regles-de-classification-et-exemptions-cdss",
+    "title": "Australie (TGA) : nouvelles règles de classification et exemptions CDSS",
+    "last_status": "in-force",
+    "source_url": "https://www.dm-experts.fr/2026/10/tga-mise-a-jour-des-regles-de-classification-et-clarification-des-exemptions-aux-systemes-de-support-a-la-decision-clinique/",
+    "first_seen": "2026-10-09",
+    "last_seen": "2026-10-09"
   }
 ]
