@@ -1,18 +1,18 @@
 {
-  "generated": "2026-10-09",
+  "generated": "2026-10-16",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-10-09--2026-09-30--pren-18228-ai-risk-management-final-vote",
-      "reason": "prEN 18228 (AI risk management for AI Act Article 9) completed final approval vote, ratification imminent.",
+      "id": "proposal-2026-10-16--2026-10-14--en-18286-2026-first-harmonised-ai-act-standard",
+      "reason": "First harmonised AI Act standard formally cited in Official Journal, conferring presumption of conformity for Article 17 QMS requirements.",
       "card": {
-        "id": "2026-09-30--pren-18228-ai-risk-management-final-vote",
-        "d": "2026-09-30",
-        "l": "30 Sep 2026",
+        "id": "2026-10-14--en-18286-2026-first-harmonised-ai-act-standard",
+        "d": "2026-10-14",
+        "l": "14 Oct 2026",
         "y": 2026,
-        "t": "prEN 18228 — AI Risk Management Final Vote Completed",
-        "x": "Final approval vote completed for AI risk management standard transposing AI Act Article 9 requirements. Ratification and publication now scheduled for 30 September 2026. Once cited in OJEU, compliance confers presumption of conformity.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "t": "EN 18286:2026 — First Harmonised AI Act Standard",
+        "x": "Commission Decision (EU) 2026/2274 formally cites EN 18286:2026 (QMS for high-risk AI providers) in OJ, conferring presumption of conformity under Article 17 AI Act.",
+        "u": "https://digital-strategy.ec.europa.eu/en/policies/ai-act-standardisation",
         "tp": [
           "ai",
           "standards"
@@ -26,132 +26,16 @@
     },
     {
       "action": "add",
-      "id": "proposal-2026-10-09--2026-10-22--pren-18229-3-human-oversight-enquiry-closes",
-      "reason": "prEN 18229-3 (AI human oversight) public enquiry closes in 13 days, final vote scheduled July 2027.",
+      "id": "proposal-2026-10-16--2026-09-09--mdcg-2020-16-rev5-ivdr-classification",
+      "reason": "New revision clarifies interpretation of IVDR classification rules for control materials, affecting classification decisions and technical documentation.",
       "card": {
-        "id": "2026-10-22--pren-18229-3-human-oversight-enquiry-closes",
-        "d": "2026-10-22",
-        "l": "22 Oct 2026",
+        "id": "2026-09-09--mdcg-2020-16-rev5-ivdr-classification",
+        "d": "2026-09-09",
+        "l": "9 Sep 2026",
         "y": 2026,
-        "t": "prEN 18229-3 — AI Human Oversight Public Enquiry Closes",
-        "x": "Public enquiry on human oversight of AI systems (part 3 of 5-part AI trustworthiness framework) closes. Stakeholder comments must be submitted before this deadline. Final vote scheduled 1 July 2027.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "critical",
-          "draft"
-        ],
-        "v": "c"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-09--2026-10-06--uk-mhra-ai-commission-44-recommendations-adopted",
-      "reason": "UK government formally adopted all 44 NHS AI commission recommendations, MHRA to publish change management guidance by December 2026.",
-      "card": {
-        "id": "2026-10-06--uk-mhra-ai-commission-44-recommendations-adopted",
-        "d": "2026-10-06",
-        "l": "6 Oct 2026",
-        "y": 2026,
-        "t": "UK MHRA — 44 AI Healthcare Recommendations Adopted",
-        "x": "Government formally adopted all 44 NHS AI commission recommendations. MHRA to publish draft guidance on AI device change management before end 2026, public consultation on qualification/classification criteria opens early 2027. Continuous lifecycle surveillance replaces one-time assessment model.",
-        "u": "https://www.gov.uk/government/news/government-backs-recommendations-of-nhs-doctors-led-ai-commission",
-        "tp": [
-          "uk",
-          "ai"
-        ],
-        "tg": [
-          "critical",
-          "new"
-        ],
-        "v": "c"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-09--2026-10-01--fda-cdrh-fy2027-agenda-ai-pccp-guidance",
-      "reason": "FDA CDRH FY 2027 agenda prioritizes final guidance on AI lifecycle governance and predetermined change control plans.",
-      "card": {
-        "id": "2026-10-01--fda-cdrh-fy2027-agenda-ai-pccp-guidance",
-        "d": "2026-10-01",
-        "l": "1 Oct 2026",
-        "y": 2026,
-        "t": "FDA CDRH FY 2027 — AI & PCCP Guidance Priority",
-        "x": "CDRH work program prioritizes final guidance on AI device lifecycle governance and predetermined change control plans (PCCP), allowing pre-approved ML/AI algorithm modifications without new submissions for each change.",
-        "u": "https://www.raps.org/resource-library-search.html?topics=medical-devices",
-        "tp": [
-          "us",
-          "ai"
-        ],
-        "tg": [
-          "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-09--2026-07-02--cnil-link-european-health-data-warehouse-authorized",
-      "reason": "CNIL granted 10-year authorization for LINK, Clinityx's European health data warehouse spanning 7 countries.",
-      "card": {
-        "id": "2026-07-02--cnil-link-european-health-data-warehouse-authorized",
-        "d": "2026-07-02",
-        "l": "2 Jul 2026",
-        "y": 2026,
-        "t": "CNIL — LINK European Health Data Warehouse Authorized",
-        "x": "CNIL deliberation 2026-070 grants 10-year authorization to LINK (Clinityx/Cegedim), European health data warehouse spanning 7 countries. In France, interconnects primary care data with SNDS within EHDS framework.",
-        "u": "https://lesechos-comfi.lesechos.fr/press-release/cegedim-epa-cgm-lancement-de-link-la-nouvelle-generation-de-thin-le-premier-entrepot-de-donnees-de-sante-europeen-de-clinityx-valide-par-la-cnil-pour-10-ans-zofjXqAzPLu",
-        "tp": [
-          "france",
-          "data",
-          "ehds"
-        ],
-        "tg": [
-          "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-09--2026-09-16--en-iso-iec-24760-digital-identity-standards-published",
-      "reason": "Three harmonised European standards on digital identity management published by CEN/CENELEC JTC 13.",
-      "card": {
-        "id": "2026-09-16--en-iso-iec-24760-digital-identity-standards-published",
-        "d": "2026-09-16",
-        "l": "16 Sep 2026",
-        "y": 2026,
-        "t": "EN ISO/IEC 24760 — Digital Identity Standards Published",
-        "x": "CEN/CENELEC JTC 13 published three-part digital identity management standard series: Part 1 (terminology/concepts), Part 2 (architecture/requirements), Part 3 (implementation guidance). Directly relevant for patient/professional authentication systems and GDPR compliance.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
-        "tp": [
-          "data",
-          "standards"
-        ],
-        "tg": [
-          "medium",
-          "new"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-09--2026-09-30--four-health-device-standards-published-september",
-      "reason": "Four harmonised medical device and health IT standards published by CEN between 2 and 30 September 2026.",
-      "card": {
-        "id": "2026-09-30--four-health-device-standards-published-september",
-        "d": "2026-09-30",
-        "l": "Sep 2026",
-        "y": 2026,
-        "t": "Four Health/Device Standards Published (September)",
-        "x": "CEN published: EN ISO 10993-3:2026 (biocompatibility), EN ISO 13606-4:2026 (EHR security), EN ISO 20737:2026 (clinical decision support interoperability), EN ISO 11607-3:2026 (device packaging/sterilization).",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "t": "MDCG 2020-16 Rev.5 — IVDR Classification Guidance",
+        "x": "Updated interpretation grid for in vitro diagnostic control material classification under Regulation (EU) 2017/746, harmonising approach across Member States.",
+        "u": "https://health.ec.europa.eu/latest-updates/mdcg-2020-16-rev5-guidance-classification-rules-vitro-diagnostic-medical-devices-under-regulation-eu-2026-09-09_en",
         "tp": [
           "mdr",
           "standards"
@@ -165,48 +49,187 @@
     },
     {
       "action": "add",
-      "id": "proposal-2026-10-09--2026-10-31--uk-mhra-ai-airlock-phase-3-application-deadline",
-      "reason": "MHRA AI Airlock Phase 3 accepts applications until 31 October for current review wave.",
+      "id": "proposal-2026-10-16--2026-11-30--pren-18229-1-logging-vote-final",
+      "reason": "First part of five-part AI trustworthiness framework enters formal approval phase, supporting Article 12 transparency requirements with Q1 2027 publication target.",
       "card": {
-        "id": "2026-10-31--uk-mhra-ai-airlock-phase-3-application-deadline",
-        "d": "2026-10-31",
-        "l": "31 Oct 2026",
+        "id": "2026-11-30--pren-18229-1-logging-vote-final",
+        "d": "2026-11-30",
+        "l": "30 Nov 2026",
         "y": 2026,
-        "t": "UK MHRA AI Airlock Phase 3 — Application Deadline",
-        "x": "Phase 3 application deadline for current review wave. Program now operates on continuous calendar (year-round applications). Phase 3 focuses on post-market surveillance and full lifecycle oversight of AI medical devices.",
-        "u": "https://www.gov.uk/government/publications/ai-airlock-phase-3-application",
+        "t": "prEN 18229-1 — AI Logging Standard Vote",
+        "x": "Final vote on AI traceability requirements (Part 1 of 5-part trustworthiness framework) supporting Article 12 AI Act. Publication expected Q1 2027 if approved.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
         "tp": [
-          "uk",
-          "ai"
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "high",
+          "draft"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-16--2026-10-22--pren-18229-3-human-oversight-enquiry-closes",
+      "reason": "Public enquiry deadline for human oversight standard supporting Article 14 AI Act, with formal vote scheduled July 2027.",
+      "card": {
+        "id": "2026-10-22--pren-18229-3-human-oversight-enquiry-closes",
+        "d": "2026-10-22",
+        "l": "22 Oct 2026",
+        "y": 2026,
+        "t": "prEN 18229-3 — Human Oversight Enquiry Closes",
+        "x": "Public consultation deadline for AI human oversight standard (Part 3 of trustworthiness framework) supporting Article 14 AI Act. Vote scheduled 1 July 2027.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
+        "tp": [
+          "ai",
+          "standards"
         ],
         "tg": [
           "medium",
-          "new"
+          "draft"
         ],
         "v": "n"
       }
     },
     {
-      "action": "update",
-      "id": "proposal-2026-10-09--2026-11-28--eudamed-existing-devices-registration-deadline",
-      "existing_id": "2026-11-28--eudamed-existing-devices-registration-deadline",
-      "reason": "Deadline confirmed in Points de vigilance as approaching (13 days from 9 Oct), status unchanged.",
+      "action": "add",
+      "id": "proposal-2026-10-16--2026-12-24--pren-18283-bias-management-enquiry-closes",
+      "reason": "Public enquiry deadline for AI bias management standard supporting Annex IV AI Act requirements on accuracy and non-discrimination, with vote scheduled March 2027.",
       "card": {
-        "id": "2026-11-28--eudamed-existing-devices-registration-deadline",
-        "d": "2026-11-28",
-        "l": "28 Nov 2026",
+        "id": "2026-12-24--pren-18283-bias-management-enquiry-closes",
+        "d": "2026-12-24",
+        "l": "24 Dec 2026",
         "y": 2026,
-        "t": "EUDAMED — Existing Devices Registration Deadline",
-        "x": "All existing devices on the EU market commercialized before 28 May 2026 and still placed on the market must be registered in EUDAMED by this date.",
+        "t": "prEN 18283 — AI Bias Management Enquiry Closes",
+        "x": "Public consultation deadline for AI bias management standard supporting Annex IV AI Act requirements. Vote scheduled 3 March 2027.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
         "tp": [
-          "mdr"
+          "ai",
+          "standards"
         ],
         "tg": [
-          "critical",
+          "medium",
+          "draft"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-16--2026-09-16--en-iso-iec-24760-identity-management-published",
+      "reason": "Complete three-part identity management framework published, requiring audit of patient identity systems for HDS and EHDS compliance.",
+      "card": {
+        "id": "2026-09-16--en-iso-iec-24760-identity-management-published",
+        "d": "2026-09-16",
+        "l": "16 Sep 2026",
+        "y": 2026,
+        "t": "EN ISO/IEC 24760 Parts 1-3 Published",
+        "x": "Complete identity management framework covering concepts, reference architecture, and implementation practices. Affects HDS and EHDS compliance for patient identity systems.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "tp": [
+          "data",
+          "cyber",
+          "standards"
+        ],
+        "tg": [
+          "medium",
           "in-force"
         ],
-        "v": "c",
-        "u": "https://health.ec.europa.eu/latest-updates/eudamed-four-first-modules-will-be-mandatory-use-28-may-2026-2025-11-27_en"
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-16--2026-09-01--en-iso-10993-3-2026-biocompatibility-published",
+      "reason": "Major revision of biocompatibility standard published with new test methods and evaluation criteria affecting biological risk assessment for all device classes.",
+      "card": {
+        "id": "2026-09-01--en-iso-10993-3-2026-biocompatibility-published",
+        "d": "2026-09-01",
+        "l": "Sep 2026",
+        "y": 2026,
+        "t": "EN ISO 10993-3:2026 — Biocompatibility Revision",
+        "x": "Major revision covering genetic, carcinogenic, and reproductive/developmental toxicity testing with new methods and evaluation criteria. Transition timeline to be confirmed by notified bodies.",
+        "u": "https://www.qualitiso.com/iso-10993-3-2026-principaux-changements/",
+        "tp": [
+          "mdr",
+          "standards"
+        ],
+        "tg": [
+          "high",
+          "new"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-16--2026-09-03--cnil-sanction-500k-health-data-breach",
+      "reason": "EUR 500k sanction for inadequate technical and organisational measures protecting patient data establishes enforcement precedent under GDPR Article 32.",
+      "card": {
+        "id": "2026-09-03--cnil-sanction-500k-health-data-breach",
+        "d": "2026-09-03",
+        "l": "3 Sep 2026",
+        "y": 2026,
+        "t": "CNIL — EUR 500k Health Data Sanction",
+        "x": "Hôpital privé de la Loire sanctioned for insufficient security measures (GDPR Art. 32) after breach affecting ~500,000 patients. Decision published 16 Oct 2026.",
+        "u": "https://www.cnil.fr/fr/actualites",
+        "tp": [
+          "france",
+          "data"
+        ],
+        "tg": [
+          "high",
+          "new"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-16--2026-10-14--uk-mhra-strategy-2030-ai-digital-health",
+      "reason": "MHRA unveils 2030 strategy establishing AI & Digital Health Centre and adaptive regulatory framework for AI-based medical devices.",
+      "card": {
+        "id": "2026-10-14--uk-mhra-strategy-2030-ai-digital-health",
+        "d": "2026-10-14",
+        "l": "14 Oct 2026",
+        "y": 2026,
+        "t": "UK MHRA — 2030 Strategy for AI & Digital Health",
+        "x": "Three pillars: AI & Digital Health Centre, adaptive regulatory framework for AI devices, and expanded Pre-determined Change Control Plans (PCCP) for AI. International harmonisation focus.",
+        "u": "https://www.gov.uk/government/organisations/medicines-and-healthcare-products-regulatory-agency",
+        "tp": [
+          "uk",
+          "ai"
+        ],
+        "tg": [
+          "high",
+          "new"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-16--2026-09-11--australia-tga-cdss-classification-rules",
+      "reason": "New CDSS classification rules and exemption clarifications entered into force, affecting clinical decision support software regulatory status.",
+      "card": {
+        "id": "2026-09-11--australia-tga-cdss-classification-rules",
+        "d": "2026-09-11",
+        "l": "11 Sep 2026",
+        "y": 2026,
+        "t": "Australia TGA — CDSS Classification Rules In Force",
+        "x": "New classification framework and exemption clarifications for clinical decision support systems entered into force in Australia.",
+        "u": "https://www.tga.gov.au/",
+        "tp": [
+          "other",
+          "ai"
+        ],
+        "tg": [
+          "medium",
+          "in-force"
+        ],
+        "v": "n"
       }
     }
   ]
