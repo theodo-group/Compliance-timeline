@@ -1,64 +1,134 @@
 {
-  "generated": "2026-10-16",
+  "generated": "2026-10-23",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-10-16--2026-10-14--en-18286-2026-first-harmonised-ai-act-standard",
-      "reason": "First harmonised AI Act standard formally cited in Official Journal, conferring presumption of conformity for Article 17 QMS requirements.",
+      "id": "proposal-2026-10-23--2026-09-11--tga-classification-rules-cdss-exemptions",
+      "reason": "TGA finalized new classification rules and CDSS exemption clarifications applicable to MDSW targeting Australia.",
       "card": {
-        "id": "2026-10-14--en-18286-2026-first-harmonised-ai-act-standard",
-        "d": "2026-10-14",
-        "l": "14 Oct 2026",
+        "id": "2026-09-11--tga-classification-rules-cdss-exemptions",
+        "d": "2026-09-11",
+        "l": "11 Sep 2026",
         "y": 2026,
-        "t": "EN 18286:2026 — First Harmonised AI Act Standard",
-        "x": "Commission Decision (EU) 2026/2274 formally cites EN 18286:2026 (QMS for high-risk AI providers) in OJ, conferring presumption of conformity under Article 17 AI Act.",
-        "u": "https://digital-strategy.ec.europa.eu/en/policies/ai-act-standardisation",
+        "t": "TGA — Classification Rules & CDSS Exemptions Updated",
+        "x": "Australia revised device classification criteria and clarified Clinical Decision Support System exemptions, in force immediately.",
+        "u": "https://www.dm-experts.fr/2026/10/tga-mise-a-jour-des-regles-de-classification-et-clarification-des-exemptions-aux-systemes-de-support-a-la-decision-clinique/",
         "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "critical",
-          "in-force"
-        ],
-        "v": "c"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-16--2026-09-09--mdcg-2020-16-rev5-ivdr-classification",
-      "reason": "New revision clarifies interpretation of IVDR classification rules for control materials, affecting classification decisions and technical documentation.",
-      "card": {
-        "id": "2026-09-09--mdcg-2020-16-rev5-ivdr-classification",
-        "d": "2026-09-09",
-        "l": "9 Sep 2026",
-        "y": 2026,
-        "t": "MDCG 2020-16 Rev.5 — IVDR Classification Guidance",
-        "x": "Updated interpretation grid for in vitro diagnostic control material classification under Regulation (EU) 2017/746, harmonising approach across Member States.",
-        "u": "https://health.ec.europa.eu/latest-updates/mdcg-2020-16-rev5-guidance-classification-rules-vitro-diagnostic-medical-devices-under-regulation-eu-2026-09-09_en",
-        "tp": [
-          "mdr",
-          "standards"
+          "other"
         ],
         "tg": [
           "medium",
-          "new"
+          "in-force"
         ],
         "v": "n"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-10-16--2026-11-30--pren-18229-1-logging-vote-final",
-      "reason": "First part of five-part AI trustworthiness framework enters formal approval phase, supporting Article 12 transparency requirements with Q1 2027 publication target.",
+      "id": "proposal-2026-10-23--2026-08-12--secnumcloud-3-2-in-force-france",
+      "reason": "SecNumCloud 3.2 entered into force by decree 12 Aug 2026, applicable to health data hosting providers in France.",
       "card": {
-        "id": "2026-11-30--pren-18229-1-logging-vote-final",
-        "d": "2026-11-30",
-        "l": "30 Nov 2026",
+        "id": "2026-08-12--secnumcloud-3-2-in-force-france",
+        "d": "2026-08-12",
+        "l": "12 Aug 2026",
         "y": 2026,
-        "t": "prEN 18229-1 — AI Logging Standard Vote",
-        "x": "Final vote on AI traceability requirements (Part 1 of 5-part trustworthiness framework) supporting Article 12 AI Act. Publication expected Q1 2027 if approved.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
+        "t": "SecNumCloud 3.2 — In Force (France)",
+        "x": "SecNumCloud 3.2 reference framework now mandatory for cloud providers hosting health data in France; aligns with upcoming EU cloud regulation.",
+        "u": "https://www.dm-experts.fr/2026/10/cloud-referentiel-national-secnumcloud-3-2-et-projet-de-reglement-europeen/",
+        "tp": [
+          "france",
+          "data",
+          "hds"
+        ],
+        "tg": [
+          "medium",
+          "in-force"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-23--2026-09-17--enisa-ai-dev-technical-opinion-v0-4",
+      "reason": "ENISA published draft v0.4 technical opinion on AI-assisted software development and cybersecurity implications.",
+      "card": {
+        "id": "2026-09-17--enisa-ai-dev-technical-opinion-v0-4",
+        "d": "2026-09-17",
+        "l": "17 Sep 2026",
+        "y": 2026,
+        "t": "ENISA — AI-Assisted Dev Technical Opinion v0.4",
+        "x": "Draft v0.4 addresses cybersecurity of AI-assisted software development; MDSW developers should review ahead of final publication.",
+        "u": "https://www.dm-experts.fr/2026/10/enisa-developpement-logiciel-assiste-par-lintelligence-artificielle/",
+        "tp": [
+          "ai",
+          "cyber"
+        ],
+        "tg": [
+          "medium",
+          "draft"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-23--2026-10-22--ansm-winter-surveillance-plan-2026-2027",
+      "reason": "ANSM activated winter surveillance plan 2026-2027 covering Oct 2026 – Mar 2027 for essential devices and medicines.",
+      "card": {
+        "id": "2026-10-22--ansm-winter-surveillance-plan-2026-2027",
+        "d": "2026-10-22",
+        "l": "22 Oct 2026",
+        "y": 2026,
+        "t": "ANSM — Winter Surveillance Plan 2026-2027 Active",
+        "x": "Enhanced post-market surveillance for respiratory devices and diagnostics Oct 2026 – Mar 2027; availability declarations may be required.",
+        "u": "https://ansm.sante.fr/",
+        "tp": [
+          "france",
+          "mdr"
+        ],
+        "tg": [
+          "medium",
+          "in-force"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "update",
+      "id": "proposal-2026-10-23--2026-10-21--uk-indefinite-ce-mark-recognition",
+      "existing_id": "2026-04-10--mhra-indefinite-ce-mark-recognition-consultation",
+      "reason": "[REVIEW: description entierement reecrite — verifier que ce n'est pas un nouveau jalon qui devrait etre un add] UK government confirmed indefinite CE mark recognition on 21 Oct 2026; status moves from consultation to in-force.",
+      "card": {
+        "id": "2026-10-21--uk-indefinite-ce-mark-recognition",
+        "d": "2026-10-21",
+        "l": "21 Oct 2026",
+        "y": 2026,
+        "t": "UK — Indefinite CE Mark Recognition Confirmed",
+        "x": "CE-marked EU devices permanently recognized in GB (England, Scotland, Wales); no UKCA requirement for EU manufacturers. NI continues EU rules.",
+        "u": "https://www.gov.uk/government/news/government-confirms-indefinite-recognition-of-ce-marked-medical-devices",
+        "tp": [
+          "uk",
+          "mdr"
+        ],
+        "tg": [
+          "high",
+          "in-force"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-23--2026-10-22--pren-18229-3-human-oversight-ai-final-vote",
+      "reason": "prEN 18229-3 (AI human oversight) entered final vote 22 Oct 2026, result expected 1 Jul 2027; aligns with AI Act Article 14.",
+      "card": {
+        "id": "2026-10-22--pren-18229-3-human-oversight-ai-final-vote",
+        "d": "2026-10-22",
+        "l": "22 Oct 2026",
+        "y": 2026,
+        "t": "prEN 18229-3 — AI Human Oversight Final Vote Begins",
+        "x": "Final approval vote on human oversight requirements for AI systems (AI Act Article 14); result expected 1 Jul 2027, then harmonised standard.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
         "tp": [
           "ai",
           "standards"
@@ -72,158 +142,41 @@
     },
     {
       "action": "add",
-      "id": "proposal-2026-10-16--2026-10-22--pren-18229-3-human-oversight-enquiry-closes",
-      "reason": "Public enquiry deadline for human oversight standard supporting Article 14 AI Act, with formal vote scheduled July 2027.",
-      "card": {
-        "id": "2026-10-22--pren-18229-3-human-oversight-enquiry-closes",
-        "d": "2026-10-22",
-        "l": "22 Oct 2026",
-        "y": 2026,
-        "t": "prEN 18229-3 — Human Oversight Enquiry Closes",
-        "x": "Public consultation deadline for AI human oversight standard (Part 3 of trustworthiness framework) supporting Article 14 AI Act. Vote scheduled 1 July 2027.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "medium",
-          "draft"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-16--2026-12-24--pren-18283-bias-management-enquiry-closes",
-      "reason": "Public enquiry deadline for AI bias management standard supporting Annex IV AI Act requirements on accuracy and non-discrimination, with vote scheduled March 2027.",
+      "id": "proposal-2026-10-23--2026-12-24--pren-18283-bias-management-enquiry-closes",
+      "reason": "prEN 18283 public enquiry on AI bias management closes 24 Dec 2026, vote 3 Mar 2027; implements AI Act Article 10.",
       "card": {
         "id": "2026-12-24--pren-18283-bias-management-enquiry-closes",
         "d": "2026-12-24",
         "l": "24 Dec 2026",
         "y": 2026,
         "t": "prEN 18283 — AI Bias Management Enquiry Closes",
-        "x": "Public consultation deadline for AI bias management standard supporting Annex IV AI Act requirements. Vote scheduled 3 March 2027.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
+        "x": "Public enquiry on bias identification and mitigation in AI systems ends 24 Dec 2026; final vote 3 Mar 2027. Key for high-risk MDSW.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
         "tp": [
           "ai",
           "standards"
         ],
         "tg": [
-          "medium",
+          "high",
           "draft"
         ],
-        "v": "n"
+        "v": "h"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-10-16--2026-09-16--en-iso-iec-24760-identity-management-published",
-      "reason": "Complete three-part identity management framework published, requiring audit of patient identity systems for HDS and EHDS compliance.",
+      "id": "proposal-2026-10-23--2026-10-23--en-iec-60601-2-28-a1-2026-published",
+      "reason": "CLC/TC 62 published amendment A1:2026 to EN IEC 60601-2-28:2019 for X-ray tube assemblies; in force immediately.",
       "card": {
-        "id": "2026-09-16--en-iso-iec-24760-identity-management-published",
-        "d": "2026-09-16",
-        "l": "16 Sep 2026",
+        "id": "2026-10-23--en-iec-60601-2-28-a1-2026-published",
+        "d": "2026-10-23",
+        "l": "23 Oct 2026",
         "y": 2026,
-        "t": "EN ISO/IEC 24760 Parts 1-3 Published",
-        "x": "Complete identity management framework covering concepts, reference architecture, and implementation practices. Affects HDS and EHDS compliance for patient identity systems.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "t": "EN IEC 60601-2-28:2019/A1:2026 Published",
+        "x": "Amendment A1:2026 sets safety and performance requirements for medical X-ray tube assemblies; effective immediately, no transition period.",
+        "u": "https://www.dm-experts.fr/2026/10/",
         "tp": [
-          "data",
-          "cyber",
           "standards"
-        ],
-        "tg": [
-          "medium",
-          "in-force"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-16--2026-09-01--en-iso-10993-3-2026-biocompatibility-published",
-      "reason": "Major revision of biocompatibility standard published with new test methods and evaluation criteria affecting biological risk assessment for all device classes.",
-      "card": {
-        "id": "2026-09-01--en-iso-10993-3-2026-biocompatibility-published",
-        "d": "2026-09-01",
-        "l": "Sep 2026",
-        "y": 2026,
-        "t": "EN ISO 10993-3:2026 — Biocompatibility Revision",
-        "x": "Major revision covering genetic, carcinogenic, and reproductive/developmental toxicity testing with new methods and evaluation criteria. Transition timeline to be confirmed by notified bodies.",
-        "u": "https://www.qualitiso.com/iso-10993-3-2026-principaux-changements/",
-        "tp": [
-          "mdr",
-          "standards"
-        ],
-        "tg": [
-          "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-16--2026-09-03--cnil-sanction-500k-health-data-breach",
-      "reason": "EUR 500k sanction for inadequate technical and organisational measures protecting patient data establishes enforcement precedent under GDPR Article 32.",
-      "card": {
-        "id": "2026-09-03--cnil-sanction-500k-health-data-breach",
-        "d": "2026-09-03",
-        "l": "3 Sep 2026",
-        "y": 2026,
-        "t": "CNIL — EUR 500k Health Data Sanction",
-        "x": "Hôpital privé de la Loire sanctioned for insufficient security measures (GDPR Art. 32) after breach affecting ~500,000 patients. Decision published 16 Oct 2026.",
-        "u": "https://www.cnil.fr/fr/actualites",
-        "tp": [
-          "france",
-          "data"
-        ],
-        "tg": [
-          "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-16--2026-10-14--uk-mhra-strategy-2030-ai-digital-health",
-      "reason": "MHRA unveils 2030 strategy establishing AI & Digital Health Centre and adaptive regulatory framework for AI-based medical devices.",
-      "card": {
-        "id": "2026-10-14--uk-mhra-strategy-2030-ai-digital-health",
-        "d": "2026-10-14",
-        "l": "14 Oct 2026",
-        "y": 2026,
-        "t": "UK MHRA — 2030 Strategy for AI & Digital Health",
-        "x": "Three pillars: AI & Digital Health Centre, adaptive regulatory framework for AI devices, and expanded Pre-determined Change Control Plans (PCCP) for AI. International harmonisation focus.",
-        "u": "https://www.gov.uk/government/organisations/medicines-and-healthcare-products-regulatory-agency",
-        "tp": [
-          "uk",
-          "ai"
-        ],
-        "tg": [
-          "high",
-          "new"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-16--2026-09-11--australia-tga-cdss-classification-rules",
-      "reason": "New CDSS classification rules and exemption clarifications entered into force, affecting clinical decision support software regulatory status.",
-      "card": {
-        "id": "2026-09-11--australia-tga-cdss-classification-rules",
-        "d": "2026-09-11",
-        "l": "11 Sep 2026",
-        "y": 2026,
-        "t": "Australia TGA — CDSS Classification Rules In Force",
-        "x": "New classification framework and exemption clarifications for clinical decision support systems entered into force in Australia.",
-        "u": "https://www.tga.gov.au/",
-        "tp": [
-          "other",
-          "ai"
         ],
         "tg": [
           "medium",
