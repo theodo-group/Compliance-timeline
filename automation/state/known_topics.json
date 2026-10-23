@@ -256,7 +256,7 @@
     "last_seen": "2026-10-16"
   },
   {
-    "key": "mdcg-2020-16-rev-5-nouvelle-grille-d-interpretation-pour-la-classification-ivd",
+    "key": "mdcg-2020-16-rev-5-nouvelle-grille-d-interpretation-pour-la-classification-ivdr",
     "title": "MDCG 2020-16 rev.5 : nouvelle grille d'interprétation pour la classification IVDR",
     "last_status": "new",
     "source_url": "https://health.ec.europa.eu/latest-updates/mdcg-2020-16-rev5-guidance-classification-rules-vitro-diagnostic-medical-devices-under-regulation-eu-2026-09-09_en",
@@ -273,11 +273,11 @@
   },
   {
     "key": "std-18229-3",
-    "title": "prEN 18229-3 (surveillance humaine IA) : enquête publique jusqu'au 22 octobre",
+    "title": "prEN 18229-3 (surveillance humaine IA) : entrée en vote final",
     "last_status": "draft",
-    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-09-11",
-    "last_seen": "2026-10-16"
+    "last_seen": "2026-10-23"
   },
   {
     "key": "enisa-cahier-des-charges-cybersecurite-pour-le-secteur-de-la-sante-et-plateforme",
@@ -456,12 +456,12 @@
     "last_seen": "2026-10-09"
   },
   {
-    "key": "australie-tga-nouvelles-regles-de-classification-et-exemptions-cdss",
-    "title": "TGA Australie : nouvelles règles de classification et exemptions CDSS",
+    "key": "tga-australie-nouvelles-regles-de-classification-et-exemptions-cdss",
+    "title": "TGA : mise à jour des règles de classification et clarification des exemptions CDSS",
     "last_status": "in-force",
     "source_url": "https://www.dm-experts.fr/2026/10/tga-mise-a-jour-des-regles-de-classification-et-clarification-des-exemptions-aux-systemes-de-support-a-la-decision-clinique/",
     "first_seen": "2026-10-09",
-    "last_seen": "2026-10-16"
+    "last_seen": "2026-10-23"
   },
   {
     "key": "normalisation-europeenne-proposition-de-refonte-du-systeme-de-normalisation",
@@ -473,11 +473,11 @@
   },
   {
     "key": "std-18283",
-    "title": "prEN 18283 (gestion des biais IA) : enquête publique jusqu'au 24 décembre",
+    "title": "prEN 18283 (gestion des biais IA) : enquête publique prolongée jusqu'au 24 décembre",
     "last_status": "draft",
-    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
     "first_seen": "2026-10-16",
-    "last_seen": "2026-10-16"
+    "last_seen": "2026-10-23"
   },
   {
     "key": "std-24760",
@@ -502,5 +502,93 @@
     "source_url": "https://www.gov.uk/government/news/mhra-2030-strategy-to-modernise-patient-centred-regulation-for-the-era-of-ai-and-personalised-medicines",
     "first_seen": "2026-10-16",
     "last_seen": "2026-10-16"
+  },
+  {
+    "key": "referentiel-secnumcloud-3-2-approuve-en-france",
+    "title": "Référentiel SecNumCloud 3.2 approuvé en France",
+    "last_status": "in-force",
+    "source_url": "https://www.dm-experts.fr/2026/10/cloud-referentiel-national-secnumcloud-3-2-et-projet-de-reglement-europeen/",
+    "first_seen": "2026-10-23",
+    "last_seen": "2026-10-23"
+  },
+  {
+    "key": "enisa-version-0-4-de-l-avis-technique-sur-le-developpement-logiciel-assiste-par-",
+    "title": "ENISA : version 0.4 de l'avis technique sur le développement logiciel assisté par IA",
+    "last_status": "draft",
+    "source_url": "https://www.dm-experts.fr/2026/10/enisa-developpement-logiciel-assiste-par-lintelligence-artificielle/",
+    "first_seen": "2026-10-23",
+    "last_seen": "2026-10-23"
+  },
+  {
+    "key": "ansm-publication-de-trois-comptes-rendus-de-comites",
+    "title": "ANSM : publication de trois comptes-rendus de comités",
+    "last_status": "new",
+    "source_url": "https://www.dm-experts.fr/2026/10/ansm-publications-de-trois-compte-rendus-de-reunions-de-comites/",
+    "first_seen": "2026-10-23",
+    "last_seen": "2026-10-23"
+  },
+  {
+    "key": "australie-et-royaume-uni-mise-a-jour-des-exigences-pour-les-tests-diagnostiques-",
+    "title": "Australie et Royaume-Uni : mise à jour des exigences pour les tests diagnostiques in vitro hors laboratoire",
+    "last_status": "new",
+    "source_url": "https://www.dm-experts.fr/2026/10/australie-et-royaume-uni-mise-a-jour-des-exigences-applicables-aux-tests-de-diagnostic-in-vitro-hors-laboratoire/",
+    "first_seen": "2026-10-23",
+    "last_seen": "2026-10-23"
+  },
+  {
+    "key": "etudes-combinees-guide-combine-project-2-sur-la-declaration-des-evenements-de-se",
+    "title": "Études combinées : guide COMBINE Project 2 sur la déclaration des événements de sécurité",
+    "last_status": "new",
+    "source_url": "https://www.dm-experts.fr/2026/10/etudes-combinees-guide-sur-la-declaration-des-evenements-de-securite-combine-project-2/",
+    "first_seen": "2026-10-23",
+    "last_seen": "2026-10-23"
+  },
+  {
+    "key": "evaluations-cliniques-communes-entree-discrete-pour-les-dispositifs-medicaux",
+    "title": "Évaluations cliniques communes : entrée discrète pour les dispositifs médicaux",
+    "last_status": "ongoing",
+    "source_url": "https://www.dm-experts.fr/2026/10/evaluations-cliniques-communes-une-entree-discrete-pour-les-dispositifs-medicaux/",
+    "first_seen": "2026-10-23",
+    "last_seen": "2026-10-23"
+  },
+  {
+    "key": "suisse-publication-des-bonnes-pratiques-de-vigilance-pour-dmdiv",
+    "title": "Suisse : publication des bonnes pratiques de vigilance pour DMDIV",
+    "last_status": "new",
+    "source_url": "https://www.dm-experts.fr/2026/10/suisse-bonnes-pratiques-de-vigilance-pour-les-dmdiv/",
+    "first_seen": "2026-10-23",
+    "last_seen": "2026-10-23"
+  },
+  {
+    "key": "ansm-activation-du-plan-de-surveillance-hivernal-2026-2027",
+    "title": "ANSM : activation du plan de surveillance hivernal 2026-2027",
+    "last_status": "in-force",
+    "source_url": "https://ansm.sante.fr/",
+    "first_seen": "2026-10-23",
+    "last_seen": "2026-10-23"
+  },
+  {
+    "key": "royaume-uni-reconnaissance-indefinie-des-marquages-ce-de-l-ue-pour-les-dispositi",
+    "title": "Royaume-Uni : reconnaissance indéfinie des marquages CE de l'UE pour les dispositifs médicaux",
+    "last_status": "in-force",
+    "source_url": "https://www.gov.uk/government/news/government-confirms-indefinite-recognition-of-ce-marked-medical-devices",
+    "first_seen": "2026-10-23",
+    "last_seen": "2026-10-23"
+  },
+  {
+    "key": "std-60601-2",
+    "title": "EN IEC 60601-2-28:2019/A1:2026 publiée (assemblages tubes à rayons X)",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
+    "first_seen": "2026-10-23",
+    "last_seen": "2026-10-23"
+  },
+  {
+    "key": "std-24970",
+    "title": "FprEN ISO/IEC 24970 (AI system logging) : vote final en cours",
+    "last_status": "draft",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+    "first_seen": "2026-10-23",
+    "last_seen": "2026-10-23"
   }
 ]
