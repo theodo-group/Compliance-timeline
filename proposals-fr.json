@@ -1,186 +1,211 @@
 {
-  "generated": "2026-10-23",
+  "generated": "2026-10-30",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-10-23--2026-09-11--tga-classification-rules-cdss-exemptions",
-      "reason": "TGA finalized new classification rules and CDSS exemption clarifications applicable to MDSW targeting Australia.",
+      "id": "proposal-2026-10-30--2026-10-28--en-iso-iec-27018-2026-published",
+      "reason": "New edition EN ISO/IEC 27018:2026 published, critical for EHDS/HDS compliance and cloud provider audits.",
       "card": {
-        "id": "2026-09-11--tga-classification-rules-cdss-exemptions",
-        "d": "2026-09-11",
-        "l": "11 sep 2026",
+        "id": "2026-10-28--en-iso-iec-27018-2026-published",
+        "d": "2026-10-28",
+        "l": "28 oct 2026",
         "y": 2026,
-        "t": "TGA — Règles de classification et exemptions CDSS actualisées",
-        "x": "L'Australie a révisé les critères de classification des dispositifs et clarifié les exemptions applicables aux systèmes d'aide à la décision clinique, en vigueur immédiatement.",
-        "u": "https://www.dm-experts.fr/2026/10/tga-mise-a-jour-des-regles-de-classification-et-clarification-des-exemptions-aux-systemes-de-support-a-la-decision-clinique/",
+        "t": "EN ISO/IEC 27018:2026 publiée",
+        "x": "La protection des DCP dans les nuages publics est désormais obligatoire. Critique pour la conformité EHDS/HDS; auditez immédiatement vos fournisseurs de nuage.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
         "tp": [
-          "other"
-        ],
-        "tg": [
-          "medium",
-          "in-force"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-23--2026-08-12--secnumcloud-3-2-in-force-france",
-      "reason": "SecNumCloud 3.2 entered into force by decree 12 Aug 2026, applicable to health data hosting providers in France.",
-      "card": {
-        "id": "2026-08-12--secnumcloud-3-2-in-force-france",
-        "d": "2026-08-12",
-        "l": "12 août 2026",
-        "y": 2026,
-        "t": "SecNumCloud 3.2 — En vigueur (France)",
-        "x": "Le référentiel SecNumCloud 3.2 est désormais obligatoire pour les prestataires cloud hébergeant des données de santé en France ; s'aligne avec la future réglementation européenne sur le cloud.",
-        "u": "https://www.dm-experts.fr/2026/10/cloud-referentiel-national-secnumcloud-3-2-et-projet-de-reglement-europeen/",
-        "tp": [
-          "france",
           "data",
-          "hds"
-        ],
-        "tg": [
-          "medium",
-          "in-force"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-23--2026-09-17--enisa-ai-dev-technical-opinion-v0-4",
-      "reason": "ENISA published draft v0.4 technical opinion on AI-assisted software development and cybersecurity implications.",
-      "card": {
-        "id": "2026-09-17--enisa-ai-dev-technical-opinion-v0-4",
-        "d": "2026-09-17",
-        "l": "17 sep 2026",
-        "y": 2026,
-        "t": "ENISA — Avis technique sur le développement assisté par IA v0.4",
-        "x": "Le brouillon v0.4 traite de la cybersécurité du développement logiciel assisté par IA ; les développeurs MDSW doivent l'examiner avant la publication finale.",
-        "u": "https://www.dm-experts.fr/2026/10/enisa-developpement-logiciel-assiste-par-lintelligence-artificielle/",
-        "tp": [
-          "ai",
-          "cyber"
-        ],
-        "tg": [
-          "medium",
-          "draft"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-23--2026-10-22--ansm-winter-surveillance-plan-2026-2027",
-      "reason": "ANSM activated winter surveillance plan 2026-2027 covering Oct 2026 – Mar 2027 for essential devices and medicines.",
-      "card": {
-        "id": "2026-10-22--ansm-winter-surveillance-plan-2026-2027",
-        "d": "2026-10-22",
-        "l": "22 oct. 2026",
-        "y": 2026,
-        "t": "ANSM — Plan de surveillance hivernale 2026-2027 actif",
-        "x": "Surveillance renforcée du marché pour les dispositifs respiratoires et les diagnostics oct. 2026 – mars 2027 ; les déclarations de disponibilité peuvent être requises.",
-        "u": "https://ansm.sante.fr/",
-        "tp": [
-          "france",
-          "mdr"
-        ],
-        "tg": [
-          "medium",
-          "in-force"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "update",
-      "id": "proposal-2026-10-23--2026-10-21--uk-indefinite-ce-mark-recognition",
-      "existing_id": "2026-04-10--mhra-indefinite-ce-mark-recognition-consultation",
-      "reason": "[REVIEW: description entierement reecrite — verifier que ce n'est pas un nouveau jalon qui devrait etre un add] UK government confirmed indefinite CE mark recognition on 21 Oct 2026; status moves from consultation to in-force.",
-      "card": {
-        "id": "2026-10-21--uk-indefinite-ce-mark-recognition",
-        "d": "2026-10-21",
-        "l": "21 oct 2026",
-        "y": 2026,
-        "t": "Royaume-Uni — Reconnaissance du marquage CE confirmée indéfiniment",
-        "x": "Les dispositifs marqués CE de l'UE sont reconnus de manière permanente en GB (Angleterre, Écosse, Pays de Galles) ; aucune exigence UKCA pour les fabricants de l'UE. L'Irlande du Nord continue à appliquer les règles de l'UE.",
-        "u": "https://www.gov.uk/government/news/government-confirms-indefinite-recognition-of-ce-marked-medical-devices",
-        "tp": [
-          "uk",
-          "mdr"
-        ],
-        "tg": [
-          "high",
-          "in-force"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-23--2026-10-22--pren-18229-3-human-oversight-ai-final-vote",
-      "reason": "prEN 18229-3 (AI human oversight) entered final vote 22 Oct 2026, result expected 1 Jul 2027; aligns with AI Act Article 14.",
-      "card": {
-        "id": "2026-10-22--pren-18229-3-human-oversight-ai-final-vote",
-        "d": "2026-10-22",
-        "l": "22 oct 2026",
-        "y": 2026,
-        "t": "prEN 18229-3 — Surveillance humaine de l'IA, vote final lancé",
-        "x": "Vote d'approbation final sur les exigences de surveillance humaine des systèmes d'IA (article 14 de la loi sur l'IA) ; résultat attendu le 1er juillet 2027, puis norme harmonisée.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
-        "tp": [
-          "ai",
+          "ehds",
+          "hds",
           "standards"
         ],
         "tg": [
           "high",
-          "draft"
+          "new"
         ],
         "v": "h"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-10-23--2026-12-24--pren-18283-bias-management-enquiry-closes",
-      "reason": "prEN 18283 public enquiry on AI bias management closes 24 Dec 2026, vote 3 Mar 2027; implements AI Act Article 10.",
+      "id": "proposal-2026-10-30--2026-10-23--en-iec-60601-2-28-2019-a1-2026-published",
+      "reason": "Amendment A1:2026 to X-ray tube assemblies standard published, impacts diagnostic imaging manufacturers.",
       "card": {
-        "id": "2026-12-24--pren-18283-bias-management-enquiry-closes",
-        "d": "2026-12-24",
-        "l": "24 décembre 2026",
-        "y": 2026,
-        "t": "prEN 18283 — Clôture de la consultation publique sur la gestion des biais en IA",
-        "x": "La consultation publique sur l'identification et l'atténuation des biais dans les systèmes d'IA se termine le 24 décembre 2026 ; vote final le 3 mars 2027. Essentiel pour les MDSW à haut risque.",
-        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
-        "tp": [
-          "ai",
-          "standards"
-        ],
-        "tg": [
-          "high",
-          "draft"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-10-23--2026-10-23--en-iec-60601-2-28-a1-2026-published",
-      "reason": "CLC/TC 62 published amendment A1:2026 to EN IEC 60601-2-28:2019 for X-ray tube assemblies; in force immediately.",
-      "card": {
-        "id": "2026-10-23--en-iec-60601-2-28-a1-2026-published",
+        "id": "2026-10-23--en-iec-60601-2-28-2019-a1-2026-published",
         "d": "2026-10-23",
         "l": "23 oct 2026",
         "y": 2026,
-        "t": "EN IEC 60601-2-28:2019/A1:2026 Publié",
-        "x": "L'amendement A1:2026 établit les exigences de sécurité et de performance pour les assemblages de tubes radiogènes médicaux ; applicable immédiatement, sans période de transition.",
-        "u": "https://www.dm-experts.fr/2026/10/",
+        "t": "EN IEC 60601-2-28:2019/A1:2026 Publiée",
+        "x": "Amendement à la norme relative aux gaines de tube radiogène. Vérifier que les gaines existantes sont conformes aux exigences révisées.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
         "tp": [
           "standards"
         ],
         "tg": [
           "medium",
+          "new"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-30--2026-11-24--fpren-iso-iec-24970-vote-closes",
+      "reason": "AI system logging standard (Art. 12 AI Act) in final vote, approval expected 24 Nov 2026.",
+      "card": {
+        "id": "2026-11-24--fpren-iso-iec-24970-vote-closes",
+        "d": "2026-11-24",
+        "l": "24 nov 2026",
+        "y": 2026,
+        "t": "FprEN ISO/IEC 24970 — Clôture du vote",
+        "x": "Vote final de la norme relative à la journalisation des systèmes IA (art. 12 de la loi sur l'IA). Présomption de conformité dès la publication au JOUE.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "critical",
+          "draft"
+        ],
+        "v": "c"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-30--2027-07-01--pren-18229-3-vote-closes",
+      "reason": "Human oversight for high-risk AI (Art. 14) moved to approval stage, vote 1 Jul 2027.",
+      "card": {
+        "id": "2027-07-01--pren-18229-3-vote-closes",
+        "d": "2027-07-01",
+        "l": "1 juillet 2027",
+        "y": 2027,
+        "t": "prEN 18229-3 — Clôture du vote",
+        "x": "Exigences de surveillance humaine pour l'IA à haut risque (art. 14 de la loi IA). Partie 3 du cadre de confiance en 5 parties.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "high",
+          "draft"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-30--2026-12-24--pren-18283-enquiry-closes",
+      "reason": "AI bias management (Art. 10/15 AI Act) enquiry extended to 24 Dec 2026, vote 3 Mar 2027.",
+      "card": {
+        "id": "2026-12-24--pren-18283-enquiry-closes",
+        "d": "2026-12-24",
+        "l": "24 décembre 2026",
+        "y": 2026,
+        "t": "prEN 18283 — Fin de l'enquête publique",
+        "x": "Gestion des biais de l'IA (art. 10/15 de la Loi IA). L'enquête publique se termine ; vote le 3 mars 2027. Soumettez vos commentaires dès maintenant.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "high",
+          "draft"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-30--2027-03-07--pren-18229-2-vote-closes",
+      "reason": "AI transparency (Art. 13) advanced to approval, vote 7 Mar 2027.",
+      "card": {
+        "id": "2027-03-07--pren-18229-2-vote-closes",
+        "d": "2027-03-07",
+        "l": "7 mars 2027",
+        "y": 2027,
+        "t": "prEN 18229-2 — Clôture du vote",
+        "x": "Exigences de transparence pour l'IA à haut risque (art. 13 Loi IA). Partie 2 du cadre de confiance.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "tp": [
+          "ai",
+          "standards"
+        ],
+        "tg": [
+          "high",
+          "draft"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-30--2026-07-30--pren-18282-vote-completed",
+      "reason": "AI cybersecurity (Art. 15(5)) vote completed 30 Jul 2026, publication imminent.",
+      "card": {
+        "id": "2026-07-30--pren-18282-vote-completed",
+        "d": "2026-07-30",
+        "l": "30 juil. 2026",
+        "y": 2026,
+        "t": "prEN 18282 — Vote terminé",
+        "x": "Cybersécurité de l'IA (Art. 15(5) Règlement IA) approuvée. Présomption de conformité une fois publiée au JOUE.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=205:22:::::FSP_ORG_ID,FSP_LANG_ID:2916257,25&cs=114251C6C0B684FBBC069923513BF6348",
+        "tp": [
+          "ai",
+          "cyber",
+          "standards"
+        ],
+        "tg": [
+          "critical",
           "in-force"
+        ],
+        "v": "c"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-30--2026-09-15--en-iso-iec-24760-parts-1-2-3-published",
+      "reason": "Identity management framework (three parts) published Sep 2026, relevant for EHDS and user authentication.",
+      "card": {
+        "id": "2026-09-15--en-iso-iec-24760-parts-1-2-3-published",
+        "d": "2026-09-15",
+        "l": "septembre 2026",
+        "y": 2026,
+        "t": "EN ISO/IEC 24760 (parties 1-3) publiée",
+        "x": "Cadre de gestion d'identité : terminologie, architecture, pratiques. Critique pour l'EHDS et l'authentification des utilisateurs.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+        "tp": [
+          "data",
+          "ehds",
+          "standards"
+        ],
+        "tg": [
+          "medium",
+          "new"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-10-30--2026-10-26--fda-pccp-web-pages-updated",
+      "reason": "FDA updated PCCP guidance pages (not new final guidance), clarifies adaptive AI/ML submission strategy.",
+      "card": {
+        "id": "2026-10-26--fda-pccp-web-pages-updated",
+        "d": "2026-10-26",
+        "l": "26 oct 2026",
+        "y": 2026,
+        "t": "Mise à jour des pages web FDA PCCP",
+        "x": "Clarifications sur la structure du PCCP et l'évaluation de l'impact pour les dispositifs IA/ML adaptatifs. Examen pour l'alignement des soumissions.",
+        "u": "https://www.fda.gov/medical-devices/software-medical-device-samd/predetermined-change-control-plans-pccp",
+        "tp": [
+          "us",
+          "ai"
+        ],
+        "tg": [
+          "medium"
         ],
         "v": "n"
       }
