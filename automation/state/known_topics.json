@@ -488,7 +488,7 @@
     "last_seen": "2026-10-30"
   },
   {
-    "key": "ansm-france-activation-du-plan-de-surveillance-hivernal-2026-2027",
+    "key": "mhra-rappel-de-prothese-aerstent-tby-29-octobre",
     "title": "MHRA : rappel de prothèse Aerstent TBY (29 octobre)",
     "last_status": "new",
     "source_url": "https://ansm.sante.fr/actualites/a-la-une",
@@ -614,5 +614,61 @@
     "source_url": "https://www.fda.gov/medical-devices/software-medical-device-samd/predetermined-change-control-plans-pccp",
     "first_seen": "2026-10-30",
     "last_seen": "2026-10-30"
+  },
+  {
+    "key": "mdcg-2026-6-premieres-lignes-directrices-sur-les-donnees-cliniques-pour-les-div-",
+    "title": "MDCG 2026-6 : premières lignes directrices sur les données cliniques pour les DIV orphelins",
+    "last_status": "new",
+    "source_url": "https://health.ec.europa.eu/latest-updates/new-guidance-document-mdcg-2026-6-guidance-clinical-evidence-orphan-ivds-2026-11-03_en",
+    "first_seen": "2026-11-06",
+    "last_seen": "2026-11-06"
+  },
+  {
+    "key": "appels-de-l-industrie-pour-simplifier-le-cadre-ai-act-mdr-ivdr-pour-les-dm-avec-",
+    "title": "Appels de l'industrie pour simplifier le cadre AI Act/MDR/IVDR pour les DM avec IA",
+    "last_status": "ongoing",
+    "source_url": "https://www.raps.org/resource/experts-call-for-streamlined-eu-ai-framework-urge-greater-literacy.html",
+    "first_seen": "2026-11-06",
+    "last_seen": "2026-11-06"
+  },
+  {
+    "key": "alerte-enisa-cyberattaques-contre-systemes-de-refrigeration-connectes-y-compris-",
+    "title": "Alerte ENISA : cyberattaques contre systèmes de réfrigération connectés (y compris santé)",
+    "last_status": "new",
+    "source_url": "https://securityaffairs.com/202528/security/enisa-warns-of-cyberattacks-targeting-refrigeration-systems-across-europe.html",
+    "first_seen": "2026-11-06",
+    "last_seen": "2026-11-06"
+  },
+  {
+    "key": "reconnaissance-du-marquage-ce-ue-prolongee-a-duree-indeterminee-au-royaume-uni",
+    "title": "Reconnaissance du marquage CE UE prolongée à durée indéterminée au Royaume-Uni",
+    "last_status": "in-force",
+    "source_url": "https://www.dm-experts.fr/2026/11/mhra-reconnaissance-a-duree-indeterminee-du-marquage-ce-au-royaume-uni/",
+    "first_seen": "2026-11-06",
+    "last_seen": "2026-11-06"
+  },
+  {
+    "key": "mhra-publie-une-guidance-de-mise-sur-le-marche-pour-les-samd",
+    "title": "MHRA publie une guidance de mise sur le marché pour les SaMD",
+    "last_status": "new",
+    "source_url": "https://www.gov.uk/guidance/regulating-medical-devices-in-the-uk",
+    "first_seen": "2026-11-06",
+    "last_seen": "2026-11-06"
+  },
+  {
+    "key": "fda-qualifie-la-fonction-historique-de-fibrillation-auriculaire-apple-watch-pour",
+    "title": "FDA qualifie la fonction « Historique de fibrillation auriculaire » Apple Watch pour essais cliniques",
+    "last_status": "new",
+    "source_url": "https://digital-strategy.ec.europa.eu/en/news",
+    "first_seen": "2026-11-06",
+    "last_seen": "2026-11-06"
+  },
+  {
+    "key": "tga-consultation-sur-hausse-des-frais-reglementaires-2027-2028-australie",
+    "title": "TGA : consultation sur hausse des frais réglementaires 2027-2028 (Australie)",
+    "last_status": "draft",
+    "source_url": "https://www.dm-experts.fr/2026/11/tga-hausse-des-frais-reglementaires-et-redevances-annuelles-pour-2027-2028/",
+    "first_seen": "2026-11-06",
+    "last_seen": "2026-11-06"
   }
 ]
