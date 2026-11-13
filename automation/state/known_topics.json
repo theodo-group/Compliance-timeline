@@ -617,11 +617,11 @@
   },
   {
     "key": "mdcg-2026-6-premieres-lignes-directrices-sur-les-donnees-cliniques-pour-les-div-",
-    "title": "MDCG 2026-6 : premières lignes directrices sur les données cliniques pour les DIV orphelins",
+    "title": "MDCG 2026-6 : données cliniques pour les DIV orphelins",
     "last_status": "new",
     "source_url": "https://health.ec.europa.eu/latest-updates/new-guidance-document-mdcg-2026-6-guidance-clinical-evidence-orphan-ivds-2026-11-03_en",
     "first_seen": "2026-11-06",
-    "last_seen": "2026-11-06"
+    "last_seen": "2026-11-13"
   },
   {
     "key": "appels-de-l-industrie-pour-simplifier-le-cadre-ai-act-mdr-ivdr-pour-les-dm-avec-",
@@ -651,9 +651,9 @@
     "key": "mhra-publie-une-guidance-de-mise-sur-le-marche-pour-les-samd",
     "title": "MHRA publie une guidance de mise sur le marché pour les SaMD",
     "last_status": "new",
-    "source_url": "https://www.gov.uk/guidance/regulating-medical-devices-in-the-uk",
+    "source_url": "https://www.gov.uk/guidance/register-medical-devices-to-place-on-the-market",
     "first_seen": "2026-11-06",
-    "last_seen": "2026-11-06"
+    "last_seen": "2026-11-13"
   },
   {
     "key": "fda-qualifie-la-fonction-historique-de-fibrillation-auriculaire-apple-watch-pour",
@@ -670,5 +670,69 @@
     "source_url": "https://www.dm-experts.fr/2026/11/tga-hausse-des-frais-reglementaires-et-redevances-annuelles-pour-2027-2028/",
     "first_seen": "2026-11-06",
     "last_seen": "2026-11-06"
+  },
+  {
+    "key": "parlement-europeen-adoption-de-l-avis-imco-sur-la-revision-mdr-ivdr",
+    "title": "Parlement européen : adoption de l'avis IMCO sur la révision MDR/IVDR",
+    "last_status": "ongoing",
+    "source_url": "https://health.ec.europa.eu/medical-devices-sector/latest-updates_en",
+    "first_seen": "2026-11-13",
+    "last_seen": "2026-11-13"
+  },
+  {
+    "key": "rappel-de-la-date-limite-eudamed-du-28-novembre-pour-les-dispositifs-existants",
+    "title": "Rappel de la date limite EUDAMED du 28 novembre pour les dispositifs existants",
+    "last_status": "in-force",
+    "source_url": "https://www.hpra.ie/news-events/news/article/eudamed-udi-device-registration-deadline",
+    "first_seen": "2026-11-13",
+    "last_seen": "2026-11-13"
+  },
+  {
+    "key": "mdcg-2026-4-rev-1-retard-pour-le-module-ss-c-p-d-eudamed",
+    "title": "MDCG 2026-4 rev.1 : retard pour le module SS(C)P d'EUDAMED",
+    "last_status": "new",
+    "source_url": "https://health.ec.europa.eu/latest-updates/new-revision-mdcg-position-paper-management-sscp-eudamed-after-mandatory-use-2026-10-30_en",
+    "first_seen": "2026-11-13",
+    "last_seen": "2026-11-13"
+  },
+  {
+    "key": "cnil-nouvelles-lignes-directrices-sur-les-recherches-internes-pour-les-professio",
+    "title": "CNIL : nouvelles lignes directrices sur les recherches internes pour les professionnels de santé",
+    "last_status": "new",
+    "source_url": "https://www.cnil.fr/fr/actualite",
+    "first_seen": "2026-11-13",
+    "last_seen": "2026-11-13"
+  },
+  {
+    "key": "nouvelles-normes-harmonisees-mdr-ivdr-publiees-au-joue",
+    "title": "Nouvelles normes harmonisées MDR/IVDR publiées au JOUE",
+    "last_status": "new",
+    "source_url": "https://health.ec.europa.eu/medical-devices-topics-interest/harmonised-standards_en",
+    "first_seen": "2026-11-13",
+    "last_seen": "2026-11-13"
+  },
+  {
+    "key": "fda-et-health-isac-alerte-sur-les-risques-cybersecurite-des-robots-medicaux-tele",
+    "title": "FDA et Health-ISAC : alerte sur les risques cybersécurité des robots médicaux téléopérés",
+    "last_status": "new",
+    "source_url": "https://www.fda.gov/",
+    "first_seen": "2026-11-13",
+    "last_seen": "2026-11-13"
+  },
+  {
+    "key": "mhra-guidance-pccp-attendue-d-ici-fin-2026",
+    "title": "MHRA : guidance PCCP attendue d'ici fin 2026",
+    "last_status": "ongoing",
+    "source_url": "https://www.gov.uk/health-and-social-care/medicines-medical-devices-blood",
+    "first_seen": "2026-11-13",
+    "last_seen": "2026-11-13"
+  },
+  {
+    "key": "fda-politique-ia-generative-attendue-dans-les-prochains-mois",
+    "title": "FDA : politique IA générative attendue dans les prochains mois",
+    "last_status": "ongoing",
+    "source_url": "https://www.fda.gov/",
+    "first_seen": "2026-11-13",
+    "last_seen": "2026-11-13"
   }
 ]
