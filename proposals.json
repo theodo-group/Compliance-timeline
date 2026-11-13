@@ -1,17 +1,60 @@
 {
-  "generated": "2026-11-06",
+  "generated": "2026-11-13",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-11-06--2026-11-03--mdcg-2026-6-orphan-ivd-clinical-evidence",
-      "reason": "First dedicated guidance on clinical evidence requirements for orphan IVDs under IVDR, filling regulatory gap for low-volume devices.",
+      "id": "proposal-2026-11-13--2026-11-06--uk-mhra-samd-market-access-guidance",
+      "reason": "MHRA published first official guidance for SaMD market access in GB and NI, clarifying UK-specific requirements distinct from EU MDR.",
       "card": {
-        "id": "2026-11-03--mdcg-2026-6-orphan-ivd-clinical-evidence",
+        "id": "2026-11-06--uk-mhra-samd-market-access-guidance",
+        "d": "2026-11-06",
+        "l": "6 Nov 2026",
+        "y": 2026,
+        "t": "UK MHRA — SaMD Market Access Guidance",
+        "x": "First official guidance on regulatory pathways for software as medical devices in GB and NI markets.",
+        "u": "https://www.gov.uk/guidance/register-medical-devices-to-place-on-the-market",
+        "tp": [
+          "uk"
+        ],
+        "tg": [
+          "new",
+          "medium"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-11-13--2026-11-10--ep-imco-mdr-ivdr-revision-opinion",
+      "reason": "European Parliament IMCO committee adopted its opinion on the MDR/IVDR revision proposal, advancing the legislative process.",
+      "card": {
+        "id": "2026-11-10--ep-imco-mdr-ivdr-revision-opinion",
+        "d": "2026-11-10",
+        "l": "10 Nov 2026",
+        "y": 2026,
+        "t": "EP IMCO — MDR/IVDR Revision Opinion Adopted",
+        "x": "Parliament committee opinion on COM(2025) 0404 adopted; trilogue negotiations ongoing with no final adoption date set.",
+        "u": "https://health.ec.europa.eu/medical-devices-sector/latest-updates_en",
+        "tp": [
+          "mdr"
+        ],
+        "tg": [
+          "medium"
+        ],
+        "v": "n"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-11-13--2026-11-03--mdcg-2026-6-orphan-ivd-clinical-data",
+      "reason": "New MDCG guidance published providing specific framework for clinical evidence in orphan/rare disease IVDs including IVD software.",
+      "card": {
+        "id": "2026-11-03--mdcg-2026-6-orphan-ivd-clinical-data",
         "d": "2026-11-03",
         "l": "3 Nov 2026",
         "y": 2026,
-        "t": "MDCG 2026-6: Orphan IVD Clinical Evidence Guidance",
-        "x": "First guidance on clinical evidence for orphan in vitro diagnostic devices under IVDR, addressing challenges for low-volume market products.",
+        "t": "MDCG 2026-6 — Orphan IVD Clinical Data Guidance",
+        "x": "Guidance on clinical evidence for IVDs targeting rare diseases or small populations, including diagnostic software.",
         "u": "https://health.ec.europa.eu/latest-updates/new-guidance-document-mdcg-2026-6-guidance-clinical-evidence-orphan-ivds-2026-11-03_en",
         "tp": [
           "mdr",
@@ -26,64 +69,64 @@
     },
     {
       "action": "update",
-      "id": "proposal-2026-11-06--2026-04-10--mhra-indefinite-ce-mark-recognition-consultation",
-      "existing_id": "2026-04-10--mhra-indefinite-ce-mark-recognition-consultation",
-      "reason": "Consultation closed, indefinite CE recognition confirmed on 21 Oct 2026, removing previous uncertainty and transition deadlines.",
+      "id": "proposal-2026-11-13--2026-11-28--eudamed-existing-devices-registration-deadline",
+      "existing_id": "2026-11-28--eudamed-existing-devices-registration-deadline",
+      "reason": "[REVIEW: description entierement reecrite — verifier que ce n'est pas un nouveau jalon qui devrait etre un add] Three Member States (Ireland, Portugal, Estonia) issued compliance notices 9-12 Nov confirming the 28 Nov deadline is critical and imminent.",
       "card": {
-        "id": "2026-04-10--mhra-indefinite-ce-mark-recognition-consultation",
-        "d": "2026-10-21",
-        "l": "21 Oct 2026",
+        "id": "2026-11-28--eudamed-existing-devices-registration-deadline",
+        "d": "2026-11-28",
+        "l": "28 Nov 2026",
         "y": 2026,
-        "t": "MHRA Indefinite CE Mark Recognition — Confirmed",
-        "x": "CE-marked devices may be placed on GB market indefinitely without mandatory UKCA transition. Removes previous uncertainty; ~90% of GB devices are CE-marked.",
-        "u": "https://www.dm-experts.fr/2026/11/mhra-reconnaissance-a-duree-indeterminee-du-marquage-ce-au-royaume-uni/",
+        "t": "EUDAMED — Existing Devices Registration Deadline",
+        "x": "Mandatory registration of all devices placed on market before 28 May 2026 and still marketed. Covers MDR, IVDR, and transition devices with valid certificates. NBs have until 28 May 2027 for pre-28 May certificates.",
+        "u": "https://www.hpra.ie/news-events/news/article/eudamed-udi-device-registration-deadline",
         "tp": [
-          "uk",
           "mdr"
         ],
         "tg": [
-          "in-force",
-          "high"
-        ],
-        "v": "h"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-11-06--2026-11-04--enisa-alert-cold-chain-cyberattacks",
-      "reason": "ENISA alert on active cyberattacks targeting refrigeration systems including healthcare cold chains; CRA reporting obligations in force since 11 Sep 2026.",
-      "card": {
-        "id": "2026-11-04--enisa-alert-cold-chain-cyberattacks",
-        "d": "2026-11-04",
-        "l": "4 Nov 2026",
-        "y": 2026,
-        "t": "ENISA Alert: Cold Chain Cyberattacks",
-        "x": "Joint alert on attacks targeting connected refrigeration systems including healthcare cold chains. CRA vulnerability reporting obligations apply since 11 Sep 2026.",
-        "u": "https://securityaffairs.com/202528/security/enisa-warns-of-cyberattacks-targeting-refrigeration-systems-across-europe.html",
-        "tp": [
-          "cyber"
-        ],
-        "tg": [
           "critical",
-          "new"
+          "in-force"
         ],
         "v": "c"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-11-06--2026-11-05--fda-qualifies-apple-watch-afib-history-biomarker",
-      "reason": "FDA qualifies Apple Watch AFib History as secondary efficacy endpoint for cardiac ablation device trials, enabling new trial pathway.",
+      "id": "proposal-2026-11-13--2026-10-30--mdcg-2026-4-rev1-sscp-module-delay",
+      "reason": "MDCG 2026-4 rev.1 acknowledges technical delays in EUDAMED SS(C)P module despite 30 Oct mandatory date; manufacturers must monitor for go-live.",
       "card": {
-        "id": "2026-11-05--fda-qualifies-apple-watch-afib-history-biomarker",
-        "d": "2026-11-05",
-        "l": "5 Nov 2026",
+        "id": "2026-10-30--mdcg-2026-4-rev1-sscp-module-delay",
+        "d": "2026-10-30",
+        "l": "30 Oct 2026",
         "y": 2026,
-        "t": "FDA Qualifies Apple Watch AFib History for Clinical Trials",
-        "x": "Atrial Fibrillation History feature qualified as secondary efficacy endpoint for cardiac ablation device trials. Distinct from general clinical use authorization.",
-        "u": "https://digital-strategy.ec.europa.eu/en/news",
+        "t": "MDCG 2026-4 rev.1 — SS(C)P Module Delay",
+        "x": "Technical delays in EUDAMED SS(C)P module acknowledged; no new legal deadline set. Manufacturers must upload summaries immediately when module becomes operational.",
+        "u": "https://health.ec.europa.eu/latest-updates/new-revision-mdcg-position-paper-management-sscp-eudamed-after-mandatory-use-2026-10-30_en",
         "tp": [
-          "us"
+          "mdr"
+        ],
+        "tg": [
+          "high",
+          "new"
+        ],
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-11-13--2026-11-10--eu-harmonised-standards-mdr-ivdr-update",
+      "reason": "Commission published new harmonised standards under MDR/IVDR covering safety and clinical investigations; detailed references to be reviewed.",
+      "card": {
+        "id": "2026-11-10--eu-harmonised-standards-mdr-ivdr-update",
+        "d": "2026-11-10",
+        "l": "10 Nov 2026",
+        "y": 2026,
+        "t": "EU Harmonised Standards — MDR/IVDR Update",
+        "x": "New harmonised standards published in OJEU covering safety and clinical investigations. No specific software standards identified in initial summary.",
+        "u": "https://health.ec.europa.eu/medical-devices-topics-interest/harmonised-standards_en",
+        "tp": [
+          "mdr",
+          "standards"
         ],
         "tg": [
           "new",
@@ -94,24 +137,48 @@
     },
     {
       "action": "add",
-      "id": "proposal-2026-11-06--2026-11-06--mhra-samd-placing-on-market-guidance",
-      "reason": "New comprehensive MHRA guidance covering all key steps for SaMD market placement in UK, including classification and conformity pathways.",
+      "id": "proposal-2026-11-13--2026-11-12--fda-health-isac-teleoperated-robot-cyber",
+      "reason": "FDA and Health-ISAC joint alert on cybersecurity vulnerabilities in teleoperated medical robots; clinical consequences must be integrated into MDR/IVDR risk assessments.",
       "card": {
-        "id": "2026-11-06--mhra-samd-placing-on-market-guidance",
-        "d": "2026-11-06",
-        "l": "6 Nov 2026",
+        "id": "2026-11-12--fda-health-isac-teleoperated-robot-cyber",
+        "d": "2026-11-12",
+        "l": "12 Nov 2026",
         "y": 2026,
-        "t": "MHRA SaMD Placing on Market Guidance",
-        "x": "Comprehensive guidance covering device determination, classification, conformity pathways, marking, standards, clinical investigations and registration for SaMD in UK.",
-        "u": "https://www.gov.uk/guidance/regulating-medical-devices-in-the-uk",
+        "t": "FDA/Health-ISAC — Teleoperated Robot Cyber Alert",
+        "x": "Joint alert on vulnerabilities in teleoperated medical robots: session hijacking, command injection, credential theft. Requires clinical risk assessment per MDR Art. 10.12 and IVDR Art. 10.13.",
+        "u": "https://www.fda.gov/",
         "tp": [
-          "uk"
+          "cyber",
+          "us"
         ],
         "tg": [
-          "new",
-          "medium"
+          "high",
+          "new"
         ],
-        "v": "n"
+        "v": "h"
+      }
+    },
+    {
+      "action": "add",
+      "id": "proposal-2026-11-13--2026-11-11--mhra-pccp-guidance-q4-2026",
+      "reason": "MHRA confirmed at MedTech Boston that draft PCCP guidance for AI device predetermined change control plans will be published before end Q4 2026.",
+      "card": {
+        "id": "2026-11-11--mhra-pccp-guidance-q4-2026",
+        "d": "2026-11-11",
+        "l": "Q4 2026",
+        "y": 2026,
+        "t": "MHRA PCCP Guidance — Expected Q4 2026",
+        "x": "Draft guidance on predetermined change control plans for AI medical devices expected before end 2026. Public consultation to follow.",
+        "u": "https://www.gov.uk/health-and-social-care/medicines-medical-devices-blood",
+        "tp": [
+          "uk",
+          "ai"
+        ],
+        "tg": [
+          "high",
+          "new"
+        ],
+        "v": "h"
       }
     }
   ]
