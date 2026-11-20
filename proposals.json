@@ -1,85 +1,43 @@
 {
-  "generated": "2026-11-13",
+  "generated": "2026-11-20",
   "proposals": [
     {
       "action": "add",
-      "id": "proposal-2026-11-13--2026-11-06--uk-mhra-samd-market-access-guidance",
-      "reason": "MHRA published first official guidance for SaMD market access in GB and NI, clarifying UK-specific requirements distinct from EU MDR.",
+      "id": "proposal-2026-11-20--2026-11-18--en-40000-cra-standards-published",
+      "reason": "First CRA standards published, establishing vocabulary and lifecycle principles for digital products.",
       "card": {
-        "id": "2026-11-06--uk-mhra-samd-market-access-guidance",
-        "d": "2026-11-06",
-        "l": "6 Nov 2026",
+        "id": "2026-11-18--en-40000-cra-standards-published",
+        "d": "2026-11-18",
+        "l": "18 Nov 2026",
         "y": 2026,
-        "t": "UK MHRA — SaMD Market Access Guidance",
-        "x": "First official guidance on regulatory pathways for software as medical devices in GB and NI markets.",
-        "u": "https://www.gov.uk/guidance/register-medical-devices-to-place-on-the-market",
+        "t": "EN 40000 CRA Standards Published",
+        "x": "EN 40000-1-1 (cybersecurity vocabulary) and EN 40000-1-2 (lifecycle principles) published as first CRA foundations. Medical devices with equivalent sectoral rules (MDR cybersecurity) may be excluded.",
+        "u": "https://digital-strategy.ec.europa.eu/en/news/first-european-standard-published-support-cyber-resilience-act",
         "tp": [
-          "uk"
-        ],
-        "tg": [
-          "new",
-          "medium"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-11-13--2026-11-10--ep-imco-mdr-ivdr-revision-opinion",
-      "reason": "European Parliament IMCO committee adopted its opinion on the MDR/IVDR revision proposal, advancing the legislative process.",
-      "card": {
-        "id": "2026-11-10--ep-imco-mdr-ivdr-revision-opinion",
-        "d": "2026-11-10",
-        "l": "10 Nov 2026",
-        "y": 2026,
-        "t": "EP IMCO — MDR/IVDR Revision Opinion Adopted",
-        "x": "Parliament committee opinion on COM(2025) 0404 adopted; trilogue negotiations ongoing with no final adoption date set.",
-        "u": "https://health.ec.europa.eu/medical-devices-sector/latest-updates_en",
-        "tp": [
-          "mdr"
-        ],
-        "tg": [
-          "medium"
-        ],
-        "v": "n"
-      }
-    },
-    {
-      "action": "add",
-      "id": "proposal-2026-11-13--2026-11-03--mdcg-2026-6-orphan-ivd-clinical-data",
-      "reason": "New MDCG guidance published providing specific framework for clinical evidence in orphan/rare disease IVDs including IVD software.",
-      "card": {
-        "id": "2026-11-03--mdcg-2026-6-orphan-ivd-clinical-data",
-        "d": "2026-11-03",
-        "l": "3 Nov 2026",
-        "y": 2026,
-        "t": "MDCG 2026-6 — Orphan IVD Clinical Data Guidance",
-        "x": "Guidance on clinical evidence for IVDs targeting rare diseases or small populations, including diagnostic software.",
-        "u": "https://health.ec.europa.eu/latest-updates/new-guidance-document-mdcg-2026-6-guidance-clinical-evidence-orphan-ivds-2026-11-03_en",
-        "tp": [
+          "cyber",
           "mdr",
           "standards"
         ],
         "tg": [
           "new",
-          "medium"
+          "high"
         ],
-        "v": "n"
+        "v": "h"
       }
     },
     {
       "action": "update",
-      "id": "proposal-2026-11-13--2026-11-28--eudamed-existing-devices-registration-deadline",
+      "id": "proposal-2026-11-20--2026-11-28--eudamed-existing-devices-registration-deadline",
       "existing_id": "2026-11-28--eudamed-existing-devices-registration-deadline",
-      "reason": "[REVIEW: description entierement reecrite — verifier que ce n'est pas un nouveau jalon qui devrait etre un add] Three Member States (Ireland, Portugal, Estonia) issued compliance notices 9-12 Nov confirming the 28 Nov deadline is critical and imminent.",
+      "reason": "Deadline confirmed for registration of all existing devices; industry advised to complete by 27 Nov (Friday) to avoid weekend complications.",
       "card": {
         "id": "2026-11-28--eudamed-existing-devices-registration-deadline",
         "d": "2026-11-28",
         "l": "28 Nov 2026",
         "y": 2026,
         "t": "EUDAMED — Existing Devices Registration Deadline",
-        "x": "Mandatory registration of all devices placed on market before 28 May 2026 and still marketed. Covers MDR, IVDR, and transition devices with valid certificates. NBs have until 28 May 2027 for pre-28 May certificates.",
-        "u": "https://www.hpra.ie/news-events/news/article/eudamed-udi-device-registration-deadline",
+        "x": "All devices on market before 28 May 2026 must be registered in EUDAMED. Register by Friday 27 Nov to avoid weekend complications. National organizational data must be updated by 31 Dec 2026 for 2027 surveillance fees.",
+        "u": "https://www.dm-experts.fr/2026/11/enregistrement-des-dispositifs-se-preparer-pour-le-27-novembre-et-au-dela/",
         "tp": [
           "mdr"
         ],
@@ -92,40 +50,39 @@
     },
     {
       "action": "add",
-      "id": "proposal-2026-11-13--2026-10-30--mdcg-2026-4-rev1-sscp-module-delay",
-      "reason": "MDCG 2026-4 rev.1 acknowledges technical delays in EUDAMED SS(C)P module despite 30 Oct mandatory date; manufacturers must monitor for go-live.",
+      "id": "proposal-2026-11-20--2026-10-30--mdcg-2026-4-rev1-sscp-eudamed",
+      "reason": "MDCG revised position paper clarifying SS(C)P summary management in EUDAMED after mandatory use.",
       "card": {
-        "id": "2026-10-30--mdcg-2026-4-rev1-sscp-module-delay",
+        "id": "2026-10-30--mdcg-2026-4-rev1-sscp-eudamed",
         "d": "2026-10-30",
         "l": "30 Oct 2026",
         "y": 2026,
-        "t": "MDCG 2026-4 rev.1 — SS(C)P Module Delay",
-        "x": "Technical delays in EUDAMED SS(C)P module acknowledged; no new legal deadline set. Manufacturers must upload summaries immediately when module becomes operational.",
+        "t": "MDCG 2026-4 rev.1 — SS(C)P Management Updated",
+        "x": "Revised guidance clarifies workflow for uploading SS(C)P summaries in EUDAMED after mandatory use. No new deadlines beyond existing obligations.",
         "u": "https://health.ec.europa.eu/latest-updates/new-revision-mdcg-position-paper-management-sscp-eudamed-after-mandatory-use-2026-10-30_en",
         "tp": [
           "mdr"
         ],
         "tg": [
-          "high",
-          "new"
+          "new",
+          "medium"
         ],
-        "v": "h"
+        "v": "n"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-11-13--2026-11-10--eu-harmonised-standards-mdr-ivdr-update",
-      "reason": "Commission published new harmonised standards under MDR/IVDR covering safety and clinical investigations; detailed references to be reviewed.",
+      "id": "proposal-2026-11-20--2026-11-13--en-60601-2-4-a2-defibrillators",
+      "reason": "Amendment to IEC 60601-2-4 for cardiac defibrillators published, may affect safety and performance requirements.",
       "card": {
-        "id": "2026-11-10--eu-harmonised-standards-mdr-ivdr-update",
-        "d": "2026-11-10",
-        "l": "10 Nov 2026",
+        "id": "2026-11-13--en-60601-2-4-a2-defibrillators",
+        "d": "2026-11-13",
+        "l": "13 Nov 2026",
         "y": 2026,
-        "t": "EU Harmonised Standards — MDR/IVDR Update",
-        "x": "New harmonised standards published in OJEU covering safety and clinical investigations. No specific software standards identified in initial summary.",
-        "u": "https://health.ec.europa.eu/medical-devices-topics-interest/harmonised-standards_en",
+        "t": "EN 60601-2-4:2011/A2:2026 — Defibrillator Amendment",
+        "x": "Amendment A2 to cardiac defibrillator safety standard published. Review for changes to design, testing, or labeling requirements. Transition date pending OJEU publication.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
         "tp": [
-          "mdr",
           "standards"
         ],
         "tg": [
@@ -137,48 +94,46 @@
     },
     {
       "action": "add",
-      "id": "proposal-2026-11-13--2026-11-12--fda-health-isac-teleoperated-robot-cyber",
-      "reason": "FDA and Health-ISAC joint alert on cybersecurity vulnerabilities in teleoperated medical robots; clinical consequences must be integrated into MDR/IVDR risk assessments.",
+      "id": "proposal-2026-11-20--2026-10-23--en-iec-60601-2-28-a1-xray-tubes",
+      "reason": "Amendment to IEC 60601-2-28 for X-ray tube assemblies published, may affect diagnostic imaging devices.",
       "card": {
-        "id": "2026-11-12--fda-health-isac-teleoperated-robot-cyber",
-        "d": "2026-11-12",
-        "l": "12 Nov 2026",
+        "id": "2026-10-23--en-iec-60601-2-28-a1-xray-tubes",
+        "d": "2026-10-23",
+        "l": "23 Oct 2026",
         "y": 2026,
-        "t": "FDA/Health-ISAC — Teleoperated Robot Cyber Alert",
-        "x": "Joint alert on vulnerabilities in teleoperated medical robots: session hijacking, command injection, credential theft. Requires clinical risk assessment per MDR Art. 10.12 and IVDR Art. 10.13.",
-        "u": "https://www.fda.gov/",
+        "t": "EN IEC 60601-2-28:2019/A1:2026 — X-ray Tube Amendment",
+        "x": "Amendment A1 to X-ray tube assembly standard published. Review for changes to safety and essential performance requirements for diagnostic imaging.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
         "tp": [
-          "cyber",
-          "us"
+          "standards"
         ],
         "tg": [
-          "high",
-          "new"
+          "new",
+          "medium"
         ],
-        "v": "h"
+        "v": "n"
       }
     },
     {
       "action": "add",
-      "id": "proposal-2026-11-13--2026-11-11--mhra-pccp-guidance-q4-2026",
-      "reason": "MHRA confirmed at MedTech Boston that draft PCCP guidance for AI device predetermined change control plans will be published before end Q4 2026.",
+      "id": "proposal-2026-11-20--2026-11-15--en-iso-11607-3-packaging-processes",
+      "reason": "New Part 3 of ISO 11607 published, defining criteria for developing forming, sealing and assembly processes for sterile MD packaging.",
       "card": {
-        "id": "2026-11-11--mhra-pccp-guidance-q4-2026",
-        "d": "2026-11-11",
-        "l": "Q4 2026",
+        "id": "2026-11-15--en-iso-11607-3-packaging-processes",
+        "d": "2026-11-15",
+        "l": "Nov 2026",
         "y": 2026,
-        "t": "MHRA PCCP Guidance — Expected Q4 2026",
-        "x": "Draft guidance on predetermined change control plans for AI medical devices expected before end 2026. Public consultation to follow.",
-        "u": "https://www.gov.uk/health-and-social-care/medicines-medical-devices-blood",
+        "t": "EN ISO 11607-3:2026 — Packaging Process Development",
+        "x": "Part 3 defines methodology for designing and developing forming, sealing and assembly processes for sterile MD packaging systems. Verify process documentation against new criteria. Check OJEU for harmonized status.",
+        "u": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
         "tp": [
-          "uk",
-          "ai"
+          "standards"
         ],
         "tg": [
-          "high",
-          "new"
+          "new",
+          "medium"
         ],
-        "v": "h"
+        "v": "n"
       }
     }
   ]
