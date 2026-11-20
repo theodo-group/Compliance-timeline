@@ -577,11 +577,11 @@
   },
   {
     "key": "std-60601-2",
-    "title": "EN IEC 60601-2-28:2019/A1:2026 : assemblages tubes à rayons X",
-    "last_status": "final",
+    "title": "EN 60601-2-4:2011/A2:2026 et EN 60601-2-28:2019/A1:2026 : amendements publiés pour défibrillateurs et tubes à rayons X",
+    "last_status": "new",
     "source_url": "https://standards.cencenelec.eu/ords/f?p=CENELEC:84",
     "first_seen": "2026-10-23",
-    "last_seen": "2026-10-30"
+    "last_seen": "2026-11-20"
   },
   {
     "key": "std-24970",
@@ -616,7 +616,7 @@
     "last_seen": "2026-10-30"
   },
   {
-    "key": "mdcg-2026-6-premieres-lignes-directrices-sur-les-donnees-cliniques-pour-les-div-",
+    "key": "mdcg-2026-6-donnees-cliniques-pour-les-div-orphelins",
     "title": "MDCG 2026-6 : données cliniques pour les DIV orphelins",
     "last_status": "new",
     "source_url": "https://health.ec.europa.eu/latest-updates/new-guidance-document-mdcg-2026-6-guidance-clinical-evidence-orphan-ivds-2026-11-03_en",
@@ -689,11 +689,11 @@
   },
   {
     "key": "mdcg-2026-4-rev-1-retard-pour-le-module-ss-c-p-d-eudamed",
-    "title": "MDCG 2026-4 rev.1 : retard pour le module SS(C)P d'EUDAMED",
+    "title": "MDCG 2026-4 rev.1 : mise à jour de la gestion des résumés SS(C)P dans EUDAMED",
     "last_status": "new",
     "source_url": "https://health.ec.europa.eu/latest-updates/new-revision-mdcg-position-paper-management-sscp-eudamed-after-mandatory-use-2026-10-30_en",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13"
+    "last_seen": "2026-11-20"
   },
   {
     "key": "cnil-nouvelles-lignes-directrices-sur-les-recherches-internes-pour-les-professio",
@@ -734,5 +734,53 @@
     "source_url": "https://www.fda.gov/",
     "first_seen": "2026-11-13",
     "last_seen": "2026-11-13"
+  },
+  {
+    "key": "std-40000",
+    "title": "EN 40000 : premières normes européennes Cyber Resilience Act publiées",
+    "last_status": "new",
+    "source_url": "https://digital-strategy.ec.europa.eu/en/news/first-european-standard-published-support-cyber-resilience-act",
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20"
+  },
+  {
+    "key": "eudamed-date-limite-d-enregistrement-des-dispositifs-existants-au-28-novembre",
+    "title": "EUDAMED : date limite d'enregistrement des dispositifs existants au 28 novembre",
+    "last_status": "in-force",
+    "source_url": "https://www.dm-experts.fr/2026/11/enregistrement-des-dispositifs-se-preparer-pour-le-27-novembre-et-au-dela/",
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20"
+  },
+  {
+    "key": "std-11607-3",
+    "title": "EN ISO 11607-3:2026 : nouvelle partie sur le développement des processus de formage et scellage pour emballages de DM stérilisés",
+    "last_status": "final",
+    "source_url": "https://standards.cencenelec.eu/ords/f?p=CEN:84",
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20"
+  },
+  {
+    "key": "ansm-serie-d-avis-de-securite-sur-dispositifs-medicaux-1719-novembre",
+    "title": "ANSM : série d'avis de sécurité sur dispositifs médicaux (17–19 novembre)",
+    "last_status": "new",
+    "source_url": "https://themedicalgazette.com/country/fr/",
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20"
+  },
+  {
+    "key": "cnil-publication-d-une-enquete-sur-l-utilisation-des-ia-conversationnelles-par-l",
+    "title": "CNIL : publication d'une enquête sur l'utilisation des IA conversationnelles par les jeunes",
+    "last_status": "new",
+    "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-la-voix-des-jeunesses",
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20"
+  },
+  {
+    "key": "mhra-nouveau-service-advancegxp-pour-soutenir-l-innovation-dans-la-fabrication-d",
+    "title": "MHRA : nouveau service AdvanceGxP pour soutenir l'innovation dans la fabrication de médicaments avancés",
+    "last_status": "new",
+    "source_url": "https://www.gov.uk/government/news/new-mhra-service-to-support-medicines-innovation-and-strengthen-uk-manufacturing",
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20"
   }
 ]
